@@ -34,8 +34,9 @@ class CreateServiceOrdersTable extends Migration
             $table->string('country');
             $table->string('farm_size')->nullable();
             $table->string('weight_capacity')->nullable();
-            $table->string('farming_activity_description')->nullable();
+            $table->text('farming_activity_description')->nullable();
             $table->string('gender');
+            $table->string('comm_mode')->nullable();
 
             $table->timestamps();
         });

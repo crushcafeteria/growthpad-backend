@@ -75,7 +75,12 @@
                 <fieldset class="form-group">
                     <label>Date Required</label>
                     <input name="date_required" type="text" class="form-control" placeholder="YYYY-MM-DD...">
-                </fieldset>                
+                </fieldset>   
+
+                <fieldset class="form-group">
+                    <label>Preferred mode of communication</label>
+                    <input name="comm_mode" type="text" class="form-control">
+                </fieldset>             
 
                 <div class="card">
                     <div class="card-body">
@@ -90,6 +95,7 @@
                         </fieldset>
                     </div>
                 </div>
+                
                 <br>
 
                 <div class="card">

@@ -136,6 +136,11 @@
                                 </div>
                             </div>
 
+                            <fieldset class="form-group">
+                                <label>What product are you requesting?</label>
+                                <input type="text" class="form-control txtProduct">
+                            </fieldset>
+
 
                         </form>
                         <div class="col-12 frmOK text-center text-success">
@@ -177,7 +182,8 @@
                             contact_id: {{ $contact->id }},
                             names: $('.txtNames').val(),
                             telephone: $('.txtTelephone').val(),
-                            email: $('.txtEmail').val()
+                            email: $('.txtEmail').val(),
+                            product: $('.txtProduct').val(),
                         },
                         function(res){
                             if(res.status == 'OK')

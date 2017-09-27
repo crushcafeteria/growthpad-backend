@@ -100,6 +100,15 @@
                                     <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                                         <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">{{ $requester->names }}</strong> is requesting to be connected with
                                         <strong style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">{{ $contact->name }}</strong>.
+                                        <br>
+                                        <br>
+                                        Product Requested: {{ $requester->product }}
+                                        <br>
+                                        You can reach {{ $requester->names }} through:-
+                                        <br>
+                                        Telephone: {{ $requester->telephone }}                                 
+                                        <br>
+                                        Email: {{ $requester->email }}                                 
                                     </td>
                                 </tr>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">

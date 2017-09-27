@@ -74,7 +74,7 @@ class MarketController extends Controller
         }
 
         # Save request
-        $connect = Request_::create($request->only(['contact_id', 'names', 'email', 'telephone']));
+        $connect = Request_::create($request->only(['contact_id', 'names', 'email', 'telephone', 'product']));
 
         # Send notifications
         Mail::to(collect(config('settings.team')))->send(new ContactRequestEmail($connect->id));

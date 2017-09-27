@@ -19,6 +19,7 @@ class CreateRequestsTable extends Migration
             $table->string('names');
             $table->string('telephone');
             $table->string('email');
+            $table->string('product');
             $table->timestamps();
         });
     }

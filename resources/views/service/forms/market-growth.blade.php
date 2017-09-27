@@ -64,6 +64,10 @@
                     </div>
                 </div>
                 <fieldset class="form-group">
+                    <label>Preferred mode of communication</label>
+                    <input name="comm_mode" type="text" class="form-control">
+                </fieldset>
+                <fieldset class="form-group">
                     <label>Business Name</label>
                     <input name="business_name" type="text" class="form-control">
                 </fieldset>

@@ -63,6 +63,10 @@
                         </fieldset>
                     </div>
                 </div>
+                <fieldset class="form-group">
+                    <label>Preferred mode of communication</label>
+                    <input name="comm_mode" type="text" class="form-control">
+                </fieldset>
                 <div class="card">
                     <div class="card-body">
                         <fieldset class="form-group">

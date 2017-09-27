@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Alerts e.g. approaching your limit</title>
+    <title>New Service Enquiry</title>
 
 
     <style type="text/css">
@@ -104,18 +104,18 @@
                                 </tr>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
                                     <td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                                        Enquiry Type: {{ $enquiry->type}} <br>
+                                        Category: {{ $enquiry->category}} <br>
                                         @if(in_array($enquiry['type'], $extraFields))
                                             Business Type: {{ @$enquiry['business_type'] }} <br>
                                         @endif
-{{--                                            Category: {{ config('settings.countries')[$enquiry['category']] }} <br>--}}
-                                            Activity: {{ @$enquiry['activity'] }} <br>
-                                            Target Market: {{ @$enquiry['target_market'] }} <br>
-                                            Telephone: {{ $enquiry['telephone'] }} <br>
-                                            Email: {{ $enquiry['email'] }} <br>
-                                            Country: {{ config('settings.countries')[$enquiry['country']] }} <br>
-                                        @if($enquiry['country'] == 'KE')
-                                            County: {{ @config('settings.counties')[$enquiry['county']] }} <br>
-                                        @endif
+                                        Target Market: {{ @$enquiry['target_market'] }} <br>
+                                        Telephone: {{ $enquiry['telephone'] }} <br>
+                                        Email: {{ $enquiry['email'] }} <br>
+                                        Location: {{ $enquiry->town }}, {{ $enquiry->county }} <br>
+                                        Preferred communication: {{ $enquiry['comm_mode'] }} <br>
+                                        Activity: {{ @$enquiry['activity'] }} <br>
+                                        Farming Activity Description: {{ $enquiry['comm_mode'] }} <br>
                                     </td>
                                 </tr>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">

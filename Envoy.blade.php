@@ -25,7 +25,7 @@ composer dump-autoload
 {{-- Truncate app log --}}
 rm storage/logs/laravel.log
 touch storage/logs/laravel.log
-{{--  sudo chmod -R 0777 storage  --}}
+chmod 0777 storage/logs/laravel.log
 
 {{-- Restart queue workers --}}
 php artisan queue:restart
