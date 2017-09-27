@@ -72,7 +72,11 @@ chmod 0777 storage/logs/laravel.log
 {{-- Restart queue workers --}}
 php artisan queue:restart
 
-{{--  Load initial data  --}}
+cd public
+npm install
+
+composer install
+
 @endtask
 
 @task('build-complete', ['on'=>'local'])
