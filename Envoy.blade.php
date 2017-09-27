@@ -51,7 +51,7 @@ git push -u origin master
 
 @task('rebuild-production', ['on'=>'production'])
 cd /var/www/html/growthpad
-composer install
+{{--  composer install  --}}
 
 {{-- Rebuild application --}}
 php artisan migrate:refresh --seed
@@ -73,8 +73,8 @@ chmod 0777 storage/logs/laravel.log
 {{-- Restart queue workers --}}
 php artisan queue:restart
 
-cd public
-npm install
+{{--  cd public  --}}
+{{--  npm install  --}}
 
 @endtask
 
