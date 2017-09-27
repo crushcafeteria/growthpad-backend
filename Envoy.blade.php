@@ -51,6 +51,7 @@ git push -u origin master
 
 @task('rebuild-production', ['on'=>'production'])
 cd /var/www/html/growthpad
+composer install
 
 {{-- Rebuild application --}}
 php artisan migrate:refresh --seed
@@ -74,8 +75,6 @@ php artisan queue:restart
 
 cd public
 npm install
-
-composer install
 
 @endtask
 
