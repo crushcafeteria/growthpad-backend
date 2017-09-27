@@ -1,0 +1,73 @@
+@extends('layout.admin.master')
+
+@section('content')
+
+<a href="{{ url('admin/contact/add') }}" class="btn btn-success pull-right">
+    <i class="fa fa-plus-circle fa-fw"></i> Add contact
+</a>
+<h3 class="text-primary mb-4">List of marketplace contacts</h3>
+<hr>
+
+<div class="row mb-2">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-block">
+
+                @include('common.boxes')
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover center-aligned-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Business Name</th>
+                                <th>Location</th>
+                                <th>Contact Name</th>
+                                <th>Positioning</th>
+                                <th>Market Type</th>
+                                <th colspan="2">Employees</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($contacts as $contact)
+                                {{--{{ dump($contact) }}--}}
+                                <tr>
+                                    <td>
+                                        @if(!$contact->picture)
+                                            <i class="fa fa-picture-o text-danger"></i>
+                                        @else
+                                            <i class="fa fa-picture-o text-success"></i>
+                                        @endif
+                                    </td>
+                                    <td>{{ $contact->name }}</td>
+                                    <td>{{ $contact->location }}, {{ config('settings.counties')[$contact->county] }}</td>
+                                    <td>{{ $contact->contact_name }}</td>
+                                    <td>{{ $contact->positioning }}</td>
+                                    <td>{{ @config('settings.market_types')[$contact->market_type] }}</td>
+                                    <td>{{ $contact->total_employees}}</td>
+                                    <td>
+                                        <a href="#_" class="btn btn-outline-primary btn-sm" onclick="loadContact({{ $contact->id }})">
+                                            <i class="fa fa-info-circle fa-fw"></i> More
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    {{ $contacts->links('vendor.pagination.bootstrap-4') }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function loadContact(id)
+    {
+        $('#dialog').modal('show').html('Loading...').load('{{ url('admin/contact/view') }}/' + id)
+    }
+
+</script>
+
+@endsection

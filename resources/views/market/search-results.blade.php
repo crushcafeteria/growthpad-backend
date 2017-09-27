@@ -1,0 +1,1 @@
+@include('market.template.card-layout')
