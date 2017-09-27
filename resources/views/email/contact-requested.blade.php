@@ -104,6 +104,7 @@
                                         <br>
                                         Product Requested: {{ $requester->product }}
                                         <br>
+                                        <br>
                                         You can reach {{ $requester->names }} through:-
                                         <br>
                                         Telephone: {{ $requester->telephone }}                                 
