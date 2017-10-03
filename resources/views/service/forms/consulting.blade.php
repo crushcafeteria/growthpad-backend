@@ -73,7 +73,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Preferred mode of communication</label>
-                    <input name="comm_mode" type="text" class="form-control">
+                    {!! Form::select('comm_mode', ['EMAIL'=>'Email', 'TELEPHONE'=>'Telephone'], NULL, ['class'=>'form-control', 'placeholder'=>'Choose a value']) !!}
                 </fieldset>
             </form>
 

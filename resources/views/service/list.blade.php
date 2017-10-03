@@ -62,7 +62,7 @@
                 <div class="card h-100">
                     <img class="card-img-top img-fluid" src="{{ asset('images/onions-1397037_1920.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title">Market Growth Advisory</h4>
+                        <h4 class="card-title">Market Linkages</h4>
                         <p class="card-text">We offer opportunities and network to increase market reach</p>
                         <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('market-growth')">More <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>

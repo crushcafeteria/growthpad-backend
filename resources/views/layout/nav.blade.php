@@ -13,7 +13,7 @@
                     <a class="nav-link active" href="{{ url('services') }}"><i class="fa fa-cog fa-spin fa-fw"></i> Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ url('market') }}"><i class="fa fa-shopping-cart fa-fw"></i> Market Linkages</a>
+                    <a class="nav-link active" href="{{ url('market') }}"><i class="fa fa-shopping-cart fa-fw"></i> Marketplace</a>
                 </li>
                 <li class="nav-item">
                     <a target="_blank" class="nav-link active" href="https://irenkenya.com/contact/"><i class="fa fa-envelope fa-fw"></i> Contact</a>
