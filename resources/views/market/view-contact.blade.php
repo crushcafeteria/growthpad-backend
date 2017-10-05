@@ -50,9 +50,13 @@
                             <small class="text-muted">Products</small>
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">
-                                    @foreach($contact->products as $product)
-                                        <span class="badge badge-secondary">{{ $product }}</span>
-                                    @endforeach
+                                    @if($contact->products)
+                                        @foreach($contact->products as $product)
+                                            <span class="badge badge-secondary">{{ $product }}</span>
+                                        @endforeach
+                                    @else
+                                        N/A
+                                    @endif
                                 </h5>
                             </div>
                         </div>
