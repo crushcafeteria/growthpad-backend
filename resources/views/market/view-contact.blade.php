@@ -29,7 +29,7 @@
 
             <div class="row">
                 <div class="col-6">
-                    <img src="{{ (!$contact->picture) ? 'http://via.placeholder.com/600x400?text=Image coming soon' : $contact->picture }}" class="img-fluid img-thumbnail">
+                    <img src="{{ (!$contact->picture) ? 'http://via.placeholder.com/600x400?text='.$contact->name : $contact->picture }}" class="img-fluid img-thumbnail">
                 </div>
 
                 <div class="col-6">
