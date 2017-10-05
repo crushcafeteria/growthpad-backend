@@ -38,6 +38,7 @@ notify-send 'Reset Complete!' 'The GROWTHPAD app has been successfully reset'
 cd /var/www/html/growthpad
 git fetch --all
 git reset --hard origin/master
+composer update
 @endtask
 
 {{--Push local changes to remote Git repo--}}
