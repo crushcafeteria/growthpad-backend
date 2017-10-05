@@ -28,8 +28,9 @@
 </div><!-- /.container -->
 
 <footer class="py-3 bg-light">
-    <div class="container">
-        <p class="m-0 text-center text-muted">Made with <i class="fa fa-heart"></i> in Nairobi City</p>
+    <div class="container pb-4">
+        <span class="pull-left text-muted">Made with <i class="fa fa-heart"></i> in Nairobi City</span>
+        <a href="{{ url('disclaimer') }}" class="pull-right text-muted">Disclaimer</a>
     </div>
 </footer>
 

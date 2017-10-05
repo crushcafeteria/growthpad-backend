@@ -82,4 +82,9 @@ class ServiceController extends Controller
 
         return Response::json(['status' => 'OK']);
     }
+
+    function showDisclaimer()
+    {
+        return view('service.disclaimer');
+    }
 }

@@ -24,6 +24,8 @@ Route::get('services', 'ServiceController@showServices');
 Route::get('enquiry/{type}', 'ServiceController@loadEnquiry');
 Route::post('enquiry/save', 'ServiceController@saveEnquiry');
 
+Route::get('disclaimer', 'ServiceController@showDisclaimer');
+
 # Basket
 Route::get('basket', 'ServiceController@basket');
 Route::get('remove/from/cart/{productID}', 'ServiceController@removeFromCart');
@@ -61,3 +63,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+# Utility routes
+Route::get('/import', 'ImportController');

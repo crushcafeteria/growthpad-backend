@@ -3,9 +3,9 @@
 {{--Deploy application--}}
 @story('deploy')
 push-to-git
-rebuild-local
+{{--rebuild-local--}}
 pull-to-live
-rebuild-production
+{{--rebuild-production--}}
 build-complete
 @endstory
 
