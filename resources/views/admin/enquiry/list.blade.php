@@ -34,7 +34,7 @@
                                     <td>{{ $enquiry->town }}</td>
                                     <td>{{ $enquiry->county }}</td>
                                     <td>
-                                        <a href="#_" class="btn btn-outline-primary btn-sm btn-block" onclick="loadEnquiry({{ $enquiry->id }})">More</a>
+                                        <a href="#_" class="btn btn-outline-primary btn-sm btn-block" onclick="loadEnquiry({{ $enquiry->id }})"><i class="fa fa-eye fa-fw"></i> More</a>
                                     </td>
                                 </tr>
 

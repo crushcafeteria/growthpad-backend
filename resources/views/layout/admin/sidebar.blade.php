@@ -8,8 +8,8 @@
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
-                <img src="{{ asset('images/icons/1.png')  }}" alt="">
-                <span class="menu-title">Marketplace<i class="fa fa-sort-down"></i></span>
+                <img src="{{ asset('images/icons/database.png')  }}" alt="">
+                <span class="menu-title">Contact DB<i class="fa fa-sort-down"></i></span>
             </a>
             <div class="collapse" id="collapseExample">
                 <ul class="nav flex-column sub-menu">
@@ -20,11 +20,18 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('admin/contacts') }}">
-                            List contacts
+                            List all contacts
                         </a>
                     </li>
                 </ul>
             </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('admin/contact/requests') }}">
+                <img src="{{ asset('images/icons/request.png')  }}" alt="">
+                <span class="menu-title">Contact Requests</span>
+            </a>
         </li>
 
         <li class="nav-item active">

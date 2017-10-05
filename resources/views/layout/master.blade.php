@@ -8,6 +8,7 @@
     <link href="{{ asset('style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <script src="{{ asset('jquery/dist/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body style="margin-top: 50px">
 
@@ -27,10 +28,44 @@
 
 </div><!-- /.container -->
 
-<footer class="py-3 bg-light">
-    <div class="container pb-4">
-        <span class="pull-left text-muted">Made with <i class="fa fa-heart"></i> in Nairobi City</span>
-        <a href="{{ url('disclaimer') }}" class="pull-right text-muted">Disclaimer</a>
+<footer class="footer-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav-footer mt-2 mt-md-0 ">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('services') }}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('market') }}">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('disclaimer') }}">Disclaimer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="divider"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mt-2 mb-3 pt-1">
+                <p>Powered by Sodium Africa</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right mb-4">
+                <ul class="social">
+                    {{--<li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>--}}
+                    <li><a href="https://twitter.com/irenkenya" title="Twitter" target="_blank" class="fa fa-twitter"></a></li>
+                    <li><a href="mailto:info@irenkenya.com" title="Twitter" class="fa fa-envelope"></a></li>
+                    {{--<li><a href="#" title="Google+" class="fa fa-google"></a></li>--}}
+                    {{--<li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>--}}
+                    {{--<li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>--}}
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 

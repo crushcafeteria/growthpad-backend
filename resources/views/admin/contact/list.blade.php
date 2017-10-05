@@ -68,6 +68,12 @@
 </div>
 
 <script type="text/javascript">
+    $(function(){
+        @if(@$_GET['id'])
+            loadContact({{ $_GET['id'] }})
+        @endif
+    })
+
     function loadContact(id)
     {
         $('#dialog').modal('show').html('Loading...').load('{{ url('admin/contact/view') }}/' + id)

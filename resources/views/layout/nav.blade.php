@@ -35,7 +35,7 @@
         margin-right: 40px;
     }
 
-    .nav-item:hover {
+    .fixed-top .nav-item:hover {
         background-color: rgba(255,255,255, .5);
         border-radius: 5px;
         text-shadow: 0px -1px 2px #000;

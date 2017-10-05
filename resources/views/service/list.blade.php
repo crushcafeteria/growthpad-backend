@@ -106,9 +106,9 @@
     <!-- /.container -->
 
     {{--Enquiry modal--}}
-    <div class="modal" id="enquiry" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal" id="enquiry" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
-    @endsection
+@endsection
 
 @push('footer-scripts')
     <script>

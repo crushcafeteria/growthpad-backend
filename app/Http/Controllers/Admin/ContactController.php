@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
+use App\Models\Request;
 use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
@@ -79,5 +80,12 @@ class ContactController extends Controller
         Session::flash('successbox', ['You have successfully added a new market contact']);
 
         return redirect('admin/contacts');
+    }
+
+    function showRequests()
+    {
+        return view('admin.contact.show-requests', [
+            'requests' => Request::paginate(10),
+        ]);
     }
 }
