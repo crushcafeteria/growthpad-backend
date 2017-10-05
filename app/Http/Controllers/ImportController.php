@@ -20,7 +20,9 @@ class ImportController extends Controller
         });
 
         # Save files to DB
-        Contact::insert($data);
+        collect($data)->each(function ($row) {
+            Contact::create($row);
+        });
 
 
         echo '<h4>Import complete!</h4>';
@@ -33,9 +35,9 @@ class ImportController extends Controller
             'name'              => $row['business_name'],
             'location'          => $row['location'],
             'contact_name'      => $row['contact_person'],
-            'contact_telephone' => '0' . (integer)$row['contact'],
-            'county'            => $row['county'],
-            'email'             => ($row['email'] == 'n/a') ? NULL : $row['email'],
+            'contact_telephone' => explode(',', '0' . (integer)$row['contact']),
+            'county'            => strtoupper($row['county']),
+            'email'             => ($row['email'] == 'n/a') ? NULL : explode(',', $row['email']),
             'positioning'       => $row['position_in_the_agribusiness_value_chain'],
         ];
 
