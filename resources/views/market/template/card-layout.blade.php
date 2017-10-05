@@ -4,7 +4,7 @@
         <div class="col-sm-4" style="margin-bottom: 20px;">
             <div class="card">
                 <a href="{{ url('contact/view/'.$contact->id) }}">
-                    <img class="img-fluid card-img-top" src="{{ (!$contact->picture) ? 'http://via.placeholder.com/600x400?text=Image coming soon' : $contact->picture }}">
+                    <img class="img-fluid card-img-top" src="{{ (!$contact->picture) ? 'http://via.placeholder.com/600x400?text='.$contact->name : $contact->picture }}">
                     <div class="card-body">
                         <h5 class="card-title" title="{{ $contact->name }}">
                             <i class="fa fa-caret-right fa-fw"></i> {{ str_limit($contact->name, 25) }}

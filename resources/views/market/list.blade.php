@@ -29,6 +29,8 @@
             @include('market.template.card-layout')
             {{ $contacts->links('vendor.pagination.bootstrap-4') }}
         </div>
+
+        <div class="frmSearch"></div>
     </div>
 
 @endsection

@@ -1,5 +1,5 @@
 <form class="form-inline my-2 my-lg-0">
-    <input class="form-control txtSearch" type="text" placeholder="Type then ↵ ...">
+    <input class="form-control txtSearch" type="text" placeholder="Search ...">
 </form>
 
 <script>

@@ -23,4 +23,16 @@ class Contact extends Model
 
         return $value;
     }
+
+    static function isValid($row)
+    {
+        $valid = TRUE;
+
+        if(!$row->name){
+            $valid = false;
+        }
+
+        return $valid;
+    }
+
 }

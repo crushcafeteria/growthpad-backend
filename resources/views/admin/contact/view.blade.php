@@ -40,9 +40,11 @@
                         <i class="fa fa-envelope fa-fw"></i> Contact Email
                     </small>
                     <div class="d-flex w-100 justify-content-between">
-                        @foreach($contact->email as $email)
-                            <h5 class="mb-1"><span class="badge badge-primary">{{ ($email) ? $email : 'Not available' }}</span></h5>
-                        @endforeach
+                        @if(count($contact->email))
+                            @foreach($contact->email as $email)
+                                <h5 class="mb-1"><span class="badge badge-primary">{{ ($email) ? $email : 'Not available' }}</span></h5>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -58,9 +60,11 @@
                         <i class="fa fa-shopping-bag fa-fw"></i> Products
                     </small>
                     <div class="d-flex w-100 justify-content-between">
-                         @foreach($contact->products as $product)
-                            <h5 class="mb-1"><span class="badge badge-success">{{ ($product) ? $product : 'BAD DATA!' }}</span></h5>
-                        @endforeach
+                        @if(count($contact->email))
+                            @foreach($contact->products as $product)
+                                <h5 class="mb-1"><span class="badge badge-success">{{ ($product) ? $product : 'BAD DATA!' }}</span></h5>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="list-group-item list-group-item-action flex-column align-items-start">
