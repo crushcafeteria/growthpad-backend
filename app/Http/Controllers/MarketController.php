@@ -16,7 +16,7 @@ class MarketController extends Controller
     function listContacts()
     {
         return view('market.list', [
-            'contacts' => Contact::orderBy('created_at', 'DESC')->paginate(),
+            'contacts' => Contact::orderBy('picture', 'DESC')->paginate(),
         ]);
     }
 

@@ -115,7 +115,7 @@
                                         Location: {{ $enquiry->town }}, {{ $enquiry->county }} <br>
                                         Preferred communication: {{ $enquiry['comm_mode'] }} <br>
                                         Activity: {{ @$enquiry['activity'] }} <br>
-                                        Farming Activity Description: {{ $enquiry['comm_mode'] }} <br>
+                                        Farming Activity Description: {{ $enquiry['activity'] }} <br>
                                     </td>
                                 </tr>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
