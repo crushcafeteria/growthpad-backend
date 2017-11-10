@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
-use App\Models\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -63,7 +63,7 @@ class ContactController extends Controller
     {
 
         # Collect request
-        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees','lng','lat']);
+        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees', 'lng', 'lat']);
 
         # Upload picture
         if ($request->picture) {
@@ -86,6 +86,16 @@ class ContactController extends Controller
     {
         return view('admin.contact.show-requests', [
             'requests' => Request::paginate(10),
+        ]);
+    }
+
+    function searchContacts(Request $request)
+    {
+        $q = '%' . $request->q . '%';
+        $contacts = Contact::where('name', 'LIKE', $q)->get()->take(10);
+
+        return view('admin.contact.component.table', [
+            'contacts' => $contacts,
         ]);
     }
 }

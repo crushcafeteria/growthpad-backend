@@ -47,6 +47,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 
 	Route::get('contact/requests', 'Admin\ContactController@showRequests');
 
+	Route::get('contact/search', 'Admin\ContactController@searchContacts');
+
 	# Service enquiries dashboard
 	Route::get('enquiries', 'Admin\EnquiryController@listEnquiries');
 	Route::get('enquiry/view/{enquiryID}', 'Admin\EnquiryController@viewEnquiry');

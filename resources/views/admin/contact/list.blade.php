@@ -5,6 +5,9 @@
 <a href="{{ url('admin/contact/add') }}" class="btn btn-success pull-right">
     <i class="fa fa-plus-circle fa-fw"></i> Add contact
 </a>
+<div class="col-2 pull-right">
+    <input type="text" class="form-control pull-right txtSearch" placeholder="Search...">
+</div>
 <h3 class="text-primary mb-4">List of marketplace contacts</h3>
 <hr>
 
@@ -16,48 +19,10 @@
                 @include('common.boxes')
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover center-aligned-table">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Business Name</th>
-                                <th>Location</th>
-                                <th>Contact Name</th>
-                                <th>Positioning</th>
-                                <th>Market Type</th>
-                                <th colspan="2">Employees</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($contacts as $contact)
-                                {{--{{ dump($contact) }}--}}
-                                <tr>
-                                    <td>
-                                        @if(!$contact->picture)
-                                            <i class="fa fa-picture-o text-danger"></i>
-                                        @else
-                                            <i class="fa fa-picture-o text-success"></i>
-                                        @endif
-                                    </td>
-                                    <td>{{ ($contact->name) ? $contact->name : 'N/A' }}</td>
-                                    <td>{{ $contact->location }}, {{ config('settings.counties')[$contact->county] }}</td>
-                                    <td>{{ $contact->contact_name }}</td>
-                                    <td>{{ $contact->positioning }}</td>
-                                    <td>{{ ($contact->market_type) ? @config('settings.market_types')[$contact->market_type] : 'N/A' }}</td>
-                                    <td>{{ ($contact->total_employees) ? $contact->total_employees : 'N/A'}}</td>
-                                    <td class="text-center">
-                                        <div class="btn-group">
-                                            <a href="#_" class="btn btn-outline-success btn-sm" onclick="loadContact({{ $contact->id }})">
-                                                <i class="fa fa-eye fa-fw"></i> View
-                                            </a>
-                                            <a href="{{ url('admin/contact/edit/'.$contact->id) }}" class="btn btn-outline-primary btn-sm">
-                                                <i class="fa fa-edit fa-fw"></i> Edit
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="frmResult">
+                        @include('admin.contact.component.table')
+                    </div>
+
 
                     {{ $contacts->links('vendor.pagination.bootstrap-4') }}
 
@@ -68,15 +33,35 @@
 </div>
 
 <script type="text/javascript">
+    var busy = false
     $(function(){
         @if(@$_GET['id'])
             loadContact({{ $_GET['id'] }})
         @endif
+
+        $('.txtSearch').keyup(function(){
+            searchBusiness($(this).val())
+        })
     })
 
     function loadContact(id)
     {
         $('#dialog').modal('show').html('Loading...').load('{{ url('admin/contact/view') }}/' + id)
+    }
+
+    function searchBusiness(term){
+        if(!busy){
+            busy = true
+            $.get(
+                '{{ url('admin/contact/search') }}',
+                {
+                    q: term
+                }, function(res){
+                    $('.frmResult').html(res)
+                    busy = false
+                }
+            )
+        }
     }
 
 </script>
