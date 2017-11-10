@@ -10,24 +10,28 @@ class ImportController extends Controller
 {
     function __invoke()
     {
-        $file = storage_path('app/data/data.xls');
-
-        $data = [];
-        Excel::load($file, function ($reader) use (&$data, &$fields) {
-            $reader->each(function ($row) use (&$data, &$fields) {
-                $data[] = $this->format($row);
-            });
-        });
-
-        # Save files to DB
-        collect($data)->each(function ($row) {
-            Contact::create($row);
-        });
-
-
-        echo '<h4>Import complete!</h4>';
 
     }
+//    function __invoke()
+//    {
+//        $file = storage_path('app/data/data.xls');
+//
+//        $data = [];
+//        Excel::load($file, function ($reader) use (&$data, &$fields) {
+//            $reader->each(function ($row) use (&$data, &$fields) {
+//                $data[] = $this->format($row);
+//            });
+//        });
+//
+//        # Save files to DB
+//        collect($data)->each(function ($row) {
+//            Contact::create($row);
+//        });
+//
+//
+//        echo '<h4>Import complete!</h4>';
+//
+//    }
 
     private function format($row)
     {
