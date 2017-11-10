@@ -29,6 +29,8 @@ class CreateContactsTable extends Migration
             $table->string('market_type')->nullable();
             $table->integer('total_employees')->nullable();
             $table->string('picture')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('lat')->nullable();
             $table->timestamps();
         });
     }

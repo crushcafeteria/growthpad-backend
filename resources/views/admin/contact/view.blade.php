@@ -75,6 +75,14 @@
                         <h5 class="mb-1">{{ ($contact->total_employees) ? $contact->total_employees : 'Not Available' }}</h5>
                     </div>
                 </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <small class="text-muted">
+                        <i class="fa fa-map-marker fa-fw"></i> GPS Coordinates
+                    </small>
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ ($contact->lng && $contact->lat) ? $contact->lng.', '.$contact->lat : 'Not Available' }}</h5>
+                    </div>
+                </div>
 
             </div>
 

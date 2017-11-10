@@ -144,6 +144,31 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col">
+                        <fieldset class="form-group">
+                            <label>Longitude</label>
+                            {!! Form::text('lng', old('lng'), ['class'=>'form-control', 'placeholder'=>'Enter longitude...']) !!}
+                            @if($errors->has('lng'))
+                                <small class="text-danger">
+                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('lng') }}
+                                </small>
+                            @endif
+                        </fieldset>
+                    </div>
+                    <div class="col">
+                        <fieldset class="form-group">
+                            <label>Latitude</label>
+                            {!! Form::text('lat', old('lat'), ['class'=>'form-control', 'placeholder'=>'Enter latitude...']) !!}
+                            @if($errors->has('lat'))
+                                <small class="text-danger">
+                                    <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('lat') }}
+                                </small>
+                            @endif
+                        </fieldset>
+                    </div>
+                </div>
+
                 <button class="btn btn-success btn-lg"><i class="fa fa-save fa-fw"></i> Save market contact</button>
 
                 {!! Form::close() !!}
