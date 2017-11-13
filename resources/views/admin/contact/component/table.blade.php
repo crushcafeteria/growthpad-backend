@@ -23,7 +23,7 @@
             <td>{{ ($contact->name) ? $contact->name : 'N/A' }}</td>
             <td>{{ $contact->location }}, {{ config('settings.counties')[$contact->county] }}</td>
             <td class="text-center">
-                @if($contact->lng)
+                @if($contact->lng && $contact->lat)
                     {{ $contact->lng }}, {{ $contact->lat }}</td>
                 @else
                     <span class="badge badge-warning"><i class="fa fa-question-circle fa-fw"></i> N/A</span>
