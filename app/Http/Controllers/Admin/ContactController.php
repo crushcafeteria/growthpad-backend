@@ -28,7 +28,7 @@ class ContactController extends Controller
     {
 
         # Collect request
-        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees']);
+        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees','lng','lat']);
 
         # Upload picture @todo delete old picture from storage
         if ($request->picture) {
@@ -64,6 +64,8 @@ class ContactController extends Controller
 
         # Collect request
         $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees', 'lng', 'lat']);
+
+        dd($contact);
 
         # Upload picture
         if ($request->picture) {

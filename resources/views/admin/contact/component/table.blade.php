@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th colspan="2">Business Name</th>
-        <th>Location</th>
+        <th colspan="2">Location</th>
         <th>Contact Name</th>
         <th>Positioning</th>
         <th>Market Type</th>
@@ -22,6 +22,12 @@
             </td>
             <td>{{ ($contact->name) ? $contact->name : 'N/A' }}</td>
             <td>{{ $contact->location }}, {{ config('settings.counties')[$contact->county] }}</td>
+            <td class="text-center">
+                @if($contact->lng)
+                    {{ $contact->lng }}, {{ $contact->lat }}</td>
+                @else
+                    <span class="badge badge-warning"><i class="fa fa-question-circle fa-fw"></i> N/A</span>
+                @endif
             <td>{{ $contact->contact_name }}</td>
             <td>{{ $contact->positioning }}</td>
             <td>{{ ($contact->market_type) ? @config('settings.market_types')[$contact->market_type] : 'N/A' }}</td>
