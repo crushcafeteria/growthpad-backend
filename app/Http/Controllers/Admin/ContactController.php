@@ -28,7 +28,7 @@ class ContactController extends Controller
     {
 
         # Collect request
-        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees','lng','lat']);
+        $contact = $request->only(['name', 'location', 'county', 'contact_name', 'contact_telephone', 'email', 'goals', 'products', 'positioning', 'market_type', 'total_employees', 'lng', 'lat']);
 
         # Upload picture @todo delete old picture from storage
         if ($request->picture) {
@@ -98,6 +98,26 @@ class ContactController extends Controller
 
         return view('admin.contact.component.table', [
             'contacts' => $contacts,
+        ]);
+    }
+
+    function renderMap()
+    {
+        $locations = [];
+        Contact::whereNotNull('lng')->get()->each(function ($contact) use (&$locations) {
+            $locations[] = [
+                'lon'   => $contact->lng,
+                'lat'   => $contact->lat,
+                'title' => $contact->name,
+                'zoom'  => 12,
+                'html'  => view('admin.contact.component.map-infobox', [
+                    'contact' => $contact,
+                ])->render(),
+            ];
+        });
+
+        return view('admin.contact.map', [
+            'locations' => $locations,
         ]);
     }
 }

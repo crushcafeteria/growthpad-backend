@@ -23,6 +23,11 @@
                             List all contacts
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('admin/contacts/map') }}">
+                            Contact Map
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>

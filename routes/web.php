@@ -38,11 +38,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 	Route::get('home', 'Admin\HomeController@index');
 	
 	Route::get('contacts', 'Admin\ContactController@listContacts');
-	Route::get('contact/edit/{contactID}', 'Admin\ContactController@editContact');
-	Route::post('contact/save', 'Admin\ContactController@updateContact');
-	Route::get('contact/view/{contactID}', 'Admin\ContactController@viewContact');
+    Route::get('contact/edit/{contactID}', 'Admin\ContactController@editContact');
+    Route::post('contact/save', 'Admin\ContactController@updateContact');
+    Route::get('contact/view/{contactID}', 'Admin\ContactController@viewContact');
+    Route::get('contacts/map', 'Admin\ContactController@renderMap');
 
-	Route::get('contact/add', 'Admin\ContactController@showAddContactForm');
+    Route::get('contact/add', 'Admin\ContactController@showAddContactForm');
 	Route::post('contact/add', 'Admin\ContactController@saveContact');
 
 	Route::get('contact/requests', 'Admin\ContactController@showRequests');

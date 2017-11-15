@@ -9,6 +9,7 @@
     "geocomplete": "^1.7.0",
     "gulp": "^3.9.1",
     "jquery": "^3.2.1",
+    "maplace-js": "^0.2.10",
     "perfect-scrollbar": "^0.7.1",
     "popper.js": "^1.12.5",
     "tether": "^1.4.0"
