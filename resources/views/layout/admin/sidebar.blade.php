@@ -23,11 +23,6 @@
                             List all contacts
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('admin/contacts/map') }}">
-                            Contact Map
-                        </a>
-                    </li>
                 </ul>
             </div>
         </li>
@@ -36,6 +31,13 @@
             <a class="nav-link" href="{{ url('admin/contact/requests') }}">
                 <img src="{{ asset('images/icons/request.png')  }}" alt="">
                 <span class="menu-title">Contact Requests</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('admin/contacts/map') }}">
+                <img src="{{ asset('images/icons/1.png')  }}" alt="">
+                <span class="menu-title">Contact Map</span>
             </a>
         </li>
 
