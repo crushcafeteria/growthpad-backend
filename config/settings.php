@@ -385,6 +385,26 @@ return [
             'name'  => 'Growthpad Team',
             'email' => 'growthpad@irenkenya.com',
         ],
+        [
+            'name'  => 'Nelson Ameyo',
+            'email' => 'nelson@blackpay.co.ke',
+        ],
+        [
+            'name'  => 'James Shikwati',
+            'email' => 'james@irenkenya.com',
+        ],
+        [
+            'name'  => 'Leonard Mwasi',
+            'email' => 'leonard@irenkenya.com',
+        ],
+        [
+            'name'  => 'Winnie Nanjala',
+            'email' => 'nanjala@irenkenya.com',
+        ],
+        [
+            'name'  => 'Simon Achieno',
+            'email' => 'simon@irenkenya.com',
+        ],
     ],
 
     'google_api_key' => 'AIzaSyDZ659_y2QdDyFRf49FbKnAHzPCzALlb3M',
