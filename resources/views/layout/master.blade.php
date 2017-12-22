@@ -76,5 +76,14 @@
 
 @stack('footer-scripts')
 
+<script>
+    var loading =   '<div class="col-12 text-center">' +
+                        '<div class="col-2 mx-auto card card-body" style="margin-top: 10%">' +
+                            '<i class="fa fa-refresh fa-spin fa-2x"></i><br>' +
+                            '<h6>Loading form...</h6>' +
+                        '</div>' +
+                    '</div>'
+</script>
+
 </body>
 </html>

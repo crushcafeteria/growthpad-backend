@@ -11,7 +11,6 @@
             <div class="col-lg-7">
                 <img class="img-fluid rounded" src="{{ asset('images/tractor-grain-mixer-rural-denmark-53622.jpeg') }}" alt="">
             </div>
-            <!-- /.col-lg-8 -->
             <div class="col-lg-5">
                 <h2>The IREN Growthpad</h2>
                 <p style="font-size: 18px;">
@@ -25,16 +24,8 @@
                     <i class="fa fa-exchange fa-fw"></i> Connect with our contacts
                 </a>
             </div>
-            <!-- /.col-md-4 -->
         </div>
-        <!-- /.row -->
 
-        <!-- Call to Action Well -->
-    {{--<div class="card text-white bg-secondary my-4 text-center">--}}
-    {{--<div class="card-body">--}}
-    {{--<p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>--}}
-    {{--</div>--}}
-    {{--</div>--}}
 
     <!-- Content Row -->
         <div class="row">
@@ -44,7 +35,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Farm Management</h4>
                         <p class="card-text">We organize and operate activities on your farm to maximize productivity and profits</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('farm-management')">More <i class="fa fa-caret-right fa-fw"></i></a>
+                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('farm-management')">More
+                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +46,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Leasing Solutions</h4>
                         <p class="card-text">We avail modern technology to increase efficiency at farm and vendor levels</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('leasing')">More <i class="fa fa-caret-right fa-fw"></i></a>
+                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('leasing')">More
+                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -64,7 +57,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Market Linkages</h4>
                         <p class="card-text">We offer opportunities and network to increase market reach</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('market-growth')">More <i class="fa fa-caret-right fa-fw"></i></a>
+                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('market-growth')">More
+                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +68,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Formalization and Consulting</h4>
                         <p class="card-text">We advice on property rights and formalization to unlock capital </p>
-                        <a href="#" class="btn btn-primary btn-sm" onclick="loadEnquiry('consulting')">More <i class="fa fa-caret-right fa-fw"></i></a>
+                        <a href="#" class="btn btn-primary btn-sm" onclick="loadEnquiry('consulting')">More
+                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -111,15 +106,14 @@
 @endsection
 
 @push('footer-scripts')
-    <script>
-        $('.geocomplete').geocomplete()
-        function loadEnquiry(type)
-        {
-            $('#enquiry').modal('show').load('{{ url('enquiry') }}/'+type)
-        }
-    </script>
+<script>
+    $('.geocomplete').geocomplete()
+    function loadEnquiry(type) {
+        $('#enquiry').modal('show').html(loading).load('{{ url('enquiry') }}/' + type)
+    }
+</script>
 
-    <style>
+<style>
     p {
         text-align: justify;
     }
