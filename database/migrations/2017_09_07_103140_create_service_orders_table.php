@@ -26,12 +26,12 @@ class CreateServiceOrdersTable extends Migration
             $table->text('logistics_required')->nullable();
             $table->text('vendor_required')->nullable();
             $table->text('date_required')->nullable();
-            $table->string('full_names');
-            $table->string('telephone');
-            $table->string('email');
-            $table->string('town');
+            $table->string('full_names')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('town')->nullable();
             $table->string('county')->nullable();
-            $table->string('country');
+            $table->string('country')->nullable();
             $table->string('farm_size')->nullable();
             $table->string('weight_capacity')->nullable();
             $table->text('farming_activity_description')->nullable();
