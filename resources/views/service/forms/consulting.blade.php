@@ -114,31 +114,31 @@
 
 
     function validating() {
-        if (!$('input[name=business_name]').val()) {
-            alert('Please enter a business name')
-            $('input[name=business_name]').focus()
-            return false
-        }
-        if (!$('input[name=business_type]').val()) {
-            alert('Please enter your business type')
-            $('input[name=business_type]').focus()
-            return false
-        }
-        if (!$('input[name=full_names]').val()) {
-            alert('Please enter your full names')
-            $('input[name=full_names]').focus()
-            return false
-        }
-        if (!$('input[name=telephone]').val()) {
-            alert('Please enter your telephone')
-            $('input[name=telephone]').focus()
-            return false
-        }
-        if (!$('input[name=town]').val()) {
-            alert('Please fill the town field')
-            $('input[name=town]').focus()
-            return false
-        }
+//        if (!$('input[name=business_name]').val()) {
+//            alert('Please enter a business name')
+//            $('input[name=business_name]').focus()
+//            return false
+//        }
+//        if (!$('input[name=business_type]').val()) {
+//            alert('Please enter your business type')
+//            $('input[name=business_type]').focus()
+//            return false
+//        }
+//        if (!$('input[name=full_names]').val()) {
+//            alert('Please enter your full names')
+//            $('input[name=full_names]').focus()
+//            return false
+//        }
+//        if (!$('input[name=telephone]').val()) {
+//            alert('Please enter your telephone')
+//            $('input[name=telephone]').focus()
+//            return false
+//        }
+//        if (!$('input[name=town]').val()) {
+//            alert('Please fill the town field')
+//            $('input[name=town]').focus()
+//            return false
+//        }
         return true;
     }
 </script>

@@ -125,31 +125,31 @@
 //            $('input[name=category]').focus()
 //            return false
 //        }
-        if (!$('input[name=activity]').val()) {
-            alert('Please fill the farming activity field')
-            $('input[name=activity]').focus()
-            return false
-        }
-        if (!$('input[name=full_names]').val()) {
-            alert('Please enter your full names')
-            $('input[name=full_names]').focus()
-            return false
-        }
-        if (!$('input[name=telephone]').val()) {
-            alert('Please enter your telephone')
-            $('input[name=telephone]').focus()
-            return false
-        }
-//        if (!$('input[name=gender]').val()) {
-//            alert('Please select your gender')
-//            $('input[name=gender]').focus()
+//        if (!$('input[name=activity]').val()) {
+//            alert('Please fill the farming activity field')
+//            $('input[name=activity]').focus()
 //            return false
 //        }
-        if (!$('input[name=town]').val()) {
-            alert('Please fill the town field')
-            $('input[name=town]').focus()
-            return false
-        }
+//        if (!$('input[name=full_names]').val()) {
+//            alert('Please enter your full names')
+//            $('input[name=full_names]').focus()
+//            return false
+//        }
+//        if (!$('input[name=telephone]').val()) {
+//            alert('Please enter your telephone')
+//            $('input[name=telephone]').focus()
+//            return false
+//        }
+////        if (!$('input[name=gender]').val()) {
+////            alert('Please select your gender')
+////            $('input[name=gender]').focus()
+////            return false
+////        }
+//        if (!$('input[name=town]').val()) {
+//            alert('Please fill the town field')
+//            $('input[name=town]').focus()
+//            return false
+//        }
 //        if (!$('input[name=county]').val()) {
 //            alert('Please fill the county field')
 //            $('input[name=county]').focus()
