@@ -291,3 +291,7 @@ li.nav-item .btn-white {
         justify-content: center;
     }
 }
+
+.bg-dark {
+    background-color: #00a74e !important;
+}
