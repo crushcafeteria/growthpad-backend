@@ -301,3 +301,46 @@ li.nav-item .btn-white {
     border-style: none;
     width: 15%;
 }
+
+.btn-red {
+    color: #fff;
+    background-color: #ec1a24;
+    border-color: #ec1a24;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #cf1e24;
+    border-color: #cf1e24;
+}
+
+.btn-outline-red {
+    color: #ec1a24;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ec1a24;
+}
+
+.btn-outline-red:hover {
+    color: #fff;
+    background-color: #cf1e24;
+    border-color: #cf1e24;
+}
+
+.card-title {
+    color: #ec1a24;
+}
+
+.page-item.active .page-link {
+    background-color: #ec1a24;
+    border-color: #ec1a24;
+}
+
+.page-link {
+	color: #ec1a24;
+}
+
+.page-link:focus, .page-link:hover {
+	color: #cf1e24;
+}
+

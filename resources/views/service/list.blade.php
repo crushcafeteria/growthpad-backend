@@ -20,7 +20,7 @@
                     (Innovate and Own) radio program and the online service provision platform. The key
                     IREN Growth-Pad products and services can be found below
                 </p>
-                <a class="btn btn-outline-success" href="{{ url('market') }}">
+                <a class="btn btn-outline-success btn-outline-red" href="{{ url('market') }}">
                     <i class="fa fa-exchange fa-fw"></i> Connect with our contacts
                 </a>
             </div>
@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Farm Management</h4>
                         <p class="card-text">We organize and operate activities on your farm to maximize productivity and profits</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('farm-management')">More
+                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('farm-management')">More
                             <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Leasing Solutions</h4>
                         <p class="card-text">We avail modern technology to increase efficiency at farm and vendor levels</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('leasing')">More
+                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('leasing')">More
                             <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Market Linkages</h4>
                         <p class="card-text">We offer opportunities and network to increase market reach</p>
-                        <a href="#_" class="btn btn-primary btn-sm" onclick="loadEnquiry('market-growth')">More
+                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('market-growth')">More
                             <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Formalization and Consulting</h4>
                         <p class="card-text">We advice on property rights and formalization to unlock capital </p>
-                        <a href="#" class="btn btn-primary btn-sm" onclick="loadEnquiry('consulting')">More
+                        <a href="#" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('consulting')">More
                             <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="card gradient" style="height: 94%;">
                     {{--<img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">--}}
                     <div class="card-body">
-                        <h2 class="card-title" style="margin-top: 7px;">
+                        <h2 class="card-title" style="margin-top: 7px; color: #fff;">
                             <i class="fa fa-question-circle fa-fw"></i> About IREN
                         </h2>
                         <p class="card-text lead">
@@ -119,12 +119,13 @@
     }
 
     .gradient {
-        background: #56ab2f; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #a8e063, #56ab2f); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         color: #fff;
         text-shadow: 0px 2px 4px rgba(0, 0, 0, .5);
+        background: #ec1a24;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #cf1e24, #ec1a24);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #cf1e24, #ec1a24); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
+
 
     .gradient p {
         font-weight: bold !important;

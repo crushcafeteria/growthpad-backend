@@ -5,7 +5,7 @@
         <div class="container">
 
             <div class="col-4 float-right">
-                <a href="{{ url('admin/contact/add') }}" class="btn btn-success float-right">
+                <a href="{{ url('admin/contact/add') }}" class="btn btn-outline-red float-right">
                     @if(Auth::check())
                         <i class="fa fa-plus-circle fa-fw"></i> Add a market contact
                     @else
