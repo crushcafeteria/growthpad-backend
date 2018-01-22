@@ -295,3 +295,9 @@ li.nav-item .btn-white {
 .bg-dark {
     background-color: #00a74e !important;
 }
+
+.logo-img {
+    vertical-align: middle;
+    border-style: none;
+    width: 15%;
+}

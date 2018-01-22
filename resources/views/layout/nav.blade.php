@@ -5,7 +5,9 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-cubes fa-fw"></i> {{ config('app.name') }}</a>
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
+        </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -39,6 +41,23 @@
         background-color: rgba(255,255,255, .5);
         border-radius: 5px;
         text-shadow: 0px -1px 2px #000;
+    }
+
+    .logo-img {
+        vertical-align: middle;
+        border-style: none;
+        width: 80px;
+        margin-right: 50px;
+    }
+
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: .3125rem;
+        margin-right: 0;
+    }
+
+    .navbar {
+        padding: 0;
     }
 </style>
 @endpush
