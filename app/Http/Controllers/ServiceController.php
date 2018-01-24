@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ServiceRequest;
 
 class ServiceController extends Controller
 {
@@ -70,7 +71,7 @@ class ServiceController extends Controller
         return view('service.forms.' . $type);
     }
 
-    function saveEnquiry(Request $request)
+    function saveEnquiry(ServiceRequest $request)
     {
 //        dump($request->all());
 
