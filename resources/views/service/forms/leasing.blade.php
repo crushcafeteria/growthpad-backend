@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="{{ asset('chosen_v1.8.2/chosen.min.css') }}">
-<script src="{{ asset('chosen_v1.8.2/chosen.jquery.min.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('chosen/chosen.min.css') }}">
+<script src="{{ asset('chosen/chosen.jquery.min.js') }}"></script>
 
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -149,7 +149,12 @@
             }
         })
 
-        $('.chosen').chosen()
+        $('.chosen').chosen({
+            create_option: true,
+            persistent_create_option: true,
+            skip_no_results: true,
+            create_option_text: 'Create New'
+        })
 
         $('.btnSave').click(function () {
             if (validating()) {
