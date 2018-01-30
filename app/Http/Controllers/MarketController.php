@@ -13,7 +13,7 @@ use App\Models\Request as Request_;
 
 class MarketController extends Controller
 {
-    function listContacts()
+    function listContacts() 
     {
         return view('market.list', [
             'contacts' => Contact::orderBy('picture', 'DESC')->paginate(),
@@ -80,5 +80,10 @@ class MarketController extends Controller
         Mail::to(collect(config('settings.team')))->send(new ContactRequestEmail($connect->id));
 
         return Response::json(['status' => 'OK']);
+    }
+
+    function apiListContacts()
+    {
+        return Contact::orderBy('picture', 'DESC')->paginate();
     }
 }
