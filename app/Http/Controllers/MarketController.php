@@ -87,7 +87,7 @@ class MarketController extends Controller
         return Contact::orderBy('picture', 'DESC')->paginate();
     }
 
-    function apiSearchContact($q)
+    function apiSearchContact($q = null)
     {
         $q = '%'.$q.'%';
         return Contact::where('name', 'LIKE', $q)
