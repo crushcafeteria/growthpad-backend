@@ -2,6 +2,10 @@
 
 @section('content')
 
+<a href="{{ url('admin/enquiries/export/excel') }}" class="btn btn-primary pull-right">
+    <i class="fa fa-file-excel-o fa-fw"></i> Export to Excel
+</a>
+
 <h3 class="text-primary mb-4">All service enquiries</h3>
 <hr>
 

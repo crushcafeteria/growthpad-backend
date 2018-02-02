@@ -53,6 +53,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 	# Service enquiries dashboard
 	Route::get('enquiries', 'Admin\EnquiryController@listEnquiries');
 	Route::get('enquiry/view/{enquiryID}', 'Admin\EnquiryController@viewEnquiry');
+	Route::get('enquiries/export/excel', 'Admin\EnquiryController@exportExcel');
 
 	# User management
 	Route::get('users', 'Admin\UserManager@listUsers');
