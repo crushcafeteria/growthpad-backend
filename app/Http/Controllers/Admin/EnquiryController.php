@@ -26,7 +26,7 @@ class EnquiryController extends Controller
     {
         $requests = ServiceOrder::all()->toArray();
 
-        dd($requests);
+        // dd($requests);
 
         Excel::create('service_requests', function ($excel) use ($requests) {
             $excel->sheet('Sheet 1', function ($sheet) use ($requests) {
