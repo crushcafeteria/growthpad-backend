@@ -30,7 +30,7 @@ class EnquiryController extends Controller
 
         Excel::create('service_requests', function ($excel) use ($requests) {
             $excel->sheet('Sheet 1', function ($sheet) use ($requests) {
-                $sheet->with($requests);
+                $sheet->with($requests, null, 'A1', true);
             });
         })->download('xlsx');
 
