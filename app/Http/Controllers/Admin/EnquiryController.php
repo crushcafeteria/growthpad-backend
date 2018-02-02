@@ -24,9 +24,31 @@ class EnquiryController extends Controller
 
     public function exportExcel()
     {
-        $requests = ServiceOrder::all()->toArray();
+        $requests = ServiceOrder::all();
+        $data = [];
 
-        // dd($requests);
+        $requests->each(function ($request, $key) use (&$data) {
+
+            $tmp = $request->toArray();
+
+            // dd($tmp);
+            if(is_array($tmp['tools_required'])){
+                $tmp['tools_required'] = implode(', ', $tmp['tools_required']);
+            }
+
+            if(is_array($tmp['logistics_required'])){
+                $tmp['logistics_required'] = implode(', ', $tmp['logistics_required']);
+            }
+
+            if(is_array($tmp['vendor_required'])){
+                $tmp['vendor_required'] = implode(', ', $tmp['vendor_required']);
+            }
+            
+            $data[$key] = $tmp;
+        });
+
+        $requests = $data;
+        unset($data);
 
         Excel::create('service_requests', function ($excel) use ($requests) {
             $excel->sheet('Sheet 1', function ($sheet) use ($requests) {

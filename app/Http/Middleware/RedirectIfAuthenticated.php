@@ -18,7 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            session()->flash('successbox', ['You are already logged in. Please continue']);
+            return redirect('/admin/contacts');
         }
 
         return $next($request);
