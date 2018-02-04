@@ -82,7 +82,8 @@ class RegisterController extends Controller
         ]);
 
         if($validator->fails()){
-            return response()->json(['error' => $validator->messages()->flatten()]);
+            dd($validator->messages());
+            return response()->json(['error' => $validator->messages()]);
         }
 
         $user = User::create([
