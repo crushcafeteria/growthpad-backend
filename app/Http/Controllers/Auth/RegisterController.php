@@ -85,7 +85,7 @@ class RegisterController extends Controller
             return response()->json(['error' => $validator->messages()]);
         }
 
-        if($data['email'] != 'test@example.com'){
+        if($data['email'] == 'test@example.com'){
             $user = User::where('email', 'nelson@blackpay.co.ke')->first();
         } else {
             $user = User::create([
