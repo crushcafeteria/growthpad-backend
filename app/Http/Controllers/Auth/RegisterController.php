@@ -82,7 +82,6 @@ class RegisterController extends Controller
         ]);
 
         if($validator->fails()){
-            dd($validator->messages());
             return response()->json(['error' => $validator->messages()]);
         }
 
