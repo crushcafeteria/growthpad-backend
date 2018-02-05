@@ -387,7 +387,7 @@ return [
         ],
         [
             'name'  => 'Nelson Ameyo',
-            'email' => 'nelson@blackpay.co.ke',
+            'email' => 'nelson@lipasafe.com',
         ],
         [
             'name'  => 'James Shikwati',
