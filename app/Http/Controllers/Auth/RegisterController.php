@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -20,7 +19,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -53,6 +52,9 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'county' => 'required|string|max:255',
+            'telephone' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
         ]);
     }
 
@@ -63,15 +65,18 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {        
+    {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'county' => $data['county'],
+            'telephone' => $data['telephone'],
+            'gender' => $data['gender'],
         ]);
     }
 
-    function apiRegisterUser(Request $request)
+    public function apiRegisterUser(Request $request)
     {
         $data = $request->all();
 
@@ -81,22 +86,21 @@ class RegisterController extends Controller
             'password' => 'required|string|min:4',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()]);
         }
 
-        if($data['email'] == 'test@example.com'){
+        if ($data['email'] == 'test@example.com') {
             $user = User::where('email', 'nelson@blackpay.co.ke')->first();
         } else {
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'token' => hash('sha1', str_random())
+                'token' => hash('sha1', str_random()),
             ]);
         }
 
-
-        return response()->json($user);  
+        return response()->json($user);
     }
 }
