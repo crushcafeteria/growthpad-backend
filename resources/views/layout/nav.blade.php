@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
+            <img src="{{ secure_asset('images/logo.png') }}" alt="Logo" class="logo-img">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
