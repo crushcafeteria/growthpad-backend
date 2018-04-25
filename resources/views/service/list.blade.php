@@ -2,7 +2,6 @@
 
 @section('page')
 
-
     <!-- Page Content -->
     <div class="container">
 

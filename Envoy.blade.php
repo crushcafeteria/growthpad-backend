@@ -35,7 +35,7 @@ notify-send 'Reset Complete!' 'The GROWTHPAD app has been successfully reset'
 
 {{--Pull new changes from remote repo to VPS --}}
 @task('pull-to-live', ['on'=>'production'])
-cd /var/www/html/growthpad
+cd /var/www/IREN/growthpad.irenkenya.com
 git fetch --all
 git reset --hard origin/master
 composer update
