@@ -13,13 +13,13 @@ class Service extends Model
         'products' => 'array',
     ];
 
-    function getPictureAttribute($value)
+    public function getPictureAttribute($value)
     {
         if (!$value) {
-            $random = collect(json_decode(Storage::get('random-images.json'), TRUE))->random()['id'];
+            $random = collect(json_decode(Storage::get('random-images.json'), true))->random()['id'];
             $value = 'https://unsplash.it/800/600?image=' . $random;
         } else {
-            $value = asset('storage').'/'.$value;
+            $value = secure_asset('storage').'/'.$value;
         }
 
         return $value;
