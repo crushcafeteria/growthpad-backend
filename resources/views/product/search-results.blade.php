@@ -6,12 +6,12 @@
                     <img class="img-fluid card-img-top" src="{{ asset('milk.png') }}">
                     <div class="card-block">
                         <h5 class="card-title">
-                            <a href="{{ url('add/to/compare/'.$product->id) }}" class="btn btn-outline-warning btn-sm pull-xs-right" style="float: right;">Compare</a>
+                            <a href="{{ secure_url('add/to/compare/'.$product->id) }}" class="btn btn-outline-warning btn-sm pull-xs-right" style="float: right;">Compare</a>
                             {{ $product->name }}
                         </h5>
                         <div class="card-text">
                             Ksh {{ number_format($product->price) }}
-                            <a href="{{ url('add/to/cart/'.$product->id) }}" class="btn btn-success btn-sm pull-xs-right" style="float: right;">Buy this</a>
+                            <a href="{{ secure_url('add/to/cart/'.$product->id) }}" class="btn btn-success btn-sm pull-xs-right" style="float: right;">Buy this</a>
                         </div>
                     </div>
                 </div>

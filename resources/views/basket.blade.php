@@ -3,7 +3,7 @@
 @section('header')
     <div class="blog-header">
         <div class="container">
-            <a href="{{ url('services') }}" class="btn btn-danger btn-lg float-right"><i class="fa fa-caret-left"></i> Back to services</a>
+            <a href="{{ secure_url('services') }}" class="btn btn-danger btn-lg float-right"><i class="fa fa-caret-left"></i> Back to services</a>
             <h3 class="blog-title">My Shopping Basket</h3>
             <p class="lead blog-description">Items you are about to purchase</p>
         </div>
@@ -30,7 +30,7 @@
                         </div>
                         {{--                            <small class="text-muted">Sold by {{ $product->vendor->name }}</small>--}}
                         <small class="text-muted float-right">
-                            <a href="{{ url('remove/from/cart/'.$product->id) }}" class="text-danger">Remove from cart</a>
+                            <a href="{{ secure_url('remove/from/cart/'.$product->id) }}" class="text-danger">Remove from cart</a>
                         </small>
                     </div>
 
@@ -56,7 +56,7 @@
                     <h2>Empty basket!</h2>
                     <br>
                     <br>
-                    <a href="{{ url('services') }}" class="btn btn-secondary"><i class="fa fa-search fa-fw"></i> Shop for a service</a>
+                    <a href="{{ secure_url('services') }}" class="btn btn-secondary"><i class="fa fa-search fa-fw"></i> Shop for a service</a>
                 </div>
             </div>
 

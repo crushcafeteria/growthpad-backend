@@ -19,7 +19,7 @@
                     (Innovate and Own) radio program and the online service provision platform. The key
                     IREN Growth-Pad products and services can be found below
                 </p>
-                <a class="btn btn-outline-success btn-outline-red" href="{{ url('market') }}">
+                <a class="btn btn-outline-success btn-outline-red" href="{{ secure_url('market') }}">
                     <i class="fa fa-exchange fa-fw"></i> Connect with our contacts
                 </a>
             </div>
@@ -108,7 +108,7 @@
 <script>
     $('.geocomplete').geocomplete()
     function loadEnquiry(type) {
-        $('#enquiry').modal('show').html(loading).load('{{ url('enquiry') }}/' + type)
+        $('#enquiry').modal('show').html(loading).load('{{ secure_url('enquiry') }}/' + type)
     }
 </script>
 

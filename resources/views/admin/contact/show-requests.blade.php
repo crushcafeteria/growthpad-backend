@@ -29,7 +29,7 @@
                                 <tr>
                                     <td>{{ $request->names }}</td>
                                     <td>
-                                        <a target="_blank" href="{{ url('admin/contacts?id='.$request->contact->id) }}">{{ $request->contact->name }}</a>
+                                        <a target="_blank" href="{{ secure_url('admin/contacts?id='.$request->contact->id) }}">{{ $request->contact->name }}</a>
                                     </td>
                                     <td>{{ $request->telephone }}</td>
                                     <td>{{ $request->email }}</td>

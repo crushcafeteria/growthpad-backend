@@ -5,7 +5,7 @@
         <div class="container">
 
             <div class="col-4 float-right">
-                <a href="{{ url('market') }}" class="btn btn-warning float-right">
+                <a href="{{ secure_url('market') }}" class="btn btn-warning float-right">
                     <i class="fa fa-caret-left fa-fw"></i> Go Back
                 </a>
             </div>
@@ -181,7 +181,7 @@
                 if(validating()){
                     $('.btnSend').html('Sending...').attr('disabled','disabled')
                     $.post(
-                        '{{ url('request/connect') }}',
+                        '{{ secure_url('request/connect') }}',
                         {
                             contact_id: {{ $contact->id }},
                             names: $('.txtNames').val(),

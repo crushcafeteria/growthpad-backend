@@ -105,7 +105,7 @@
             if (validating()) {
                 $('.btnSave').html('<i class="fa fa-refresh fa-spin fa-fw"></i> Sending...').attr('disabled','disabled')
                 $.post(
-                    '{{ url('enquiry/save') }}',
+                    '{{ secure_url('enquiry/save') }}',
                     $('.frmForm').serialize(),
                     function (res) {
                         if (res.status == 'OK') {

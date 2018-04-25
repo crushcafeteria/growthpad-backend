@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ url('admin/enquiries/export/excel') }}" class="btn btn-primary pull-right">
+<a href="{{ secure_url('admin/enquiries/export/excel') }}" class="btn btn-primary pull-right">
     <i class="fa fa-file-excel-o fa-fw"></i> Export to Excel
 </a>
 
@@ -59,7 +59,7 @@
 <script type="text/javascript">
     function loadEnquiry(id)
     {
-        $('#dialog').modal('show').html('Loading...').load('{{ url('admin/enquiry/view') }}/' + id)
+        $('#dialog').modal('show').html('Loading...').load('{{ secure_url('admin/enquiry/view') }}/' + id)
     }
 
 </script>

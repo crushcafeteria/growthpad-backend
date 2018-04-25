@@ -46,7 +46,7 @@
                         <br>
                         or
                         <br>
-                        <a href="{{ url('register') }}">Register your account</a>
+                        <a href="{{ secure_url('register') }}">Register your account</a>
                     </div>
                 </form>
             </div>

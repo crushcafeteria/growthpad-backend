@@ -18,5 +18,5 @@
             </div>
         @endforeach
     </div>
-    <a href="{{ url('compare/empty') }}"> Reset comparisons</a>
+    <a href="{{ secure_url('compare/empty') }}"> Reset comparisons</a>
 @endif

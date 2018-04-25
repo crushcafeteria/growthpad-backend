@@ -44,7 +44,7 @@
 <script type="text/javascript">
     function loadEnquiry(id)
     {
-        $('#dialog').modal('show').html('Loading...').load('{{ url('admin/enquiry/view') }}/' + id)
+        $('#dialog').modal('show').html('Loading...').load('{{ secure_url('admin/enquiry/view') }}/' + id)
     }
 
 </script>

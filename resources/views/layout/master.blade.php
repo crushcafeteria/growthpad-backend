@@ -34,13 +34,13 @@
             <div class="col-md-12">
                 <ul class="nav-footer mt-2 mt-md-0 ">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('services') }}">Services</a>
+                        <a class="nav-link" href="{{ secure_url('services') }}">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('market') }}">Marketplace</a>
+                        <a class="nav-link" href="{{ secure_url('market') }}">Marketplace</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('disclaimer') }}">Disclaimer</a>
+                        <a class="nav-link" href="{{ secure_url('disclaimer') }}">Disclaimer</a>
                     </li>
                 </ul>
             </div>

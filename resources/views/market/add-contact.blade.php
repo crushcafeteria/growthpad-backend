@@ -5,7 +5,7 @@
         <div class="container">
 
             <div class="col-4 float-right">
-                <a href="{{ url('market') }}" class="btn btn-warning float-right">
+                <a href="{{ secure_url('market') }}" class="btn btn-warning float-right">
                     <i class="fa fa-caret-left fa-fw"></i> Go Back
                 </a>
             </div>

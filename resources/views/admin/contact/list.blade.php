@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ url('admin/contact/add') }}" class="btn btn-success pull-right">
+<a href="{{ secure_url('admin/contact/add') }}" class="btn btn-success pull-right">
     <i class="fa fa-plus-circle fa-fw"></i> Add contact
 </a>
 <div class="col-2 pull-right">
@@ -46,14 +46,14 @@
 
     function loadContact(id)
     {
-        $('#dialog').modal('show').html('Loading...').load('{{ url('admin/contact/view') }}/' + id)
+        $('#dialog').modal('show').html('Loading...').load('{{ secure_url('admin/contact/view') }}/' + id)
     }
 
     function searchBusiness(term){
         if(!busy){
             busy = true
             $.get(
-                '{{ url('admin/contact/search') }}',
+                '{{ secure_url('admin/contact/search') }}',
                 {
                     q: term
                 }, function(res){

@@ -3,7 +3,7 @@
         {{--{{ dump($contact->toArray()) }}--}}
         <div class="col-sm-4" style="margin-bottom: 20px;">
             <div class="card">
-                <a href="{{ url('contact/view/'.$contact->id) }}">
+                <a href="{{ secure_url('contact/view/'.$contact->id) }}">
                     <img class="img-fluid card-img-top" src="{{ (!$contact->picture) ? 'http://via.placeholder.com/600x400?text='.$contact->name : $contact->picture }}">
                     <div class="card-body">
                         <h5 class="card-title" title="{{ $contact->name }}">

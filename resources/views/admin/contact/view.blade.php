@@ -92,7 +92,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="return $('#dialog').modal('hide')">Close</button>
-            <a href="{{ url('admin/contact/edit/'.$contact->id) }}" class="btn btn-primary">Edit Contact</a>
+            <a href="{{ secure_url('admin/contact/edit/'.$contact->id) }}" class="btn btn-primary">Edit Contact</a>
         </div>
     </div>
 </div>

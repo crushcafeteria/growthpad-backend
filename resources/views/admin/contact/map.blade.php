@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a href="{{ url('admin/contacts') }}" class="btn btn-primary pull-right">
+    <a href="{{ secure_url('admin/contacts') }}" class="btn btn-primary pull-right">
         <i class="fa fa-list-ol fa-fw"></i> Show all contacts
     </a>
 

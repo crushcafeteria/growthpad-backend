@@ -10,7 +10,7 @@
                     </h5>
                     <div class="card-text">
                         Ksh {{ number_format($service->price) }}
-                        <a href="{{ url('service/add/to/cart/'.$service->id) }}" class="btn btn-success btn-sm pull-xs-right" style="float: right;"><i class="fa fa-shopping-cart fa-fw"></i> Buy</a>
+                        <a href="{{ secure_url('service/add/to/cart/'.$service->id) }}" class="btn btn-success btn-sm pull-xs-right" style="float: right;"><i class="fa fa-shopping-cart fa-fw"></i> Buy</a>
                     </div>
                 </div>
             </div>

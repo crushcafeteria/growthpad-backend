@@ -110,7 +110,7 @@
                         <br>
                         or
                         <br>
-                        <a href="{{ url('login') }}">Log into your account</a>
+                        <a href="{{ secure_url('login') }}">Log into your account</a>
                     </div>
 
                 </form>

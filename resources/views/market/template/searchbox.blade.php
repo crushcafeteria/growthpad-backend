@@ -9,7 +9,7 @@
                 $('.frmList').hide()
                 $('.frmSearch').show().html('Searching...')
                 $.get(
-                    '{{ url('contacts/search') }}',
+                    '{{ secure_url('contacts/search') }}',
                     {
                         q: $('.txtSearch').val()
                     }, function (res) {

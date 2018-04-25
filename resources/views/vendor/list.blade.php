@@ -21,7 +21,7 @@
                         <img class="img-fluid card-img-top" src="elliot.jpg">
                         <div class="card-block">
                             <h5 class="card-title">
-                                <a href="{{ url('products/list/'.$vendor->id) }}">{{ $vendor->name }}</a></h5>
+                                <a href="{{ secure_url('products/list/'.$vendor->id) }}">{{ $vendor->name }}</a></h5>
                             <p class="card-text">
                                 {{ count($vendor->products) }} available
                             </p>

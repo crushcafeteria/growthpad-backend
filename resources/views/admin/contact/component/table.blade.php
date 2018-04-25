@@ -37,7 +37,7 @@
                     <a href="#_" class="btn btn-outline-success btn-sm" onclick="loadContact({{ $contact->id }})">
                         <i class="fa fa-eye fa-fw"></i> View
                     </a>
-                    <a href="{{ url('admin/contact/edit/'.$contact->id) }}" class="btn btn-outline-primary btn-sm">
+                    <a href="{{ secure_url('admin/contact/edit/'.$contact->id) }}" class="btn btn-outline-primary btn-sm">
                         <i class="fa fa-edit fa-fw"></i> Edit
                     </a>
                 </div>
