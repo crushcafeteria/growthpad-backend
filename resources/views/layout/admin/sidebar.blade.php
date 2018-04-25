@@ -1,6 +1,6 @@
 <nav class="bg-white sidebar sidebar-fixed sidebar-offcanvas" id="sidebar">
     <div class="user-info">
-        <img src="{{ asset('images/face.jpg') }}" alt="">
+        <img src="{{ secure_asset('images/face.jpg') }}" alt="">
         <p class="name">{{ Auth::user()->name }}</p>
         {{-- <p class="designation">Manager</p> --}}
         <span class="online"></span>

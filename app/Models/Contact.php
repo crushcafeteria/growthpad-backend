@@ -15,24 +15,23 @@ class Contact extends Model
         'products'          => 'array',
     ];
 
-    function getPictureAttribute($value)
+    public function getPictureAttribute($value)
     {
         if ($value) {
-            $value = asset('storage') . '/' . $value;
+            $value = secure_asset('storage') . '/' . $value;
         }
 
         return $value;
     }
 
-    static function isValid($row)
+    public static function isValid($row)
     {
-        $valid = TRUE;
+        $valid = true;
 
-        if(!$row->name){
+        if (!$row->name) {
             $valid = false;
         }
 
         return $valid;
     }
-
 }
