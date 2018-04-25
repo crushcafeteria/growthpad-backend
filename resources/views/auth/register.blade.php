@@ -7,7 +7,7 @@
         <div class="card col-lg-4 offset-lg-4">
             <div class="card-block">
                 <h3 class="card-title text-primary text-left mb-5 mt-4">Signup for a GrowthPad account</h3>
-                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                <form class="form-horizontal" method="POST" action="{{ secure_url('register') }}">
 
                     {{ csrf_field() }}
 
