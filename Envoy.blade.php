@@ -43,7 +43,6 @@ composer update
 
 {{--Push local changes to remote Git repo--}}
 @task('push-to-git', ['on'=>'local'])
-cd /var/www/html/shop.dev
 git add .
 git commit -m "This is an automated deployment"
 git push -u origin master
