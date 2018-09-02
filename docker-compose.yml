@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+    web:
+        image: sodiumafrica/sodiumserver:1.0
+        volumes:
+            - ./docker/growthpad.local.conf:/etc/nginx/servers/growthpad.conf:rw
+            - ./:/var/www/:rw
+        ports:
+            - 17000:80
+
+    composer:
+        image: prooph/composer:7.2
+        command: install
+        volumes:
+            - .:/app
+
+    adminer:
+        image: clue/adminer
+        ports:
+            - 17001:80
+
+    db:
+        image: mariadb
+        volumes:
+            - ./docker/mariadb/:/var/lib/mysql/:rw
+        environment:
+            MYSQL_DATABASE: growthpad.irenkenya.com
+            MYSQL_ROOT_PASSWORD: jS35n9YmZppjxRDfhfY5MJvc5tKztp

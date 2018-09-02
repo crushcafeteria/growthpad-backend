@@ -1,0 +1,95 @@
+2018-06-11 20:01:24,922 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 20:01:24,925 INFO supervisord started with pid 9
+2018-06-11 20:01:25,928 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-11 20:01:25,950 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:01:26,954 INFO spawned: 'laravel-worker_00' with pid 13
+2018-06-11 20:01:26,974 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:01:28,980 INFO spawned: 'laravel-worker_00' with pid 14
+2018-06-11 20:01:29,010 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:01:32,014 INFO spawned: 'laravel-worker_00' with pid 15
+2018-06-11 20:01:32,032 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:01:36,037 INFO spawned: 'laravel-worker_00' with pid 16
+2018-06-11 20:01:36,051 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:01:41,060 INFO spawned: 'laravel-worker_00' with pid 17
+2018-06-11 20:01:41,081 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:08,616 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 20:02:08,619 INFO supervisord started with pid 9
+2018-06-11 20:02:09,623 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-11 20:02:09,646 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:10,649 INFO spawned: 'laravel-worker_00' with pid 13
+2018-06-11 20:02:10,669 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:12,676 INFO spawned: 'laravel-worker_00' with pid 14
+2018-06-11 20:02:12,702 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:15,708 INFO spawned: 'laravel-worker_00' with pid 15
+2018-06-11 20:02:15,732 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:19,741 INFO spawned: 'laravel-worker_00' with pid 16
+2018-06-11 20:02:19,765 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:24,775 INFO spawned: 'laravel-worker_00' with pid 17
+2018-06-11 20:02:24,797 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:30,809 INFO spawned: 'laravel-worker_00' with pid 18
+2018-06-11 20:02:30,833 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:37,846 INFO spawned: 'laravel-worker_00' with pid 19
+2018-06-11 20:02:37,866 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:45,878 INFO spawned: 'laravel-worker_00' with pid 20
+2018-06-11 20:02:45,901 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:02:54,917 INFO spawned: 'laravel-worker_00' with pid 21
+2018-06-11 20:02:54,939 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:03:04,953 INFO spawned: 'laravel-worker_00' with pid 22
+2018-06-11 20:03:04,967 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:03:05,968 INFO gave up: laravel-worker_00 entered FATAL state, too many start retries too quickly
+2018-06-11 20:03:49,698 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 20:03:49,702 INFO supervisord started with pid 9
+2018-06-11 20:03:50,707 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-11 20:03:50,736 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:03:51,741 INFO spawned: 'laravel-worker_00' with pid 13
+2018-06-11 20:03:51,761 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:03:53,767 INFO spawned: 'laravel-worker_00' with pid 14
+2018-06-11 20:03:53,791 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:03:56,796 INFO spawned: 'laravel-worker_00' with pid 15
+2018-06-11 20:03:56,811 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:00,819 INFO spawned: 'laravel-worker_00' with pid 16
+2018-06-11 20:04:00,845 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:05,856 INFO spawned: 'laravel-worker_00' with pid 17
+2018-06-11 20:04:05,879 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:11,886 INFO spawned: 'laravel-worker_00' with pid 18
+2018-06-11 20:04:11,901 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:18,913 INFO spawned: 'laravel-worker_00' with pid 19
+2018-06-11 20:04:18,937 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:26,950 INFO spawned: 'laravel-worker_00' with pid 20
+2018-06-11 20:04:26,969 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:35,984 INFO spawned: 'laravel-worker_00' with pid 21
+2018-06-11 20:04:36,008 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:46,020 INFO spawned: 'laravel-worker_00' with pid 22
+2018-06-11 20:04:46,039 INFO exited: laravel-worker_00 (exit status 1; not expected)
+2018-06-11 20:04:47,041 INFO gave up: laravel-worker_00 entered FATAL state, too many start retries too quickly
+2018-06-11 20:06:14,000 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 20:06:14,006 INFO supervisord started with pid 9
+2018-06-11 20:06:15,009 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-11 20:06:16,011 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-11 20:06:24,180 WARN received SIGINT indicating exit request
+2018-06-11 20:06:24,181 INFO waiting for laravel-worker_00 to die
+2018-06-11 20:06:24,183 INFO stopped: laravel-worker_00 (terminated by SIGKILL)
+2018-06-11 20:07:14,898 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 20:07:14,902 INFO supervisord started with pid 9
+2018-06-11 20:07:15,907 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-11 20:07:16,910 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-11 21:04:05,712 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-11 21:04:05,716 INFO supervisord started with pid 10
+2018-06-11 21:04:06,719 INFO spawned: 'laravel-worker_00' with pid 13
+2018-06-11 21:04:07,721 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-12 12:29:57,527 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-12 12:29:57,530 INFO supervisord started with pid 9
+2018-06-12 12:29:58,532 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-12 12:29:59,534 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-14 19:11:21,426 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-14 19:11:21,497 INFO supervisord started with pid 8
+2018-06-14 19:11:22,503 INFO spawned: 'laravel-worker_00' with pid 11
+2018-06-14 19:11:23,505 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-15 17:33:15,217 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-15 17:33:15,262 INFO supervisord started with pid 9
+2018-06-15 17:33:16,267 INFO spawned: 'laravel-worker_00' with pid 12
+2018-06-15 17:33:17,270 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-15 17:35:37,316 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-15 17:35:37,319 INFO supervisord started with pid 8
+2018-06-15 17:35:38,323 INFO spawned: 'laravel-worker_00' with pid 11
+2018-06-15 17:35:39,326 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

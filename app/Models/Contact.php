@@ -18,7 +18,7 @@ class Contact extends Model
     public function getPictureAttribute($value)
     {
         if ($value) {
-            $value = secure_asset('storage') . '/' . $value;
+            $value = asset('storage') . '/' . $value;
         }
 
         return $value;

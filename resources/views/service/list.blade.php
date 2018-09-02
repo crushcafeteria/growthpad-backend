@@ -8,7 +8,7 @@
         <!-- Heading Row -->
         <div class="row my-4">
             <div class="col-lg-7">
-                <img class="img-fluid rounded" src="{{ secure_asset('images/tractor-grain-mixer-rural-denmark-53622.jpeg') }}" alt="">
+                <img class="img-fluid rounded" src="{{ asset('images/tractor-grain-mixer-rural-denmark-53622.jpeg') }}" alt="">
             </div>
             <div class="col-lg-5">
                 <h2>The IREN Growthpad</h2>
@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ secure_asset('images/pexels-photo-96715.jpeg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/pexels-photo-96715.jpeg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Farm Management</h4>
                         <p class="card-text">We organize and operate activities on your farm to maximize productivity and profits</p>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ secure_asset('images/tractor-2487106_1920.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/tractor-2487106_1920.jpg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Leasing Solutions</h4>
                         <p class="card-text">We avail modern technology to increase efficiency at farm and vendor levels</p>
@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ secure_asset('images/onions-1397037_1920.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/onions-1397037_1920.jpg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Market Linkages</h4>
                         <p class="card-text">We offer opportunities and network to increase market reach</p>
@@ -63,7 +63,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ secure_asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">Formalization and Consulting</h4>
                         <p class="card-text">We advice on property rights and formalization to unlock capital </p>
@@ -75,7 +75,7 @@
 
             <div class="col-md-8 mb-8">
                 <div class="card gradient" style="height: 94%;">
-                    {{--<img class="card-img-top img-fluid" src="{{ secure_asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">--}}
+                    {{--<img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">--}}
                     <div class="card-body">
                         <h2 class="card-title" style="margin-top: 7px; color: #fff;">
                             <i class="fa fa-question-circle fa-fw"></i> About IREN
