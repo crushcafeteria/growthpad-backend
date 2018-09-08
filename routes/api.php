@@ -20,4 +20,5 @@ Route::get('ping', function (){
 
 Route::prefix('support')->group(function (){
     Route::get('countyData', 'API\SupportController@countyData');
+    Route::get('location/suggest', 'API\SupportController@suggestLocation');
 });

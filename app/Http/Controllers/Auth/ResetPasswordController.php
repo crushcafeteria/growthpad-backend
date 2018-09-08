@@ -27,7 +27,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/you-can-now-login';
 
     /**
      * Create a new controller instance.
@@ -64,7 +64,5 @@ class ResetPasswordController extends Controller
         $user->save();
 
         event(new PasswordReset($user));
-
-        return redirect('you-can-login');
     }
 }
