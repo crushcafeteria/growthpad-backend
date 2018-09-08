@@ -12,3 +12,7 @@ Route::post('login', 'API\AccountController@login');
 Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
 
 Route::resource('ads', 'API\AdsController');
+
+Route::get('ping', function(){
+    return response()->json('ALIVE');
+});
