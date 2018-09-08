@@ -11,8 +11,8 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
         'price'        => $faker->numberBetween(1000, 1000000),
         'telephone'    => $faker->e164PhoneNumber,
         'email'        => $faker->freeEmail,
-        'location'     => null,
-        'picture'      => null,
+        'location'     => 'Nairobi',
+        'picture'      => 'https://source.unsplash.com/random/300x300?t='.rand(0, 10000),
         'status'       => 'ACTIVE',
         'expiry'       => \Carbon\Carbon::now()->addMonths(12)
     ];
