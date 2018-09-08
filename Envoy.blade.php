@@ -7,7 +7,7 @@
 @endstory
 
 @task('pull-to-live', ['on'=>'production'])
-    cd /var/www/growthpad.irenkenya.com
+    cd /var/www/growthpad-backend
     git fetch --all
     git reset --hard origin/master
     composer update
