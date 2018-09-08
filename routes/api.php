@@ -13,6 +13,10 @@ Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
 
 Route::resource('ads', 'API\AdsController');
 
-Route::get('ping', function(){
+Route::get('ping', function (){
     return response()->json('ALIVE');
+});
+
+Route::prefix('support')->group(function (){
+    Route::get('countyData', 'API\SupportController@countyData');
 });
