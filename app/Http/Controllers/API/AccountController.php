@@ -56,7 +56,6 @@ class AccountController extends Controller
             'email'     => 'required|email|unique:users',
             'telephone' => 'required|unique:users',
             'gender'    => 'required',
-            'county'    => 'required',
             'password'  => 'required|min:4',
         ]);
 
