@@ -1,6 +1,6 @@
 <nav class="bg-white sidebar sidebar-fixed sidebar-offcanvas" id="sidebar">
     <div class="user-info">
-        <img src="{{ secure_asset('images/face.jpg') }}" alt="">
+        <img src="{{ asset('images/face.jpg') }}" alt="">
         <p class="name">{{ Auth::user()->name }}</p>
         {{-- <p class="designation">Manager</p> --}}
         <span class="online"></span>
@@ -19,7 +19,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ secure_url('admin/contacts') }}">
+                        <a class="nav-link" href="{{ url('admin/contacts') }}">
                             List all contacts
                         </a>
                     </li>
@@ -28,28 +28,28 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('admin/contact/requests') }}">
+            <a class="nav-link" href="{{ url('admin/contact/requests') }}">
                 <img src="{{ asset('images/icons/request.png')  }}" alt="">
                 <span class="menu-title">Contact Requests</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('admin/contacts/map') }}">
+            <a class="nav-link" href="{{ url('admin/contacts/map') }}">
                 <img src="{{ asset('images/icons/1.png')  }}" alt="">
                 <span class="menu-title">Contact Map</span>
             </a>
         </li>
 
         <li class="nav-item active">
-            <a class="nav-link" href="{{ secure_url('admin/enquiries') }}">
+            <a class="nav-link" href="{{ url('admin/enquiries') }}">
                 <img src="{{ asset('images/icons/4.png')  }}" alt="">
                 <span class="menu-title">Service Enquiries</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('admin/users') }}">
+            <a class="nav-link" href="{{ url('admin/users') }}">
                 <!-- <i class="fa fa-bold"></i> -->
                 <img src="{{ asset('images/icons/10.png')  }}" alt="">
                 <span class="menu-title">User Manager</span>
@@ -57,7 +57,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('admin/logout') }}">
+            <a class="nav-link" href="{{ url('admin/logout') }}">
                 <img src="{{ asset('images/icons/2.png')  }}" alt="">
                 <span class="menu-title">Log out</span>
             </a>
