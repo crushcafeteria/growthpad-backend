@@ -9,6 +9,7 @@ Route::post('user/login', 'Auth\LoginController@apiLogin');
 
 ## NEW API SPEC STARTS HERE
 Route::post('login', 'API\AccountController@login');
+Route::post('signup', 'API\AccountController@signup');
 Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
 
 Route::resource('ads', 'API\AdsController');
