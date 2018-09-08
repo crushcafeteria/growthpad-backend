@@ -11,7 +11,7 @@ Route::post('user/login', 'Auth\LoginController@apiLogin');
 Route::post('login', 'API\AccountController@login');
 Route::post('signup', 'API\AccountController@signup');
 Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
-Route::post('location/update', 'API\AccountController@updateLocation');
+Route::post('location/update', 'API\AccountController@updateLocation')->middleware('jwt.auth');
 
 Route::resource('ads', 'API\AdsController');
 
