@@ -67,6 +67,7 @@ class AdsController extends Controller
 
         $ad = request()->only(['category', 'name', 'description', 'price', 'telephone', 'email', 'location', 'picture']);
         $ad['expiry'] = Carbon::now()->addMonths(12);
+        $ad['publisher_id'] = auth()->id();
 
         $ad = Ad::create($ad);
 
