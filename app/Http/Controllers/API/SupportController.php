@@ -33,12 +33,10 @@ class SupportController extends Controller
 
         $suggestions = null;
 
-        dd($response);
-
-//        if (count($response)) {
-//            return response()->json($response);
-//        } else {
-//            return response()->json(['error' => 'Nothing matches ' . request()->q]);
-//        }
+        if ($response) {
+            return response()->json($response);
+        } else {
+            return response()->json(['error' => 'Nothing matches ' . request()->q]);
+        }
     }
 }
