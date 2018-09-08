@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
             'email'     => 'nelson@lipasafe.com',
             'password'  => bcrypt('root'),
             'privilege' => 'ADMIN',
-            'location'  => 'KAKAMEGA',
             'telephone' => '0741504000',
             'gender'    => 'M'
         ]);
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
             'email'     => 'sp@gmail.com',
             'password'  => bcrypt('root'),
             'privilege' => 'SP',
-            'location'  => 'NAIROBI',
             'telephone' => '0700123456',
             'gender'    => 'F'
         ]);
