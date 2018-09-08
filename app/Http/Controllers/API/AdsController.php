@@ -25,7 +25,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        $ads = Ad::paginate(config('settings.page_size'));
+        $ads = Ad::with('publisher')->paginate(config('settings.page_size'));
 
         return response()->json($ads);
     }
