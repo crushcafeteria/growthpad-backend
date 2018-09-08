@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
-use App\Models\User;
 
 class AccountController extends Controller
 {
@@ -34,11 +34,11 @@ class AccountController extends Controller
         }
 
         return response()->json([
-            'user'       => auth()->user(),
+            'user'  => auth()->user(),
             'token' => [
-                'value'     => $token,
-                'type'      => 'bearer',
-                'expiry'    => Carbon::now()->addMinutes(env('JWT_TTL'))->timestamp,
+                'value'  => $token,
+                'type'   => 'bearer',
+                'expiry' => Carbon::now()->addMinutes(env('JWT_TTL'))->timestamp,
             ]
         ]);
     }
@@ -50,9 +50,16 @@ class AccountController extends Controller
 
     function signup()
     {
-        $user = request()->only(['name', 'email', 'telephone', 'gender', 'county', 'password']);
+        $user      = request()->only([
+            'name',
+            'email',
+            'telephone',
+            'gender',
+            'county',
+            'password'
+        ]);
         $validator = Validator::make($user, [
-            'name'     => 'required',
+            'name'      => 'required',
             'email'     => 'required|email|unique:users',
             'telephone' => 'required|unique:users',
             'gender'    => 'required',
@@ -64,20 +71,30 @@ class AccountController extends Controller
         }
 
         # Create new user
-        $user['password'] = bcrypt($user['password']);
+        $user['password']  = bcrypt($user['password']);
         $user['privilege'] = 'USER';
-        $user = User::create($user);
+        $user              = User::create($user);
 
         # Login user
         $token = JWTAuth::attempt(request()->only(['email', 'password']));
 
         return response()->json([
-            'user'     => $user,
+            'user'  => $user,
             'token' => [
-                'value'     => $token,
-                'type'      => 'bearer',
-                'expiry'    => config('jwt.ttl'),
+                'value'  => $token,
+                'type'   => 'bearer',
+                'expiry' => config('jwt.ttl'),
             ],
+        ]);
+    }
+
+    function updateLocation()
+    {
+        auth()->user()->update(['location' => request()->location]);
+
+        return response()->json([
+            'status' => 'OK',
+            'user'   => auth()->user()
         ]);
     }
 }
