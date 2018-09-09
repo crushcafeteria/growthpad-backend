@@ -13,9 +13,9 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
         'email'        => $faker->freeEmail,
         'location'     => 'Nairobi',
         'pictures'      => [
-            'https://source.unsplash.com/random/300x300?t='.rand(0, 10000),
-            'https://source.unsplash.com/random/300x300?t='.rand(0, 10000),
-            'https://source.unsplash.com/random/300x300?t='.rand(0, 10000),
+            'https://source.unsplash.com/random/500x300?t='.rand(0, 10000),
+            'https://source.unsplash.com/random/500x300?t='.rand(0, 10000),
+            'https://source.unsplash.com/random/500x300?t='.rand(0, 10000),
         ],
         'status'       => 'ACTIVE',
         'expiry'       => \Carbon\Carbon::now()->addMonths(12)
