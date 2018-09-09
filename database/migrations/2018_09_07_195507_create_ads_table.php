@@ -24,7 +24,7 @@ class CreateAdsTable extends Migration
             $table->string('telephone');
             $table->string('email');
             $table->string('location')->nullable();
-            $table->string('picture')->nullable();
+            $table->string('pictures')->nullable();
             $table->string('status')->default('ACTIVE');
             $table->date('expiry');
             $table->timestamps();

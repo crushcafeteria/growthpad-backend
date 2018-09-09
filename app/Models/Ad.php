@@ -9,14 +9,17 @@ class Ad extends Model
 
     protected $table = 'ads';
     protected $guarded = ['id', 'created_at'];
+    protected $casts = [
+        'pictures' => 'array'
+    ];
 
-    function getPictureAttribute($pic)
-    {
-        if (!$pic) {
-            return 'https://source.unsplash.com/random/500x500?rand=' . rand(0, 10000);
-        }
-        return $pic;
-    }
+//    function getPictureAttribute($pic)
+//    {
+//        if (!$pic) {
+//            return 'https://source.unsplash.com/random/500x500?rand=' . rand(0, 10000);
+//        }
+//        return $pic;
+//    }
 
     function publisher()
     {
