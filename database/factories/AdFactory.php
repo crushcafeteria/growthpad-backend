@@ -13,9 +13,9 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
         'email'        => $faker->freeEmail,
         'location'     => 'Nairobi',
         'pictures'      => [
-            'http://placehold.it/500x300?text=Product',
-            'http://placehold.it/500x300?text=Product',
-            'http://placehold.it/500x300?text=Product',
+            'http://placehold.it/500x400?text=Product',
+            'http://placehold.it/500x400?text=Product',
+            'http://placehold.it/500x400?text=Product',
         ],
         'status'       => 'ACTIVE',
         'expiry'       => \Carbon\Carbon::now()->addMonths(12)
