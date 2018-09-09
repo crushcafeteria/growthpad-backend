@@ -13,6 +13,8 @@ class Ad extends Model
         'pictures' => 'array'
     ];
 
+    protected $appends = ['featured_picture'];
+
 //    function getPictureAttribute($pic)
 //    {
 //        if (!$pic) {
@@ -24,5 +26,10 @@ class Ad extends Model
     function publisher()
     {
         return $this->belongsTo(User::class, 'publisher_id', 'id');
+    }
+
+    function getFeaturedPictureAttribute()
+    {
+        return collect(json_decode($this->attributes['pictures']))->first();
     }
 }
