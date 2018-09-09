@@ -21,7 +21,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with(['customer','ad.publisher'])->paginate(config('setting.page_size'));
+        return response()->json($orders);
     }
 
     /**
