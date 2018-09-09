@@ -6,13 +6,13 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
     return [
         'publisher_id' => 1,
         'category'     => collect(config('settings.categories'))->keys()->random(),
-        'name'         => $faker->firstName . ' ' . $faker->lastName,
-        'description'  => $faker->sentence(10),
-        'price'        => $faker->numberBetween(1000, 1000000),
+        'name'         => 'Product ' . $faker->numberBetween(1, 5000),
+        'description'  => $faker->sentence(rand(15, 60)),
+        'price'        => $faker->numberBetween(1000, 70000),
         'telephone'    => $faker->e164PhoneNumber,
         'email'        => $faker->freeEmail,
         'location'     => 'Nairobi',
-        'pictures'      => [
+        'pictures'     => [
             'http://placehold.it/500x400?text=Product',
             'http://placehold.it/500x400?text=Product',
             'http://placehold.it/500x400?text=Product',
