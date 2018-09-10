@@ -57,7 +57,7 @@ class User extends Authenticatable implements JWTSubject
         if (!$val) {
             return 'http://placehold.it/300?Image coming soon';
         } else {
-            return $val;
+            return asset($val);
         }
     }
 }
