@@ -98,9 +98,9 @@ class AccountController extends Controller
         ]);
     }
 
-    function uploadPicture(Request $request)
+    function uploadPicture()
     {
-        $uri = $request->dataURI;
+        $uri = request()->dataURI;
 
         if (strlen($uri) > 128) {
             list($ext, $data) = explode(';', $uri);
