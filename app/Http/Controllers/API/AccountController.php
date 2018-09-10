@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
+use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
