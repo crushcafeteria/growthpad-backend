@@ -51,4 +51,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    function getPictureAttribute($val)
+    {
+        if (!$val) {
+            return 'http://placehold.it/300?Image coming soon';
+        } else {
+            return $val;
+        }
+    }
 }
