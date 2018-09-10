@@ -97,4 +97,29 @@ class AccountController extends Controller
             'user'   => auth()->user()
         ]);
     }
+
+    function uploadPicture(Request $request)
+    {
+        $uri = $request->dataURI;
+
+        if (strlen($uri) > 128) {
+            list($ext, $data) = explode(';', $uri);
+            list(, $data) = explode(',', $data);
+            $data = base64_decode($data);
+
+            $file = 'profile_pictures/' . md5(str_random(15)) . '.jpg';
+            Storage::disk('public')->put($file, $data);
+
+            auth()->user()->update([
+                'picture' => $file
+            ]);
+
+            return response()->json([
+                'status'  => 'OK',
+                'profile' => User::find(auth()->id())
+            ]);
+        } else {
+            return response()->json(['error' => 'This picture is corrupted']);
+        }
+    }
 }
