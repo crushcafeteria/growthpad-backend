@@ -5,9 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
-use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
@@ -122,5 +122,25 @@ class AccountController extends Controller
         } else {
             return response()->json(['error' => 'This picture is corrupted']);
         }
+    }
+
+    function updateProfile()
+    {
+        $validator = Validator::make(request()->all(), [
+            'name'      => 'required',
+            'email'     => 'required|email',
+            'telephone' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->first()
+            ]);
+        }
+
+        $profile = request()->only(['name', 'email', 'telephone']);
+        User::find(auth()->id())->update($profile);
+
+        return response()->json(auth()->user());
     }
 }
