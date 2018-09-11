@@ -60,4 +60,9 @@ class User extends Authenticatable implements JWTSubject
             return asset('storage/'.$val);
         }
     }
+
+    function getLocationAttribute($val)
+    {
+        return json_decode($val);
+    }
 }

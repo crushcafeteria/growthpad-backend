@@ -141,6 +141,6 @@ class AccountController extends Controller
         $profile = request()->only(['name', 'email', 'telephone']);
         User::find(auth()->id())->update($profile);
 
-        return response()->json(auth()->user());
+        return response()->json(User::find(auth()->id()));
     }
 }
