@@ -129,7 +129,8 @@ class AccountController extends Controller
         $validator = Validator::make(request()->all(), [
             'name'      => 'required',
             'email'     => 'required|email',
-            'telephone' => 'required'
+            'telephone' => 'required',
+            'gender'    => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -138,7 +139,7 @@ class AccountController extends Controller
             ]);
         }
 
-        $profile = request()->only(['name', 'email', 'telephone']);
+        $profile = request()->only(['name', 'email', 'telephone', 'gender']);
         User::find(auth()->id())->update($profile);
 
         return response()->json(User::find(auth()->id()));
