@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
             'password'  => bcrypt('root'),
             'privilege' => 'ADMIN',
             'telephone' => '0741504000',
-            'gender'    => 'M'
+            'gender'    => 'M',
+            'county'    => collect(config('settings.counties'))->keys()->random()
         ]);
 
         factory(App\Models\User::class)->create([
@@ -27,7 +28,8 @@ class UserSeeder extends Seeder
             'password'  => bcrypt('root'),
             'privilege' => 'SP',
             'telephone' => '0700123456',
-            'gender'    => 'F'
+            'gender'    => 'F',
+            'county'    => collect(config('settings.counties'))->keys()->random()
         ]);
     }
 }

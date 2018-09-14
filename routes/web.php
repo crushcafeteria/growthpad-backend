@@ -72,3 +72,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 # Utility routes
 Route::get('/import', 'ImportController');
+
+
+#### NEW SYSTEM ###
+Route::get('dashboard', 'DashboardController');
+Route::resource('ads', 'AdsController');

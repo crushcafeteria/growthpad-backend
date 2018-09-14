@@ -19,7 +19,7 @@ class CreateAdsTable extends Migration
             $table->integer('publisher_id');
             $table->string('category');
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('price');
             $table->string('telephone');
             $table->string('email');
