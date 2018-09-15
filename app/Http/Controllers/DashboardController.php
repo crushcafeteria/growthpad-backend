@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Ad;
+use App\Models\Order;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -23,6 +26,13 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
-        return view('dashboard');
+        return view('dashboard', [
+            'total'     => [
+                'accounts' => User::count(),
+                'orders'   => Order::count(),
+                'ads'      => Ad::count(),
+            ],
+            'latestAds' => Ad::orderBy('created_at', 'DESC')->get()->take(10)
+        ]);
     }
 }

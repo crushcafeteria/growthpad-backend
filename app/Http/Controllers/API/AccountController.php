@@ -103,6 +103,8 @@ class AccountController extends Controller
     {
         $uri = request()->dataURI;
 
+        dd($uri);
+
         if (strlen($uri) > 128) {
             list($ext, $data) = explode(';', $uri);
             list(, $data) = explode(',', $data);
