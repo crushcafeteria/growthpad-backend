@@ -102,6 +102,7 @@ class AccountController extends Controller
     function uploadPicture()
     {
         $uri = request()->dataURI;
+        dd($uri);
 
         if (strlen($uri) > 128) {
             list($ext, $data) = explode(';', $uri);
