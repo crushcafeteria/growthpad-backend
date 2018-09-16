@@ -77,3 +77,4 @@ Route::get('/import', 'ImportController');
 #### NEW SYSTEM ###
 Route::get('dashboard', 'DashboardController');
 Route::resource('ads', 'AdsController');
+Route::resource('orders', 'OrdersController');

@@ -41,20 +41,13 @@
                     <span class="title">Ads</span>
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('orders') }}">
                     <span class="icon-holder">
                         <i class="fa fa-shopping-cart fa-fw"></i>
                     </span>
                     <span class="title">Orders</span>
-                    <span class="arrow">
-                        <i class="fa fa-caret-right"></i>
-                    </span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a class="sidebar-link" href="basic-table.html">Basic Table</a></li>
-                    <li><a class="sidebar-link" href="datatable.html">Data Table</a></li>
-                </ul>
             </li>
         </ul>
     </div>
