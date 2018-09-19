@@ -27,3 +27,4 @@ services:
         environment:
             MYSQL_DATABASE: growthpad.irenkenya.com
             MYSQL_ROOT_PASSWORD: jS35n9YmZppjxRDfhfY5MJvc5tKztp
+        restart: on-failure
