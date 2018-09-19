@@ -7,7 +7,7 @@
 @endstory
 
 @task('pull-to-live', ['on'=>'production'])
-    cd /var/www/IREN/new.growthpad.irenkenya.com
+    cd /var/www/IREN/new.growthpad.irenkenya.com/growthpad-backend
     git fetch --all
     git reset --hard origin/master
 @endtask
