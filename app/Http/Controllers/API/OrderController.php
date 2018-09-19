@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderReceived;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -21,7 +23,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['customer','ad.publisher'])->paginate(config('setting.page_size'));
+        $orders = Order::with(['customer', 'ad.publisher'])->paginate(config('setting.page_size'));
+
         return response()->json($orders);
     }
 
@@ -51,8 +54,15 @@ class OrderController extends Controller
         $order                = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
 
-        Order::create($order);
+        $order = Order::create($order);
 
+        $order = Order::with(['customer', 'ad'])->find($order->id);
+
+        # Notify publisher via email
+//        Mail::to($order->ad->publisher)->send(new OrderReceived($order));
+        Mail::to('nelson@lipasafe.com')->send(new OrderReceived($order));
+
+        # Notify buyer via email
         return response()->json(['status' => 'OK']);
     }
 
