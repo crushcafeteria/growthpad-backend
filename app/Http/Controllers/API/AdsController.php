@@ -147,11 +147,9 @@ class AdsController extends Controller
             DB::raw("(3959 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
                           cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
                           radians( lat ) ) ) ) < $distance ")
-        )->get();
+        )->paginate();
 
-
-
-        return $nearByAds;
+        return response()->json($nearByAds);
     }
 
 
