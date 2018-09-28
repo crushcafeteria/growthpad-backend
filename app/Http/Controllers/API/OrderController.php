@@ -25,7 +25,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['customer', 'ad.publisher'])->paginate(config('setting.page_size'));
+        $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->paginate(config('setting.page_size'));
 
         return response()->json($orders);
     }
@@ -75,9 +75,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->orderID);
+
+        return response()->json($order);
     }
 
     /**

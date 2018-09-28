@@ -29,4 +29,5 @@ Route::group(['middleware' => 'cors'], function (){
 
     Route::resource('orders', 'API\OrderController');
     Route::post('order/update', 'API\OrderController@update');
+    Route::get('order/find', 'API\OrderController@show');
 });
