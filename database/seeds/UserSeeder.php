@@ -12,6 +12,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $kakamega = '
+        ';
+
         factory(App\Models\User::class)->create([
             'name'      => 'Nelson Ameyo',
             'email'     => 'nelson@lipasafe.com',
@@ -19,7 +22,8 @@ class UserSeeder extends Seeder
             'privilege' => 'ADMIN',
             'telephone' => '0741504000',
             'gender'    => 'M',
-            'county'    => collect(config('settings.counties'))->keys()->random()
+            'county'    => collect(config('settings.counties'))->keys()->random(),
+            'location'  => $this->kakamega()
         ]);
 
         factory(App\Models\User::class)->create([
@@ -29,7 +33,54 @@ class UserSeeder extends Seeder
             'privilege' => 'SP',
             'telephone' => '0700123456',
             'gender'    => 'F',
-            'county'    => collect(config('settings.counties'))->keys()->random()
+            'county'    => collect(config('settings.counties'))->keys()->random(),
+            'location'  => $this->bukura()
         ]);
+    }
+
+    function kakamega()
+    {
+        return json_decode('{
+            "place_id": "218550",
+            "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+            "osm_type": "node",
+            "osm_id": "44999588",
+            "boundingbox": [
+              "0.1233",
+              "0.4433",
+              "34.59",
+              "34.91"
+            ],
+            "lat": "0.2833",
+            "lon": "34.75",
+            "display_name": "Kakamega, 50100, Kenya",
+            "class": "place",
+            "type": "city",
+            "importance": 0.48740926484756897,
+            "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+        }');
+    }
+
+    function bukura()
+    {
+        return json_decode('{
+            "place_id": "57722461",
+            "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+            "osm_type": "node",
+            "osm_id": "4699498766",
+            "boundingbox": [
+              "0.1809092",
+              "0.2609092",
+              "34.5740795",
+              "34.6540795"
+            ],
+            "lat": "0.2209092",
+            "lon": "34.6140795",
+            "display_name": "Bukura, Kakamega, Kenya",
+            "class": "place",
+            "type": "town",
+            "importance": 0.4,
+            "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+        }');
     }
 }
