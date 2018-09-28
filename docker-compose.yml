@@ -21,9 +21,9 @@ services:
             - 17001:80
 
     db:
-        image: mariadb
+        image: mysql:5.7
         volumes:
-            - ./docker/mariadb/:/var/lib/mysql/:rw
+            - ./docker/mysql/:/var/lib/mysql/:rw
         environment:
             MYSQL_DATABASE: growthpad.irenkenya.com
             MYSQL_ROOT_PASSWORD: jS35n9YmZppjxRDfhfY5MJvc5tKztp
