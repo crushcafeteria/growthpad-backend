@@ -23,8 +23,8 @@ class CreateAdsTable extends Migration
             $table->string('price');
             $table->string('telephone');
             $table->string('email');
-            $table->string('location')->nullable();
-            $table->string('pictures')->nullable();
+            $table->text('location')->nullable();
+            $table->text('pictures')->nullable();
             $table->string('status')->default('ACTIVE');
             $table->string('lon');
             $table->string('lat');
