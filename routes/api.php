@@ -1,29 +1,31 @@
 <?php
 
-Route::post('enquiry/save', 'ServiceController@saveEnquiry');
-Route::get('marketplace', 'MarketController@apiListContacts');
-Route::get('marketplace/search/{q?}', 'MarketController@apiSearchContact');
+Route::group(['middleware' => 'cors'], function (){
+    Route::post('enquiry/save', 'ServiceController@saveEnquiry');
+    Route::get('marketplace', 'MarketController@apiListContacts');
+    Route::get('marketplace/search/{q?}', 'MarketController@apiSearchContact');
 
-Route::post('user/register', 'Auth\RegisterController@apiRegisterUser');
-Route::post('user/login', 'Auth\LoginController@apiLogin');
+    Route::post('user/register', 'Auth\RegisterController@apiRegisterUser');
+    Route::post('user/login', 'Auth\LoginController@apiLogin');
 
 ## NEW API SPEC STARTS HERE
-Route::post('login', 'API\AccountController@login');
-Route::post('signup', 'API\AccountController@signup');
-Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
-Route::post('location/update', 'API\AccountController@updateLocation')->middleware('jwt.auth');
-Route::post('picture/upload', 'API\AccountController@uploadPicture')->middleware(['jwt.auth','cors']);
-Route::post('profile/update', 'API\AccountController@updateProfile')->middleware('jwt.auth');
+    Route::post('login', 'API\AccountController@login');
+    Route::post('signup', 'API\AccountController@signup');
+    Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
+    Route::post('location/update', 'API\AccountController@updateLocation')->middleware('jwt.auth');
+    Route::post('picture/upload', 'API\AccountController@uploadPicture')->middleware(['jwt.auth', 'cors']);
+    Route::post('profile/update', 'API\AccountController@updateProfile')->middleware('jwt.auth');
 
-Route::resource('ads', 'API\AdsController');
+    Route::resource('ads', 'API\AdsController');
 
-Route::get('ping', function (){
-    return response()->json('ALIVE');
+    Route::get('ping', function (){
+        return response()->json('ALIVE');
+    });
+
+    Route::prefix('support')->group(function (){
+        Route::get('countyData', 'API\SupportController@countyData');
+        Route::get('location/suggest', 'API\SupportController@suggestLocation');
+    });
+
+    Route::resource('orders', 'API\OrderController');
 });
-
-Route::prefix('support')->group(function (){
-    Route::get('countyData', 'API\SupportController@countyData');
-    Route::get('location/suggest', 'API\SupportController@suggestLocation');
-});
-
-Route::resource('orders', 'API\OrderController');
