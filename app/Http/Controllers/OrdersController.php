@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use App\Mail\OrderProgressing;
 use App\Models\ActivityLog;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use PDF;
 
 class OrdersController extends Controller
@@ -87,6 +89,13 @@ class OrdersController extends Controller
             'status'       => $request->status,
             'instructions' => $request->instructions,
         ]);
+
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find($id);
+
+        if($request->status == 'PROGRESSING'){
+            Mail::to($order->customer->email)->send(new OrderProgressing($order));
+        }
+
 
         request()->session()->flash('successbox', ['This order has been updated!']);
 
