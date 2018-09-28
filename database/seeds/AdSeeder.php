@@ -7,6 +7,16 @@ class AdSeeder extends Seeder
 
     public function run()
     {
-        factory(\App\Models\Ad::class, 100)->create();
+        $index     = 100;
+        $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
+        while ($index > 0) {
+            $location = collect($locations)->random();
+            factory(\App\Models\Ad::class, 100)->create([
+                'location' => $location,
+                'lon'      => $location['lon'],
+                'lat'      => $location['lat'],
+            ]);
+            $index--;
+        }
     }
 }

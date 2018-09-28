@@ -26,6 +26,8 @@ class CreateAdsTable extends Migration
             $table->string('location')->nullable();
             $table->string('pictures')->nullable();
             $table->string('status')->default('ACTIVE');
+            $table->string('lon');
+            $table->string('lat');
             $table->date('expiry');
             $table->timestamps();
         });
