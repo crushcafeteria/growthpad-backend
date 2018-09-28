@@ -10,7 +10,8 @@ class Ad extends Model
     protected $table = 'ads';
     protected $guarded = ['id', 'created_at'];
     protected $casts = [
-        'pictures' => 'array'
+        'pictures' => 'array',
+        'location' => 'array',
     ];
 
     protected $appends = ['featured_picture'];
