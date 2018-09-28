@@ -13,7 +13,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                            <div class="col-3 pull-right">
+                                {!! Form::open(['url' => url('orders/search')]) !!}
+                                {!! Form::text('q', request()->q, ['class' => 'form-control', 'placeholder' => 'Search...']) !!}
+                                {!! Form::close() !!}
+                            </div>
                             <h4 class="c-grey-900 mB-20">Orders Placed</h4>
+
+                            @include('common.boxes')
+
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -47,7 +55,7 @@
 
                             {{ $orders->links() }}
 
-                            {{ dump($orders) }}
+{{--                            {{ dump($orders) }}--}}
                         </div>
                     </div>
                 </div>

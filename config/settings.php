@@ -405,4 +405,10 @@ return [
         'AGROVET'  => 'Agrovet',
         'CATERING' => 'Catering',
     ],
+
+    'order_statuses' => [
+        'PENDING'     => 'Pending',
+        'PROGRESSING' => 'In progress',
+        'DELIVERED'   => 'Delivered',
+    ]
 ];

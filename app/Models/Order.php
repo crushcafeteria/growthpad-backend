@@ -19,4 +19,9 @@ class Order extends Model
     {
         return $this->hasOne(Ad::class, 'id', 'ad_id');
     }
+
+    function logs()
+    {
+        return $this->hasMany(ActivityLog::class, 'order_id', 'id');
+    }
 }

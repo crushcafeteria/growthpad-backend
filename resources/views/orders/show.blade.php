@@ -19,12 +19,19 @@
                             <a href="{{ route('orders.edit', ['order'=>$order->id]) }}" class="btn btn-primary pull-right">
                                 <i class="fa fa-edit fa-fw"></i> Manage
                             </a>
+                            <a target="_blank" href="{{ url('orders/'.$order->id.'/pdf') }}" class="btn btn-success pull-right">
+                                <i class="fa fa-file-pdf-o fa-fw"></i> Print
+                            </a>
                         </div>
                         <h3>View @yield('title')</h3>
                     </div>
                 </div>
 
                 <div class="row">
+
+                    <div class="col-12">
+                        @include('common.boxes')
+                    </div>
 
                     {{--Product Info--}}
                     <div class="col-4">
@@ -125,36 +132,61 @@
                 {{--Activity log--}}
                 <div class="row mt-4">
                     <div class="col-12">
-
-                        <a href="#" class="btn btn-secondary pull-right">
+                        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-plus-circle fa-fw"></i> Add a note
-                        </a>
-                        <h4><i class="fa fa-edit fa-fw"></i> Order Notes</h4>
-
+                        </button>
+                        <h4>
+                            <i class="fa fa-comments fa-fw"></i> Staff Notes - {{ $order->logs->count() }}
+                        </h4>
                         <div class="list-group mt-3">
-                            @foreach(range(0,20) as $value)
+                            @foreach($order->logs as $log)
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <p class="mb-1">
+                                        {{ $log->message }}
+                                    </p>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
                                         <small class="text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i> 3 days ago
+                                            <i class="fa fa-user-circle fa-fw"></i> Written by {{ $log->_publisher->name }}
+                                        </small>
+                                        <small class="text-muted pull-right">
+                                            <i class="fa fa-clock-o fa-fw"></i> {{ $log->created_at->diffForHumans() }}
                                         </small>
                                     </div>
-                                    <p class="mb-1">
-                                        Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
-                                        risus varius blandit.
-                                    </p>
                                 </div>
                             @endforeach
                         </div>
-
-
                     </div>
                 </div>
 
             </div>
         </div>
     </main>
+
+    <!-- Add staff note -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a note on this order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {!! Form::open(['url'=>'orders/'.$order->id.'/note']) !!}
+                    <div class="form-group">
+                        <label>Message</label>
+                        {!! Form::textarea('note', null, ['placeholder'=>'Type your message...', 'class'=>'form-control']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="$('form').submit()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('header-scripts')

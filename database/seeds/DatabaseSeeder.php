@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             AdSeeder::class,
-            OrderSeeder::class
+            OrderSeeder::class,
+            ActivityLogSeeder::class
         ]);
     }
 }
