@@ -1,0 +1,362 @@
+[
+  {
+    "place_id": "199397627",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "relation",
+    "osm_id": "7617833",
+    "boundingbox": [
+      "-1.444471",
+      "-1.163332",
+      "36.6641288",
+      "37.1038871"
+    ],
+    "lat": "-1.2832533",
+    "lon": "36.8172449",
+    "display_name": "Nairobi, Kenya",
+    "class": "place",
+    "type": "city",
+    "importance": 0.725534952321537,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "185266918",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": "531015974",
+    "boundingbox": [
+      "-0.1331786",
+      "-0.0625821",
+      "34.7420039",
+      "34.7915993"
+    ],
+    "lat": "-0.1029109",
+    "lon": "34.7541761",
+    "display_name": "Kisumu, 40100, Kenya",
+    "class": "place",
+    "type": "city",
+    "importance": 0.556612256495345,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "218550",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44999588",
+    "boundingbox": [
+      "0.1233",
+      "0.4433",
+      "34.59",
+      "34.91"
+    ],
+    "lat": "0.2833",
+    "lon": "34.75",
+    "display_name": "Kakamega, 50100, Kenya",
+    "class": "place",
+    "type": "city",
+    "importance": 0.48740926484756897,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  },
+  {
+    "place_id": "57722461",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "4699498766",
+    "boundingbox": [
+      "0.1809092",
+      "0.2609092",
+      "34.5740795",
+      "34.6540795"
+    ],
+    "lat": "0.2209092",
+    "lon": "34.6140795",
+    "display_name": "Bukura, Kakamega, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.4,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "48835470",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "3731344077",
+    "boundingbox": [
+      "0.177213",
+      "0.257213",
+      "34.459432",
+      "34.539432"
+    ],
+    "lat": "0.217213",
+    "lon": "34.499432",
+    "display_name": "Butere, Kakamega, 50101, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.4,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "158260255",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": "368496877",
+    "boundingbox": [
+      "0.3018106",
+      "0.374629",
+      "34.4467948",
+      "34.516336"
+    ],
+    "lat": "0.3363",
+    "lon": "34.4891",
+    "display_name": "Mumias, Kakamega, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.46872296712835204,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "61637798",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "5083660740",
+    "boundingbox": [
+      "0.5927801",
+      "0.5928801",
+      "34.5542065",
+      "34.5543065"
+    ],
+    "lat": "0.5928301",
+    "lon": "34.5542565",
+    "display_name": "Kanduyi, Eldoret Road, Mabanga, Bungoma, N/A, Kenya",
+    "class": "highway",
+    "type": "bus_stop",
+    "importance": 0.101,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/transport_bus_stop2.p.20.png"
+  },
+  {
+    "place_id": "19221120",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "1864714005",
+    "boundingbox": [
+      "0.717102",
+      "0.757102",
+      "34.5598327",
+      "34.5998327"
+    ],
+    "lat": "0.737102",
+    "lon": "34.5798327",
+    "display_name": "Chwele, Bungoma, Kenya",
+    "class": "place",
+    "type": "village",
+    "importance": 0.375,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "16142555",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "1437507748",
+    "boundingbox": [
+      "0.589565",
+      "0.669565",
+      "34.289774",
+      "34.369774"
+    ],
+    "lat": "0.629565",
+    "lon": "34.329774",
+    "display_name": "Amagoro, Busia, N/A, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.220272251582956,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "18821864",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "1811689546",
+    "boundingbox": [
+      "0.2774737",
+      "0.3174737",
+      "34.7467211",
+      "34.7867211"
+    ],
+    "lat": "0.2974737",
+    "lon": "34.7667211",
+    "display_name": "Lurambi, Kakamega, 50100, Kenya",
+    "class": "place",
+    "type": "village",
+    "importance": 0.375,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "50340802",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "3901112448",
+    "boundingbox": [
+      "0.1759775",
+      "0.2559775",
+      "34.7282625",
+      "34.8082625"
+    ],
+    "lat": "0.2159775",
+    "lon": "34.7682625",
+    "display_name": "Mukumu, Kakamega, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.4,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "19051811",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "1821782085",
+    "boundingbox": [
+      "0.1665688",
+      "0.2465688",
+      "34.7324829",
+      "34.8124829"
+    ],
+    "lat": "0.2065688",
+    "lon": "34.7724829",
+    "display_name": "Khayega, Kakamega, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.4,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "50860689",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "3901112449",
+    "boundingbox": [
+      "0.1522627",
+      "0.2322627",
+      "34.7217568",
+      "34.8017568"
+    ],
+    "lat": "0.1922627",
+    "lon": "34.7617568",
+    "display_name": "Sigalagala, Kakamega, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.4,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "219146",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44910403",
+    "boundingbox": [
+      "0.5766",
+      "0.6566",
+      "34.7266",
+      "34.8066"
+    ],
+    "lat": "0.6166",
+    "lon": "34.7666",
+    "display_name": "Webuye, Bungoma, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.46385461349205004,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "220394",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44992289",
+    "boundingbox": [
+      "0.7433",
+      "0.8233",
+      "34.6766",
+      "34.7566"
+    ],
+    "lat": "0.7833",
+    "lon": "34.7166",
+    "display_name": "Kimilili, Bungoma, Kenya",
+    "class": "place",
+    "type": "town",
+    "importance": 0.294016845008626,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_town.p.20.png"
+  },
+  {
+    "place_id": "221401",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44992203",
+    "boundingbox": [
+      "0.872593",
+      "0.912593",
+      "34.90515",
+      "34.94515"
+    ],
+    "lat": "0.892593",
+    "lon": "34.92515",
+    "display_name": "Kiminini, Trans Nzoia, Kenya",
+    "class": "place",
+    "type": "village",
+    "importance": 0.375,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "217020",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44911108",
+    "boundingbox": [
+      "0.6133",
+      "0.6533",
+      "35.03",
+      "35.07"
+    ],
+    "lat": "0.6333",
+    "lon": "35.05",
+    "display_name": "Turbo, Uasin Gishu, Kenya",
+    "class": "place",
+    "type": "village",
+    "importance": 0.375,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_village.p.20.png"
+  },
+  {
+    "place_id": "133180749",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": "244031190",
+    "boundingbox": [
+      "0.390614",
+      "0.5634475",
+      "35.0023597",
+      "35.2041869"
+    ],
+    "lat": "0.471667",
+    "lon": "35.0956104",
+    "display_name": "Kipkaren River, Nandi, Kenya",
+    "class": "waterway",
+    "type": "stream",
+    "importance": 0.42500000000000004
+  },
+  {
+    "place_id": "218087",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+    "osm_type": "node",
+    "osm_id": "44933158",
+    "boundingbox": [
+      "0.858076",
+      "1.178076",
+      "34.840236",
+      "35.160236"
+    ],
+    "lat": "1.018076",
+    "lon": "35.000236",
+    "display_name": "Kitale, Trans Nzoia, Kenya",
+    "class": "place",
+    "type": "city",
+    "importance": 0.485929278748757,
+    "icon": "https://nominatim.openstreetmap.org/images/mapicons/poi_place_city.p.20.png"
+  }
+]
