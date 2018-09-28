@@ -11,7 +11,7 @@ class AdSeeder extends Seeder
         $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
         while ($index > 0) {
             $location = collect($locations)->random();
-            factory(\App\Models\Ad::class, 100)->create([
+            factory(\App\Models\Ad::class)->create([
                 'location' => $location,
                 'lon'      => $location['lon'],
                 'lat'      => $location['lat'],
