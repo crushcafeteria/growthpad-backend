@@ -7,6 +7,7 @@ use App\Mail\AdCreated;
 use App\Models\Ad;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -65,8 +66,17 @@ class AdsController extends Controller
             ]);
         }
 
-        $ad = request()->only(['category', 'name', 'description', 'price', 'telephone', 'email', 'location', 'picture']);
-        $ad['expiry'] = Carbon::now()->addMonths(12);
+        $ad                 = request()->only([
+            'category',
+            'name',
+            'description',
+            'price',
+            'telephone',
+            'email',
+            'location',
+            'picture'
+        ]);
+        $ad['expiry']       = Carbon::now()->addMonths(12);
         $ad['publisher_id'] = auth()->id();
 
         $ad = Ad::create($ad);
@@ -86,6 +96,7 @@ class AdsController extends Controller
     public function show($id)
     {
         $ad = Ad::with('publisher')->find($id);
+
         return response()->json($ad);
     }
 
@@ -125,4 +136,23 @@ class AdsController extends Controller
     {
         //
     }
+
+    function nearBy()
+    {
+        $latitude  = auth()->user()->lat;
+        $longitude = auth()->user()->lon;
+        $distance  = request()->kilometres;
+
+        $nearByAds = Ad::whereRaw(
+            DB::raw("(3959 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
+                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
+                          radians( lat ) ) ) ) < $distance ")
+        )->get();
+
+
+
+        return $nearByAds;
+    }
+
+
 }

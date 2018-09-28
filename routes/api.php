@@ -16,7 +16,10 @@ Route::group(['middleware' => 'cors'], function (){
     Route::post('picture/upload', 'API\AccountController@uploadPicture')->middleware(['jwt.auth', 'cors']);
     Route::post('profile/update', 'API\AccountController@updateProfile')->middleware('jwt.auth');
 
+    # Ads
     Route::resource('ads', 'API\AdsController');
+    Route::post('ads/nearby', 'API\AdsController@nearBy');
+
 
     Route::get('ping', function (){
         return response()->json('ALIVE');

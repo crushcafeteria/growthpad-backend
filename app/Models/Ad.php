@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Geokit\LatLng;
+use Geokit\Math;
 use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
@@ -14,7 +16,7 @@ class Ad extends Model
         'location' => 'array',
     ];
 
-    protected $appends = ['featured_picture'];
+    protected $appends = ['featured_picture', 'distance'];
 
 //    function getPictureAttribute($pic)
 //    {
@@ -32,5 +34,17 @@ class Ad extends Model
     function getFeaturedPictureAttribute()
     {
         return collect(json_decode($this->attributes['pictures']))->first();
+    }
+
+    function getDistanceAttribute()
+    {
+        $math = new Math();
+
+        $from = new LatLng(auth()->user()->lat, auth()->user()->lon);
+        $to   = new LatLng($this->attributes['lat'], $this->attributes['lon']);
+
+        $distance = $math->distanceVincenty($from, $to);
+
+        return round($distance->kilometers(), 1);
     }
 }
