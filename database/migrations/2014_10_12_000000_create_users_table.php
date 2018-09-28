@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('privilege')->default('USER');
             $table->text('location')->nullable();
             $table->string('telephone');
-            $table->string('county');
             $table->string('picture')->nullable();
             $table->string('gender');
+            $table->string('lon');
+            $table->string('lat');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -12,9 +12,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $kakamega = '
-        ';
-
         factory(App\Models\User::class)->create([
             'name'      => 'Nelson Ameyo',
             'email'     => 'nelson@lipasafe.com',
@@ -22,8 +19,9 @@ class UserSeeder extends Seeder
             'privilege' => 'ADMIN',
             'telephone' => '0741504000',
             'gender'    => 'M',
-            'county'    => collect(config('settings.counties'))->keys()->random(),
-            'location'  => $this->kakamega()
+            'location'  => $this->kakamega(),
+            'lon'       => $this->kakamega()->lon,
+            'lat'       => $this->kakamega()->lat,
         ]);
 
         factory(App\Models\User::class)->create([
@@ -33,9 +31,25 @@ class UserSeeder extends Seeder
             'privilege' => 'SP',
             'telephone' => '0700123456',
             'gender'    => 'F',
-            'county'    => collect(config('settings.counties'))->keys()->random(),
-            'location'  => $this->bukura()
+            'location'  => $this->bukura(),
+            'lon'       => $this->bukura()->lon,
+            'lat'       => $this->bukura()->lat,
         ]);
+
+        # Generate community
+        $index     = 50;
+        $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
+
+        while ($index > 0) {
+            $location = collect($locations)->random();
+            factory(\App\Models\User::class)->create([
+                'location' => $location,
+                'lon'      => $location['lon'],
+                'lat'      => $location['lat'],
+            ]);
+            $index--;
+        }
+
     }
 
     function kakamega()
