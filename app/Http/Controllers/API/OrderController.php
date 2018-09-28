@@ -107,7 +107,7 @@ class OrderController extends Controller
             'status'       => 'required',
             'instructions' => 'required'
         ], [
-            'orderID.required' => 'Please atatch the orderID'
+            'orderID.required' => 'Please attach the orderID'
         ]);
 
         if ($validation->fails()) {
