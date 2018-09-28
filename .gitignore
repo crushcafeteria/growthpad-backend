@@ -2,5 +2,4 @@
 /public/storage
 /vendor
 /.idea
-/storage
 /docker/mariadb
