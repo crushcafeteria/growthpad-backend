@@ -100,7 +100,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $validation = Validator::make($request->all(), [
             'orderID'      => 'required',
