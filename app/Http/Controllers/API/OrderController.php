@@ -110,7 +110,7 @@ class OrderController extends Controller
             'instructions' => 'required'
         ], [
             'orderID.required' => 'Please attach the orderID'
-        ]);
+        ]);update
 
         if ($validation->fails()) {
             return response()->json(['error' => $validation->errors()->first()]);
