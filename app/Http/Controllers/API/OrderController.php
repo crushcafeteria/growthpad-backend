@@ -106,6 +106,8 @@ class OrderController extends Controller
             'orderID'      => 'required',
             'status'       => 'required',
             'instructions' => 'required'
+        ], [
+            'orderID.required' => 'Please atatch the orderID'
         ]);
 
         if ($validation->fails()) {
@@ -119,7 +121,7 @@ class OrderController extends Controller
 
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find($request->orderID);
 
-        if($request->status == 'PROGRESSING'){
+        if ($request->status == 'PROGRESSING') {
             Mail::to($order->customer->email)->send(new OrderProgressing($order));
         }
 
