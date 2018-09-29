@@ -19,6 +19,7 @@ Route::group(['middleware' => 'cors'], function (){
     # Ads
     Route::resource('ads', 'API\AdsController');
     Route::post('ads/nearby', 'API\AdsController@nearBy');
+    Route::post('ads/search', 'API\AdsController@search');
 
 
     Route::get('ping', function (){

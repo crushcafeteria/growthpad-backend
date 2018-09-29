@@ -152,5 +152,16 @@ class AdsController extends Controller
         return response()->json($nearByAds);
     }
 
+    function search()
+    {
+        $q = '%' . request()->q . '%';
+
+        $results = Ad::with('publisher')
+                     ->where('name', 'LIKE', $q)
+                     ->orWhere('description', 'LIKE', $q)->paginate();
+
+        return response()->json($results);
+    }
+
 
 }
