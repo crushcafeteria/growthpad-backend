@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         ]);
 
         # Generate community
-        $index     = 100;
+        $index     = 400;
         $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
 
         while ($index > 0) {
