@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Ad;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
@@ -148,7 +148,18 @@ class AccountController extends Controller
 
     function getSPs()
     {
-        $SPs = Ad::with('publisher')->distinct('publisher_id')->paginate();
+        $latitude  = auth()->user()->lat;
+        $longitude = auth()->user()->lon;
+        $distance  = request()->radius;
+
+        $SPs = User::with('ads')->where('privilege', 'SP')->whereRaw(
+            DB::raw("(3959 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
+                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
+                          radians( lat ) ) ) ) < $distance ")
+        )->whereHas('ads', function($query){
+            return $query->where('category', request()->category);
+        })->paginate();
+
 
         return response()->json($SPs);
     }

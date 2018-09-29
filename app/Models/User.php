@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Geokit\LatLng;
+use Geokit\Math;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -32,6 +34,8 @@ class User extends Authenticatable implements JWTSubject
         'location' => 'array'
     ];
 
+    protected $appends = ['distance'];
+
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
@@ -58,7 +62,24 @@ class User extends Authenticatable implements JWTSubject
 //            return 'http://placehold.it/300?Image coming soon';
             return null;
         } else {
-            return asset('storage/'.$val);
+            return asset('storage/' . $val);
         }
+    }
+
+    function getDistanceAttribute()
+    {
+        $math = new Math();
+
+        $from = @new LatLng(auth()->user()->lat, auth()->user()->lon);
+        $to   = new LatLng($this->attributes['lat'], $this->attributes['lon']);
+
+        $distance = $math->distanceVincenty($from, $to);
+
+        return round($distance->kilometers(), 1);
+    }
+
+    function ads()
+    {
+        return $this->hasMany(Ad::class, 'publisher_id', 'id');
     }
 }
