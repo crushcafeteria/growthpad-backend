@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Ad::class, function (Faker $faker){
     return [
-        'publisher_id' => 1,
+        'publisher_id' => null,
         'category'     => collect(config('settings.categories'))->keys()->random(),
         'name'         => $faker->sentence(2),
         'description'  => $faker->sentence(rand(15, 60)),

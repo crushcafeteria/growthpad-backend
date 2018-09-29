@@ -37,15 +37,16 @@ class UserSeeder extends Seeder
         ]);
 
         # Generate community
-        $index     = 50;
+        $index     = 100;
         $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
 
         while ($index > 0) {
             $location = collect($locations)->random();
             factory(\App\Models\User::class)->create([
-                'location' => $location,
-                'lon'      => $location['lon'],
-                'lat'      => $location['lat'],
+                'location'  => $location,
+                'lon'       => $location['lon'],
+                'lat'       => $location['lat'],
+                'privilege' => collect(['SP', 'USER'])->random()
             ]);
             $index--;
         }

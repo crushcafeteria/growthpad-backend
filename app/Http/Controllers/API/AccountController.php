@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ad;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -143,5 +144,12 @@ class AccountController extends Controller
         User::find(auth()->id())->update($profile);
 
         return response()->json(User::find(auth()->id()));
+    }
+
+    function getSPs()
+    {
+        $SPs = Ad::with('publisher')->distinct('publisher_id')->paginate();
+
+        return response()->json($SPs);
     }
 }
