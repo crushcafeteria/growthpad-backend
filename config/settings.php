@@ -404,6 +404,7 @@ return [
     'categories' => [
         'AGROVET'  => 'Agrovet',
         'CATERING' => 'Catering',
+        'HOTELIER' => 'Hotelier',
     ],
 
     'order_statuses' => [
