@@ -87,13 +87,11 @@ class AdsController extends Controller
             'lat'          => $payload->location->lat,
             'expiry'       => Carbon::now()->addMonths(3),
         ];
+        $ad = Ad::create($ad);
 
-        dd($ad);
+        Mail::to(auth()->user())->send(new AdCreated($ad));
 
-//
-//        Mail::to(auth()->user())->send(new AdCreated($ad));
-//
-//        return response()->json($ad);
+        return response()->json($ad);
     }
 
     /**
