@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Mail\AdCreated;
 use App\Models\Ad;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdsController extends Controller
@@ -54,13 +51,7 @@ class AdsController extends Controller
         dd($payload);
 
         $validator = Validator::make(request()->all(), [
-            'category'    => 'required',
-            'name'        => 'required',
-            'description' => 'required',
-            'price'       => 'required|integer',
-            'telephone'   => 'required',
-            'email'       => 'email',
-            'location'    => 'required',
+            'payload' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -69,24 +60,29 @@ class AdsController extends Controller
             ]);
         }
 
-        $ad                 = request()->only([
-            'category',
-            'name',
-            'description',
-            'price',
-            'telephone',
-            'email',
-            'location',
-            'picture'
-        ]);
-        $ad['expiry']       = Carbon::now()->addMonths(12);
-        $ad['publisher_id'] = auth()->id();
+        # Upload pictures
+        collect($request->pictures)->each(function ($picture){
+            dump($picture);
+        });
 
-        $ad = Ad::create($ad);
-
-        Mail::to(auth()->user())->send(new AdCreated($ad));
-
-        return response()->json($ad);
+//        $ad                 = request()->only([
+//            'category',
+//            'name',
+//            'description',
+//            'price',
+//            'telephone',
+//            'email',
+//            'location',
+//            'picture'
+//        ]);
+//        $ad['expiry']       = Carbon::now()->addMonths(12);
+//        $ad['publisher_id'] = auth()->id();
+//
+//        $ad = Ad::create($ad);
+//
+//        Mail::to(auth()->user())->send(new AdCreated($ad));
+//
+//        return response()->json($ad);
     }
 
     /**
