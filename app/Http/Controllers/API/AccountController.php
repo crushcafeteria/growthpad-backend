@@ -52,14 +52,14 @@ class AccountController extends Controller
 
     function signup()
     {
-        $user      = request()->only([
+        $user = request()->only([
             'name',
             'email',
             'telephone',
             'gender',
-            'county',
             'password'
         ]);
+
         $validator = Validator::make($user, [
             'name'      => 'required',
             'email'     => 'required|email|unique:users',
@@ -156,7 +156,7 @@ class AccountController extends Controller
             DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
                           cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
                           radians( lat ) ) ) ) < $distance ")
-        )->whereHas('ads', function($query){
+        )->whereHas('ads', function ($query){
             return $query->where('category', request()->category);
         })->paginate();
 
