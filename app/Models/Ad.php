@@ -18,13 +18,16 @@ class Ad extends Model
 
     protected $appends = ['featured_picture', 'distance'];
 
-//    function getPictureAttribute($pic)
-//    {
-//        if (!$pic) {
-//            return 'https://source.unsplash.com/random/500x500?rand=' . rand(0, 10000);
-//        }
-//        return $pic;
-//    }
+    function getPicturesAttribute($pics)
+    {
+        $pics = json_decode($pics, true);
+
+        collect($pics)->each(function ($pic, $key) use (&$pics){
+            $pics[$key] = asset($pic);
+        });
+
+        return $pics;
+    }
 
     function publisher()
     {
