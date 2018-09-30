@@ -163,5 +163,12 @@ class AdsController extends Controller
         return response()->json($results);
     }
 
+    function getSPAds()
+    {
+        $ads = Ad::where('publisher_id', request()->spID)->paginate();
+
+        return response()->json($ads);
+    }
+
 
 }
