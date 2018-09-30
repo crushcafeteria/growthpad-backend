@@ -20,13 +20,17 @@ class Ad extends Model
 
     function getPicturesAttribute($pics)
     {
-        $pics = json_decode($pics, true);
+        if (!$pics) {
+            return 'http://placehold.it/200x200?text=Image coming soon';
+        } else {
+            $pics = json_decode($pics, true);
 
-        collect($pics)->each(function ($pic, $key) use (&$pics){
-            $pics[$key] = asset('storage/' . $pic);
-        });
+            collect($pics)->each(function ($pic, $key) use (&$pics){
+                $pics[$key] = asset('storage/' . $pic);
+            });
 
-        return $pics;
+            return $pics;
+        }
     }
 
     function publisher()
@@ -36,7 +40,11 @@ class Ad extends Model
 
     function getFeaturedPictureAttribute()
     {
-        return asset('storage/' . collect(json_decode($this->attributes['pictures']))->first());
+        if (!$this->attributes['pictures']) {
+            return 'http://placehold.it/200x200?text=Image coming soon';
+        } else {
+            return asset('storage/' . collect(json_decode($this->attributes['pictures']))->first());
+        }
     }
 
     function getDistanceAttribute()
