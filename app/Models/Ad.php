@@ -23,7 +23,7 @@ class Ad extends Model
         $pics = json_decode($pics, true);
 
         collect($pics)->each(function ($pic, $key) use (&$pics){
-            $pics[$key] = asset($pic);
+            $pics[$key] = asset('storage/' . $pic);
         });
 
         return $pics;
@@ -36,7 +36,7 @@ class Ad extends Model
 
     function getFeaturedPictureAttribute()
     {
-        return collect(json_decode($this->attributes['pictures']))->first();
+        return asset('storage/' . collect(json_decode($this->attributes['pictures']))->first());
     }
 
     function getDistanceAttribute()
