@@ -7,6 +7,7 @@ use App\Models\Ad;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdsController extends Controller
@@ -64,9 +65,7 @@ class AdsController extends Controller
         $pictures = null;
         collect($payload->pictures)->each(function ($uri) use (&$pictures){
             if (strlen($uri) > 128) {
-                list($ext, $data) = explode(';', $uri);
-                list(, $data) = explode(',', $data);
-                $data = base64_decode($data);
+                $data = base64_decode($uri);
                 $file = 'ads/' . md5(str_random(15)) . '.jpg';
                 Storage::disk('public')->put($file, $data);
                 $pictures[] = $file;
@@ -84,8 +83,8 @@ class AdsController extends Controller
             'location'     => $payload->location,
             'location'     => $payload->location,
             'pictures'     => $pictures,
-            'lon'          => $payload->location['lon'],
-            'lat'          => $payload->location['lat'],
+            'lon'          => $payload->location->lon,
+            'lat'          => $payload->location->lat,
             'expiry'       => Carbon::now()->addMonths(3),
         ];
 
