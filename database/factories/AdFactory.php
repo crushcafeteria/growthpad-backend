@@ -12,11 +12,7 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
         'telephone'    => $faker->e164PhoneNumber,
         'email'        => $faker->freeEmail,
         'location'     => 'Nairobi',
-        'pictures'     => [
-            'http://placehold.it/500x400/' . str_replace('#', null, $faker->hexcolor) . '/ffffff/?text=Image coming soon',
-            'http://placehold.it/500x400/' . str_replace('#', null, $faker->hexcolor) . '/ffffff/?text=Image coming soon',
-            'http://placehold.it/500x400/' . str_replace('#', null, $faker->hexcolor) . '/ffffff/?text=Image coming soon',
-        ],
+        'pictures'     => null,
         'status'       => 'ACTIVE',
         'expiry'       => \Carbon\Carbon::now()->addMonths(12)
     ];
