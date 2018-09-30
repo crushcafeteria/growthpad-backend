@@ -144,7 +144,7 @@ class AdsController extends Controller
         $distance  = request()->kilometres;
 
         $nearByAds = Ad::whereRaw(
-            DB::raw("(3959 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
+            DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
                           cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
                           radians( lat ) ) ) ) < $distance ")
         )->paginate();
