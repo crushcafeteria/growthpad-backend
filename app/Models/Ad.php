@@ -40,11 +40,7 @@ class Ad extends Model
 
     function getFeaturedPictureAttribute()
     {
-        if (!$this->attributes['pictures']) {
-            return 'http://placehold.it/200x200?text=Image coming soon';
-        } else {
-            return asset('storage/' . collect(json_decode($this->attributes['pictures']))->first());
-        }
+        return json_decode($this->attributes['pictures'], true)[0];
     }
 
     function getDistanceAttribute()
