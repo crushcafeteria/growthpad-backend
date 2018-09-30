@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ad;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -60,24 +61,36 @@ class AdsController extends Controller
         }
 
         # Upload pictures
-        collect($payload->pictures)->each(function ($picture){
-            dump($picture);
+        $pictures = null;
+        collect($payload->pictures)->each(function ($uri) use (&$pictures){
+            if (strlen($uri) > 128) {
+                list($ext, $data) = explode(';', $uri);
+                list(, $data) = explode(',', $data);
+                $data = base64_decode($data);
+                $file = 'ads/' . md5(str_random(15)) . '.jpg';
+                Storage::disk('public')->put($file, $data);
+                $pictures[] = $file;
+            }
         });
 
-//        $ad                 = request()->only([
-//            'category',
-//            'name',
-//            'description',
-//            'price',
-//            'telephone',
-//            'email',
-//            'location',
-//            'picture'
-//        ]);
-//        $ad['expiry']       = Carbon::now()->addMonths(12);
-//        $ad['publisher_id'] = auth()->id();
-//
-//        $ad = Ad::create($ad);
+        $ad = [
+            'publisher_id' => auth()->id(),
+            'category'     => $payload->category,
+            'name'         => $payload->name,
+            'description'  => $payload->description,
+            'price'        => $payload->price,
+            'telephone'    => $payload->telephone,
+            'email'        => $payload->email,
+            'location'     => $payload->location,
+            'location'     => $payload->location,
+            'pictures'     => $pictures,
+            'lon'          => $payload->location['lon'],
+            'lat'          => $payload->location['lat'],
+            'expiry'       => Carbon::now()->addMonths(3),
+        ];
+
+        dd($ad);
+
 //
 //        Mail::to(auth()->user())->send(new AdCreated($ad));
 //
