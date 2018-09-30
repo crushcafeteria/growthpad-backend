@@ -48,7 +48,6 @@ class AdsController extends Controller
     public function store(Request $request)
     {
         $payload = json_decode($request->payload);
-        dd($payload);
 
         $validator = Validator::make(request()->all(), [
             'payload' => 'required',
