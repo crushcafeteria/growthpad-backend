@@ -21,7 +21,7 @@ class Ad extends Model
     function getPicturesAttribute($pics)
     {
         if (!$pics) {
-            return null;
+            return 'http://placehold.it/200x200?text=Image coming soon';
         } else {
             $pics = json_decode($pics, true);
 
@@ -41,7 +41,7 @@ class Ad extends Model
     function getFeaturedPictureAttribute()
     {
         if (!$this->attributes['pictures']) {
-            return null;
+            return 'http://placehold.it/200x200?text=Image coming soon';
         } else {
             return asset('storage/' . collect(json_decode($this->attributes['pictures']))->first());
         }
