@@ -60,7 +60,7 @@ class AdsController extends Controller
         }
 
         # Upload pictures
-        collect($request->pictures)->each(function ($picture){
+        collect($payload->pictures)->each(function ($picture){
             dump($picture);
         });
 
