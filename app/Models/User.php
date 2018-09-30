@@ -71,7 +71,7 @@ class User extends Authenticatable implements JWTSubject
         $math = new Math();
 
         $from = @new LatLng(auth()->user()->lat, auth()->user()->lon);
-        $to   = new LatLng($this->attributes['lat'], $this->attributes['lon']);
+        $to   = @new LatLng($this->attributes['lat'], $this->attributes['lon']);
 
         $distance = $math->distanceVincenty($from, $to);
 
