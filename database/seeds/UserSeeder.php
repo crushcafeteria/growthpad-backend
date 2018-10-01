@@ -36,6 +36,18 @@ class UserSeeder extends Seeder
             'lat'       => $this->bukura()->lat,
         ]);
 
+        factory(App\Models\User::class)->create([
+            'name'      => 'Customer Account',
+            'email'     => 'customer@gmail.com',
+            'password'  => bcrypt('root'),
+            'privilege' => 'USER',
+            'telephone' => '0700111222',
+            'gender'    => 'F',
+            'location'  => $this->bukura(),
+            'lon'       => $this->bukura()->lon,
+            'lat'       => $this->bukura()->lat,
+        ]);
+
         # Generate community
         $index     = 400;
         $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);
