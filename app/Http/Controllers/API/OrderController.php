@@ -146,7 +146,7 @@ class OrderController extends Controller
 
     function getSPOrders()
     {
-        $orders = Order::with(['ad', 'customer'])->where('sp_id', request()->spID)->paginate();
+        $orders = Order::with(['ad.publisher', 'customer'])->where('sp_id', request()->spID)->paginate();
 
         return response()->json($orders);
     }
