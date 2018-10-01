@@ -7,9 +7,9 @@ You have received a new order via {{ config('app.name') }}
 @component('mail::table')
     |                           |                                   |
     |---------------------------|-----------------------------------|
-    | **Customer Names**        | {{$order->customer->names}}       |
+    | **Customer Names**        | {{$order->customer->name}}       |
     | **Customer Telephone**    | {{$order->customer->telephone}}   |
-    | **Customer Email**        | {{$order->customer->telephone}}   |
+    | **Customer Email**        | {{$order->customer->email}}   |
     | **Customer Location**     | {{$order->customer->location['display_name']}}    |
     | **Order Item**            | {{$order->ad->name}}              |
     | **Price**                 | {{$order->ad->price}}             |
