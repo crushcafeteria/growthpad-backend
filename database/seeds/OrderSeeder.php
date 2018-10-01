@@ -15,12 +15,12 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        Ad::get()->take(50)->each(function ($ad){
-            Order::create([
-                'ad_id'        => $ad->id,
-                'customer_id'  => User::inRandomOrder()->first()->id,
-                'instructions' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
-            ]);
-        });
+//        Ad::get()->take(50)->each(function ($ad){
+//            Order::create([
+//                'ad_id'        => $ad->id,
+//                'customer_id'  => User::inRandomOrder()->first()->id,
+//                'instructions' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry'
+//            ]);
+//        });
     }
 }
