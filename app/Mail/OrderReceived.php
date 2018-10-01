@@ -31,7 +31,9 @@ class OrderReceived extends Mailable
      */
     public function build()
     {
-        return $this->subject('New Order - '.$this->order->ad->name)
-                    ->markdown('emails.order-received');
+        return $this->subject('New Order - ' . $this->order->ad->name)
+                    ->markdown('emails.order-received', [
+                        'order' => $this->order
+                    ]);
     }
 }
