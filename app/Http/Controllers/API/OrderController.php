@@ -26,7 +26,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->paginate(config('setting.page_size'));
+        $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])
+                       ->orderBy('created_at', 'DESC')
+                       ->paginate(config('setting.page_size'));
 
         return response()->json($orders);
     }
@@ -146,7 +148,10 @@ class OrderController extends Controller
 
     function getSPOrders()
     {
-        $orders = Order::with(['ad.publisher', 'customer'])->where('sp_id', request()->spID)->paginate();
+        $orders = Order::with(['ad.publisher', 'customer'])
+                       ->where('sp_id', request()->spID)
+                       ->orderBy('created_at', 'DESC')
+                       ->paginate();
 
         return response()->json($orders);
     }
