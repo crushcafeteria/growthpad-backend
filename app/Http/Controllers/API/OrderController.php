@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Mail\OrderProgressing;
 use App\Mail\OrderReceived;
+use App\Models\Ad;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -55,6 +56,7 @@ class OrderController extends Controller
 
         $order                = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
+        $order['sp_id']       = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
 
         $order = Order::create($order);
 
@@ -140,5 +142,12 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function getSPOrders()
+    {
+        $orders = Order::with(['ad', 'customer'])->where('sp_id', request()->spID)->paginate();
+
+        return response()->json($orders);
     }
 }
