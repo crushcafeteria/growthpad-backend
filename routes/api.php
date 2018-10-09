@@ -18,8 +18,8 @@ Route::group(['middleware' => 'cors'], function (){
 
     # Ads
     Route::resource('ads', 'API\AdsController');
-    Route::post('ads/nearby', 'API\AdsController@nearBy');
-    Route::post('ads/search', 'API\AdsController@search');
+    Route::post('ads/nearby', 'API\AdsController@nearBy')->middleware(['jwt.auth', 'cors']);
+    Route::post('ads/search', 'API\AdsController@search')->middleware(['jwt.auth', 'cors']);
 
 
     Route::get('ping', function (){

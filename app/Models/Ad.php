@@ -21,7 +21,7 @@ class Ad extends Model
     function getPicturesAttribute($pics)
     {
         if (!$pics) {
-            return ['http://placehold.it/200x200?text=Image coming soon'];
+            return ['http://placehold.it/400x300?text=Image coming soon'];
         } else {
             $pics = json_decode($pics, true);
 

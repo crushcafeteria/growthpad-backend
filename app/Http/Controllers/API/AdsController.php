@@ -157,7 +157,7 @@ class AdsController extends Controller
         $distance  = request()->radius;
         $q  = '%'.request()->q.'%';
 
-        $nearByAds = Ad::where('category', request()->category)
+        $nearByAds = Ad::with(['publisher'])->where('category', request()->category)
             ->orWhere('name', 'LIKE', $q)
             ->orWhere('description', 'LIKE', $q)->get();
 

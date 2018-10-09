@@ -7,7 +7,7 @@ $factory->define(\App\Models\Ad::class, function (Faker $faker){
         'publisher_id' => null,
         'category'     => collect(config('settings.categories'))->keys()->random(),
         'name'         => $faker->sentence(2),
-        'description'  => $faker->sentence(rand(15, 60)),
+        'description'  => $faker->sentence(rand(3, 7)),
         'price'        => $faker->numberBetween(1000, 70000),
         'telephone'    => $faker->e164PhoneNumber,
         'email'        => $faker->freeEmail,
