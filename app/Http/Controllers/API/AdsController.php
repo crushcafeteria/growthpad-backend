@@ -154,13 +154,22 @@ class AdsController extends Controller
     {
         $latitude  = auth()->user()->lat;
         $longitude = auth()->user()->lon;
-        $distance  = request()->kilometres;
+        $distance  = request()->radius;
+        $q  = '%'.request()->q.'%';
 
-        $nearByAds = Ad::whereRaw(
-            DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
-                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
-                          radians( lat ) ) ) ) < $distance ")
-        )->paginate();
+        $nearByAds = Ad::where('category', request()->category)
+            ->orWhere('name', 'LIKE', $q)
+            ->orWhere('description', 'LIKE', $q)->get();
+
+        return $nearByAds;
+
+        // ->whereRaw(
+        //     DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
+        //         cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
+        //         radians( lat ) ) ) ) < $distance ")
+        // )
+        
+        // ->get();
 
         return response()->json($nearByAds);
     }

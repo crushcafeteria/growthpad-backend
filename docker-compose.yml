@@ -8,17 +8,20 @@ services:
             - ./:/var/www/:rw
         ports:
             - 17000:80
+        restart: 'always'
 
     composer:
         image: prooph/composer:7.2
         command: install
         volumes:
             - .:/app
+        restart: 'no'
 
     adminer:
         image: clue/adminer
         ports:
             - 17001:80
+        restart: 'always'
 
     db:
         image: mariadb
@@ -27,4 +30,4 @@ services:
         environment:
             MYSQL_DATABASE: growthpad.irenkenya.com
             MYSQL_ROOT_PASSWORD: jS35n9YmZppjxRDfhfY5MJvc5tKztp
-        restart: on-failure
+        restart: 'always'
