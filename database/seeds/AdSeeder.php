@@ -19,7 +19,7 @@ class AdSeeder extends Seeder
                 'lon'          => $location['lon'],
                 'lat'          => $location['lat'],
                 'category'     => $category,
-                'publisher_id' => $SPs->random()->id
+                'publisher_id' => 2
             ]);
 
             $index--;
