@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Mail\OrderProgressing;
 use App\Mail\OrderReceived;
+use App\Mail\OrderCancelled;
 use App\Models\Ad;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -162,7 +163,7 @@ class OrderController extends Controller
             return response()->json(['error'=>'Please attach the required fields']);
         }
 
-        $order = Order::find(request()->id);
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
 
         if(!$order){
             return response()->json(['error' => 'This order does not exist']);
@@ -173,6 +174,9 @@ class OrderController extends Controller
             'cancellation_reason' => request()->reason
         ]);
 
-        return response()->json(Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id));
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
+        Mail::to($order->customer->email)->send(new OrderCancelled($order));
+
+        return response()->json($order);
     }
 }
