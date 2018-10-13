@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->integer('customer_id');
             $table->text('instructions')->nullable();
             $table->text('status')->default('PENDING');
+            $table->string('cancellation_reason')->nullable();
             $table->timestamps();
         });
     }

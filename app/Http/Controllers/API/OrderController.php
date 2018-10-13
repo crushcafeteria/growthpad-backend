@@ -155,4 +155,24 @@ class OrderController extends Controller
 
         return response()->json($orders);
     }
+
+    function cancelOrder()
+    {
+        if(!request()->id || !request()->reason){
+            return response()->json(['error'=>'Please attach the required fields']);
+        }
+
+        $order = Order::find(request()->id);
+
+        if(!$order){
+            return response()->json(['error' => 'This order does not exist']);
+        }
+
+        $order->update([
+            'status' => 'CANCELLED',
+            'cancellation_reason' => request()->reason
+        ]);
+
+        return response()->json(Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id));
+    }
 }

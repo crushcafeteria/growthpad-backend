@@ -34,6 +34,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::resource('orders', 'API\OrderController');
     Route::post('order/update', 'API\OrderController@update');
     Route::get('order/find', 'API\OrderController@show');
+    Route::post('order/cancel', 'API\OrderController@cancelOrder');
 
     Route::get('sp/fetch', 'API\AccountController@getSPs')->middleware('jwt.auth');
     Route::get('sp/ads', 'API\AdsController@getSPAds')->middleware('jwt.auth');
