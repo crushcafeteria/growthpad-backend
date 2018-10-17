@@ -82,4 +82,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('orders/{orderID}/note', 'OrdersController@saveNote');
     Route::get('orders/{orderID}/pdf', 'OrdersController@makePDF');
     Route::post('orders/search', 'OrdersController@search')->name('orders.search');
+
+    Route::resource('users', 'UsersController');
 });

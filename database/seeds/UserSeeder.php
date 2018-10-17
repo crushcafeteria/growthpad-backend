@@ -48,6 +48,20 @@ class UserSeeder extends Seeder
             'lat'       => $this->bukura()->lat,
         ]);
 
+        # Chesoli's account
+        factory(App\Models\User::class)->create([
+            'name'      => 'Esperance Chesoli',
+            'email'     => 'chesoli@irenkenya.com',
+            'password'  => bcrypt('5tqcv4bDP39VVZd2gVymwxXEapteBU'),
+            'privilege' => 'ADMIN',
+            'telephone' => '07001234567',
+            'gender'    => 'F',
+            'location'  => $this->kakamega(),
+            'lon'       => $this->kakamega()->lon,
+            'lat'       => $this->kakamega()->lat,
+        ]);
+
+
         # Generate community
         $index     = 100;
         $locations = json_decode(\Illuminate\Support\Facades\Storage::disk('public')->get('test-locations.json'), true);

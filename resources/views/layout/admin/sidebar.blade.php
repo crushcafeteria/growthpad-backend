@@ -2,7 +2,7 @@
     <div class="sidebar-inner">
         <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
-                <div class="peer peer-greed"><a class="sidebar-link td-n" href="index.html">
+                <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('dashboard') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
@@ -47,6 +47,14 @@
                         <i class="fa fa-shopping-cart fa-fw"></i>
                     </span>
                     <span class="title">Orders</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('users') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-users fa-fw"></i>
+                    </span>
+                    <span class="title">User Accounts</span>
                 </a>
             </li>
         </ul>

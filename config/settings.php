@@ -411,5 +411,12 @@ return [
         'PENDING'     => 'Pending',
         'PROGRESSING' => 'In progress',
         'DELIVERED'   => 'Delivered',
+    ],
+
+    'privileges' => [
+        'USER'  => 'Customer Account',
+        'SP'    => 'Service Provider Account',
+        'STAFF' => 'Staff Account',
+        'ADMIN' => 'Administrator Account'
     ]
 ];
