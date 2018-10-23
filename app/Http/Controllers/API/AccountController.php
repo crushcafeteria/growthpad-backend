@@ -165,10 +165,10 @@ class AccountController extends Controller
         return response()->json($SPs);
     }
 
-    function sendFeedback(Request $request)
+    function sendFeedback()
     {
         # Validate request
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make(request()->all(), [
             'names'     => 'required',
             'telephone' => 'required',
             'email'     => 'required|email',
@@ -188,7 +188,7 @@ class AccountController extends Controller
         }
 
         # Send email to admin
-         Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage($request));
+         Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage(request()));
 
         return response()->json(['status' => 'OK']);
     }

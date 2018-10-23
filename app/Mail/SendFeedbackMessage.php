@@ -13,7 +13,7 @@ class SendFeedbackMessage extends Mailable
 
     public $data;
 
-    public function __construct(Request $request){
+    public function __construct($request){
         $this->data = $request;
     }
 
