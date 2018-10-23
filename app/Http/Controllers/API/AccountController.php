@@ -165,7 +165,7 @@ class AccountController extends Controller
         return response()->json($SPs);
     }
 
-    function send(Request $request)
+    function sendFeedback(Request $request)
     {
         # Validate request
         $validator = Validator::make($request->all(), [
