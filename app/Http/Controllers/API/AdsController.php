@@ -157,21 +157,26 @@ class AdsController extends Controller
         $distance  = request()->radius;
         $q  = '%'.request()->q.'%';
 
-        $nearByAds = Ad::with(['publisher'])->where('category', request()->category)
-            ->orWhere('name', 'LIKE', $q)
-            ->orWhere('description', 'LIKE', $q)->get();
 
-        return $nearByAds;
+        $query = Ad::query();
 
-        // ->whereRaw(
-        //     DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
-        //         cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
-        //         radians( lat ) ) ) ) < $distance ")
-        // )
-        
-        // ->get();
+        // $query = $query->with(['publisher']);
 
-        return response()->json($nearByAds);
+        $query = $query->where('category', request()->category);
+
+        $query = $query->where(function($query) use ($q){
+            $query->where('name', 'LIKE', $q);
+        });
+
+        $query = $query->orWhere(function($query) use ($latitude, $longitude, $distance, $q){
+            $query = $query->whereRaw(
+                DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
+                    cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
+                    radians( lat ) ) ) ) < $distance ")
+            );
+        });
+
+        return response()->json($query->get());
     }
 
     function search()
