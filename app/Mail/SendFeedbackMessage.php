@@ -3,21 +3,24 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendFeedbackMessage extends Mailable
 {
+
     use Queueable, SerializesModels;
 
     public $data;
 
-    public function __construct($request){
+    public function __construct(Request $request)
+    {
         $this->data = $request;
     }
 
-    public function build(){
+    public function build()
+    {
         return $this
             ->subject('New feedback message!')
             ->from($this->data->email)
