@@ -160,7 +160,7 @@ class AdsController extends Controller
 
         $query = Ad::query();
 
-        // $query = $query->with(['publisher']);
+        $query = $query->with(['publisher']);
 
         $query = $query->where('category', request()->category);
 
