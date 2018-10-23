@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\SendFeedbackMessage;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -166,7 +167,7 @@ class AccountController extends Controller
         return response()->json($SPs);
     }
 
-    function sendFeedback()
+    function sendFeedback(Request $request)
     {
         # Validate request
         $validator = Validator::make(request()->all(), [
@@ -189,7 +190,7 @@ class AccountController extends Controller
         }
 
         # Send email to admin
-         Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage(request()->all()));
+        Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage($request));
 
         return response()->json(['status' => 'OK']);
     }
