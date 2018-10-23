@@ -190,7 +190,12 @@ class AccountController extends Controller
         }
 
         # Send email to admin
-        Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage($request));
+        Mail::to(config('settings.team')[0]['email'])->send(new SendFeedbackMessage(request()->only([
+            'names',
+            'telephone',
+            'email',
+            'message'
+        ])));
 
         return response()->json(['status' => 'OK']);
     }
