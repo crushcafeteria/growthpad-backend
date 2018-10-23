@@ -1,7 +1,5 @@
 <?php
 
-use Event;
-
 Route::group(['middleware' => 'cors'], function (){
     Route::post('enquiry/save', 'ServiceController@saveEnquiry');
     Route::get('marketplace', 'MarketController@apiListContacts');
@@ -43,6 +41,4 @@ Route::group(['middleware' => 'cors'], function (){
     Route::get('sp/orders', 'API\OrderController@getSPOrders')->middleware('jwt.auth');
 });
 
-Event::listen('illuminate.query',function($query){
-    var_dump($query);
-});
+Route::post('feedback', 'API\AccountController@sendFeedback');

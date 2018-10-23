@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SendFeedbackMessage;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -153,8 +154,8 @@ class AccountController extends Controller
         $distance  = request()->radius;
 
         $SPs = User::with('ads')->where('privilege', 'SP')->whereRaw(
-            DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  * 
-                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin( 
+            DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
+                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
                           radians( lat ) ) ) ) < $distance ")
         )->whereHas('ads', function ($query){
             return $query->where('category', request()->category);
@@ -162,5 +163,33 @@ class AccountController extends Controller
 
 
         return response()->json($SPs);
+    }
+
+    function send(Request $request)
+    {
+        # Validate request
+        $validator = Validator::make($request->all(), [
+            'names'     => 'required',
+            'telephone' => 'required',
+            'email'     => 'required|email',
+            'message'   => 'required'
+        ], [
+            'names.required'     => 'Please enter your name',
+            'telephone.required' => 'Please enter your telephone',
+            'email.required'     => 'Please enter your email address',
+            'email.email'        => 'This email is not valid',
+            'message.required'   => 'Please enter your message',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->messages()->first()
+            ]);
+        }
+
+        # Send email to admin
+         Mail::to(config('settings.team.email'))->send(new SendFeedbackMessage($request));
+
+        return response()->json(['status' => 'OK']);
     }
 }
