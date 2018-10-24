@@ -62,7 +62,7 @@ class OrderController extends Controller
         $order['sp_id']       = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
         $order['extra_data'] = request()->eventOptions;
 
-        $order = Order::create($order);
+        $order = Order::create($order)  ;
 
         $order = Order::with(['customer', 'ad'])->find($order->id);
 
