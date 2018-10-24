@@ -124,25 +124,25 @@
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Event Type</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ config('settings.catering.event_types')[$order->extra_data->type] }}</h4>
+                                            <h4 class="mb-1">{{ config('settings.catering.event_types')[$order->extra_data['type']] }}</h4>
                                         </div>
                                     </div>
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Event Venue</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ config('settings.catering.event_types')[$order->extra_data->venue] }}</h4>
+                                            <h4 class="mb-1">{{ config('settings.catering.event_types')[$order->extra_data['venue']] }}</h4>
                                         </div>
                                     </div>
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Location</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ $order->extra_data->location->display_name }}</h4>
+                                            <h4 class="mb-1">{{ $order->extra_data['location']['display_name'] }}</h4>
                                         </div>
                                     </div>
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Number of attendees</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ $order->extra_data->attendees }} people might attend</h4>
+                                            <h4 class="mb-1">{{ $order->extra_data['attendees'] }} people might attend</h4>
                                         </div>
                                     </div>
                                 </div>
