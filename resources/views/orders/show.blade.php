@@ -130,7 +130,7 @@
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Event Venue</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ config('settings.catering.event_types')[$order->extra_data['venue']] }}</h4>
+                                            <h4 class="mb-1">{{ config('settings.catering.venues')[$order->extra_data['venue']] }}</h4>
                                         </div>
                                     </div>
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
