@@ -118,7 +118,14 @@
                             <h4 class="c-grey-900 mB-20">Order Instructions</h4>
                             <p>{{ $order->instructions}}</p>
 
-                            @if($order->ad->category == 'CATERING')
+
+                        </div>
+                    </div>
+
+                    {{--Customer Location--}}
+                    @if($order->ad->category == 'CATERING')
+                        <div class="col-6">
+                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                                 <h4 class="c-grey-900 mB-20">Catering Options</h4>
                                 <div class="list-group">
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -146,18 +153,17 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            @endif
+                            </div>
                         </div>
-                    </div>
-
-                    {{--Customer Location--}}
-                    <div class="col-6">
-                        <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                            <h4 class="c-grey-900 mB-20">Customer Location</h4>
-                            <p>{{ $order->description }}</p>
+                    @else
+                        <div class="col-6">
+                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                                <h4 class="c-grey-900 mB-20">Customer Location</h4>
+                                <p>{{ $order->description }}</p>
+                            </div>
                         </div>
-                    </div>
+                    @endif
+
                 </div>
 
                 {{--Activity log--}}
