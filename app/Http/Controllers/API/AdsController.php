@@ -171,7 +171,7 @@ class AdsController extends Controller
 //            });
 //        }
 
-        $query = $query->orWhere(function($query) use ($latitude, $longitude, $distance, $q){
+        $query = $query->where(function($query) use ($latitude, $longitude, $distance, $q){
             $query = $query->whereRaw(
                 DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
                     cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
