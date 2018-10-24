@@ -418,5 +418,20 @@ return [
         'SP'    => 'Service Provider Account',
         'STAFF' => 'Staff Account',
         'ADMIN' => 'Administrator Account'
+    ],
+
+    'catering' => [
+        'event_types' => [
+            'WEDDING'    => 'Wedding Party',
+            'FUNERAL'    => 'Funeral Ceremony',
+            'GRADUATION' => 'Graduation Party',
+            'BIRTHDAY'   => 'Birthday Party',
+            'FAMILY'     => 'Family Gathering',
+            'CORPORATE'  => 'Corporate Event',
+        ],
+        'venues'      => [
+            'INDOOR'  => 'Indoor Event',
+            'OUTDOOR' => 'Outdoor Event',
+        ]
     ]
 ];
