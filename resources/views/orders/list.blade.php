@@ -27,6 +27,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Customer</th>
+                                    <th scope="col">Provider</th>
                                     <th scope="col">Item Ordered</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
@@ -38,6 +39,7 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td>{{ $order->customer->name }}</td>
+                                        <td>{{ $order->ad->publisher->name }}</td>
                                         <td>{{ $order->ad->name }}</td>
                                         <td>Ksh {{ number_format($order->ad->price) }}</td>
                                         <td>{{ $order->status }}</td>
