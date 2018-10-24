@@ -165,11 +165,11 @@ class AdsController extends Controller
         $query = $query->where('category', request()->category);
 
         # Bypass searching for $q
-        if(request()->q != 'EVERYTHING'){
-            $query = $query->where(function($query) use ($q){
-                $query->where('name', 'LIKE', $q);
-            });
-        }
+//        if(request()->q != 'EVERYTHING'){
+//            $query = $query->where(function($query) use ($q){
+//                $query->where('name', 'LIKE', $q);
+//            });
+//        }
 
         $query = $query->orWhere(function($query) use ($latitude, $longitude, $distance, $q){
             $query = $query->whereRaw(
