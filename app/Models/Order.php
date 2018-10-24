@@ -10,6 +10,10 @@ class Order extends Model
     protected $table = 'orders';
     protected $guarded = ['id', 'created_at'];
 
+    protected $casts = [
+        'extra_data' => 'array'
+    ];
+
     function customer()
     {
         return $this->belongsTo(User::class, 'customer_id', 'id');
