@@ -52,7 +52,7 @@
                             <div class="list-group-item list-group-item-action flex-column align-items-start">
                                 <small class="text-muted">Location</small>
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h4 class="mb-1">{{ @$order->ad->location }}</h4>
+                                    <h4 class="mb-1">{{ @$order->ad->location->display_name }}</h4>
                                 </div>
                             </div>
                             <div class="list-group-item list-group-item-action flex-column align-items-start">
