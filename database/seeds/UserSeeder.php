@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'location'  => $this->kakamega(),
             'lon'       => $this->kakamega()->lon,
             'lat'       => $this->kakamega()->lat,
+            'credits'   => 500
         ]);
 
         factory(App\Models\User::class)->create([
@@ -34,6 +35,7 @@ class UserSeeder extends Seeder
             'location'  => $this->bukura(),
             'lon'       => $this->bukura()->lon,
             'lat'       => $this->bukura()->lat,
+            'credits'   => 500
         ]);
 
         factory(App\Models\User::class)->create([

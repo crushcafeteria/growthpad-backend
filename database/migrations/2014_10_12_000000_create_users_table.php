@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->string('lon')->nullable();
             $table->string('lat')->nullable();
+            $table->integer('credits')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
