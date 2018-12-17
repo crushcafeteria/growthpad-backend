@@ -9,4 +9,4 @@ services:
         ports:
             - 17000:80
         restart: 'always'
-        network_mode: hosts
+        network_mode: host
