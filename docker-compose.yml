@@ -9,18 +9,3 @@ services:
         ports:
             - 17000:80
         restart: 'always'
-
-    adminer:
-        image: clue/adminer
-        ports:
-            - 17001:80
-        restart: 'always'
-
-    db:
-        image: mariadb
-        volumes:
-            - ./docker/mysql/:/var/lib/mysql/:rw
-        environment:
-            MYSQL_DATABASE: growthpad.irenkenya.com
-            MYSQL_ROOT_PASSWORD: jS35n9YmZppjxRDfhfY5MJvc5tKztp
-        restart: 'always'
