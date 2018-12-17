@@ -1,4 +1,4 @@
-@servers(['local'=>'127.0.0.1', 'production'=>'root@sodium.co.ke'])
+@servers(['local'=>'127.0.0.1', 'production'=>'root@barua.irenkenya.com'])
 
 @story('deploy')
     push-to-git
