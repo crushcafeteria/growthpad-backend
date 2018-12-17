@@ -52,7 +52,7 @@
                             <div class="list-group-item list-group-item-action flex-column align-items-start">
                                 <small class="text-muted">Location</small>
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h4 class="mb-1">{{ @$order->ad->location->display_name }}</h4>
+                                    {{--<h4 class="mb-1">{{ @$order->ad->location->display_name }}</h4>--}}
                                 </div>
                             </div>
                             <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -117,8 +117,6 @@
                         <div class="bgc-white bd bdrs-3 p-20 mB-20">
                             <h4 class="c-grey-900 mB-20">Order Instructions</h4>
                             <p>{{ $order->instructions}}</p>
-
-
                         </div>
                     </div>
 
@@ -143,7 +141,7 @@
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
                                         <small class="text-muted">Location</small>
                                         <div class="d-flex w-100 justify-content-between">
-                                            <h4 class="mb-1">{{ $order->extra_data['location']['display_name'] }}</h4>
+                                            <h4 class="mb-1">{{ @$order->extra_data['location']['display_name'] }}</h4>
                                         </div>
                                     </div>
                                     <div class="list-group-item list-group-item-action flex-column align-items-start">
