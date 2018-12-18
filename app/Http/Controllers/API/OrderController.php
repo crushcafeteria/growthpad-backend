@@ -28,8 +28,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])
-                       ->orderBy('created_at', 'DESC')
-                       ->paginate(config('setting.page_size'));
+            ->orderBy('created_at', 'DESC')
+            ->paginate(config('setting.page_size'));
 
         return response()->json($orders);
     }
@@ -57,12 +57,13 @@ class OrderController extends Controller
             return response()->json(['error' => 'Please reference a valid ad ID']);
         }
 
-        $order                = request()->only(['ad_id', 'instructions']);
+        $order = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
-        $order['sp_id']       = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
+        $order['sp_id'] = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
         $order['extra_data'] = request()->eventOptions;
+        $order['status'] = 'PENDING';
 
-        $order = Order::create($order)  ;
+        $order = Order::create($order);
 
         $order = Order::with(['customer', 'ad'])->find($order->id);
 
@@ -111,8 +112,8 @@ class OrderController extends Controller
     public function update(Request $request)
     {
         $validation = Validator::make($request->all(), [
-            'orderID'      => 'required',
-            'status'       => 'required',
+            'orderID' => 'required',
+            'status' => 'required',
             'instructions' => 'required'
         ], [
             'orderID.required' => 'Please attach the orderID'
@@ -123,7 +124,7 @@ class OrderController extends Controller
         }
 
         Order::find($request->orderID)->update([
-            'status'       => $request->status,
+            'status' => $request->status,
             'instructions' => $request->instructions,
         ]);
 
@@ -151,22 +152,22 @@ class OrderController extends Controller
     function getSPOrders()
     {
         $orders = Order::with(['ad.publisher', 'customer'])
-                       ->where('sp_id', request()->spID)
-                       ->orderBy('created_at', 'DESC')
-                       ->paginate();
+            ->where('sp_id', request()->spID)
+            ->orderBy('created_at', 'DESC')
+            ->paginate();
 
         return response()->json($orders);
     }
 
     function cancelOrder()
     {
-        if(!request()->id || !request()->reason){
-            return response()->json(['error'=>'Please attach the required fields']);
+        if (!request()->id || !request()->reason) {
+            return response()->json(['error' => 'Please attach the required fields']);
         }
 
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
 
-        if(!$order){
+        if (!$order) {
             return response()->json(['error' => 'This order does not exist']);
         }
 
