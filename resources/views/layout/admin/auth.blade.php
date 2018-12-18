@@ -55,8 +55,8 @@
             }
         }
     </style>
-    <link href="{{ asset('auth.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.css') }}" />
+    <link href="{{ asset('auth.css', env('FORCE_SSL')) }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.css', env('FORCE_SSL')) }}" />
 </head>
 <body class="app">
 <div id="loader">
@@ -83,8 +83,8 @@
     </div>
         @yield('authbox')
 </div>
-<script type="text/javascript" src="{{ asset('vendor.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor.js', env('FORCE_SSL')) }}"></script>
+<script type="text/javascript" src="{{ asset('bundle.js', env('FORCE_SSL')) }}"></script>
 </body>
 </html>
 
