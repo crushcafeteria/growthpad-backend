@@ -169,7 +169,7 @@ class AdsController extends Controller
         # Bypass searching for $q
         if(request()->q != 'EVERYTHING'){
             $query = $query->where(function($query) use ($q){
-                $query->where('name', 'LIKE', $q)->orWhere('description', 'LIKE', $q);
+                $query->where('name', 'LIKE', $q); #->orWhere('description', 'LIKE', $q);
             });
         }
 
