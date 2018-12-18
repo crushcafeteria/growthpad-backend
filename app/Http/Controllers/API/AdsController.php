@@ -164,20 +164,22 @@ class AdsController extends Controller
 
         $query = $query->where('category', request()->category);
 
-        # Bypass searching for $q
-//        if(request()->q != 'EVERYTHING'){
-//            $query = $query->where(function($query) use ($q){
-//                $query->where('name', 'LIKE', $q);
-//            });
-//        }
+//        dd($query->get());
 
-        $query = $query->where(function($query) use ($latitude, $longitude, $distance, $q){
-            $query->whereRaw(
-                DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
-                    cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
-                    radians( lat ) ) ) ) < $distance ")
-            );
-        });
+        # Bypass searching for $q
+        if(request()->q != 'EVERYTHING'){
+            $query = $query->where(function($query) use ($q){
+                $query->where('name', 'LIKE', $q)->orWhere('description', 'LIKE', $q);
+            });
+        }
+
+//        $query = $query->where(function($query) use ($latitude, $longitude, $distance, $q){
+//            $query->whereRaw(
+//                DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
+//                    cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
+//                    radians( lat ) ) ) ) < $distance ")
+//            );
+//        });
 
         return response()->json($query->get());
     }
