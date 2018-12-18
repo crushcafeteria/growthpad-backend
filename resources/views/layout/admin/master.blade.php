@@ -55,8 +55,8 @@
             }
         }
     </style>
-    <link href="{{ asset('style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.css') }}"/>
+    <link href="{{ asset('style.css', env('FORCE_SSL')) }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.css', env('FORCE_SSL')) }}"/>
     @stack('header-scripts')
 </head>
 
@@ -89,9 +89,9 @@
 
 </div>
 
-<script type="text/javascript" src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundle.js') }}"></script>
+<script type="text/javascript" src="{{ asset('node_modules/jquery/dist/jquery.min.js', env('FORCE_SSL')) }}"></script>
+<script type="text/javascript" src="{{ asset('vendor.js', env('FORCE_SSL')) }}"></script>
+<script type="text/javascript" src="{{ asset('bundle.js', env('FORCE_SSL')) }}"></script>
 
 @stack('footer-scripts')
 

@@ -225,8 +225,8 @@
 @endsection
 
 @push('header-scripts')
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick-1.8.1/slick/slick.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick-1.8.1/slick/slick-theme.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick-1.8.1/slick/slick.css', env('FORCE_SSL')) }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick-1.8.1/slick/slick-theme.css', env('FORCE_SSL')) }}"/>
 @endpush
 
 @push('footer-scripts')

@@ -71,7 +71,7 @@
 
 <script src="{{ asset('node_modules/popper.js/dist/umd/popper.min.js', env('FORCE_SSL')) }}"></script>
 <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js', env('FORCE_SSL')) }}"></script>
-<script async defer src="http://maps.googleapis.com/maps/api/js?libraries=places&key={{ config('settings.google_api_key') }}"type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ config('settings.google_api_key') }}"type="text/javascript"></script>
 <script src="{{ asset('node_modules/geocomplete/jquery.geocomplete.min.js', env('FORCE_SSL')) }}"></script>
 
 @stack('footer-scripts')
