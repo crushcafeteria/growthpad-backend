@@ -157,10 +157,17 @@ class AdsController extends Controller
         $distance  = request()->radius;
         $q  = '%'.request()->q.'%';
 
+
         $query = Ad::query();
         $query = $query->with(['publisher']);
-        $query = $query->where('name', 'LIKE', $q);
         $query = $query->where('category', request()->category);
+
+        # Bypass searching for $q
+        if(request()->q != 'EVERYTHING'){
+            $query = $query->where(function($query) use ($q){
+                $query->where('name', 'LIKE', $q)->orWhere('description', 'LIKE', $q);
+            });
+        }
 
 //        $query = $query->where(function($query) use ($latitude, $longitude, $distance, $q){
 //            $query->whereRaw(
