@@ -202,4 +202,25 @@ class OrderController extends Controller
 
         return response()->json($order);
     }
+
+    function completeOrder()
+    {
+        if (!request()->id) {
+            return response()->json(['error' => 'Please attach the required fields']);
+        }
+
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
+
+        if (!$order) {
+            return response()->json(['error' => 'This order does not exist']);
+        }
+
+        $order->update([
+            'status' => 'COMPLETE'
+        ]);
+
+        $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
+
+        return response()->json($order);
+    }
 }
