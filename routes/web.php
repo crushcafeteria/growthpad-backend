@@ -84,4 +84,9 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('orders/search', 'OrdersController@search')->name('orders.search');
 
     Route::resource('users', 'UsersController');
+
+    Route::get('logout', function(){
+        auth()->logout();
+        return redirect('login');
+    });
 });

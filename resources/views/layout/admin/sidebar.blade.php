@@ -57,6 +57,14 @@
                     <span class="title">User Accounts</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('logout') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-sign-out fa-fw"></i>
+                    </span>
+                    <span class="title">Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
