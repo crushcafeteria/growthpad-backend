@@ -4,11 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>{{ config('app.name') }} - IREN Kenya</title>
-    <link href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css', env('FORCE_SSL')) }}" rel="stylesheet">
-    <link href="{{ asset('style.css', env('FORCE_SSL')) }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css', env('FORCE_SSL')) }}">
-    <script src="{{ asset('jquery/dist/jquery.min.js', env('FORCE_SSL')) }}"></script>
-    <link rel="stylesheet" href="{{ asset('style.css', env('FORCE_SSL')) }}">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="jquery/dist/jquery.min.js"></script>
 </head>
 <body style="margin-top: 50px">
 
@@ -19,60 +18,24 @@
 @yield('header')
 
 <div class="container">
-
     <div class="row">
-
         @yield('page')
-
-    </div><!-- /.row -->
-
-</div><!-- /.container -->
-
-<footer class="footer-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="nav-footer mt-2 mt-md-0 ">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ secure_url('services') }}">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ secure_url('market') }}">Marketplace</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ secure_url('disclaimer') }}">Disclaimer</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
-    <div class="container-fluid">
-        <div class="divider"></div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-left mt-2 mb-3 pt-1">
-                <p>Powered by Sodium Africa</p>
-            </div>
-            <div class="col-md-6 text-center text-md-right mb-4">
-                <ul class="social">
-                    {{--<li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>--}}
-                    <li><a href="https://twitter.com/irenkenya" title="Twitter" target="_blank" class="fa fa-twitter"></a></li>
-                    <li><a href="mailto:info@irenkenya.com" title="Twitter" class="fa fa-envelope"></a></li>
-                    {{--<li><a href="#" title="Google+" class="fa fa-google"></a></li>--}}
-                    {{--<li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>--}}
-                    {{--<li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>--}}
-                    <div class="clear"></div>
-                </ul>
-            </div>
-        </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container text-center">
+        <span class="text-muted">
+            Developed and hosted by <a target="_blank" href="https://sodium.co.ke">Sodium Africa</a>
+        </span>
     </div>
 </footer>
 
-<script src="{{ asset('node_modules/popper.js/dist/umd/popper.min.js', env('FORCE_SSL')) }}"></script>
-<script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js', env('FORCE_SSL')) }}"></script>
+<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{ config('settings.google_api_key') }}"type="text/javascript"></script>
-<script src="{{ asset('node_modules/geocomplete/jquery.geocomplete.min.js', env('FORCE_SSL')) }}"></script>
+<script src="node_modules/geocomplete/jquery.geocomplete.min.js"></script>
 
 @stack('footer-scripts')
 
@@ -87,3 +50,25 @@
 
 </body>
 </html>
+
+<style>
+    /* Sticky footer styles
+-------------------------------------------------- */
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: #f5f5f5;
+    }
+</style>

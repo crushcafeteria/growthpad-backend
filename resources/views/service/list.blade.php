@@ -12,6 +12,7 @@
             </div>
             <div class="col-lg-5">
                 <h2>The IREN Growthpad</h2>
+                <hr>
                 <p style="font-size: 18px;">
                     The IREN Growth-Pad offers efficient service provision and networking opportunities
                     to users at both farm and vendor level. The Growth-Pad features annual IREN Bukura
@@ -19,9 +20,6 @@
                     (Innovate and Own) radio program and the online service provision platform. The key
                     IREN Growth-Pad products and services can be found below
                 </p>
-                <a class="btn btn-outline-success btn-outline-red" href="{{ secure_url('market') }}">
-                    <i class="fa fa-exchange fa-fw"></i> Connect with our contacts
-                </a>
             </div>
         </div>
 
@@ -34,8 +32,6 @@
                     <div class="card-body">
                         <h4 class="card-title">Farm Management</h4>
                         <p class="card-text">We organize and operate activities on your farm to maximize productivity and profits</p>
-                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('farm-management')">More
-                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -45,8 +41,6 @@
                     <div class="card-body">
                         <h4 class="card-title">Leasing Solutions</h4>
                         <p class="card-text">We avail modern technology to increase efficiency at farm and vendor levels</p>
-                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('leasing')">More
-                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -56,8 +50,6 @@
                     <div class="card-body">
                         <h4 class="card-title">Market Linkages</h4>
                         <p class="card-text">We offer opportunities and network to increase market reach</p>
-                        <a href="#_" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('market-growth')">More
-                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -67,8 +59,6 @@
                     <div class="card-body">
                         <h4 class="card-title">Formalization and Consulting</h4>
                         <p class="card-text">We advice on property rights and formalization to unlock capital </p>
-                        <a href="#" class="btn btn-primary btn-sm btn-red" onclick="loadEnquiry('consulting')">More
-                            <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
             </div>
@@ -108,7 +98,7 @@
 <script>
     $('.geocomplete').geocomplete()
     function loadEnquiry(type) {
-        $('#enquiry').modal('show').html(loading).load('{{ secure_url('enquiry') }}/' + type)
+        $('#enquiry').modal('show').html(loading).load('enquiry/' + type)
     }
 </script>
 
@@ -123,11 +113,6 @@
         background: #ec1a24;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #cf1e24, #ec1a24);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #cf1e24, #ec1a24); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-
-
-    .gradient p {
-        font-weight: bold !important;
     }
 
     .btn-outline-white {
