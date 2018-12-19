@@ -2,7 +2,7 @@
     <div class="sidebar-inner">
         <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
-                <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('dashboard') }}">
+                <div class="peer peer-greed"><a class="sidebar-link td-n" href="dashboard">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
@@ -26,7 +26,7 @@
 
         <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-30 active">
-                <a class="sidebar-link" href="{{ url('dashboard') }}">
+                <a class="sidebar-link" href="dashboard">
                     <span class="icon-holder">
                         <i class="fa fa-home fa-fw"></i>
                     </span>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('ads') }}">
+                <a class="sidebar-link" href="ads">
                     <span class="icon-holder">
                         <i class="fa fa-eye fa-fw"></i>
                     </span>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('orders') }}">
+                <a class="sidebar-link" href="orders">
                     <span class="icon-holder">
                         <i class="fa fa-shopping-cart fa-fw"></i>
                     </span>
@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('users') }}">
+                <a class="sidebar-link" href="users">
                     <span class="icon-holder">
                         <i class="fa fa-users fa-fw"></i>
                     </span>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('logout') }}">
+                <a class="sidebar-link" href="logout">
                     <span class="icon-holder">
                         <i class="fa fa-sign-out fa-fw"></i>
                     </span>

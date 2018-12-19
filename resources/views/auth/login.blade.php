@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ url('login') }}">
+        <form method="POST" action="login">
             {{ csrf_field() }}
 
             <div class="input-group mb-3">
@@ -50,7 +50,9 @@
                 <br>
                 or
                 <br>
-                <a href="{{ url('register') }}">Register your account</a>
+                <a href="register">Register your account</a>
+                <br>
+                <a href="password/reset">I forgot my password</a>
             </div>
         </form>
 

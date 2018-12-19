@@ -8,7 +8,7 @@
             Register a {{config('app.name')}} account
         </h4>
 
-        <form class="form-horizontal" method="POST" action="{{ url('register') }}">
+        <form class="form-horizontal" method="POST" action="register">
 
             {{ csrf_field() }}
 
@@ -98,7 +98,7 @@
                 <br>
                 or
                 <br>
-                <a href="{{ url('login') }}">Log into your account</a>
+                <a href="login">Log into your account</a>
             </div>
 
         </form>
