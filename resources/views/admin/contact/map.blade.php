@@ -18,7 +18,7 @@
     </div>
 
     <script src="https://maps.google.com/maps/api/js?libraries=geometry&v=3.22&key={{ config('app.google_api_key') }}"></script>
-    <script src="{{ asset('node_modules/maplace-js/dist/maplace.min.js') }}"></script>
+    <script src="node_modules/maplace-js/dist/maplace.min.js"></script>
     <script>
         $(function () {
             new Maplace({

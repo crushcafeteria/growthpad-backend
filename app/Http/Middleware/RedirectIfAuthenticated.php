@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             session()->flash('successbox', ['You are already logged in. Please continue']);
-            return redirect('/admin/contacts');
+            return redirect('/dashboard');
         }
 
         return $next($request);

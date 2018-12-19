@@ -12,17 +12,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="services"><i class="fa fa-cog fa-spin fa-fw"></i> Services</a>
+                    <a class="nav-link active" href="services"><i class="fa fa-android fa-fw"></i> Download our mobile app</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="market"><i class="fa fa-shopping-cart fa-fw"></i> Marketplace</a>
-                </li>
-                <li class="nav-item">
-                    <a target="_blank" class="nav-link active" href="https://irenkenya.com/contact/"><i class="fa fa-envelope fa-fw"></i> Contact</a>
-                </li>
-                {{--<li class="nav-item active">--}}
-                    {{--<a class="nav-link" href="basket"><i class="fa fa-shopping-bag fa-fw"></i> Basket ({{ count($session::get('cart')) }})</a>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link active" href="market"><i class="fa fa-shopping-cart fa-fw"></i> Marketplace</a>--}}
                 {{--</li>--}}
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link active" href="https://irenkenya.com/contact/"><i class="fa fa-envelope fa-fw"></i> Get in touch</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login"><i class="fa fa-lock fa-fw"></i> Staff Login</a>
+                </li>
             </ul>
             @yield('searchbox')
         </div>
