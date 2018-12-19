@@ -26,6 +26,7 @@ class Ad extends Model
             $pics = json_decode($pics, true);
 
             collect($pics)->each(function ($pic, $key) use (&$pics){
+                # Do not send SSL links for API because it uses IP to access server. IP has no SSL cert
                 $pics[$key] = asset('storage/' . $pic, (request()->wantsJson() ? false : env('FORCE_SSL')));
             });
 
