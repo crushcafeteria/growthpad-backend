@@ -26,7 +26,7 @@
 
         <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-30 active">
-                <a class="sidebar-link" href="dashboard">
+                <a class="sidebar-link" href="{{ url('dashboard', env('FORCE_SSL')) }}">
                     <span class="icon-holder">
                         <i class="fa fa-home fa-fw"></i>
                     </span>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="ads">
+                <a class="sidebar-link" href="{{ url('ads', env('FORCE_SSL')) }}">
                     <span class="icon-holder">
                         <i class="fa fa-eye fa-fw"></i>
                     </span>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="orders">
+                <a class="sidebar-link" href="{{ url('orders', env('FORCE_SSL')) }}">
                     <span class="icon-holder">
                         <i class="fa fa-shopping-cart fa-fw"></i>
                     </span>
@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="users">
+                <a class="sidebar-link" href="{{ url('users', env('FORCE_SSL')) }}">
                     <span class="icon-holder">
                         <i class="fa fa-users fa-fw"></i>
                     </span>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="logout">
+                <a class="sidebar-link" href="{{ url('logout', env('FORCE_SSL')) }}">
                     <span class="icon-holder">
                         <i class="fa fa-sign-out fa-fw"></i>
                     </span>
