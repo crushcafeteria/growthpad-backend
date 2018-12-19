@@ -25,8 +25,8 @@ class Ad extends Model
         } else {
             $pics = json_decode($pics, true);
 
-            collect($pics)->each(function ($pic, $key) use (&$pics) {
-                $pics[$key] = 'storage/' . $pic;
+            collect($pics)->each(function ($pic, $key) use (&$pics){
+                $pics[$key] = asset('storage/' . $pic, env('FORCE_SSL'));
             });
 
             return $pics;
@@ -52,7 +52,7 @@ class Ad extends Model
         $math = new Math();
 
         $from = @new LatLng(auth()->user()->lat, auth()->user()->lon);
-        $to = new LatLng($this->attributes['lat'], $this->attributes['lon']);
+        $to   = new LatLng($this->attributes['lat'], $this->attributes['lon']);
 
         $distance = $math->distanceVincenty($from, $to);
 

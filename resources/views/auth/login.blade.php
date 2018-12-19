@@ -14,19 +14,23 @@
         <form method="POST" action="login">
             {{ csrf_field() }}
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fa fa-envelope"></i>
-                    </span>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email address">
                 </div>
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email address">
                 @if ($errors->has('email'))
                     <span class="help-block text-danger">
                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('email') }}
                     </span>
                 @endif
             </div>
+
+
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
