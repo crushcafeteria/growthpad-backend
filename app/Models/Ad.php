@@ -26,7 +26,7 @@ class Ad extends Model
             $pics = json_decode($pics, true);
 
             collect($pics)->each(function ($pic, $key) use (&$pics){
-                $pics[$key] = asset('storage/' . $pic, env('FORCE_SSL'));
+                $pics[$key] = asset('storage/' . $pic, (request()->wantsJson() ? false : env('FORCE_SSL')));
             });
 
             return $pics;
