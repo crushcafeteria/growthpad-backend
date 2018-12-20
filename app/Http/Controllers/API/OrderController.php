@@ -28,6 +28,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])
+            ->where('customer_id', auth()->id())
             ->orderBy('created_at', 'DESC')
             ->paginate(config('setting.page_size'));
 
@@ -56,6 +57,8 @@ class OrderController extends Controller
         if (!request()->ad_id) {
             return response()->json(['error' => 'Please reference a valid ad ID']);
         }
+
+        # Deduct 1 token from SP
 
         $order = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
