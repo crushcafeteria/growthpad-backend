@@ -20,7 +20,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                            <i class="fa fa-email"></i>
+                            <i class="fa fa-envelope"></i>
                         </span>
                     </div>
                     <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
