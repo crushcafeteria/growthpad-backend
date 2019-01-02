@@ -9,12 +9,3 @@ services:
         ports:
             - 15031:80
         restart: 'always'
-        
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        environment:
-            - PMA_ARBITRARY=1
-        ports:
-            - 15333:80
-        volumes:
-            - /sessions

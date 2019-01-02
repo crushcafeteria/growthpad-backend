@@ -1,4 +1,4 @@
-@servers(['local'=>'127.0.0.1', 'production'=>'root@sodium.co.ke'])
+@servers(['local'=>'127.0.0.1', 'production'=>'root@barua.irenkenya.com'])
 
 @story('deploy')
     push-to-git
@@ -7,7 +7,7 @@
 @endstory
 
 @task('pull-to-live', ['on'=>'production'])
-    cd /var/www/IREN/new.growthpad.irenkenya.com/growthpad-backend
+    cd /var/www/IREN/growthpad.irenkenya.com
     git fetch --all
     git reset --hard origin/master
 @endtask

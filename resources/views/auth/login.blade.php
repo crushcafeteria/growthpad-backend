@@ -13,7 +13,6 @@
 
         <form method="POST" action="login">
             {{ csrf_field() }}
-
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -29,8 +28,6 @@
                     </span>
                 @endif
             </div>
-
-
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">

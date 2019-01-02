@@ -72,7 +72,7 @@
 </script>
 <div class="peers ai-s fxw-nw h-100vh">
     <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
-         style="background-image:url(images/background.jpg)">
+         style="background-image:url({{ asset('images/background.jpg', env('FORCE_SSL')) }})">
     </div>
         @yield('authbox')
 </div>
