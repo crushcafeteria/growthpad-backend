@@ -33,7 +33,7 @@ Route::get('remove/from/cart/{productID}', 'ServiceController@removeFromCart');
 Route::post('request/connect', 'MarketController@connect');
 
 # Admin panel
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('home', 'Admin\HomeController@index');
 
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
     Route::get('users', 'Admin\UserManager@listUsers');
 
 
-    Route::get('logout', function (){
+    Route::get('logout', function () {
         Auth::logout();
 
         return redirect('/');
@@ -75,7 +75,7 @@ Route::get('/import', 'ImportController');
 
 
 #### NEW SYSTEM ###
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', 'DashboardController');
     Route::resource('ads', 'AdsController');
     Route::resource('orders', 'OrdersController');
@@ -85,8 +85,15 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::resource('users', 'UsersController');
 
-    Route::get('logout', function(){
+    Route::get('logout', function () {
         auth()->logout();
         return redirect('login');
     });
+});
+
+Route::get('you-can-now-login', function () {
+    return response()->json([
+        'status' => 'SUCCESS!',
+        'message' => 'You have successfully changed your password. Please close this window and try logging in with your new password'
+    ]);
 });
