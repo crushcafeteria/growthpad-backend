@@ -62,13 +62,11 @@
                 @endif
             </div>
 
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Change Password
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-check-circle fa-fw"></i> Set new password
                     </button>
                 </div>
-            </div>
         </form>
 
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
