@@ -7,7 +7,7 @@
 
         @if (session('status'))
             <div class="alert alert-success">
-                {{ session('status') }}
+                A password reset link has been sent to your email. Please click on it to continue. You may close this window
             </div>
         @endif
 
