@@ -11,52 +11,6 @@
             </div>
         @endif
 
-        <form method="POST" action="login">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-envelope"></i>
-                        </span>
-                    </div>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Email address">
-                </div>
-                @if ($errors->has('email'))
-                    <span class="help-block text-danger">
-                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('email') }}
-                    </span>
-                @endif
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fa fa-lock"></i>
-                    </span>
-                </div>
-                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('password') }}
-                    </span>
-                @endif
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-success btn-lg">
-                    <i class="fa fa-check-circle fa-fw"></i> Login
-                </button>
-                <br>
-                <br>
-                or
-                <br>
-                <a href="register">Register your account</a>
-                <br>
-                <a href="password/reset">I forgot my password</a>
-            </div>
-        </form>
-
         <form method="POST" action="{{ route('password.request') }}">
             {{ csrf_field() }}
 
