@@ -23,7 +23,7 @@
                             <i class="fa fa-envelope"></i>
                         </span>
                     </div>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required placeholder="Email address">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Email address">
                 </div>
                 @if ($errors->has('email'))
                     <span class="help-block text-danger">
