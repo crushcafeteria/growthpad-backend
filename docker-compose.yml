@@ -4,8 +4,17 @@ services:
     web:
         image: sodiumafrica/sodiumserver:1.0
         volumes:
-            - ./docker/growthpad.local.conf:/etc/nginx/servers/growthpad.conf:rw
+            - ./docker/vhost.conf:/etc/nginx/servers/growthpad.conf:rw
             - ./:/var/www/:rw
         ports:
-            - 17000:80
+            - 15031:80
         restart: 'always'
+        
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+        ports:
+            - 15333:80
+        volumes:
+            - /sessions
