@@ -59,7 +59,7 @@
             <div class="col-md-12 mb-8">
                 <div class="card gradient" style="height: 94%;">
                     {{--<img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">--}}
-                    <div class="card-body">
+                    <div class="card-body" style="padding-bottom: 7px;">
                         <h2 class="card-title" style="margin-top: 7px; color: #fff;">
                             <i class="fa fa-question-circle fa-fw"></i> About IREN
                         </h2>
