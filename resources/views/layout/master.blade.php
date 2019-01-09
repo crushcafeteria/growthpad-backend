@@ -24,10 +24,10 @@
 </div>
 
 
-<footer class="footer">
+<footer class="footer bg-dark">
     <div class="container text-center">
-        <span class="text-muted">
-            Developed and hosted by <a target="_blank" href="https://sodium.co.ke">Sodium Africa</a>
+        <span class="text-white">
+            Developed and hosted by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a>
         </span>
     </div>
 </footer>

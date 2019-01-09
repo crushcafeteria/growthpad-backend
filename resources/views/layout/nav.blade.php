@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="services"><i class="fa fa-android fa-fw"></i> Download our mobile app</a>
+                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/search?q=iren%20growthpad&hl=en"><i class="fa fa-android fa-fw"></i> Download our mobile app</a>
                 </li>
                 {{--<li class="nav-item">--}}
                     {{--<a class="nav-link active" href="market"><i class="fa fa-shopping-cart fa-fw"></i> Marketplace</a>--}}

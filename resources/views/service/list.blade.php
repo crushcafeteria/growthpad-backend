@@ -8,18 +8,20 @@
         <!-- Heading Row -->
         <div class="row my-4">
             <div class="col-lg-7">
-                <img class="img-fluid rounded" src="{{ asset('images/tractor-grain-mixer-rural-denmark-53622.jpeg') }}" alt="">
+                <img class="img-fluid rounded" src="{{ asset('images/app.png') }}" alt="">
             </div>
             <div class="col-lg-5">
                 <h2>The IREN Growthpad</h2>
                 <hr>
                 <p style="font-size: 18px;">
-                    The IREN Growth-Pad offers efficient service provision and networking opportunities
-                    to users at both farm and vendor level. The Growth-Pad features annual IREN Bukura
-                    Trade and Cultural Fair that enable participants to trade and network, Buni Umiliki
-                    (Innovate and Own) radio program and the online service provision platform. The key
-                    IREN Growth-Pad products and services can be found below
+                    IREN Growthpad Mobile App is an online service platform that offers convenience and
+                    efficient access to agro vets and outside caterers. It creates linkages that develop
+                    a diverse market eco-system, spurs business growth and promotes networking opportunities
+                    to the users.
                 </p>
+                <a href="https://play.google.com/store/search?q=iren%20growthpad&hl=en" class="btn btn-success">
+                    <i class="fa fa-download fa-fw"></i> Download our apps
+                </a>
             </div>
         </div>
 
@@ -30,26 +32,26 @@
                 <div class="card h-100">
                     <img class="card-img-top img-fluid" src="{{ asset('images/pexels-photo-96715.jpeg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title">Farm Management</h4>
-                        <p class="card-text">We organize and operate activities on your farm to maximize productivity and profits</p>
+                        <h4 class="card-title">Efficient service provision</h4>
+                        <p class="card-text">The IREN Growthpad App offers access to vetted, predictable, accountable service providers through location based systems</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ asset('images/tractor-2487106_1920.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/tractor.png') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title">Leasing Solutions</h4>
-                        <p class="card-text">We avail modern technology to increase efficiency at farm and vendor levels</p>
+                        <h4 class="card-title">Productivity and business growth</h4>
+                        <p class="card-text"> The IREN Growthpad offers flexibility for on demand services at the convenience of your phone</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ asset('images/onions-1397037_1920.jpg') }}" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ asset('images/onions.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title">Market Linkages</h4>
-                        <p class="card-text">We offer opportunities and network to increase market reach</p>
+                        <h4 class="card-title">Networking opportunities</h4>
+                        <p class="card-text">The IREN Growthpad App offers opportunity to grow your network value</p>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@
                         <h2 class="card-title" style="margin-top: 7px; color: #fff;">
                             <i class="fa fa-question-circle fa-fw"></i> About IREN
                         </h2>
-                        <p class="card-text lead">
+                        <p class="card-text">
                             Established in 2001, the Inter Region Economic Network (IREN) has worked in rural
                             Eastern and Western Kenya with farmers, managed skills development initiatives for
                             youth and managed business competitions to promote Micro, Small and Medium Sized
