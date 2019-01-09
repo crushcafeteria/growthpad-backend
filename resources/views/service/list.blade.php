@@ -55,17 +55,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">Formalization and Consulting</h4>
-                        <p class="card-text">We advice on property rights and formalization to unlock capital </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-8 mb-8">
+            <div class="col-md-12 mb-8">
                 <div class="card gradient" style="height: 94%;">
                     {{--<img class="card-img-top img-fluid" src="{{ asset('images/byron-92932_1920.jpg') }}" alt="Card image cap">--}}
                     <div class="card-body">
