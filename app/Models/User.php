@@ -7,6 +7,7 @@ use Geokit\Math;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Notifications\ResetPassword;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -71,7 +72,7 @@ class User extends Authenticatable implements JWTSubject
         $math = new Math();
 
         $from = @new LatLng(auth()->user()->lat, auth()->user()->lon);
-        $to   = @new LatLng($this->attributes['lat'], $this->attributes['lon']);
+        $to = @new LatLng($this->attributes['lat'], $this->attributes['lon']);
 
         $distance = $math->distanceVincenty($from, $to);
 
@@ -81,5 +82,16 @@ class User extends Authenticatable implements JWTSubject
     function ads()
     {
         return $this->hasMany(Ad::class, 'publisher_id', 'id');
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }

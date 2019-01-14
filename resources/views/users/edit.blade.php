@@ -71,12 +71,21 @@
                                 @endif
                             </div>
 
+                            <div class="form-group">
+                                <label>Tokens</label>
+                                {!! Form::text('credits', old('credits'), ['class' => 'form-control', 'placeholder' => 'Tokens...']) !!}
+                                @if($errors->has('credits'))
+                                    <small class="help-block text-danger">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('credits') }}
+                                    </small>
+                                @endif
+                            </div>
+
                             <button type="submit" class="btn btn-success btn-block btn-lg">
                                 <i class="fa fa-check-circle fa-fw"></i> Save Changes
                             </button>
 
                             {!! Form::close() !!}
-
 
                         </div>
                     </div>

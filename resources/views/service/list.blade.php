@@ -71,7 +71,8 @@
                             working with farmers and necessity traders in Western Kenya’s Bungoma and Kakamega
                             Counties on issues of property rights, productivity and markets.
                         </p>
-                        <a target="_blank" href="https://irenkenya.com" class="btn btn-outline-white">Visit our website
+                        <a target="_blank" href="https://irenkenya.com" class="btn btn-outline-white">
+                            Visit our website
                             <i class="fa fa-caret-right fa-fw"></i></a>
                     </div>
                 </div>
