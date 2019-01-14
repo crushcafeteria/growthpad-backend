@@ -11,6 +11,12 @@
             </div>
         @endif
 
+        @if(@$_GET['access_denied'])
+            <div class="alert alert-danger" role="alert">
+                Access denied! Please go away.
+            </div>
+        @endif
+
         <form method="POST" action="login">
             {{ csrf_field() }}
             <div class="form-group">

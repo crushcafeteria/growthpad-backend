@@ -42,4 +42,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    function authenticated(Request $request, $user)
+    {
+        if($user->privilege != 'ADMIN'){
+            auth()->logout();
+            return redirect('login?access_denied');
+        }
+
+    }
+
 }
