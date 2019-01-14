@@ -22,6 +22,7 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Telephone</th>
                                     <th scope="col">Privilege</th>
+                                    <th scope="col">Tokens</th>
                                     <th scope="col" colspan="2">Location</th>
                                 </tr>
                                 </thead>
@@ -36,6 +37,7 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->telephone }}</td>
                                         <td>{{ $user->privilege }}</td>
+                                        <td>{{ $user->credits }}</td>
                                         <td>{{ $user->location['display_name'] }}</td>
                                         <td>
                                             <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-outline-primary btn-sm pull-right">

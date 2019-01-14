@@ -56,6 +56,12 @@
                                         <h4 class="mb-1">{{ config('settings.gender')[$account->gender] }}</h4>
                                     </div>
                                 </div>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <small class="text-muted">Tokens</small>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h4 class="mb-1">{{ config('settings.gender')[$account->credits] }}</h4>
+                                    </div>
+                                </div>
                             </div>
 
                             <a href="{{ route('users.edit', ['id' => $account->id]) }}" class="btn btn-primary btn-block btn-lg">
