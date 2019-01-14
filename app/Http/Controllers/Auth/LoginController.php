@@ -46,7 +46,7 @@ class LoginController extends Controller
     {
         if($user->privilege != 'ADMIN'){
             auth()->logout();
-            return redirect('login?access_denied');
+            return redirect('login?access_denied=true');
         }
 
     }
