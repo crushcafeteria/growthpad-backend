@@ -61,7 +61,9 @@ class ResetPassword extends Notification
 
         return (new MailMessage)
             ->subject('Reset your password')
-            ->markdown('emails.reset-password');
+            ->markdown('emails.reset-password', [
+                'token' => $this->token
+            ]);
     }
 
     /**
