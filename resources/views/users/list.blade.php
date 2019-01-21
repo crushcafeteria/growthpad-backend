@@ -30,7 +30,7 @@
                                 @foreach($accounts as $user)
                                     <tr>
                                         <td>
-                                            <img src="{{ (!$user->picture) ? 'http://placehold.it/30x30/000/fff?text='.substr($user->name, 0, 1) : $user->picture }}" width="50" class="img-rounded">
+                                            <img src="{{ (!$user->picture) ? 'http://placehold.it/30x30/000/fff?text='.substr($user->name, 0, 1) : $user->picture }}" width="50" class="rounded-circle">
                                         </td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->gender }}</td>
