@@ -81,7 +81,7 @@ class UsersController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        User::find($id)->update($request->only(['name', 'email', 'telephone', 'privilege', 'gender']));
+        User::find($id)->update($request->only(['name', 'email', 'telephone', 'privilege', 'gender','credits']));
 
         $request->session()->flash('successbox', ['User account successfully updated']);
 
