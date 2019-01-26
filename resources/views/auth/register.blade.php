@@ -32,7 +32,7 @@
                 @endif
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <select id="county" class="form-control" name="county" required>
                     <option value="">Choose a county</option>
                     @foreach(config('settings.counties') as $key => $value)
@@ -44,7 +44,7 @@
                     <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('county') }}
                 </span>
                 @endif
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <input id="telephone" type="telephone" class="form-control" name="telephone" value="{{ old('telephone') }}"
