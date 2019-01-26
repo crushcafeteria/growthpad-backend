@@ -34,6 +34,10 @@ class ResetPassword extends Notification
     public function __construct($token)
     {
         $this->token = $token;
+
+        $this->callbacks[] =( function ($message) {
+            $message->getHeaders()->addTextHeader('X-Mailgun-Native-Send', 'true');
+        });
     }
 
     /**

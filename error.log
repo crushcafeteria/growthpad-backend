@@ -1,0 +1,1 @@
+2019/01/26 23:41:40 [error] 4185#0: *121 upstream timed out (60: Operation timed out) while reading response header from upstream, client: 127.0.0.1, server: growthpad.test, request: "POST /password/email HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "growthpad.test", referrer: "http://growthpad.test/password/reset"
