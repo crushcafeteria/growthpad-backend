@@ -31,7 +31,8 @@ class OrderReceived extends Mailable
      */
     public function build()
     {
-        return $this->cc('growthpad@irenkenya.com')->subject('New Order - ' . $this->order->ad->name)
+        $cc = ['nelson@lipasafe.com', 'growthpad@irenkenya.com'];
+        return $this->cc($cc)->subject('New Order Alert- ' . $this->order->ad->name)
                     ->markdown('emails.order-received');
     }
 }

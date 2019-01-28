@@ -71,8 +71,7 @@ class OrderController extends Controller
         $order = Order::with(['customer', 'ad'])->find($order->id);
 
         # Notify publisher via email
-//        Mail::to($order->ad->publisher)->send(new OrderReceived($order));
-        Mail::to('nelson@lipasafe.com')->send(new OrderReceived($order));
+        Mail::to($order->ad->publisher)->send(new OrderReceived($order));
 
         # Notify buyer via email
         return response()->json(['status' => 'OK']);
