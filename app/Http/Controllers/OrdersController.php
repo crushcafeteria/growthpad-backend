@@ -114,7 +114,7 @@ class OrdersController extends Controller
         $order = Order::findOrFail($id);
         request()->session()->flash('successbox', ['Order successfully deleted']);
 
-        return redirect()->route('users.index');
+        return redirect()->route('orders.index');
     }
 
     function saveNote($orderID)
