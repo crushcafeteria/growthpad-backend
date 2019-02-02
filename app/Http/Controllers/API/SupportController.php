@@ -36,7 +36,10 @@ class SupportController extends Controller
             // dd($location);
             $suggestions[] = [
                 'name' => $location->properties->name,
-                'coordinates' => $location->geometry
+                'coordinates' => [
+                    'lat' => $location->geometry->coordinates[0],
+                    'lon' => $location->geometry->coordinates[1]
+                ]
             ];
         });
 
