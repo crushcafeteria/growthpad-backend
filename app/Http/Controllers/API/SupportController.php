@@ -35,14 +35,15 @@ class SupportController extends Controller
         collect($response->features)->each(function($location) use (&$suggestions) {
             dd($location);
             $suggestions[] = [
-                // 'name' => $location['']
+                'name' => $location->properties->name,
+                'coordinates' => $location->geometry
             ];
         });
 
-        if ($response) {
-            return response()->json($response);
-        } else {
+        if (!$suggestions) {
             return response()->json(['error' => 'Nothing matches ' . request()->q]);
         }
+        
+        return response()->json($$suggestions);
     }
 }
