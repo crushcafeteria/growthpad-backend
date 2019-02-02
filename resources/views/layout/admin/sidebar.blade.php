@@ -5,7 +5,7 @@
                 <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('dashboard') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
-                                <div classhr="logo">
+                                <div class="logo">
                                     <img src="assets/images/logo.png" alt="">
                                 </div>
                             </div>

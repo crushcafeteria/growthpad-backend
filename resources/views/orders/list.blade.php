@@ -57,7 +57,7 @@
 
                             {{ $orders->links() }}
 
-                            {{ dump($orders) }}
+                            {{-- {{ dump($orders) }} --}}
                         </div>
                     </div>
                 </div>
