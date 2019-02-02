@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AdRequest;
 use App\Models\Ad;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class AdsController extends Controller
@@ -105,6 +106,14 @@ class AdsController extends Controller
      */
     public function destroy($id)
     {
+        $ad = Ad::findOrFail($id);
 
+        # Remove all orders related to this ad
+        Order::where('ad_id', $id)->delete();
+
+        $ad->delete();
+        request()->session()->flash('successbox', ['Advertisement successfully deleted']);
+
+        return redirect()->route('ads.index');
     }
 }

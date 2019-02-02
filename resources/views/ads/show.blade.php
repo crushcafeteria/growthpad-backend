@@ -14,11 +14,14 @@
 
 
                     <div class="btn-group pull-right" role="group">
-                        <a href="{{ route('ads.index') }}" class="btn btn-warning pull-right">
+                        <a href="{{ route('ads.index') }}" class="btn btn-warning">
                             <i class="fa fa-arrow-left fa-fw"></i> Back
                         </a>
-                        <a href="{{ route('ads.edit', ['ad'=>$ad->id]) }}" class="btn btn-primary pull-right">
+                        <a href="{{ route('ads.edit', ['ad'=>$ad->id]) }}" class="btn btn-primary">
                             <i class="fa fa-edit fa-fw"></i> Edit
+                        </a>
+                        <a href="{{ url('ads/'.$ad->id.'/delete') }}" class="btn btn-danger" onclick="return areYouSure()">
+                            <i class="fa fa-trash fa-fw"></i> Delete
                         </a>
                     </div>
                     <h3>View advertisement</h3>
@@ -105,6 +108,7 @@
                             <h4 class="c-grey-900 mB-20">Description</h4>
                             <p>{{ $ad->description }}</p>
                         </div>
+                        {{-- {{ dump($ad) }} --}}
                     </div>
                 </div>
 
@@ -129,5 +133,9 @@
                 autoplay: true
             });
         })
+
+        function areYouSure(){
+            return dialog = confirm('Are you sure you want to delete this ad?')
+        }
     </script>
 @endpush

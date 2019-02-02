@@ -41,7 +41,7 @@
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                                     <small class="text-muted">User Location</small>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{ $account->location['display_name'] }}</h4>
+                                        <h4 class="mb-1">{{ @$account->location['name'] }}</h4>
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -64,9 +64,20 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('users.edit', ['id' => $account->id]) }}" class="btn btn-primary btn-block btn-lg">
-                                <i class="fa fa-cog fa-fw fa-spin"></i> Manage this account
-                            </a>
+                            <div class="col-12 text-center">
+                                <div class="btn-group">
+                                    <a href="{{ route('users.edit', ['id' => $account->id]) }}" class="btn btn-primary btn-lg">
+                                        <i class="fa fa-cog fa-fw fa-spin"></i> Manage
+                                    </a>
+                                    @if(auth()->user()->privilege == 'ADMIN')
+                                        <a href="{{ url('users/'.$account->id.'/delete') }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure? This action will also erase all orders and ads created by this account')">
+                                            <i class="fa fa-trash fa-fw"></i> Delete
+                                        </a>
+                                    @endif
+                                    
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>

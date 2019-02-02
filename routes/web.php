@@ -77,12 +77,16 @@ Route::get('/import', 'ImportController');
 #### NEW SYSTEM ###
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', 'DashboardController');
+    Route::get('ads/{id}/delete', 'AdsController@destroy');
     Route::resource('ads', 'AdsController');
-    Route::resource('orders', 'OrdersController');
+
+    Route::get('orders/{orderID}/delete', 'OrdersController@destroy');
     Route::post('orders/{orderID}/note', 'OrdersController@saveNote');
     Route::get('orders/{orderID}/pdf', 'OrdersController@makePDF');
     Route::post('orders/search', 'OrdersController@search')->name('orders.search');
+    Route::resource('orders', 'OrdersController');
 
+    Route::get('users/{id}/delete', 'UsersController@destroy');
     Route::resource('users', 'UsersController');
 
     Route::get('logout', function () {

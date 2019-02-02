@@ -5,9 +5,12 @@ namespace App\Models;
 use Geokit\LatLng;
 use Geokit\Math;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ad extends Model
 {
+
+     use SoftDeletes;
 
     protected $table = 'ads';
     protected $guarded = ['id', 'created_at'];
@@ -15,6 +18,8 @@ class Ad extends Model
         'pictures' => 'array',
         'location' => 'array',
     ];
+
+    protected $dates = ['deleted_at'];
 
     protected $appends = ['featured_picture', 'distance'];
 

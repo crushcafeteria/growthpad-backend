@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\Ad;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -97,6 +98,18 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        # Delete user ads and orders
+        $ads = Ad::where('publisher_id', $id)->get();
+        $ads->each(function($ad){
+            Order::where('ad_id', $ad->id)->delete();
+        });
+
+        $user->delete();
+
+        request()->session()->flash('successbox', ['User account successfully deleted']);
+
+        return redirect()->route('users.index');
     }
 }

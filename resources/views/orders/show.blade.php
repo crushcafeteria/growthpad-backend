@@ -19,8 +19,8 @@
                             <a href="{{ route('orders.edit', ['order'=>$order->id]) }}" class="btn btn-primary pull-right">
                                 <i class="fa fa-edit fa-fw"></i> Manage
                             </a>
-                            <a target="_blank" href="orders/{{ $order->id }}/pdf" class="btn btn-success pull-right">
-                                <i class="fa fa-file-pdf-o fa-fw"></i> Print
+                            <a href="{{ url('orders/'.$order->id.'/delete') }}" class="btn btn-danger pull-right" onclick="return confirm('Are you sure? This action will permanently delete this order')">
+                                <i class="fa fa-trash fa-fw"></i> Delete
                             </a>
                         </div>
                         <h3>View @yield('title')</h3>

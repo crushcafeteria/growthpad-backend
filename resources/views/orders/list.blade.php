@@ -37,14 +37,14 @@
                                 <tbody>
                                 @foreach($orders as $order)
                                     <tr>
-                                        <td>{{ $order->id }}</td>
+                                        <td>{{ ($loop->index + 1) }}</td>
                                         <td>{{ $order->customer->name }}</td>
-                                        <td>{{ $order->ad->publisher->name }}</td>
-                                        <td>{{ $order->ad->name }}</td>
-                                        <td>Ksh {{ number_format($order->ad->price) }}</td>
-                                        <td>{{ $order->status }}</td>
+                                        <td>{{ @$order->ad->publisher->name }}</td>
+                                        <td>{{ @$order->ad->name }}</td>
+                                        <td>Ksh {{ @number_format($order->ad->price) }}</td>
+                                        <td>{{ @$order->status }}</td>
                                         <td>
-                                            {{ $order->created_at }}
+                                            {{ @$order->created_at }}
                                             <a href="{{ route('orders.show', ['ad'=>$order->id]) }}"
                                                class="btn btn-outline-primary btn-sm pull-right">
                                                 View
@@ -57,7 +57,7 @@
 
                             {{ $orders->links() }}
 
-{{--                            {{ dump($orders) }}--}}
+                            {{ dump($orders) }}
                         </div>
                     </div>
                 </div>
