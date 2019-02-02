@@ -59,6 +59,8 @@ class OrderController extends Controller
         }
 
         # Deduct 1 token from SP
+        $sp = Ad::find(request()->ad_id)->publisher;
+        $sp->update(['credits' => ($sp->credits - 1)])
 
         $order = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
