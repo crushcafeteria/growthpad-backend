@@ -43,7 +43,7 @@ class SupportController extends Controller
         if (!$suggestions) {
             return response()->json(['error' => 'Nothing matches ' . request()->q]);
         }
-        
-        return response()->json($$suggestions);
+
+        return response()->json($suggestions);
     }
 }
