@@ -28,10 +28,10 @@
                                 <tbody>
                                 @foreach($ads as $ad)
                                     <tr>
-                                        <td>{{ $ad->category }}</td>
-                                        <td>{{ $ad->name }}</td>
-                                        <td>Ksh {{ number_format($ad->price) }}</td>
-                                        <td>{{ $ad->location['display_name'] }}</td>
+                                        <td>{{ @$ad->category }}</td>
+                                        <td>{{ @$ad->name }}</td>
+                                        <td>Ksh {{ @number_format($ad->price) }}</td>
+                                        <td>{{ @$ad->location['display_name'] }}</td>
                                         <td class="{{ ($ad->status == 'ACTIVE') ? 'text-success' : 'text-danger' }}">{{ $ad->status }}</td>
                                         <td>
                                             {{ $ad->expiry }}
