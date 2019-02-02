@@ -28,7 +28,7 @@ class SupportController extends Controller
             return response()->json(['error' => 'Please enter a search term']);
         }
 
-        $url      = 'https://nominatim.openstreetmap.org/search?format=json&q=' . request()->q . '&country=Kenya&email=nelson@lipasafe.com';
+        $url      = 'http://photon.komoot.de/api/?q='.request()->q;
         $response = Curl::to($url)->asJson()->get();
 
         $suggestions = null;
