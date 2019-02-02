@@ -47,7 +47,7 @@
 
                             {{ $ads->links() }}
 
-                            {{--{{ dump($ads) }}--}}
+                            {{ dump($ads) }}
                         </div>
                     </div>
                 </div>
