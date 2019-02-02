@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->text('extra_data')->nullable();
             $table->text('status')->default('PENDING');
             $table->string('cancellation_reason')->nullable();
+            $table->text('delivery_location')->nullable();
             $table->timestamps();
         });
     }
