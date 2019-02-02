@@ -66,6 +66,7 @@ class OrderController extends Controller
         $order['customer_id'] = auth()->id();
         $order['sp_id'] = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
         $order['extra_data'] = request()->eventOptions;
+        $order['delivery_location'] = request()->deliveryLocation;
         $order['status'] = 'PENDING';
 
         $order = Order::create($order);
