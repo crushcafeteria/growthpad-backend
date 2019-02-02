@@ -32,7 +32,7 @@ class SupportController extends Controller
         $response = Curl::to($url)->asJson()->get();
 
         $suggestions = null;
-        collect($response['features'])->each(function($location) use (&$suggestions) {
+        collect($response->features)->each(function($location) use (&$suggestions) {
             dd($location);
             $suggestions[] = [
                 // 'name' => $location['']
