@@ -31,6 +31,14 @@ class SupportController extends Controller
         $url      = 'http://photon.komoot.de/api/?q='.request()->q.'&limit=5';
         $response = Curl::to($url)->asJson()->get();
 
+        $suggestions = null;
+        collect($response['features'])->each(function($location) use (&$suggestions) {
+            dd($location);
+            $suggestions[] = [
+                // 'name' => $location['']
+            ];
+        });
+
         if ($response) {
             return response()->json($response);
         } else {
