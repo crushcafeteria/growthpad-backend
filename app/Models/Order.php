@@ -11,7 +11,8 @@ class Order extends Model
     protected $guarded = ['id', 'created_at'];
 
     protected $casts = [
-        'extra_data' => 'array'
+        'extra_data' => 'array',
+        'delivery_location' => 'array',
     ];
 
     function customer()
