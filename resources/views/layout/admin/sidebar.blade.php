@@ -2,10 +2,10 @@
     <div class="sidebar-inner">
         <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
-                <div class="peer peer-greed"><a class="sidebar-link td-n" href="dashboard">
+                <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('dashboard') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
-                                <div class="logo">
+                                <div classhr="logo">
                                     <img src="assets/images/logo.png" alt="">
                                 </div>
                             </div>
