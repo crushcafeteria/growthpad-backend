@@ -33,7 +33,7 @@ class SupportController extends Controller
 
         $suggestions = null;
         collect($response->features)->each(function($location) use (&$suggestions) {
-            dd($location);
+            // dd($location);
             $suggestions[] = [
                 'name' => $location->properties->name,
                 'coordinates' => $location->geometry
