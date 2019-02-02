@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/search?q=iren%20growthpad&hl=en"><i class="fa fa-android fa-fw"></i> Download our mobile app</a>
+                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/search?q=iren%20growthpad&hl=en"><i class="fa fa-android fa-fw"></i> Download app</a>
                 </li>
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link active" href="market"><i class="fa fa-shopping-cart fa-fw"></i> Marketplace</a>--}}
-                {{--</li>--}}
                 <li class="nav-item">
-                    <a target="_blank" class="nav-link active" href="https://irenkenya.com/contact/"><i class="fa fa-envelope fa-fw"></i> Get in touch</a>
+                    <a class="nav-link active" href="{{ url('onboard') }}"><i class="fa fa-plus-circle fa-fw"></i> Become a service provider</a>
+                </li>
+                <li class="nav-item">
+                    <a target="_blank" class="nav-link active" href="https://irenkenya.com/contact/"><i class="fa fa-envelope fa-fw"></i> Contact Us</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="login"><i class="fa fa-lock fa-fw"></i> Staff Login</a>

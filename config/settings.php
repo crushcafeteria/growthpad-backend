@@ -433,5 +433,10 @@ return [
             'INDOOR'  => 'Indoor Event',
             'OUTDOOR' => 'Outdoor Event',
         ]
+    ],
+    'links' => [
+        'facebook' => '#',
+        'twitter' => '#',
+        'disclamer' => '#'
     ]
 ];

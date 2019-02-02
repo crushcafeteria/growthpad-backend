@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Requests\OnboardRequest;
+use App\Mail\OnboardReceived;
 
 class ServiceController extends Controller
 {
@@ -87,5 +89,17 @@ class ServiceController extends Controller
     function showDisclaimer()
     {
         return view('service.disclaimer');
+    }
+
+    function showSpOnboardingPage()
+    {
+        return view('onboard');
+    }
+
+    function startOnboard(OnboardRequest $request)
+    {
+        Mail::to(['growthpad@irenkenya.com','nelson@lipasafe.com'])->send(new OnboardReceived($request->all()));
+        session()->flash('successbox', ['Your request has been received. Someone will be in touch soon!']);
+        return redirect('onboard?view=success');
     }
 }

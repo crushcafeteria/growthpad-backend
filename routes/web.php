@@ -95,6 +95,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
+Route::get('onboard', 'ServiceController@showSpOnboardingPage');
+Route::post('onboard', 'ServiceController@startOnboard');
+
 Route::get('you-can-now-login', function () {
     return response()->json([
         'status' => 'SUCCESS!',

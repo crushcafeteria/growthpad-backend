@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ config('app.name') }} - IREN</title>
+    <title>{{ config('app.name') }}</title>
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -25,9 +25,20 @@
 
 
 <footer class="footer bg-dark">
-    <div class="container text-center">
+    <div class="container text-centerx">
         <span class="text-white">
-            Developed and hosted by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a>
+            Powered by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a>
+        </span>
+        <span class="float-right">
+            <a href="{{ config('links.facebook') }}" class="text-white footer-icon">
+                <i class="fa fa-facebook-square fa-fw"></i>
+            </a>
+            <a href="{{ config('links.twitter') }}" class="text-white footer-icon">
+                <i class="fa fa-twitter-square fa-fw"></i>
+            </a>
+            <a href="{{ config('links.disclaimer') }}" class="text-white footer-icon">
+                Disclaimer
+            </a>
         </span>
     </div>
 </footer>
@@ -70,5 +81,11 @@
         height: 60px;
         line-height: 60px; /* Vertically center the text there */
         background-color: #f5f5f5;
+    }
+
+    .footer-icon {
+        font-size: 20px;
+        margin-left: 15px;
+        text-decoration: none;
     }
 </style>
