@@ -437,6 +437,6 @@ return [
     'links' => [
         'facebook' => '#',
         'twitter' => '#',
-        'disclamer' => '#'
+        'disclamer' => 'https://growthpad.irenkenya.com/disclaimer'
     ]
 ];
