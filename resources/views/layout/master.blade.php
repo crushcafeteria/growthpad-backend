@@ -36,7 +36,7 @@
             <a href="{{ config('settings.links.twitter') }}" class="text-white footer-icon">
                 <i class="fa fa-twitter-square fa-fw"></i>
             </a>
-            <a href="{{ config('settings.links.disclaimer') }}" class="text-white footer-icon">
+            <a href="{{ url('disclaimer') }}" class="text-white footer-icon">
                 Disclaimer
             </a>
         </span>
