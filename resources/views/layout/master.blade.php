@@ -30,13 +30,13 @@
             Powered by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a>
         </span>
         <span class="float-right">
-            <a href="{{ config('links.facebook') }}" class="text-white footer-icon">
+            <a href="{{ config('settings.links.facebook') }}" class="text-white footer-icon">
                 <i class="fa fa-facebook-square fa-fw"></i>
             </a>
-            <a href="{{ config('links.twitter') }}" class="text-white footer-icon">
+            <a href="{{ config('settings.links.twitter') }}" class="text-white footer-icon">
                 <i class="fa fa-twitter-square fa-fw"></i>
             </a>
-            <a href="{{ config('links.disclaimer') }}" class="text-white footer-icon">
+            <a href="{{ config('settings.links.disclaimer') }}" class="text-white footer-icon">
                 Disclaimer
             </a>
         </span>
