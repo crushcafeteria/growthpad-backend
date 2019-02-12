@@ -13,7 +13,7 @@ class PaymentController extends Controller
     function ipn($password)
     {
     	# Validate request password
-        if($password != 'KWUs43VAAAz4GjbsMGusqzQsgtpSMX') {
+        if($password != '2347236767') {
             return response()->json(['error' => 'Service unavailable']);
         }
 

@@ -440,6 +440,6 @@ return [
         'disclamer' => 'https://growthpad.irenkenya.com/disclaimer'
     ],
     'kopokopo' => [
-        'password' => 'KWUs43VAAAz4GjbsMGusqzQsgtpSMX'
+        'url_password' => '2347236767'
     ]
 ];
