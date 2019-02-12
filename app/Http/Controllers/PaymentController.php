@@ -69,9 +69,9 @@ class PaymentController extends Controller
         ]);
     }
 
-    function redeemPayment($code)
+    function applyPayment($id)
     {
-        $payment = Payment::where('transaction_reference', $code)->first();
+        $payment = Payment::find($id)->first();
 
         if(!$payment){
             return response()->json([
@@ -80,14 +80,14 @@ class PaymentController extends Controller
             ]);
         }
 
-        if($payment->status != 'PENDING'){
+        if($payment->user_id){
             return response()->json([
                 'status' => 'FAILED',
-                'error' => 'Payment already redeemed'
+                'error' => 'This payment has been redeemed'
             ]);
         }
 
-        $payment->update(['status'=>'USED']);
+        $payment->update(['user_id' => auth()->id()]);
 
         return response()->json(['status'=>'OK']);
 

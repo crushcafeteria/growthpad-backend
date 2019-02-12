@@ -22,7 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->string('middle_name');              
             $table->string('last_name');                
             $table->string('amount');  
-            $table->string('status')->default('PENDING');             
+            $table->string('user_id')->nullable();          
             $table->timestamps();
         });
     }
