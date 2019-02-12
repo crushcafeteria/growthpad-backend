@@ -12,6 +12,9 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
+        factory(Payment::class, 3)->create([
+        	'sender_phone' => '+254706266712'
+        ]);
         factory(Payment::class, 200)->create();
     }
 }

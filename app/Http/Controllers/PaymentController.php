@@ -47,14 +47,15 @@ class PaymentController extends Controller
         ]);
     }
 
-    function queryPayment($type, $q=null)
+    function detectPayment()
     {
-        if ($type == 'msisdn') {
-            $payments = Payment::where('sender_phone', 'LIKE', '%' . $q . '%')->where('status', 'PENDING');
-        } else if ($type == 'code') {
-            $payments = Payment::where('transaction_reference', $q)->where('status', 'PENDING');
+        # Format number
+        $telephone = auth()->user()->telephone;
+        if(substr($telephone, 0, 2) == '07') {
+            $telephone = '+254'.(int)$telephone;
         }
 
+        $payments = Payment::where('sender_phone', $telephone)->where('status', 'PENDING');
 
         if (!$payments->count()) {
             return response()->json([

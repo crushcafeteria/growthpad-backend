@@ -47,6 +47,6 @@ Route::post('feedback', 'API\AccountController@sendFeedback');
 
 # MPESA Integration
 Route::post('ipn/{password}', 'PaymentController@ipn');
-Route::get('payment/query/{type}/{?param}', 'API\MpesaController@queryPayment');
+Route::get('payment/detect', 'PaymentController@detectPayment')->middleware('jwt.auth');
 Route::get('mpesa/redeem/{code}', 'API\MpesaController@redeemPayment');
 
