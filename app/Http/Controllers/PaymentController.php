@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentReceived;
+use App\Mail\PaymentConfirmed;
 
 class PaymentController extends Controller
 {
@@ -88,8 +89,13 @@ class PaymentController extends Controller
         }
 
         $payment->update(['user_id' => auth()->id()]);
+        auth()->user()->update([
+            'tokens' => (auth()->user()->credits + $payment->amount)
+        ]);
+
+        # Send SP an email
+        Mail::to(auth()->user()->email)->send(new PaymentConfirmed($payment));
 
         return response()->json(['status'=>'OK']);
-
     }
 }
