@@ -55,7 +55,7 @@ class PaymentController extends Controller
             $telephone = '+254'.(int)$telephone;
         }
 
-        $payments = Payment::where('sender_phone', $telephone)->where('status', 'PENDING');
+        $payments = Payment::where('sender_phone', $telephone);
 
         if (!$payments->count()) {
             return response()->json([
