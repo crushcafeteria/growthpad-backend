@@ -89,6 +89,9 @@ class PaymentController extends Controller
         # Send SP an email
         Mail::to(auth()->user()->email)->send(new PaymentConfirmed($payment));
 
-        return response()->json(['status'=>'OK']);
+        return response()->json([
+            'status' => 'OK',
+            'profile' => auth()->user()
+        ]);
     }
 }
