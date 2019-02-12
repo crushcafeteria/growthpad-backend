@@ -438,5 +438,8 @@ return [
         'facebook' => '#',
         'twitter' => '#',
         'disclamer' => 'https://growthpad.irenkenya.com/disclaimer'
+    ],
+    'kopokopo' => [
+        'password' => 'KWUs43VAAAz4GjbsMGusqzQsgtpSMX'
     ]
 ];

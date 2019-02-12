@@ -13,9 +13,9 @@ class PaymentController extends Controller
     function ipn($password)
     {
     	# Validate request password
-    	if($password != env('KOPO_REQUEST_PASS')) {
-    		return response()->json(['error' => 'Service unavailable']);
-    	}
+        if($password != 'KWUs43VAAAz4GjbsMGusqzQsgtpSMX') {
+            return response()->json(['error' => 'Service unavailable']);
+        }
 
     	# Save txn
     	$row = request()->only([
