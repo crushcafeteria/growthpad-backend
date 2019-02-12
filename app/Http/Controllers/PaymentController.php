@@ -61,7 +61,7 @@ class PaymentController extends Controller
         if (!$payments->count()) {
             return response()->json([
                 'status' => 'FAILED',
-                'error' => 'No payment available'
+                'error' => 'This MPESA code is not valid. Please check your MPESA SMS'
             ]);
         }
 
