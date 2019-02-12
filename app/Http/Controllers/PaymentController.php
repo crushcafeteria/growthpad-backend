@@ -67,7 +67,7 @@ class PaymentController extends Controller
 
         return response()->json([
             'status'  => 'OK',
-            'payments' => $payments->get()
+            'payments' => ($code) ? $payments->first() : $payments->get()
         ]);
     }
 
