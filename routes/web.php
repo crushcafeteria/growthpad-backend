@@ -93,6 +93,8 @@ Route::group(['middleware' => 'auth'], function () {
         auth()->logout();
         return redirect('login');
     });
+
+    Route::get('payments', 'PaymentController@list');
 });
 
 Route::get('onboard', 'ServiceController@showSpOnboardingPage');
