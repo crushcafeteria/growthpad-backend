@@ -81,7 +81,7 @@ class PaymentController extends Controller
             ]);
         }
 
-        dd($payment);
+        // dd($payment);
 
 
         $payment->update(['user_id' => auth()->user()->id]);
