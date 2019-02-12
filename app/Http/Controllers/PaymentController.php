@@ -83,7 +83,7 @@ class PaymentController extends Controller
 
         $payment->update(['user_id' => auth()->id()]);
         auth()->user()->update([
-            'tokens' => (auth()->user()->credits + $payment->amount)
+            'credits' => (auth()->user()->credits + $payment->amount)
         ]);
 
         # Send SP an email
