@@ -55,7 +55,7 @@ class PaymentController extends Controller
             $telephone = '+254'.(int)$telephone;
         }
 
-        $payments = Payment::where('sender_phone', $telephone);
+        $payments = Payment::where('sender_phone', $telephone)->whereNull('user_id');
 
         if (!$payments->count()) {
             return response()->json([
