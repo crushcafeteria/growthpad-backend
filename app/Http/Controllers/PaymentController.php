@@ -81,14 +81,7 @@ class PaymentController extends Controller
             ]);
         }
 
-        if(!is_null($payment->user_id)){
-            return response()->json([
-                'status' => 'FAILED',
-                'error' => 'This payment has been redeemed'
-            ]);
-        }
-
-        // $payment->update(['user_id' => auth()->id()]);
+        $payment->update(['user_id' => auth()->id()]);
         auth()->user()->update([
             'tokens' => (auth()->user()->credits + $payment->amount)
         ]);
