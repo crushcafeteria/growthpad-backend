@@ -47,7 +47,7 @@ class PaymentController extends Controller
         ]);
     }
 
-    function queryPayment($type, $q)
+    function queryPayment($type, $q=null)
     {
         if ($type == 'msisdn') {
             $payments = Payment::where('sender_phone', 'LIKE', '%' . $q . '%')->where('status', 'PENDING');
