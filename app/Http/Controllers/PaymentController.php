@@ -28,7 +28,10 @@ class PaymentController extends Controller
 		// Mail::to(config('settings.team')[0]['email'])->send(new PaymentReceived($payment));
 		Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
 
-		return response()->json($payment);
+		return response()->json([
+            'status' => '01',
+            'description' => 'Accepted'
+        ]);
     }
 
     public function list(Request $request)

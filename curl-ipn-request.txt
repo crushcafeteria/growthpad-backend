@@ -4,18 +4,18 @@ curl -i \
  -u username:password \
  -d '{
         "service_name" : "MPESA",
-        "business_number" : "888555",
-        "transaction_reference" : "DE45GK45",
+        "business_number" : "999999",
+        "transaction_reference" : "ABCDEF",
         "internal_transaction_id" : 3222,
         "transaction_timestamp" : "2013-03-18T13:57:00Z",
         "transaction_type" : "Paybill",
         "account_number" : "445534",
-        "sender_phone" : "+254903119111",
-        "first_name" : "John",
+        "sender_phone" : "+254706266712",
+        "first_name" : "Test",
         "middle_name" : "K",
-        "last_name" : "Doe",
-        "amount" : 4000,
+        "last_name" : "User",
+        "amount" : 100,
         "currency" : "KES",
         "signature" : "dfafwerewKkladaHOKJdafdf"
       }' \
-    "http://growthpad.test/api/ipn/KWUs43VAAAz4GjbsMGusqzQsgtpSMX"
+    "https://growthpad.irenkenya.com/api/ipn/KWUs43VAAAz4GjbsMGusqzQsgtpSMX"
