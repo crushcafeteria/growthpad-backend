@@ -81,7 +81,7 @@ class PaymentController extends Controller
             ]);
         }
 
-        if($payment->user_id){
+        if(!is_null($payment->user_id)){
             return response()->json([
                 'status' => 'FAILED',
                 'error' => 'This payment has been redeemed'
