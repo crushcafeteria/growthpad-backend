@@ -72,7 +72,7 @@ class PaymentController extends Controller
 
     function applyPayment($id)
     {
-        $payment = Payment::find($id)->first();
+        $payment = Payment::find($id);
 
         if(!$payment){
             return response()->json([
