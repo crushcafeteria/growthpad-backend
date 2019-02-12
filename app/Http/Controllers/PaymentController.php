@@ -48,15 +48,14 @@ class PaymentController extends Controller
         ]);
     }
 
-    function detectPayment()
+    function detectPayment($code = null)
     {
         # Format number
         $telephone = auth()->user()->telephone;
         if(substr($telephone, 0, 2) == '07') {
             $telephone = '+254'.(int)$telephone;
         }
-
-        $payments = Payment::where('sender_phone', $telephone)->whereNull('user_id');
+        $payments = (!$code) ? Payment::where('sender_phone', $telephone) : Payment::where('transaction_reference', $code)->whereNull('user_id');
 
         if (!$payments->count()) {
             return response()->json([
