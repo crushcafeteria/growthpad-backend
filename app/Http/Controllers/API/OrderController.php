@@ -60,6 +60,12 @@ class OrderController extends Controller
 
         # Deduct 1 token from SP
         $sp = Ad::find(request()->ad_id)->publisher;
+
+        # SP must have credits to receive orders
+        if($sp->credits <= 0) {
+            return response()->json(['error' => 'This service provider cannot receive your order']);
+        }
+
         $sp->update(['credits' => ($sp->credits - 10)]);
 
         $order = request()->only(['ad_id', 'instructions']);

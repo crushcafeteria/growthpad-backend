@@ -54,7 +54,7 @@
                     <span class="icon-holder">
                         <i class="fa fa-money fa-fw"></i>
                     </span>
-                    <span class="title">Payments</span>
+                    <span class="title">Payments Center</span>
                 </a>
             </li>
             <li class="nav-item">
