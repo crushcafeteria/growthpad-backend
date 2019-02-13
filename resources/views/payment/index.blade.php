@@ -52,7 +52,7 @@
                                                     <th>Telephone</th>
                                                     <th>Code</th>
                                                     <th>Amount</th>
-                                                    <th>Status</th>
+                                                    {{-- <th>Status</th> --}}
                                                     <th>Date</th>
                                                 </tr>
                                                 </thead>
@@ -63,7 +63,7 @@
                                                         <td>{{ $payment->sender_phone }}</td>
                                                         <td>{{ $payment->transaction_reference }}</td>
                                                         <td>Ksh {{ number_format($payment->amount) }}</td>
-                                                        <td>{{ $payment->status }}</td>
+                                                        {{-- <td>{{ $payment->status }}</td> --}}
                                                         <td>{{ \Carbon\Carbon::parse($payment->txn_time)->toDateTimeString() }}</td>
                                                     </tr>
                                                 @endforeach
