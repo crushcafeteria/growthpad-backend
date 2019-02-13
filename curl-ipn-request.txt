@@ -18,4 +18,4 @@ curl -i \
         "currency" : "KES",
         "signature" : "dfafwerewKkladaHOKJdafdf"
       }' \
-    "https://growthpad.irenkenya.com/api/ipn/KWUs43VAAAz4GjbsMGusqzQsgtpSMX"
+    "https://growthpad.irenkenya.com/api/ipn/2347236767"

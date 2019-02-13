@@ -58,7 +58,7 @@
                                                 </thead>
                                                 <tbody>
                                                 @foreach($payments as $payment)
-                                                    <tr class="{{ ($payment->status == 'PENDING') ? 'text-danger' : null }}">
+                                                    <tr class="{{ (!$payment->user_id) ? 'text-danger' : null }}">
                                                         <td>{{ $payment->first_name }} {{ $payment->last_name }}</td>
                                                         <td>{{ $payment->sender_phone }}</td>
                                                         <td>{{ $payment->transaction_reference }}</td>

@@ -50,6 +50,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('payments') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-money fa-fw"></i>
+                    </span>
+                    <span class="title">Payments</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="sidebar-link" href="{{ url('users') }}">
                     <span class="icon-holder">
                         <i class="fa fa-users fa-fw"></i>

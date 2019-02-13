@@ -25,8 +25,8 @@ class PaymentController extends Controller
 		$payment = Payment::create($row);
 
 		# Notify staff
-		// Mail::to(config('settings.team')[0]['email'])->send(new PaymentReceived($payment));
-		Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
+		Mail::to(config('settings.team')[0]['email'])->send(new PaymentReceived($payment));
+		// Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
 
 		return response()->json([
             'status' => '01',
