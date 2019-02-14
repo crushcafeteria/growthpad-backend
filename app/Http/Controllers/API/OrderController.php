@@ -63,7 +63,7 @@ class OrderController extends Controller
 
         # SP must have credits to receive orders
         if($sp->credits <= 0) {
-            return response()->json(['error' => 'This service provider cannot receive your order']);
+            return response()->json(['error' => 'This service provider cannot receive your order. Please try again leter']);
         }
 
         $sp->update(['credits' => ($sp->credits - 10)]);
