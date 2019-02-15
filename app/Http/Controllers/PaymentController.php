@@ -14,7 +14,7 @@ class PaymentController extends Controller
     function ipn($password)
     {
         $raw = file_get_contents('php://input');
-        Log::info($raw);
+        Log::info('MPESA IPN => ', ['payment' => $raw]);
 
     	# Validate request password
         if($password != '2347236767') {
