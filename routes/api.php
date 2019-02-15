@@ -22,16 +22,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::post('ads/search', 'API\AdsController@search')->middleware(['jwt.auth', 'cors']);
 
 
-    Route::get('ping', function (){
-        if(auth()->check()){
-            return response()->json([
-                'status' => 'ALIVE', 
-                'profile' => auth()->user
-            ]);
-        } else {
-            return response()->json('ALIVE');
-        }
-    });
+    Route::get('ping/{userID?}', 'API\AccountController@ping');
 
     Route::prefix('support')->group(function (){
         Route::get('countyData', 'API\SupportController@countyData');
