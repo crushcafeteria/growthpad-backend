@@ -23,7 +23,14 @@ Route::group(['middleware' => 'cors'], function (){
 
 
     Route::get('ping', function (){
-        return response()->json('ALIVE');
+        if(auth()->check()){
+            return response()->json([
+                'status' => 'ALIVE', 
+                'profile' => auth()->user
+            ]);
+        } else {
+            return response()->json('ALIVE');
+        }
     });
 
     Route::prefix('support')->group(function (){
