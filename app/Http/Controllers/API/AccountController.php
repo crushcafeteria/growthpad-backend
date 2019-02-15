@@ -201,7 +201,7 @@ class AccountController extends Controller
             $user = User::find($user);
             return response()->json([
                 'status' => 'ALIVE', 
-                'profile' => auth()->user
+                'profile' => $user
             ]);
         } else {
             return response()->json('ALIVE');
