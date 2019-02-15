@@ -195,7 +195,7 @@ class AccountController extends Controller
         return response()->json(['status' => 'OK']);
     }
 
-    function ping($user = null)
+    function ping($user)
     {
         if($user){
             $user = User::find($user);
