@@ -197,7 +197,7 @@ class AccountController extends Controller
 
     function ping($user)
     {
-        if((bool)$user){
+        if($user != 'false'){
             $user = User::find($user);
             return response()->json([
                 'status' => 'ALIVE', 
