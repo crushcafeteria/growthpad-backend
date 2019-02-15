@@ -7,11 +7,15 @@ use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentReceived;
 use App\Mail\PaymentConfirmed;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
     function ipn($password)
     {
+        $raw = file_get_contents('php://input');
+        Log::info($raw);
+
     	# Validate request password
         if($password != '2347236767') {
             return response()->json(['error' => 'Service unavailable']);
