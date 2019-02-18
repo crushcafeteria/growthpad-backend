@@ -19,7 +19,7 @@
                     a diverse market eco-system, spurs business growth and promotes networking opportunities
                     to the users.
                 </p>
-                <a href="https://play.google.com/store/search?q=iren%20growthpad&hl=en" class="btn btn-success">
+                <a href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en" class="btn btn-success">
                     <i class="fa fa-download fa-fw"></i> Download our apps
                 </a>
             </div>

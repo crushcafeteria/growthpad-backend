@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/search?q=iren%20growthpad&hl=en"><i class="fa fa-android fa-fw"></i> Download app</a>
+                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en"><i class="fa fa-android fa-fw"></i> Download app</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ url('onboard') }}"><i class="fa fa-plus-circle fa-fw"></i> Become a service provider</a>
