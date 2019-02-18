@@ -16,6 +16,11 @@
                 <p>
                     IREN Growthpad helps service providers find new customers through location based systems. One can show the uniqueness of their work through the inventory that a service provider voluntarily adds. Direct contacts with the customers who locate their businesses online
                 </p>
+                <br>
+                <h5>How it works</h5>
+                <p>
+                    To sign up and be listed on IREN Growthpad is simple and quick. The application form can be filled out in minutes. We need some information about your business and your location co-ordinates. We use your location as the center of your operating area and your business will come up in searches made by users within that radius. You will receive the order request, accept and seal the deal
+                </p>
             </div>
             <div class="col-lg-7">
                 <h4>Fill this form to get started!</h4>
