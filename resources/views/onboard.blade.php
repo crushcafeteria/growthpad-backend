@@ -14,7 +14,7 @@
                 <br>
                 <br>
                 <p>
-                    IREN Growthpad helps service providers find new customers through location based systems. One can show the uniqueness of their work through the inventory that a service provider voluntarily adds. Direct contacts with the customers who locate their businesses onlineIREN Growthpad helps service providers find new customers through location based systems. One can show the uniqueness of their work through the inventory that a service provider voluntarily adds. Direct contacts with the customers who locate their businesses online
+                    IREN Growthpad helps service providers find new customers through location based systems. One can show the uniqueness of their work through the inventory that a service provider voluntarily adds. Direct contacts with the customers who locate their businesses online
                 </p>
             </div>
             <div class="col-lg-7">
