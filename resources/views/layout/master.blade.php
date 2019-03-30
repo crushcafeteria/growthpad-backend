@@ -27,7 +27,8 @@
 <footer class="footer bg-dark">
     <div class="container text-centerx">
         <span class="text-white">
-            Developed by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a>
+            Developed by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a> &nbsp;
+            | &nbsp; Responding host: {{ gethostname() }}
         </span>
         <span class="float-right">
             <a href="{{ config('settings.links.facebook') }}" class="text-white footer-icon">
