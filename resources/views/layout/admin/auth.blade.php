@@ -61,7 +61,7 @@
 <body class="app">
 <div id="loader">
     <div class="spinner"></div>
-</div>
+</div>na
 <script>
     window.addEventListener('load', () => {
         const loader = document.getElementById('loader');
@@ -74,7 +74,7 @@
     <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
          style="background-image:url({{ asset('images/background.jpg', env('FORCE_SSL')) }})">
     </div>
-        @yield('authbox')
+    @yield('authbox')
 </div>
 <script type="text/javascript" src="{{ asset('vendor.js', env('FORCE_SSL')) }}"></script>
 <script type="text/javascript" src="{{ asset('bundle.js', env('FORCE_SSL')) }}"></script>

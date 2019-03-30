@@ -28,11 +28,28 @@ class DashboardController extends Controller
     {
         return view('dashboard', [
             'total'     => [
-                'accounts' => User::count(),
-                'orders'   => Order::count(),
-                'ads'      => Ad::count(),
+                'accounts'         => User::count(),
+                'orders'           => [
+                    'total'       => Order::count(),
+                    'pending'     => Order::where('status', 'PENDING')->count(),
+                    'progressing' => Order::where('status', 'PROGRESSING')->count(),
+                    'completed'   => Order::where('status', 'COMPLETED')->count(),
+                ],
+                'ads'              => Ad::count(),
+                'total_transacted' => $this->getTotalTransacted()
             ],
-            'latestAds' => Ad::orderBy('created_at', 'DESC')->get()->take(10)
+            'orders' => Order::orderBy('created_at', 'DESC')->get()->take(10)
         ]);
+    }
+
+    function getTotalTransacted()
+    {
+        $total = 0;
+        $orderIDs = Order::select('ad_id')->get();
+        Ad::whereIn('id', $orderIDs)->get()->each(function ($ad) use (&$total) {
+            $total = $total + $ad->price;
+        });
+
+        return $total;
     }
 }

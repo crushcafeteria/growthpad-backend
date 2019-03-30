@@ -25,11 +25,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => 'required',
-            'email'     => 'required',
-            'telephone' => 'required',
-            'gender'    => 'required',
-            'privilege' => 'required',
+            'name'          => 'required',
+//            'business_name' => 'required',
+            'email'         => 'required',
+            'telephone'     => 'required',
+            'gender'        => 'required',
+            'privilege'     => 'required',
         ];
     }
 }

@@ -5,12 +5,12 @@
                 <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('dashboard') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
-                                <div class="logo">
-                                    <img src="assets/images/logo.png" alt="">
+                                <div class="logo pt-2">
+                                    <img src="{{ asset('images/logo.png') }}">
                                 </div>
                             </div>
-                            <div class="peer peer-greed">
-                                <h5 class="lh-1 mB-0 logo-text">{{ config('app.name') }}</h5>
+                            <div class="peer peer-greed pl-3">
+                                <h5 class="lh-1 mB-0 logo-text text-white">Backend Service</h5>
                             </div>
                         </div>
                     </a></div>
@@ -66,11 +66,11 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('logout') }}">
+                <a class="sidebar-link" href="{{ url('businesses') }}">
                     <span class="icon-holder">
-                        <i class="fa fa-sign-out fa-fw"></i>
+                        <i class="fa fa-briefcase fa-fw"></i>
                     </span>
-                    <span class="title">Logout</span>
+                    <span class="title">Businesses</span>
                 </a>
             </li>
         </ul>

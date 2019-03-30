@@ -81,8 +81,7 @@
 
         <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
                 <span>
-                    Cooked with <i class="fa fa-heart-o"></i> and
-                    <a href="https://sodium.co.ke" target="_blank" title="Colorlib">Sodium</a>
+                    Developed by <a href="https://sodium.co.ke" target="_blank">Sodium Africa</a>
                 </span>
         </footer>
     </div>
@@ -101,5 +100,15 @@
 <style>
     .header {
         top: -1px;
+    }
+
+    .sidebar-logo {
+        background-color: #E51400;
+        color: #fff;
+    }
+
+    .sidebar-logo img {
+        width: 65px !important;
+        height: 65px !important;
     }
 </style>

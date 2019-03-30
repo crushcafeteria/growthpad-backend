@@ -83,7 +83,7 @@ class UsersController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        User::find($id)->update($request->only(['name', 'email', 'telephone', 'privilege', 'gender','credits']));
+        User::find($id)->update($request->only(['name', 'email', 'telephone', 'privilege', 'gender', 'credits', 'county', 'business_name']));
 
         $request->session()->flash('successbox', ['User account successfully updated']);
 
@@ -103,7 +103,7 @@ class UsersController extends Controller
 
         # Delete user ads and orders
         $ads = Ad::where('publisher_id', $id)->get();
-        $ads->each(function($ad){
+        $ads->each(function ($ad) {
             Order::where('ad_id', $ad->id)->delete();
         });
 

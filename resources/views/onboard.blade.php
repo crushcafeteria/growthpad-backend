@@ -8,18 +8,22 @@
         <!-- Heading Row -->
         <div class="row my-4">
             <div class="col-lg-5">
-                <h4>Become a Growthpad service provider!</h2>
+                <h4>Become a Growthpad service provider!</h4>
                 <hr>
                 <img class="img-fluid rounded" src="{{ asset('images/app.png') }}" alt="">
                 <br>
                 <br>
                 <p>
-                    IREN Growthpad helps service providers find new customers through location based systems. One can show the uniqueness of their work through the inventory that a service provider voluntarily adds. Direct contacts with the customers who locate their businesses online
+                    The IREN Growthpad mobile app offers customers access to your services at the convenience of their phones.
                 </p>
                 <br>
-                <h5>How it works</h5>
+
+                <h4>How it works</h4>
+                <hr>
                 <p>
-                    To sign up and be listed on IREN Growthpad is simple and quick. The application form can be filled out in minutes. We need some information about your business and your location co-ordinates. We use your location as the center of your operating area and your business will come up in searches made by users within that radius. You will receive the order request, accept and seal the deal
+                    To sign up and be listed on the IREN Growthpad mobile app is simple and quick. Fill the application
+                    form on the right. The IREN Growthpad team will get in touch and take you through the
+                    vetting process for accreditation.
                 </p>
             </div>
             <div class="col-lg-7">
@@ -86,7 +90,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-success btn-lg">
-                        <i class="fa fa-check-circle fa-fw"></i> Get Started!
+                        <i class="fa fa-check-circle fa-fw"></i> Submit
                     </button>
 
                 {!! Form::close() !!}

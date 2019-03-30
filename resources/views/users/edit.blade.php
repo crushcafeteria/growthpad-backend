@@ -32,6 +32,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Business Name</label>
+                                {!! Form::text('business_name', old('business_name'), ['class' => 'form-control', 'placeholder' => 'Enter business name...']) !!}
+                                @if($errors->has('business_name'))
+                                    <small class="help-block text-danger">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('business_name') }}
+                                    </small>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
                                 <label>Email</label>
                                 {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => 'Enter your email...']) !!}
                                 @if($errors->has('email'))
@@ -77,6 +87,16 @@
                                 @if($errors->has('credits'))
                                     <small class="help-block text-danger">
                                         <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('credits') }}
+                                    </small>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label>County</label>
+                                {!! Form::select('county', config('settings.counties'), old('county'), ['class' => 'form-control', 'placeholder' => 'Select a county']) !!}
+                                @if($errors->has('county'))
+                                    <small class="help-block text-danger">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('county') }}
                                     </small>
                                 @endif
                             </div>

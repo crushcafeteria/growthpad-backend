@@ -27,6 +27,12 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <small class="text-muted">Business Name</small>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h4 class="mb-1">{{ ($account->business_name) ? $account->business_name : 'Not Available' }}</h4>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
                                     <small class="text-muted">Email Address</small>
                                     <div class="d-flex w-100 justify-content-between">
                                         <h4 class="mb-1">{{ $account->email }}</h4>
@@ -42,6 +48,12 @@
                                     <small class="text-muted">User Location</small>
                                     <div class="d-flex w-100 justify-content-between">
                                         <h4 class="mb-1">{{ @$account->location['name'] }}</h4>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <small class="text-muted">County</small>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h4 class="mb-1">{{ ($account->county) ? $account->county : 'Not Available' }}</h4>
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
