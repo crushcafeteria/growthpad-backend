@@ -1,11 +1,18 @@
 version: '3'
 
 services:
+    lb:
+        image: jwilder/nginx-proxy:alpine
+        ports:
+            - "15031:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+
     web:
         image: sodiumafrica/sodiumserver:1.0
         volumes:
             - ./docker/vhost.conf:/etc/nginx/servers/growthpad.conf:rw
             - ./:/var/www/:rw
-        ports:
-            - 15031:80
         restart: 'always'
+        environment:
+            - VIRTUAL_HOST=growthpad.irenkenya.com
