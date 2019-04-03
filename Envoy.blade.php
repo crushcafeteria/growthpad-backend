@@ -19,5 +19,5 @@
 @endtask
 
 @task('build-complete', ['on'=>'local'])
-    notify-send 'Growthpad Deployed' 'The Growthpad backend has been successfully deployed'
+    echo 'The Growthpad backend has been successfully deployed' | terminal-notifier -sound default
 @endtask

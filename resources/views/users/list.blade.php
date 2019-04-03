@@ -1,7 +1,11 @@
 @extends('layout.admin.master')
 
 @section('title')
-    User Accounts
+    @if(@$_GET['q'])
+        Users matching '{{ @$_GET['q'] }}'
+    @else
+        User Accounts
+    @endif
 @endsection
 
 @section('page')
@@ -13,6 +17,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="bgc-white bd bdrs-3 p-20 mB-20">
+
+                            {{--Search box--}}
+                            <span class="float-right">
+                                {!! Form::open(['url' => url('users'), 'method' => 'GET']) !!}
+                                    <span class="form-group">
+                                        {!! Form::text('q', @$_GET['q'], ['placeholder' => 'Search...']) !!}
+                                    </span>
+                                {!! Form::close() !!}
+                            </span>
+
                             <h4 class="c-grey-900 mB-20">@yield('title')</h4>
                             <table class="table table-bordered table-hover">
                                 <thead>
