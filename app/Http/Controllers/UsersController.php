@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $accounts = ($_GET['q']) ? User::where('name', 'LIKE', '%' . $_GET['q'] . '%')->orWhere('name', 'LIKE', '%' . $_GET['q'] . '%')->paginate() : User::paginate();
+        $accounts = (@$_GET['q']) ? User::where('name', 'LIKE', '%' . @$_GET['q'] . '%')->orWhere('name', 'LIKE', '%' . @$_GET['q'] . '%')->paginate() : User::paginate();
         return view('users.list', [
             'accounts' => $accounts
         ]);
