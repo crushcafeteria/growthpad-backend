@@ -28,9 +28,9 @@ class AdsController extends Controller
     public function index()
     {
         $ads = Ad::with('publisher')
-                 ->where('category', request()->category)
-                 ->orderBy('created_at', 'DESC')
-                 ->paginate(config('settings.page_size'));
+            ->where('category', request()->category)
+            ->orderBy('created_at', 'DESC')
+            ->paginate(config('settings.page_size'));
 
         return response()->json($ads);
     }
@@ -68,7 +68,7 @@ class AdsController extends Controller
 
         # Upload pictures
         $pictures = null;
-        collect($payload->pictures)->each(function ($uri) use (&$pictures){
+        collect($payload->pictures)->each(function ($uri) use (&$pictures) {
             if (strlen($uri) > 128) {
                 $data = base64_decode($uri);
                 $file = 'ads/' . md5(str_random(15)) . '.jpg';
@@ -152,10 +152,10 @@ class AdsController extends Controller
 
     function nearBy()
     {
-        $latitude  = auth()->user()->lat;
+        $latitude = auth()->user()->lat;
         $longitude = auth()->user()->lon;
-        $distance  = request()->radius;
-        $q  = '%'.request()->q.'%';
+        $distance = request()->radius;
+        $q = '%' . request()->q . '%';
 
 
         $query = Ad::query();
@@ -163,8 +163,8 @@ class AdsController extends Controller
         $query = $query->where('category', request()->category);
 
         # Bypass searching for $q
-        if(request()->q != 'EVERYTHING'){
-            $query = $query->where(function($query) use ($q){
+        if (request()->q != 'EVERYTHING') {
+            $query = $query->where(function ($query) use ($q) {
                 $query->where('name', 'LIKE', $q)->orWhere('description', 'LIKE', $q);
             });
         }
@@ -185,8 +185,8 @@ class AdsController extends Controller
         $q = '%' . request()->q . '%';
 
         $results = Ad::with('publisher')
-                     ->where('name', 'LIKE', $q)
-                     ->orWhere('description', 'LIKE', $q)->paginate();
+            ->where('name', 'LIKE', $q)
+            ->orWhere('description', 'LIKE', $q)->paginate();
 
         return response()->json($results);
     }
@@ -194,11 +194,11 @@ class AdsController extends Controller
     function getSPAds()
     {
         $ads = Ad::with('publisher')
-                 ->where('publisher_id', request()->spID)
-                 ->orderBy('created_at', 'DESC')
-                 ->get();
+            ->where('publisher_id', request()->spID)
+            ->orderBy('created_at', 'DESC');
 
-        return response()->json(($ads->count()) ? $ads : null);
+
+        return response()->json(($ads->count()) ? $ads->get() : null);
     }
 
 
