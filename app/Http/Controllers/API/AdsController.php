@@ -198,7 +198,7 @@ class AdsController extends Controller
                  ->orderBy('created_at', 'DESC')
                  ->get();
 
-        return response()->json($ads);
+        return response()->json(($ads->count()) ? $ads : null);
     }
 
 
