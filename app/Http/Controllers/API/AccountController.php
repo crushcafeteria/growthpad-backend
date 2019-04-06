@@ -30,7 +30,7 @@ class AccountController extends Controller
         }
 
         $credentials = request()->only(['email', 'password']);
-        $token       = JWTAuth::attempt($credentials);
+        $token = JWTAuth::attempt($credentials);
 
         if (!$token) {
             return response()->json([
@@ -76,9 +76,9 @@ class AccountController extends Controller
         }
 
         # Create new user
-        $user['password']  = bcrypt($user['password']);
+        $user['password'] = bcrypt($user['password']);
         $user['privilege'] = 'USER';
-        $user              = User::create($user);
+        $user = User::create($user);
 
         # Login user
         $token = JWTAuth::attempt(request()->only(['email', 'password']));
@@ -151,18 +151,7 @@ class AccountController extends Controller
 
     function getSPs()
     {
-        $latitude  = auth()->user()->lat;
-        $longitude = auth()->user()->lon;
-        $distance  = request()->radius;
-
-        $SPs = User::with('ads')->where('privilege', 'SP')->whereRaw(
-            DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
-                          cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
-                          radians( lat ) ) ) ) < $distance ")
-        )->whereHas('ads', function ($query){
-            return $query->where('category', request()->category);
-        })->paginate();
-
+        $SPs = User::with('ads')->where('privilege', 'SP')->paginate();
 
         return response()->json($SPs);
     }
@@ -197,10 +186,10 @@ class AccountController extends Controller
 
     function ping($user)
     {
-        if($user != 'false'){
+        if ($user != 'false') {
             $user = User::find($user);
             return response()->json([
-                'status' => 'ALIVE', 
+                'status'  => 'ALIVE',
                 'profile' => $user
             ]);
         } else {

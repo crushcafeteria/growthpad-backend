@@ -16,3 +16,5 @@ services:
         restart: 'always'
         environment:
             - VIRTUAL_HOST=growthpad.irenkenya.com
+        deploy:
+            replicas: 5
