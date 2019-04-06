@@ -95,7 +95,10 @@ class AccountController extends Controller
 
     function updateLocation()
     {
-        auth()->user()->update(['location' => json_decode(request()->location)]);
+        auth()->user()->update([
+            'location' => json_decode(request()->location),
+            'county'   => request()->county
+        ]);
 
         return response()->json([
             'status' => 'OK',
