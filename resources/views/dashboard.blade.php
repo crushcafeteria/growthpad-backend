@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="layers bd bgc-white p-20">
-                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Money Transacted</h6></div>
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Tokens Purchased</h6></div>
                             <div class="layer w-100">
                                 <div class="peers ai-sb fxw-nw">
                                     <div class="peer">
@@ -50,7 +50,33 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
+                        <div class="layers bd bg-dark text-white p-20">
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Service Providers</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer">
+                                        <h2>{{ $total['SPs'] }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="layers bd bg-dark text-white p-20">
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Customers</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer">
+                                        <h2>{{ $total['customers'] }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
                         <div class="layers bd bg-dark text-white p-20">
                             <div class="layer w-100 mB-10"><h6 class="lh-1">Total Orders</h6></div>
                             <div class="layer w-100">
@@ -62,7 +88,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+
+                    <div class="col-md-3 mb-3">
+                        <div class="layers bd bg-dark text-white p-20">
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Ads</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer">
+                                        <h2>{{ $total['ads'] }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
                         <div class="layers bd bg-danger text-white p-20">
                             <div class="layer w-100 mB-10"><h6 class="lh-1">Pending Orders</h6></div>
                             <div class="layer w-100">
@@ -74,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="layers bd bg-primary text-white p-20">
                             <div class="layer w-100 mB-10"><h6 class="lh-1">Progressing Orders</h6></div>
                             <div class="layer w-100">
@@ -86,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="layers bd bg-success text-white p-20">
                             <div class="layer w-100 mB-10"><h6 class="lh-1">Completed Orders</h6></div>
                             <div class="layer w-100">

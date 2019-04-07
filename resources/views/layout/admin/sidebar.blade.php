@@ -60,9 +60,17 @@
             <li class="nav-item">
                 <a class="sidebar-link" href="{{ url('users') }}">
                     <span class="icon-holder">
-                        <i class="fa fa-users fa-fw"></i>
+                        <i class="fa fa-user-circle fa-fw"></i>
                     </span>
                     <span class="title">User Accounts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('service-providers') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-users fa-fw"></i>
+                    </span>
+                    <span class="title">Service Providers</span>
                 </a>
             </li>
             <li class="nav-item">

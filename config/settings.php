@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'counties' => [
+    'credit_value' => 10,
+
+    'counties'     => [
         'BARINGO'         => 'Baringo County',
         'BOMET'           => 'Bomet County',
         'BUNGOMA'         => 'Bungoma County',
@@ -310,7 +312,6 @@ return [
         'SS' => 'South Sudan',
     ],
 
-
     'services' => [
         'farm' => [
             'BDP'  => 'Business Development and Planning',
@@ -434,11 +435,13 @@ return [
             'OUTDOOR' => 'Outdoor Event',
         ]
     ],
-    'links' => [
-        'facebook' => '#',
-        'twitter' => '#',
+
+    'links'    => [
+        'facebook'  => '#',
+        'twitter'   => '#',
         'disclamer' => 'https://growthpad.irenkenya.com/disclaimer'
     ],
+
     'kopokopo' => [
         'url_password' => '2347236767'
     ]

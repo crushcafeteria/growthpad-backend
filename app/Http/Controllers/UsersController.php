@@ -16,9 +16,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($SPs = false)
     {
         $accounts = (@$_GET['q']) ? User::where('name', 'LIKE', '%' . @$_GET['q'] . '%')->orWhere('name', 'LIKE', '%' . @$_GET['q'] . '%')->paginate() : User::paginate();
+
         return view('users.list', [
             'accounts' => $accounts
         ]);
@@ -113,5 +114,14 @@ class UsersController extends Controller
         request()->session()->flash('successbox', ['User account successfully deleted']);
 
         return redirect()->route('users.index');
+    }
+
+    function listSPs()
+    {
+        $accounts = User::where('privilege', 'SP')->paginate();
+
+        return view('users.list', [
+            'accounts' => $accounts
+        ]);
     }
 }

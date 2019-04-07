@@ -88,6 +88,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('users/{id}/delete', 'UsersController@destroy');
     Route::resource('users', 'UsersController');
+    Route::get('service-providers', 'UsersController@listSPs');
 
     Route::get('logout', function () {
         auth()->logout();
@@ -95,6 +96,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('payments', 'PaymentController@list');
+
 });
 
 Route::get('onboard', 'ServiceController@showSpOnboardingPage');

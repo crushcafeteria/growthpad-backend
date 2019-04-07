@@ -66,8 +66,6 @@ class OrderController extends Controller
             return response()->json(['error' => 'This service provider cannot receive your order. Please try again leter']);
         }
 
-        $sp->update(['credits' => ($sp->credits - 10)]);
-
         $order = request()->only(['ad_id', 'instructions']);
         $order['customer_id'] = auth()->id();
         $order['sp_id'] = Ad::with('publisher')->find(request()->ad_id)->publisher->id;
@@ -225,6 +223,13 @@ class OrderController extends Controller
         if (!$order) {
             return response()->json(['error' => 'This order does not exist']);
         }
+
+        $sp = $order->ad()->publisher;
+
+        dd($sp);
+
+        $sp->update(['credits' => ($sp->credits - config('settings.credit_values'))]);
+
 
         $order->update([
             'status' => 'COMPLETE'
