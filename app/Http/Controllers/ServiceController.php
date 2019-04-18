@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ServiceRequest;
 use App\Http\Requests\OnboardRequest;
 use App\Mail\OnboardReceived;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -19,6 +20,7 @@ class ServiceController extends Controller
     {
         return view('service.list', [
             'services' => Service::paginate(),
+            'banners'  => array_diff(scandir(public_path() . '/images/banners'), array('.', '..'))
         ]);
     }
 
@@ -98,7 +100,7 @@ class ServiceController extends Controller
 
     function startOnboard(OnboardRequest $request)
     {
-        Mail::to(['growthpad@irenkenya.com','nelson@lipasafe.com'])->send(new OnboardReceived($request->all()));
+        Mail::to(['growthpad@irenkenya.com', 'nelson@lipasafe.com'])->send(new OnboardReceived($request->all()));
         session()->flash('successbox', ['Your request has been received. Someone will be in touch soon!']);
         return redirect('onboard?view=success');
     }
