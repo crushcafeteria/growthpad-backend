@@ -37,7 +37,7 @@
                                     <th scope="col">Telephone</th>
                                     <th scope="col">Privilege</th>
                                     <th scope="col">Tokens</th>
-                                    <th scope="col" colspan="2">Location</th>
+                                    <th scope="col" colspan="2">County</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +52,7 @@
                                         <td>{{ $user->telephone }}</td>
                                         <td>{{ $user->privilege }}</td>
                                         <td>{{ $user->credits }}</td>
-                                        <td>{{ $user->location['display_name'] }}</td>
+                                        <td>{{ $user->county }}</td>
                                         <td>
                                             <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-outline-primary btn-sm pull-right">
                                                 <i class="fa fa-eye fa-fw"></i> View
