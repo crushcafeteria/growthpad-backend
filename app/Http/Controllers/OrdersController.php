@@ -112,6 +112,8 @@ class OrdersController extends Controller
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
+        $order->delete();
+
         request()->session()->flash('successbox', ['Order successfully deleted']);
 
         return redirect()->route('orders.index');

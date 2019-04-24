@@ -42,6 +42,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Business Category</label>
+                                {!! Form::select('business_category', config('settings.categories'), old('business_category'), ['class' => 'form-control', 'placeholder' => 'Select a business category']) !!}
+                                @if($errors->has('business_category'))
+                                    <small class="help-block text-danger">
+                                        <i class="fa fa-exclamation-circle fa-fw"></i> {{ $errors->first('business_category') }}
+                                    </small>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
                                 <label>Email</label>
                                 {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => 'Enter your email...']) !!}
                                 @if($errors->has('email'))

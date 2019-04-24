@@ -49,6 +49,10 @@
                                                class="btn btn-outline-primary btn-sm pull-right">
                                                 View
                                             </a>
+                                            {{--<a href="{{ url('orders/'.$order->id.'/delete') }}"--}}
+                                               {{--class="btn btn-outline-danger btn-sm">--}}
+                                                {{--<i class="fa fa-times-circle"></i>--}}
+                                            {{--</a>--}}
                                         </td>
                                     </tr>
                                 @endforeach

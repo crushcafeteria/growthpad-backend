@@ -31,28 +31,35 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th scope="col" colspan="2">Names</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Names</th>
+                                    <th scope="col">Business Name</th>
                                     <th scope="col">Telephone</th>
                                     <th scope="col">Privilege</th>
                                     <th scope="col">Tokens</th>
-                                    <th scope="col" colspan="2">County</th>
+                                    <th scope="col">County</th>
+                                    <th scope="col" colspan="2">Join Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($accounts as $user)
                                     <tr>
                                         <td>
-                                            <img src="{{ (!$user->picture) ? 'http://placehold.it/30x30/000/fff?text='.substr($user->name, 0, 1) : $user->picture }}" width="50" class="rounded-circle">
+                                            @if(!$user->business_name || !$user->business_category || !$user->county)
+                                                <i class="fa fa-exclamation-circle text-danger" title="This account has incomplete records!"></i>
+                                            @else
+                                                <i class="fa fa-check-circle text-success"></i>
+                                            @endif
                                         </td>
                                         <td>{{ $user->name }}</td>
-                                        <td>{{ $user->gender }}</td>
-                                        <td>{{ $user->email }}</td>
+                                        <td>{{ ($user->business_name) ? $user->business_name : 'Not available' }}</td>
+                                        <td>{{ ($user->business_category) ? config('settings.categories')[$user->business_category] : 'Not available' }}</td>
                                         <td>{{ $user->telephone }}</td>
                                         <td>{{ $user->privilege }}</td>
                                         <td>{{ $user->credits }}</td>
                                         <td>{{ $user->county }}</td>
+                                        <td>{{ $user->created_at }}</td>
                                         <td>
                                             <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-outline-primary btn-sm pull-right">
                                                 <i class="fa fa-eye fa-fw"></i> View
@@ -65,6 +72,12 @@
                             </table>
 
                             {{ $accounts->links() }}
+
+
+                            <span class="text-muted">
+                                Showing page {{ $accounts->currentPage() }} of {{ $accounts->lastPage() }} ({{ $accounts->total() }} records)
+                            </span>
+
 
                         </div>
                     </div>

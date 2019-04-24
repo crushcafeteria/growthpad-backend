@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderAccepted;
+use App\Mail\OrderCompleted;
 use App\Mail\OrderProgressing;
 use App\Mail\OrderReceived;
 use App\Mail\OrderCancelled;
+use App\Mail\OrderSent;
 use App\Models\Ad;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -81,6 +84,8 @@ class OrderController extends Controller
         Mail::to($order->ad->publisher)->send(new OrderReceived($order));
 
         # Notify buyer via email
+        Mail::to($order->customer)->send(new OrderSent($order));
+
         return response()->json(['status' => 'OK']);
     }
 
@@ -186,6 +191,8 @@ class OrderController extends Controller
         ]);
 
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
+
+        # Notify customer
         Mail::to($order->customer->email)->send(new OrderCancelled($order));
 
         return response()->json($order);
@@ -209,6 +216,9 @@ class OrderController extends Controller
 
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
 
+        # Notify customer
+        Mail::to($order->customer)->send(new OrderAccepted($order));
+
         return response()->json($order);
     }
 
@@ -224,9 +234,9 @@ class OrderController extends Controller
             return response()->json(['error' => 'This order does not exist']);
         }
 
-        $sp = $order->ad()->publisher;
+        $sp = $order->ad->publisher;
 
-        dd($sp);
+//        dd($sp);
 
         $sp->update(['credits' => ($sp->credits - config('settings.credit_values'))]);
 
@@ -236,6 +246,8 @@ class OrderController extends Controller
         ]);
 
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
+
+        Mail::to($order->customer)->send(new OrderCompleted($order));
 
         return response()->json($order);
     }

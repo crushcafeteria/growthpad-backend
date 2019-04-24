@@ -28,9 +28,12 @@ class AdsController extends Controller
     public function index()
     {
         $ads = Ad::with('publisher')
-                 ->where('category', request()->category)
-                 ->orderBy('created_at', 'DESC')
-                 ->paginate(config('settings.page_size'));
+            ->where('category', request()->category)
+            ->orderBy('created_at', 'DESC');
+
+        $ads = $ads->whereHas('publisher', function ($query) {
+            $query->where('county', '=', request()->county);
+        })->paginate(config('settings.page_size'));
 
         return response()->json($ads);
     }
@@ -68,7 +71,7 @@ class AdsController extends Controller
 
         # Upload pictures
         $pictures = null;
-        collect($payload->pictures)->each(function ($uri) use (&$pictures){
+        collect($payload->pictures)->each(function ($uri) use (&$pictures) {
             if (strlen($uri) > 128) {
                 $data = base64_decode($uri);
                 $file = 'ads/' . md5(str_random(15)) . '.jpg';
@@ -145,37 +148,78 @@ class AdsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        $validator = Validator::make(request()->all(), [
+            'id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->first()
+            ]);
+        }
+
+        $ad = Ad::find(request()->id);
+
+        # Check if user can delete
+        if (auth()->id() != $ad->publisher->id) {
+            return response()->json([
+                'error' => 'You are not authorized to perform this action'
+            ]);
+        }
+
+        # Check if ad has orders
+//        dd($ad->orders);
+        if ($ad->orders->count()) {
+            return response()->json([
+                'msg' => 'This product cannot be deleted because it has orders'
+            ]);
+        }
+
+        # Delete pictures
+        collect($ad->pictures)->each(function ($picture) {
+            $path = 'ads/' . pathinfo($picture)['basename'];
+            if (Storage::disk('public')->exists($path)) {
+                Storage::delete($path);
+            }
+        });
+
+        # Delete row
+        $ad->delete();
+
+        $ads = Ad::with('publisher')
+            ->where('publisher_id', auth()->id())
+            ->orderBy('created_at', 'DESC')->get();
+
+        return response()->json([
+            'msg'  => 'An ad has been successfully deleted',
+            'data' => $ads
+        ]);
     }
 
     function nearBy()
     {
-        $latitude  = auth()->user()->lat;
-        $longitude = auth()->user()->lon;
-        $distance  = request()->radius;
-        $q  = '%'.request()->q.'%';
+        # Required fields
+        $validator = Validator::make(request()->all(), [
+            'category' => 'required',
+            'county'   => 'required',
+        ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->first()
+            ]);
+        }
 
         $query = Ad::query();
         $query = $query->with(['publisher']);
         $query = $query->where('category', request()->category);
+        $query = $query->whereHas('publisher', function ($query) {
+            $query->where('county', '=', request()->county)->whereIsNull('county');
+        });
+//        dd($query->get()->take(2));
 
-        # Bypass searching for $q
-        if(request()->q != 'EVERYTHING'){
-            $query = $query->where(function($query) use ($q){
-                $query->where('name', 'LIKE', $q)->orWhere('description', 'LIKE', $q);
-            });
-        }
-
-//        $query = $query->where(function($query) use ($latitude, $longitude, $distance, $q){
-//            $query->whereRaw(
-//                DB::raw("(6367 * acos( cos( radians($latitude) ) * cos( radians( lat ) )  *
-//                    cos( radians( lon ) - radians($longitude) ) + sin( radians($latitude) ) * sin(
-//                    radians( lat ) ) ) ) < $distance ")
-//            );
-//        });
 
         return response()->json($query->get());
     }
@@ -185,8 +229,8 @@ class AdsController extends Controller
         $q = '%' . request()->q . '%';
 
         $results = Ad::with('publisher')
-                     ->where('name', 'LIKE', $q)
-                     ->orWhere('description', 'LIKE', $q)->paginate();
+            ->where('name', 'LIKE', $q)
+            ->orWhere('description', 'LIKE', $q)->paginate();
 
         return response()->json($results);
     }
@@ -194,18 +238,17 @@ class AdsController extends Controller
     function getSPAds()
     {
         $ads = Ad::with('publisher')
-                 ->where('publisher_id', request()->spID)
-                 ->orderBy('created_at', 'DESC')
-                 ->get();
+            ->where('publisher_id', request()->spID)
+            ->orderBy('created_at', 'DESC');
 
 //        dd($ads->count());
-        if($ads->count() > 0){
-            return response()->json($ads);
-        } else {
+        if (!$ads->count()) {
             return response()->json([
-                'error' => 'No ads found',
+                'error' => 'This service provider has not published any products',
             ]);
         }
+
+        return response()->json($ads->paginate(10));
     }
 
 

@@ -152,9 +152,26 @@ class AccountController extends Controller
         return response()->json(User::find(auth()->id()));
     }
 
-    function getSPs()
+    function getSPByCounty()
     {
-        $SPs = User::with('ads')->where('privilege', 'SP')->paginate();
+        # Validate request
+        $validator = Validator::make(request()->all(), [
+            'category' => 'required',
+            'county'   => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->first()
+            ]);
+        }
+
+
+        $SPs = User::where('privilege', 'SP')
+            ->where('county', request()->county)
+            ->where('business_category', request()->category)
+            ->paginate();
+//        dd($SPs);
 
         return response()->json($SPs);
     }

@@ -3,7 +3,7 @@
 return [
     'credit_value' => 10,
 
-    'counties'     => [
+    'counties' => [
         'BARINGO'         => 'Baringo County',
         'BOMET'           => 'Bomet County',
         'BUNGOMA'         => 'Bungoma County',
@@ -403,9 +403,11 @@ return [
     ],
 
     'categories' => [
-        'AGROVET'  => 'Agrovet',
-        'CATERING' => 'Catering',
-        'HOTELIER' => 'Hotelier',
+        'AGROVET'         => 'Agrovet',
+        'CATERING'        => 'Catering',
+        'CROP_PROTECTION' => 'Crop Protection',
+        'LOGISTICS'       => 'Logistics',
+        'CONSULTANCY'     => 'Consultancy',
     ],
 
     'order_statuses' => [
@@ -436,7 +438,7 @@ return [
         ]
     ],
 
-    'links'    => [
+    'links' => [
         'facebook'  => '#',
         'twitter'   => '#',
         'disclamer' => 'https://growthpad.irenkenya.com/disclaimer'

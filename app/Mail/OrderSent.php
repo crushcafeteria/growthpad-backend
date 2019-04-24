@@ -2,25 +2,26 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OnboardReceived extends Mailable
+class OrderSent extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $fields;
+    public $order;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($fields)
+    public function __construct(Order $order)
     {
-        $this->fields = $fields;
+        $this->order = $order;
     }
 
     /**
@@ -30,6 +31,6 @@ class OnboardReceived extends Mailable
      */
     public function build()
     {
-        return $this->subject('IMPORTANT: Request to join IREN Growthpad')->replyTo($this->fields['email'], $this->fields['name'])->markdown('emails.onboard');
+        return $this->subject('Your order has been sent!')->markdown('emails.order-sent');
     }
 }

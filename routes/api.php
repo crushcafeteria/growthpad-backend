@@ -20,6 +20,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::resource('ads', 'API\AdsController');
     Route::post('ads/nearby', 'API\AdsController@nearBy')->middleware(['jwt.auth', 'cors']);
     Route::post('ads/search', 'API\AdsController@search')->middleware(['jwt.auth', 'cors']);
+    Route::post('ad/delete', 'API\AdsController@destroy')->middleware(['jwt.auth', 'cors']);
 
 
     Route::get('ping/{userID}', 'API\AccountController@ping');
@@ -36,7 +37,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::post('order/accept', 'API\OrderController@acceptOrder');
     Route::post('order/complete', 'API\OrderController@completeOrder');
 
-    Route::get('sp/fetch', 'API\AccountController@getSPs')->middleware('jwt.auth');
+    Route::get('sp/county', 'API\AccountController@getSPByCounty')->middleware('jwt.auth');
     Route::get('sp/ads', 'API\AdsController@getSPAds')->middleware('jwt.auth');
     Route::get('sp/orders', 'API\OrderController@getSPOrders')->middleware('jwt.auth');
 });

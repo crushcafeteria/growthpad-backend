@@ -19,6 +19,10 @@
 
                             @include('common.boxes')
 
+                            <div class="col-md-6 offset-3 text-center mb-3">
+                                <img src="{{ asset($account->picture) }}" class="img-thumbnail img-circle img-rounded">
+                            </div>
+
                             <div class="list-group mb-3">
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                                     <small class="text-muted">Names</small>
@@ -29,7 +33,13 @@
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                                     <small class="text-muted">Business Name</small>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{ ($account->business_name) ? $account->business_name : 'Not Available' }}</h4>
+                                        <h4 class="mb-1">{!! ($account->business_name) ? $account->business_name : '<i class="fa fa-exclamation-circle text-danger"></i> Not Available' !!}</h4>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <small class="text-muted">Business Category</small>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h4 class="mb-1">{!! ($account->business_category) ? config('settings.categories')[$account->business_category] : '<i class="fa fa-exclamation-circle text-danger"></i> Not Available' !!}</h4>
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -53,7 +63,7 @@
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
                                     <small class="text-muted">County</small>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{ ($account->county) ? $account->county : 'Not Available' }}</h4>
+                                        <h4 class="mb-1">{{ ($account->county) ? config('settings.counties')[$account->county] : 'Not Available' }}</h4>
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
@@ -69,24 +79,27 @@
                                     </div>
                                 </div>
                                 <div class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <small class="text-muted">Tokens</small>
+                                    <small class="text-muted">Credits</small>
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{ $account->credits }}</h4>
+                                        <h4 class="mb-1"><i class="fa fa-money fa-fw"></i> {{ $account->credits }}</h4>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-12 text-center">
                                 <div class="btn-group">
-                                    <a href="{{ route('users.edit', ['id' => $account->id]) }}" class="btn btn-primary btn-lg">
+                                    <a href="{{ route('users.edit', ['id' => $account->id]) }}"
+                                       class="btn btn-primary btn-lg">
                                         <i class="fa fa-cog fa-fw fa-spin"></i> Manage
                                     </a>
                                     @if(auth()->user()->privilege == 'ADMIN')
-                                        <a href="{{ url('users/'.$account->id.'/delete') }}" class="btn btn-danger btn-lg" onclick="return confirm('Are you sure? This action will also erase all orders and ads created by this account')">
+                                        <a href="{{ url('users/'.$account->id.'/delete') }}"
+                                           class="btn btn-danger btn-lg"
+                                           onclick="return confirm('Are you sure? This action will also erase all orders and ads created by this account')">
                                             <i class="fa fa-trash fa-fw"></i> Delete
                                         </a>
                                     @endif
-                                    
+
                                 </div>
                             </div>
 

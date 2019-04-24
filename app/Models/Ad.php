@@ -64,4 +64,9 @@ class Ad extends Model
 
         return round($distance->kilometers(), 1);
     }
+
+    function orders()
+    {
+        return $this->hasMany(Order::class, 'ad_id', 'id');
+    }
 }
