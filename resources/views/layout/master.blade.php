@@ -27,18 +27,15 @@
 <footer class="footer bg-dark">
     <div class="container text-centerx">
         <span class="text-white">
-            Developed by <a target="_blank" href="https://sodium.co.ke" class="text-white">Sodium Africa</a> &nbsp;
-            | &nbsp; Responding host: {{ gethostname() }}
+            &copy; {{ date('Y') }} Inter-Region Economic Networks
         </span>
         <span class="float-right">
-            <a href="{{ config('settings.links.facebook') }}" class="text-white footer-icon">
-                <i class="fa fa-facebook-square fa-fw"></i>
+            <a target="_blank" href="{{ asset('docs/Terms-Conditions.pdf') }}" class="text-white footer-icon">
+                T & Cs
             </a>
-            <a href="{{ config('settings.links.twitter') }}" class="text-white footer-icon">
-                <i class="fa fa-twitter-square fa-fw"></i>
-            </a>
-            <a href="{{ url('disclaimer') }}" class="text-white footer-icon">
-                Disclaimer
+            &nbsp;
+            <a target="_blank" href="{{ asset('docs/Privacy-Policy.pdf') }}" class="text-white footer-icon">
+                Privacy Policy
             </a>
         </span>
     </div>
