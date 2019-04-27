@@ -37,7 +37,7 @@
                                     <th scope="col">Business Name</th>
                                     <th scope="col">Telephone</th>
                                     <th scope="col">Privilege</th>
-                                    <th scope="col">Tokens</th>
+                                    <th scope="col">Inventory</th>
                                     <th scope="col">County</th>
                                     <th scope="col" colspan="2">Join Date</th>
                                 </tr>
@@ -57,7 +57,9 @@
                                         <td>{{ ($user->business_category) ? config('settings.categories')[$user->business_category] : 'Not available' }}</td>
                                         <td>{{ $user->telephone }}</td>
                                         <td>{{ $user->privilege }}</td>
-                                        <td>{{ $user->credits }}</td>
+                                        <td>
+                                            <a href="{{ url('ads?provider='.$user->id) }}">{{ $user->ads->count() }} items</a>
+                                        </td>
                                         <td>{{ $user->county }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>

@@ -31,7 +31,7 @@
         </span>
         <span class="float-right">
             <a target="_blank" href="{{ asset('docs/Terms-Conditions.pdf') }}" class="text-white footer-icon">
-                T & Cs
+                Terms
             </a>
             &nbsp;
             <a target="_blank" href="{{ asset('docs/Privacy-Policy.pdf') }}" class="text-white footer-icon">

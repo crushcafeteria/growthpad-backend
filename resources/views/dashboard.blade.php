@@ -148,7 +148,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
+                                    <th scope="col" colspan="2">Product</th>
                                     <th scope="col">Customer</th>
                                     <th scope="col">Provider</th>
                                     <th scope="col">Price</th>
@@ -158,7 +158,25 @@
                                 </thead>
                                 <tbody>
                                 @foreach($orders as $order)
-                                    <tr>
+                                    @php
+                                        if($order->status == 'PENDING'){
+                                            $class = 'text-warning';
+                                            $icon = 'clock-o';
+                                        } else if($order->status == 'PROGRESSING'){
+                                            $class = 'text-primary';
+                                            $icon = 'refresh-circle fa-spin';
+                                        } else if($order->status == 'COMPLETE'){
+                                            $class = 'text-success';
+                                            $icon = 'check-circle';
+                                        } else if($order->status == 'CANCELLED'){
+                                            $class = 'text-danger';
+                                            $icon = 'times-circle';
+                                        }
+                                    @endphp
+                                    <tr class="{{ $class }}" >
+                                        <td>
+                                            <i class="fa fa-{{ $icon }}"></i>
+                                        </td>
                                         <td>{{ $order->ad->name }}</td>
                                         <td>{{ $order->customer->name }}</td>
                                         <td>{{ $order->ad->publisher->name }}</td>
@@ -183,4 +201,10 @@
             </div>
         </div>
     </main>
+
+    <style>
+        .text-warning {
+            color: saddlebrown !important;
+        }
+    </style>
 @endsection

@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                            <h4 class="c-grey-900 mB-20">Advertisements</h4>
+                            <h4 class="c-grey-900 mB-20">{{ ($provider) ? ucwords($provider->name.'\'s') : '' }} Inventory</h4>
                             <table class="table table-bordered table-hover">
                                 <thead>
                                 <tr>

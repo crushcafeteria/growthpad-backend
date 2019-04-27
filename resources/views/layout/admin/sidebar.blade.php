@@ -38,7 +38,7 @@
                     <span class="icon-holder">
                         <i class="fa fa-eye fa-fw"></i>
                     </span>
-                    <span class="title">Ads</span>
+                    <span class="title">Inventory</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -73,14 +73,14 @@
                     <span class="title">Service Providers</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('businesses') }}">
-                    <span class="icon-holder">
-                        <i class="fa fa-briefcase fa-fw"></i>
-                    </span>
-                    <span class="title">Businesses</span>
-                </a>
-            </li>
+            {{--<li class="nav-item">--}}
+                {{--<a class="sidebar-link" href="{{ url('businesses') }}">--}}
+                    {{--<span class="icon-holder">--}}
+                        {{--<i class="fa fa-briefcase fa-fw"></i>--}}
+                    {{--</span>--}}
+                    {{--<span class="title">Businesses</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
         </ul>
     </div>
 </div>

@@ -34,7 +34,7 @@ class DashboardController extends Controller
                     'total'       => Order::count(),
                     'pending'     => Order::where('status', 'PENDING')->count(),
                     'progressing' => Order::where('status', 'PROGRESSING')->count(),
-                    'completed'   => Order::where('status', 'COMPLETED')->count(),
+                    'completed'   => Order::where('status', 'COMPLETE')->count(),
                 ],
                 'ads'              => Ad::count(),
                 'total_transacted' => $this->getTotalTransacted(),

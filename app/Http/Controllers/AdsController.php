@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AdRequest;
 use App\Models\Ad;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdsController extends Controller
@@ -17,8 +18,15 @@ class AdsController extends Controller
      */
     public function index()
     {
+        if (request()->has('provider')) {
+            $ads = Ad::with(['publisher'])->where('publisher_id', request()->provider);
+        } else {
+            $ads = Ad::with(['publisher']);
+        }
+
         return view('ads.list', [
-            'ads' => Ad::with(['publisher'])->paginate(config('settings.page_size'))
+            'ads'      => $ads->paginate(config('settings.page_size')),
+            'provider' => (request()->has('provider')) ? User::find(request()->provider) : null
         ]);
     }
 
