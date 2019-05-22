@@ -1,1 +1,36 @@
 2019/01/26 23:41:40 [error] 4185#0: *121 upstream timed out (60: Operation timed out) while reading response header from upstream, client: 127.0.0.1, server: growthpad.test, request: "POST /password/email HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "growthpad.test", referrer: "http://growthpad.test/password/reset"
+2019/05/21 17:11:46 [error] 32826#0: *17 FastCGI sent in stderr: "PHP message: PHP Warning:  Uncaught ErrorException: require_once(AfricasTalkingGateway.php): failed to open stream: No such file or directory in /Users/Nelson/websites/growthpad.irenkenya.com/app/Library/SMS.php:15
+Stack trace:
+#0 /Users/Nelson/websites/growthpad.irenkenya.com/app/Library/SMS.php(15): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require_once(Af...', '/Users/Nelson/w...', 15, Array)
+#1 /Users/Nelson/websites/growthpad.irenkenya.com/app/Library/SMS.php(15): require_once()
+#2 /Users/Nelson/websites/growthpad.irenkenya.com/app/Http/Controllers/API/SupportController.php(59): App\Library\SMS::send('+254741504000', 'Hello world')
+#3 [internal function]: App\Http\Controllers\API\SupportController->testSMS()
+#4 /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): call_user_func_array(Array, Array)
+#5 /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.p...
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /Users/Nelson/websites/growthpad.irenkenya.com/public/index.php:0
+PHP message: PHP   2. App\Http\Kernel->handle() /Users/Nelson/websites/growthpad.irenkenya.com/public/index.php:53
+PHP message: PHP   3. App\Http\Kernel->sendRequestThroughRouter() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:116
+PHP message: PHP   4. Illuminate\Routing\Pipeline->then() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:151
+PHP message: PHP   5. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:104
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Pipeline\{closure}() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/I
+2019/05/21 17:11:46 [error] 32826#0: *17 FastCGI sent in stderr: "oute->runController() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Route.php:176
+PHP message: PHP  40. Illuminate\Routing\ControllerDispatcher->dispatch() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Route.php:219
+PHP message: PHP  41. App\Http\Controllers\API\SupportController->callAction() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:45
+PHP message: PHP  42. call_user_func_array:{/Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54}() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54
+PHP message: PHP  43. App\Http\Controllers\API\SupportController->testSMS() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54
+PHP message: PHP  44. App\Library\SMS::send() /Users/Nelson/websites/growthpad.irenkenya.com/app/Http/Controllers/API/SupportController.php:59
+PHP message: PHP Fatal error:  App\Library\SMS::send(): Failed opening required 'AfricasTalkingGateway.php' (include_path='.:/usr/local/Cellar/php@7.2/7.2.14/share/php@7.2/pear') in /Users/Nelson/websites/growthpad.irenkenya.com/app/Library/SMS.php on line 15
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /Users/Nelson/websites/growthpad.irenkenya.com/public/index.php:0
+PHP message: PHP   2. App\Http\Kernel->handle() /Users/Nelson/websites/growthpad.irenkenya.com/public/index.php:53
+PHP message: PHP   3. App\Http\Kernel->sendRequestThroughRouter() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:116
+PHP message: PHP   4. Illuminate\Routing\Pipeline->then() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:15
+2019/05/21 17:11:46 [error] 32826#0: *17 FastCGI sent in stderr: "\Router->Illuminate\Routing\{closure}() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:30
+PHP message: PHP  38. Illuminate\Routing\Route->run() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Router.php:682
+PHP message: PHP  39. Illuminate\Routing\Route->runController() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Route.php:176
+PHP message: PHP  40. Illuminate\Routing\ControllerDispatcher->dispatch() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Route.php:219
+PHP message: PHP  41. App\Http\Controllers\API\SupportController->callAction() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:45
+PHP message: PHP  42. call_user_func_array:{/Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54}() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54
+PHP message: PHP  43. App\Http\Controllers\API\SupportController->testSMS() /Users/Nelson/websites/growthpad.irenkenya.com/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:54
+PHP message: PHP  44. App\Library\SMS::send() /Users/Nelson/websites/growthpad.irenkenya.com/app/Http/Controllers/API/SupportController.php:59" while reading response header from upstream, client: 127.0.0.1, server: growthpad.test, request: "GET /api/test/sms HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "growthpad.test"

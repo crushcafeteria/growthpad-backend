@@ -446,5 +446,10 @@ return [
 
     'kopokopo' => [
         'url_password' => '2347236767'
+    ],
+
+    'sms' => [
+        'username' => 'IrenGrowthpad',
+        'api_key'  => 'c6ade95dfb3a4391b4431fc4b9890b35a24757f99863e935c891832913ab4703'
     ]
 ];

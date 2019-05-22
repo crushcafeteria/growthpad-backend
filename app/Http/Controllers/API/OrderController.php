@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Library\SMS;
 use App\Mail\OrderAccepted;
 use App\Mail\OrderCompleted;
 use App\Mail\OrderProgressing;
@@ -65,7 +66,7 @@ class OrderController extends Controller
         $sp = Ad::find(request()->ad_id)->publisher;
 
         # SP must have credits to receive orders
-        if($sp->credits <= 0) {
+        if ($sp->credits <= 0) {
             return response()->json(['error' => 'This service provider cannot receive your order. Please try again leter']);
         }
 
@@ -85,6 +86,12 @@ class OrderController extends Controller
 
         # Notify buyer via email
         Mail::to($order->customer)->send(new OrderSent($order));
+
+        # Notify publisher of order via SMS
+        $msisdn = SMS::formatMSISDN($order->ad->publisher->telephone);
+        if ($msisdn) {
+//            @SMS::send($msisdn, 'Hello world from here');
+        }
 
         return response()->json(['status' => 'OK']);
     }
@@ -126,8 +133,8 @@ class OrderController extends Controller
     public function update(Request $request)
     {
         $validation = Validator::make($request->all(), [
-            'orderID' => 'required',
-            'status' => 'required',
+            'orderID'      => 'required',
+            'status'       => 'required',
             'instructions' => 'required'
         ], [
             'orderID.required' => 'Please attach the orderID'
@@ -138,7 +145,7 @@ class OrderController extends Controller
         }
 
         Order::find($request->orderID)->update([
-            'status' => $request->status,
+            'status'       => $request->status,
             'instructions' => $request->instructions,
         ]);
 
@@ -186,7 +193,7 @@ class OrderController extends Controller
         }
 
         $order->update([
-            'status' => 'CANCELLED',
+            'status'              => 'CANCELLED',
             'cancellation_reason' => request()->reason
         ]);
 
@@ -194,6 +201,12 @@ class OrderController extends Controller
 
         # Notify customer
         Mail::to($order->customer->email)->send(new OrderCancelled($order));
+
+        # Notify customer of order via SMS
+        $msisdn = SMS::formatMSISDN($order->customer->telephone);
+        if ($msisdn) {
+//            @SMS::send($msisdn, 'Hello world from here');
+        }
 
         return response()->json($order);
     }
@@ -218,6 +231,12 @@ class OrderController extends Controller
 
         # Notify customer
         Mail::to($order->customer)->send(new OrderAccepted($order));
+
+        # Notify publisher of order via SMS
+        $msisdn = SMS::formatMSISDN($order->customer->telephone);
+        if ($msisdn) {
+//            @SMS::send($msisdn, 'Hello world from here');
+        }
 
         return response()->json($order);
     }
@@ -248,6 +267,12 @@ class OrderController extends Controller
         $order = Order::with(['customer', 'ad.publisher', 'logs._publisher'])->find(request()->id);
 
         Mail::to($order->customer)->send(new OrderCompleted($order));
+
+        # Notify customer of order completion via SMS
+        $msisdn = SMS::formatMSISDN($order->customer->telephone);
+        if ($msisdn) {
+//            @SMS::send($msisdn, 'Hello world from here');
+        }
 
         return response()->json($order);
     }

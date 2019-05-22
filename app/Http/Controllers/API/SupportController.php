@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Library\SMS;
 use Ixudra\Curl\Facades\Curl;
 
 class SupportController extends Controller
@@ -51,5 +52,12 @@ class SupportController extends Controller
         }
 
         return response()->json($suggestions);
+    }
+
+    function testSMS()
+    {
+        $res = SMS::send('+254741504000', 'Hello world');
+
+        return $res;
     }
 }

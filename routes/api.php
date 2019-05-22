@@ -51,3 +51,6 @@ Route::post('payment/apply/{id}', 'PaymentController@applyPayment')->middleware(
 
 Route::get('mpesa/redeem/{code}', 'API\MpesaController@redeemPayment');
 
+# Testing SMS
+//Route::get('test/sms', 'API\SupportController@testSMS');
+
