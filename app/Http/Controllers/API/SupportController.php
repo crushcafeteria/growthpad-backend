@@ -69,6 +69,7 @@ class SupportController extends Controller
             'user_id'    => 'required',
             'name'       => 'required',
             'telephone'  => 'required',
+            'location'   => 'required',
             'extra_info' => 'required',
         ]);
 
@@ -78,7 +79,7 @@ class SupportController extends Controller
             ]);
         }
 
-        $row = SPSuggestions::create(request()->only(['user_id', 'name', 'telephone', 'extra_info']));
+        $row = SPSuggestions::create(request()->only(['user_id', 'name', 'telephone', 'extra_info', 'location']));
 
         return response()->json($row);
     }

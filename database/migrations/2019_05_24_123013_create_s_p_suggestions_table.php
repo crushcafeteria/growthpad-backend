@@ -18,6 +18,7 @@ class CreateSPSuggestionsTable extends Migration
             $table->integer('user_id'); // Suggester id
             $table->string('name'); // Suggested SP name
             $table->string('telephone'); // Suggested SP telephone
+            $table->string('location'); // Suggested SP telephone
             $table->string('extra_info'); // Suggested SP telephone
             $table->timestamps();
         });
