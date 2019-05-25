@@ -40,6 +40,9 @@ Route::group(['middleware' => 'cors'], function (){
     Route::get('sp/county', 'API\AccountController@getSPByCounty')->middleware('jwt.auth');
     Route::get('sp/ads', 'API\AdsController@getSPAds')->middleware('jwt.auth');
     Route::get('sp/orders', 'API\OrderController@getSPOrders')->middleware('jwt.auth');
+
+    # SP suggestions
+    Route::post('sp/suggest', 'API\SupportController@suggestSP');
 });
 
 Route::post('feedback', 'API\AccountController@sendFeedback');
