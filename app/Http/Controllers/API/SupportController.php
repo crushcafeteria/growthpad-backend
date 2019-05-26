@@ -78,7 +78,9 @@ class SupportController extends Controller
                 'error' => $validator->errors()->first()
             ]);
         }
-        $row = request()->only(['name', 'telephone', 'extra_info', 'location']);
+        $row = request()->only(['name', 'telephone', 'extra_info', 'location', 'county']);
+        $row['user_id'] = auth()->id();
+
         $row = SPSuggestions::create($row);
 
         return response()->json($row);
