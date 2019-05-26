@@ -42,7 +42,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::get('sp/orders', 'API\OrderController@getSPOrders')->middleware('jwt.auth');
 
     # SP suggestions
-    Route::post('sp/suggest', 'API\SupportController@suggestSP');
+    Route::post('sp/suggest', 'API\SupportController@suggestSP')->middleware('jwt.auth');
 });
 
 Route::post('feedback', 'API\AccountController@sendFeedback');
