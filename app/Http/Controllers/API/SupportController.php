@@ -66,11 +66,11 @@ class SupportController extends Controller
     function suggestSP()
     {
         $validator = Validator::make(request()->all(), [
-            'user_id'    => 'required',
             'name'       => 'required',
             'telephone'  => 'required',
             'location'   => 'required',
             'extra_info' => 'required',
+            'county'     => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -78,8 +78,8 @@ class SupportController extends Controller
                 'error' => $validator->errors()->first()
             ]);
         }
-
-        $row = SPSuggestions::create(request()->only(['user_id', 'name', 'telephone', 'extra_info', 'location']));
+        $row = request()->only(['name', 'telephone', 'extra_info', 'location']);
+        $row = SPSuggestions::create($row);
 
         return response()->json($row);
     }
