@@ -19,6 +19,7 @@ class CreateSPSuggestionsTable extends Migration
             $table->string('name'); // Suggested SP name
             $table->string('telephone'); // Suggested SP telephone
             $table->string('location'); // Suggested SP telephone
+            $table->string('county'); // Suggested SP telephone
             $table->string('extra_info'); // Suggested SP telephone
             $table->timestamps();
         });
