@@ -385,7 +385,11 @@ return [
         [
             'name'  => 'The Growthpad Team',
             'email' => 'growthpad@irenkenya.com',
-        ]
+        ],
+        [
+            'name'  => 'Sodium Africa',
+            'email' => 'nelson@lipasafe.com',
+        ],
     ],
 
     'google_api_key' => 'AIzaSyDZ659_y2QdDyFRf49FbKnAHzPCzALlb3M',

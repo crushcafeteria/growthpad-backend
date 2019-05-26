@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Library\SMS;
+use App\Mail\BusinessSuggested;
 use App\Models\SPSuggestions;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Ixudra\Curl\Facades\Curl;
 
@@ -83,7 +85,10 @@ class SupportController extends Controller
 
 //        dd($row);
 
-        $row = SPSuggestions::create($row);
+//        $row = SPSuggestions::create($row);
+
+        # Send email
+        Mail::to(config('settings.team'))->send(new BusinessSuggested(request()));
 
         return response()->json($row);
     }
