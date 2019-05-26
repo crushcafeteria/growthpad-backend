@@ -81,7 +81,7 @@ class SupportController extends Controller
         $row = request()->only(['name', 'telephone', 'extra_info', 'location', 'county']);
         $row['user_id'] = auth()->id();
 
-        dd($row);
+//        dd($row);
 
         $row = SPSuggestions::create($row);
 
