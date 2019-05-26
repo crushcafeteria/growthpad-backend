@@ -8,7 +8,7 @@ Business Telephone: {{ $request->telephone }} <br>
 Business Location: {{ $request->location }} <br>
 County: {{ $request->county }} <br>
 Extra Information: <br>
-{{ $request->county }}
+{{ $request->extra_info }}
 <br>
 
 Thanks,<br>
