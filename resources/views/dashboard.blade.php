@@ -181,7 +181,7 @@
                                         <td>{{ @$order->customer->name }}</td>
                                         <td>{{ @$order->ad->publisher->name }}</td>
                                         <td>Ksh {{ number_format($order->ad->price) }}</td>
-                                        <td>{{ str_limit($order->customer->location['display_name'], 30) }}</td>
+                                        <td>{{ @str_limit($order->customer->location['display_name'], 30) }}</td>
                                         <td>{{ $order->status }}</td>
                                         <td>
                                             {{ $order->expiry }}
