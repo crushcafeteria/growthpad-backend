@@ -22,7 +22,7 @@ class SMS
         $gateway = new AfricasTalking($username, $apiKey);
         $service = $gateway->sms();
         $response = $service->send([
-//            'from'    => $alnum,
+            'from'    => $alnum,
             'to'      => $msisdn,
             'message' => $msg
         ]);
