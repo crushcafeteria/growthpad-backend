@@ -87,10 +87,24 @@ class OrderController extends Controller
         # Notify buyer via email
         Mail::to($order->customer)->send(new OrderSent($order));
 
-        # Notify publisher of order via SMS
+        # Notify SP of new order
         $msisdn = SMS::formatMSISDN($order->ad->publisher->telephone);
         if ($msisdn) {
-//            @SMS::send($msisdn, 'Hello world from here');
+            $text = config('settings.sms.templates.sp_new_order');
+            $text = str_replace('{CUSTOMER}', $order->customer->name, $text);
+            $text = str_replace('{PRODUCT}', $order->ad->name, $text);
+            $text = str_replace('{PRICE}', number_format($order->ad->price), $text);
+            @SMS::send($msisdn, $text);
+        }
+
+        # Acknowledge to customer order received
+        $msisdn = SMS::formatMSISDN($order->customer->telephone);
+        if ($msisdn) {
+            $text = config('settings.sms.templates.customer_order_received');
+            $text = str_replace('{PRODUCT}', $order->ad->name, $text);
+            $text = str_replace('{PRICE}', number_format($order->ad->price), $text);
+            $text = str_replace('{BUSINESS}', $order->ad->publisher->business_name, $text);
+            @SMS::send($msisdn, $text);
         }
 
         return response()->json(['status' => 'OK']);
@@ -202,10 +216,14 @@ class OrderController extends Controller
         # Notify customer
         Mail::to($order->customer->email)->send(new OrderCancelled($order));
 
-        # Notify customer of order via SMS
+        # Notify customer of order cancellation via SMS
         $msisdn = SMS::formatMSISDN($order->customer->telephone);
         if ($msisdn) {
-//            @SMS::send($msisdn, 'Hello world from here');
+            $text = config('settings.sms.templates.customer_order_cancelled');
+            $text = str_replace('{PRODUCT}', $order->ad->name, $text);
+            $text = str_replace('{PRICE}', number_format($order->ad->price), $text);
+            $text = str_replace('{BUSINESS}', $order->ad->publisher->business_name, $text);
+            @SMS::send($msisdn, $text);
         }
 
         return response()->json($order);

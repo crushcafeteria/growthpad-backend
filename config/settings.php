@@ -453,7 +453,13 @@ return [
     ],
 
     'sms' => [
-        'username' => 'IrenGrowthpad',
-        'api_key'  => 'c6ade95dfb3a4391b4431fc4b9890b35a24757f99863e935c891832913ab4703'
-    ]
+        'username'     => 'IrenGrowthpad',
+        'api_key'      => 'c6ade95dfb3a4391b4431fc4b9890b35a24757f99863e935c891832913ab4703',
+        'alphanumeric' => 'IREN-GPAD',
+        'templates'    => [
+            'sp_new_order'             => 'You have received an order from {CUSTOMER} for {PRODUCT} (Ksh {PRICE})',
+            'customer_order_received'  => 'Your order for {PRODUCT}, (Ksh {PRICE}) has been received. {BUSINESS} will get in touch.',
+            'customer_order_cancelled' => 'Your order for {PRODUCT}, (Ksh {PRICE}) has been cancelled by {BUSINESS}',
+        ]
+    ],
 ];
