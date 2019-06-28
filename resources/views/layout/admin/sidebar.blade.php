@@ -73,14 +73,14 @@
                     <span class="title">Service Providers</span>
                 </a>
             </li>
-            {{--<li class="nav-item">--}}
-                {{--<a class="sidebar-link" href="{{ url('businesses') }}">--}}
-                    {{--<span class="icon-holder">--}}
-                        {{--<i class="fa fa-briefcase fa-fw"></i>--}}
-                    {{--</span>--}}
-                    {{--<span class="title">Businesses</span>--}}
-                {{--</a>--}}
-            {{--</li>--}}
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('sms') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-envelope-o fa-fw"></i>
+                    </span>
+                    <span class="title">Bulk SMS</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

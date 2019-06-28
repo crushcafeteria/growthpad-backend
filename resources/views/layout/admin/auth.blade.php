@@ -61,7 +61,7 @@
 <body class="app">
 <div id="loader">
     <div class="spinner"></div>
-</div>na
+</div>
 <script>
     window.addEventListener('load', () => {
         const loader = document.getElementById('loader');

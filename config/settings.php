@@ -455,5 +455,11 @@ return [
     'sms' => [
         'username' => 'IrenGrowthpad',
         'api_key'  => 'c6ade95dfb3a4391b4431fc4b9890b35a24757f99863e935c891832913ab4703'
+    ],
+
+    'recipient_groups' => [
+        'ALL'       => 'Everyone',
+        'PROVIDERS' => 'Service Providers',
+        'CUSTOMERS' => 'Customers',
     ]
 ];

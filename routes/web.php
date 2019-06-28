@@ -97,6 +97,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('payments', 'PaymentController@list');
 
+    # Bulk SMS
+    Route::get('sms', 'BulkSMSController@index');
+    Route::post('sms', 'BulkSMSController@sendMessages');
+
 });
 
 Route::get('onboard', 'ServiceController@showSpOnboardingPage');
