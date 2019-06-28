@@ -36,7 +36,6 @@ class SendBulkSMS implements ShouldQueue
      */
     public function handle()
     {
-        $test = '+254741504000,+254710605846';
-        SMS::send($test, $this->message);
+        SMS::send($this->recipients, $this->message);
     }
 }
