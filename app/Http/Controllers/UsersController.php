@@ -18,7 +18,11 @@ class UsersController extends Controller
      */
     public function index($SPs = false)
     {
-        $accounts = (@$_GET['q']) ? User::where('name', 'LIKE', '%' . @$_GET['q'] . '%')->orWhere('name', 'LIKE', '%' . @$_GET['q'] . '%')->paginate() : User::paginate();
+        $accounts = (@$_GET['q']) ?
+            User::where('name', 'LIKE', '%' . @$_GET['q'] . '%')
+            ->orWhere('business_name', 'LIKE', '%' . @$_GET['q'] . '%')
+            ->orWhere('county', 'LIKE', '%' . @$_GET['q'] . '%')
+            ->paginate() : User::paginate();
 
         return view('users.list', [
             'accounts' => $accounts

@@ -73,7 +73,7 @@
                                 </tbody>
                             </table>
 
-                            {{ $accounts->links() }}
+                            {{ $accounts->appends($_GET)->links() }}
 
 
                             <span class="text-muted">

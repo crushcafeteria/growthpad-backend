@@ -16,11 +16,13 @@ class SMS
     {
         $username = config('settings.sms.username');
         $apiKey = config('settings.sms.api_key');
+        $alnum = config('settings.sms.alphanumeric');
 
 
         $gateway = new AfricasTalking($username, $apiKey);
         $service = $gateway->sms();
         $response = $service->send([
+            'from'    => $alnum,
             'to'      => $msisdn,
             'message' => $msg
         ]);

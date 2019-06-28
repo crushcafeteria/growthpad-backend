@@ -170,6 +170,7 @@ class AccountController extends Controller
         $SPs = User::where('privilege', 'SP')
             ->where('county', request()->county)
             ->where('business_category', request()->category)
+            ->has('ads', '>', 0)
             ->paginate();
 //        dd($SPs);
 
