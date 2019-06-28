@@ -18,16 +18,20 @@ class SMS
         $apiKey = config('settings.sms.api_key');
         $alnum = config('settings.sms.alphanumeric');
 
-
         $gateway = new AfricasTalking($username, $apiKey);
         $service = $gateway->sms();
-        $response = $service->send([
-            'from'    => $alnum,
-            'to'      => $msisdn,
-            'message' => $msg
-        ]);
 
-        return $response;
+        try {
+            $response = $service->send([
+                'from'    => $alnum,
+                'to'      => $msisdn,
+                'message' => $msg
+            ]);
+
+            return TRUE;
+        } catch (Exception $e) {
+            return FALSE;
+        }
     }
 
     static function formatMSISDN($number)
@@ -37,7 +41,7 @@ class SMS
 
         # Validate telephone
         if (strlen($number) != 13 || substr($number, 0, 5) != '+2547') {
-            return false;
+            return FALSE;
         }
 
         return $number;

@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Library\SMS;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -12,7 +13,7 @@ class SendBulkSMS implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $tries = 1;
+    public $tries = 3;
     public $timeout = 60;
     public $recipients;
     public $message;
@@ -35,6 +36,7 @@ class SendBulkSMS implements ShouldQueue
      */
     public function handle()
     {
-        dd($this->recipients);
+        $test = '+254741504000,+254710605846';
+        SMS::send($test, $this->message);
     }
 }

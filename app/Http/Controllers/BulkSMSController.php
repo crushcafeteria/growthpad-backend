@@ -47,9 +47,11 @@ class BulkSMSController extends Controller
             $numberList = implode(',', $numberList->toArray());
 
             # Dispatch bulk SMSes
-            SendBulkSMS::dispatchNow($numberList, request()->message);
+            SendBulkSMS::dispatch($numberList, request()->message);
 //            dd($numberList);
         });
+
+        return redirect('sms?sent=true');
 
 //        dd($recipients);
     }
