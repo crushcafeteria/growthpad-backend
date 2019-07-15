@@ -45,7 +45,11 @@ Route::group(['middleware' => 'cors'], function (){
 
 
     # Forums
-    Route::post('forum/topic/create', 'API\Forum\TopicController@store');
+    Route::post('forum/topic/add', 'API\Forum\TopicController@store')->middleware('jwt.auth');
+    Route::get('forum/topic/list', 'API\Forum\TopicController@index')->middleware('jwt.auth');
+
+    Route::post('forum/topic/{topicID}/thread/add', 'API\Forum\ThreadController@store')->middleware('jwt.auth');
+    Route::get('forum/topic/{topicID}/threads', 'API\Forum\ThreadController@index')->middleware('jwt.auth');
 });
 
 Route::post('feedback', 'API\AccountController@sendFeedback');

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\API\Forum;
 
-use App\Models\Forum\Topic;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Forum\Thread;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
-class TopicController extends Controller
+class ThreadController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($topicID)
     {
-        return response()->json(Topic::paginate());
+        return response()->json(Thread::with('topic')->where('topic_id', $topicID)->paginate());
     }
 
     /**
@@ -35,11 +35,10 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store($topicID)
     {
         $validator = Validator::make(request()->all(), [
-            'name'        => 'required',
-            'description' => 'required',
+            'text' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -48,11 +47,12 @@ class TopicController extends Controller
             ]);
         }
 
-        $row = request()->only(['name', 'description']);
+        $row = request()->only(['text']);
+        $row['topic_id'] = $topicID;
         $row['author_id'] = auth()->id();
-        $topic = Topic::create($row);
+        $topic = Thread::create($row);
 
-        return response()->json($topic);
+        return response()->json(Thread::with('topic')->find($topic->id));
     }
 
     /**

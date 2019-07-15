@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table){
             $table->increments('id');
             $table->string('name');
-            $table->string('business_name');
-            $table->string('category');
+            $table->string('business_name')->nullable();
+            $table->string('category')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('privilege')->default('USER');
@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->integer('credits')->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

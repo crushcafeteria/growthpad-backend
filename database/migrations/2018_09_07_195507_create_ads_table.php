@@ -30,6 +30,7 @@ class CreateAdsTable extends Migration
             $table->string('lat');
             $table->date('expiry');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
