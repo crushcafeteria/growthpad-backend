@@ -46,7 +46,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="videos_thumb">
                         <div class="big_img">
-                            <img src="/recipe/img/video/big.png" alt="">
+                            <img src="/recipe/img/video/big.jpg" alt="">
                         </div>
                         <div class="small_thumb">
                             <img src="/recipe/img/video/small_1.png" alt="">
@@ -78,8 +78,9 @@
                 @foreach(config('cookbook.products') as $key => $product)
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single_recepie text-center">
-                            <div class="recepie_thumb">
-                                <img src="/recipe/img/recepie/1.jpg" alt="">
+                            <div class="recepie_thumbx">
+
+                                <img src="{{ (strlen($product['picture'])) ? asset($product['picture']) : '/recipe/products/noimage.png' }}" class="img-fluid">
                             </div>
                             <h4 class="product-name mt-3">{{ $product['name'] }}</h4>
                             <p>Ksh {{ number_format($product['price']) }}</p>
@@ -99,7 +100,7 @@
                 <div class="col-xl-6 col-md-6">
                     <div class="download_thumb">
                         <div class="big_img">
-                            <img src="/recipe/img/video/big_1.png" alt="">
+                            <img src="/recipe/img/video/big.jpg" alt="">
                         </div>
                         <div class="small_01">
                             <img src="/recipe/img/video/small_sm1.png" alt="">
@@ -111,7 +112,14 @@
                 </div>
                 <div class="col-xl-6 col-md-6">
                     <div class="download_text">
-                        <h3>Get your cookbook from our Growthpad app!</h3>
+                        <h3 style="font-size: 60px">Get your cookbook from our app!</h3>
+                        <p class="mb-5">
+                            You will receive the recipe in a PDF file which can be read using any PDF reader.
+                            Can be accessed on all devices: laptop, smartphone, tablets, ipad. The PDF file is
+                            also printer friendly if you so wish to have a recipe paper trail.
+                            <br>
+                            Enjoy your cooking!
+                        </p>
                         <div class="download_android_apple">
                             <a target="_blank"
                                href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
