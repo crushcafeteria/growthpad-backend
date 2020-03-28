@@ -16,10 +16,10 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return response()->json(Topic::paginate());
+        return response()->json(Topic::with(['threads', 'author'])->orderBy('created_at', 'DESC')->paginate());
     }
 
-    /**
+    /**api
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TopicController extends Controller
         $row['author_id'] = auth()->id();
         $topic = Topic::create($row);
 
-        return response()->json($topic);
+        return response()->json(Topic::with(['threads', 'author'])->find($topic->id));
     }
 
     /**
@@ -63,7 +63,7 @@ class TopicController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(Topic::with('threads')->find($id));
     }
 
     /**

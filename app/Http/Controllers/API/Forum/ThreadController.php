@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Forum;
 
+use App\Models\Forum\Like;
 use App\Models\Forum\Thread;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class ThreadController extends Controller
 {
+    private $relations = ['topic', 'author', 'likes'];
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +19,11 @@ class ThreadController extends Controller
      */
     public function index($topicID)
     {
-        return response()->json(Thread::with('topic')->where('topic_id', $topicID)->paginate());
+        return response()->json(Thread::with($this->relations)
+            ->orderBy('created_at', 'DESC')
+            ->where('topic_id', $topicID)
+            ->paginate()
+        );
     }
 
     /**
@@ -52,7 +59,7 @@ class ThreadController extends Controller
         $row['author_id'] = auth()->id();
         $topic = Thread::create($row);
 
-        return response()->json(Thread::with('topic')->find($topic->id));
+        return response()->json(Thread::with($this->relations)->find($topic->id));
     }
 
     /**
@@ -98,5 +105,16 @@ class ThreadController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function like($topicID, $threadID)
+    {
+        $like = Like::create([
+            'target_id' => $threadID,
+            'type'      => 'THREAD',
+            'author_id' => auth()->id()
+        ]);
+
+        return $like;
     }
 }

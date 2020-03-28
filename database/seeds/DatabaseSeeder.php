@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             AdSeeder::class,
             OrderSeeder::class,
             ActivityLogSeeder::class,
-            PaymentSeeder::class
+            PaymentSeeder::class,
+            TopicSeeder::class,
+            ThreadSeeder::class,
+            LikeSeeder::class
         ]);
     }
 }
