@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', FALSE),
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +182,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Safaricom\Mpesa\MpesaServiceProvider::class
     ],
 
     /*
@@ -235,6 +236,7 @@ return [
         'Html'  => Collective\Html\HtmlFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF'   => Barryvdh\DomPDF\Facade::class,
+        'Mpesa' => Safaricom\Mpesa\MpesaServiceProvider::class
     ],
 
 ];
