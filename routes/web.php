@@ -112,3 +112,8 @@ Route::get('you-can-now-login', function () {
         'message' => 'You have successfully changed your password. Please close this window and try logging in with your new password'
     ]);
 });
+
+# Cookbook
+Route::get('cookbook', 'CookbookController@index');
+Route::get('cookbook/purchase/{id}', 'CookbookController@purchase')->middleware('auth');
+

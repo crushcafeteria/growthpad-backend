@@ -39,7 +39,10 @@
                 </p>
                 <a href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en"
                    class="btn btn-success">
-                    <i class="fa fa-download fa-fw"></i> Download IREN Growthpad
+                    <i class="fa fa-mobile-phone fa-fw"></i> Download our app
+                </a>
+                <a href="/cookbook" class="btn btn-success">
+                    <i class="fa fa-shopping-cart fa-fw"></i> Buy our cookbook
                 </a>
             </div>
         </div>
