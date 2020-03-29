@@ -139,22 +139,4 @@
     </div>
     <!--/ download_app_area -->
 
-    <!-- footer  -->
-    <footer class="footer">
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row align-items-center">
-                    <div class="col-xl-12 col-md-12">
-                        <p class="copy_right text-center">
-                            Developed with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                            <a href="https://sodium.co.ke" target="_blank">Sodium Africa</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/ footer  -->
-
 @endsection

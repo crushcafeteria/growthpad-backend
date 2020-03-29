@@ -13,6 +13,11 @@ class CookbookController extends Controller
     {
         $key = decrypt($encryptedKey);
 
-        dd($key);
+        $product = config('cookbook.products')[$key];
+
+        return view('cookbook.purchase', [
+            'product' => $product,
+            'key' => $key
+        ]);
     }
 }
