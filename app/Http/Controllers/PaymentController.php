@@ -63,7 +63,7 @@ class PaymentController extends Controller
         } else {
             $telephone = auth()->user()->telephone;
         }
-        
+
         if(substr($telephone, 0, 2) == '07') {
             $telephone = '+254'.(int)$telephone;
         }
@@ -78,9 +78,12 @@ class PaymentController extends Controller
             ]);
         }
 
+        $payment = $payments->first();
+
         return response()->json([
             'status'  => 'OK',
-            'payments' => ($code) ? $payments->first() : $payments->get()
+            'payments' => $payment,
+            'token' => encrypt($payment->id)
         ]);
     }
 

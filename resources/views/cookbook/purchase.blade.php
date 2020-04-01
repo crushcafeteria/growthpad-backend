@@ -112,7 +112,11 @@
             }
 
             $.get('https://growthpad.irenkenya.com/api/payment/detect/'+ $('.txtCode').val() + '?msisdn={{ auth()->user()->telephone }}', function(res) {
-
+                if(res['status'] == 'ERROR') {
+                    $('.frmError').html(res['error'])
+                } else {
+                    alert('Payment confirmed!')
+                }
             });
         });
     });
