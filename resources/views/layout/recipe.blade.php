@@ -52,12 +52,20 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="/"><i class="fa fa-home fa-fw"></i> home</a></li>
+                                        <li><a href="/cookbook"><i class="fa fa-home fa-fw"></i> home</a></li>
                                         <li>
-                                            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
+                                            <a target="_blank"
+                                                href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
                                                 <i class="fa fa-phone fa-fw"></i>Get the app
                                             </a>
                                         </li>
+                                        @if(auth()->check())
+                                        <li>
+                                            <a href="/cookbook/my-purchases">
+                                                <i class="fa fa-download fa-fw"></i>My Purchases
+                                            </a>
+                                        </li>
+                                        @endif
                                         <li>
                                             <a target="_blank" href="https://irenkenya.com/contact/">
                                                 <i class="fa fa-phone-square fa-fw"></i> Contact
