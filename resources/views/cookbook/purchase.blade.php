@@ -70,6 +70,7 @@
                         data-target="#exampleModal">
                         <i class="fa fa-money fa-fw"></i> Confirm Purchase
                     </a>
+
                 </div>
             </div>
         </div>
@@ -110,7 +111,7 @@
                 return false;
             }
 
-            $.get('https://growthpad.irenkenya.com/api/payment/detect/'+ $('.txtCode').val(), function(res) {
+            $.get('https://growthpad.irenkenya.com/api/payment/detect/'+ $('.txtCode').val() + '?msisdn={{ auth()->user()->telephone }}', function(res) {
 
             });
         });

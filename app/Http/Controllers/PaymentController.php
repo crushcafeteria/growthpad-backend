@@ -58,7 +58,12 @@ class PaymentController extends Controller
     function detectPayment($code = null)
     {
         # Format number
-        $telephone = auth()->user()->telephone;
+        if(!auth()->check()){
+            $telephone = request()->msisdn;
+        } else {
+            $telephone = auth()->user()->telephone;
+        }
+        
         if(substr($telephone, 0, 2) == '07') {
             $telephone = '+254'.(int)$telephone;
         }
