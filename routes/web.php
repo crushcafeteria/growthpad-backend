@@ -118,4 +118,5 @@ Route::get('you-can-now-login', function () {
 # Cookbook
 Route::get('cookbook', 'CookbookController@index');
 Route::get('cookbook/purchase/{id}', 'CookbookController@purchase')->middleware('auth');
+Route::get('cookbook/dl/{productKey}/{purchaseToken}', 'CookbookController@download')->middleware('auth');
 

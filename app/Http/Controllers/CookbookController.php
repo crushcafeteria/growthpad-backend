@@ -20,4 +20,12 @@ class CookbookController extends Controller
             'key' => $key
         ]);
     }
+
+    function download($key, $token)
+    {
+        $key = decrypt($key);
+        $paymentID = decrypt($token);
+
+        dd($key, $paymentID);
+    }
 }

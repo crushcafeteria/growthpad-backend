@@ -116,6 +116,7 @@
                     $('.frmError').html(res['error'])
                 } else {
                     alert('Payment confirmed!')
+                    location.href = '/cookbook/dl/{{ encrypt($key) }}/' + res['token']
                 }
             });
         });
