@@ -55,6 +55,8 @@ class CookbookController extends Controller
             'payment_id' => $paymentID
         ]);
 
+        $payment->update(['user_id' => auth()->user()->id]);
+
         return redirect('/cookbook/my-purchases');
     }
 
