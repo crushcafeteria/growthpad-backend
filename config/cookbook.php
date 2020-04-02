@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nelson
@@ -9,6 +10,12 @@
 return [
 
     'products' => [
+        [
+            'picture' => '/recipe/products/noimage.png',
+            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+            'name'    => 'Buy Complete Recipe Book',
+            'price'   => 1000
+        ],
         [
             'picture' => '/recipe/products/18-Spider-Plant-(Chisaka).jpg',
             'file'    => 'recipes/CHISAKA - Spider Plant.pdf',
@@ -110,6 +117,12 @@ return [
             'file'    => 'recipes/TSISWA - Dried Termites.pdf',
             'name'    => 'TSISWA - Dried Termites',
             'price'   => 100
+        ],
+        [
+            'picture' => '/recipe/products/noimage.png',
+            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+            'name'    => 'Buy Test Product',
+            'price'   => 10
         ],
 
     ]
