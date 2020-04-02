@@ -42,7 +42,7 @@
                     <i class="fa fa-mobile-phone fa-fw"></i> Download our app
                 </a>
                 <a href="/cookbook" class="btn btn-success">
-                    <i class="fa fa-shopping-cart fa-fw"></i> Buy our cookbook
+                    <i class="fa fa-shopping-cart fa-fw"></i> Buy Chakula Chetu recipes
                 </a>
             </div>
         </div>

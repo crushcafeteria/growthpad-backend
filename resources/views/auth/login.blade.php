@@ -16,6 +16,11 @@
                 Access denied! Please go away.
             </div>
         @endif
+        @if(str_replace(url('/'), '', url()->previous()) == '/cookbook')
+            <div class="alert alert-warning" role="alert">
+                Please login or register to purchase this recipe
+            </div>
+        @endif
 
         <form method="POST" action="login">
             {{ csrf_field() }}

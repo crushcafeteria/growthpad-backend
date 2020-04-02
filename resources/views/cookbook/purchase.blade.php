@@ -112,10 +112,10 @@
             }
 
             $.get('https://growthpad.irenkenya.com/api/payment/detect/'+ $('.txtCode').val() + '?msisdn={{ auth()->user()->telephone }}', function(res) {
-                if(res['status'] == 'ERROR') {
-                    $('.frmError').html(res['error'])
+                if(res['status'] == 'FAILED') {
+                    alert(res['error'])
                 } else {
-                    alert('Payment confirmed!')
+                    alert('Payment confirmed..0 Thank you and enjoy your meal!')
                     location.href = '/cookbook/dl/{{ encrypt($key) }}/' + res['token']
                 }
             });

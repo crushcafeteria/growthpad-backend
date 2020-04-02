@@ -2,142 +2,128 @@
 
 @section('content')
 
-<!-- slider_area_start -->
-<div class="slider_area">
-    <div class="single_slider  d-flex align-items-center slider_bg_1">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-8 ">
-                    <div class="slider_text text-center">
-                        <div class="text">
-                            <h3>
-                                Chakula Chetu - Recipe Book
-                            </h3>
-                            <br>
-                            <a href="/cookbook/buy" class="btn btn-success btn-lg">
-                                <i class="fa fa-shopping-cart fa-fw"></i> Buy all our recipes
-                            </a>
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="single_slider  d-flex align-items-center slider_bg_1">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xl-8 ">
+                        <div class="slider_text text-center">
+                            <div class="text">
+                                <h3>
+                                    Chakula Chetu - Recipe Book
+                                </h3>
+                                <br>
+                                <a href="/cookbook/purchase/{{ encrypt(0) }}" class="btn btn-success btn-lg">
+                                    <i class="fa fa-shopping-cart fa-fw"></i> Buy complete recipe book
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- slider_area_end -->
+    <!-- slider_area_end -->
 
-<!-- recepie_videos   -->
-<div class="recepie_videoes_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="recepie_info">
-                    <h3>Why make you own indigenous food?</h3>
-                    <p>
-                        When we cook at home, we are in control of the healthier ingredients to use that are readily
-                        available in the markets and budget friendly thus saving you money. Each recipe has
-                        measurements for your portion control therefore eliminating unnecessary food waste.
-                        Bring your family together and enjoy a traditional meal of a western Kenya cultural
-                        background
-                    </p>
+    <!-- recepie_videos   -->
+    <div class="recepie_videoes_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="recepie_info">
+                        <h2>Indigenous Food Recipes of Kenya</h2>
+                        <p>
+                            Chakula Chetu published by the Inter Region Economic Network (IREN Kenya) offers details on
+                            how to prepare indigenous recipes developed by home chefs from western Kenya Region. The
+                            book consists of tourist sights and sound guides to the region from scenic Lake Simbi Nyaima
+                            in Homa Bay County to the rock art at Kakapel in Busia County
+                        </p>
 
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="videos_thumb">
-                    <div class="big_img">
-                        <img src="/recipe/img/video/big.jpg" alt="">
-                    </div>
-                    <div class="small_thumb">
-                        <img src="/recipe/img/video/small_1.png" alt="">
-                    </div>
-                    <div class="small_thumb_2">
-                        <img src="/recipe/img/video/2.png" alt="">
+                <div class="col-lg-6 col-md-6">
+                    <div class="videos_thumb">
+                        <img src="/recipe/img/1.jpg" class="img-fluid img-rounded img-thumbnail">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--/ recepie_videos   -->
+    <!--/ recepie_videos   -->
 
-<!-- recepie_area_start  -->
-<div class="recepie_area">
-    <div class="container">
-        <div class="row pb-5">
-            <div class="col-12 text-center">
-                <h2 style="line-height: 55px;">
-                    Kenyan Indigenous Food Recipes. A just published book in collaboration with local chefs, we put
-                    together this special cookbook full of Kenya’s BEST indigenous food recipes from western Kenya!
-                    The book is outstandingly irresistible as it details out how to prepare 16 traditional cuisines
-                    from own produce for healthy eating.
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            @foreach(config('cookbook.products') as $key => $product)
-            <div class="col-xl-4 col-lg-4 col-md-6">
-                <div class="single_recepie text-center">
-                    <div class="recepie_thumbx">
-
-                        <img src="{{ (strlen($product['picture'])) ? asset($product['picture']) : '/recipe/products/noimage.png' }}"
-                            class="img-fluid">
-                    </div>
-                    <h4 class="product-name mt-3">{{ $product['name'] }}</h4>
-                    <p>Ksh {{ number_format($product['price']) }}</p>
-                    <a href="/cookbook/purchase/{{ encrypt($key) }}" class="line_btn">Buy this recipe</a>
+    <!-- recepie_area_start  -->
+    <div class="recepie_area">
+        <div class="container">
+            <div class="row pb-5">
+                <div class="col-12 text-center pt-5">
+                    <h2 style="line-height: 40px;">
+                        <i class="fa fa-star-o fa-fw"></i>
+                        Purchase our recipes
+                        <i class="fa fa-star-o fa-fw"></i>
+                    </h2>
                 </div>
             </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-<!-- /recepie_area_start  -->
-
-<!-- download_app_area -->
-<div class="download_app_area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-md-6">
-                <div class="download_thumb">
-                    <div class="big_img">
-                        <img src="/recipe/img/video/big.jpg" alt="">
-                    </div>
-                    <div class="small_01">
-                        <img src="/recipe/img/video/small_sm1.png" alt="">
-                    </div>
-                    <div class="small_02">
-                        <img src="/recipe/img/video/sm2.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-md-6">
-                <div class="download_text">
-                    <h3 style="font-size: 60px">Get your copy of Chakula Chetu today!</h3>
-                    <p class="mb-5">
-                        Carefully selected recipes developed by home chefs and guided by nutritional experts
-                        are an offer. This is a journey to activate cash flow in rural economies and ultimately
-                        link them to famous Kenyan tourist circuits.
-                        <br>
-                        Your purchase makes the first mile of your journey possible!
-                    </p>
-                    <div class="download_android_apple">
-                        <a target="_blank"
-                            href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
-                            <div class="download_link d-flex d-block">
-                                <i class="fa fa-android"></i>
-                                <div class="store">
-                                    <h5>Download</h5>
-                                    <p>from Google Play Store</p>
+            <div class="row">
+                @foreach(config('cookbook.products') as $key => $product)
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="card card-body p-0 mb-5">
+                            <div class="single_recepie text-center">
+                                <div class="recepie_thumbx">
+                                    <img src="{{ (strlen($product['picture'])) ? asset($product['picture']) : '/recipe/products/noimage.png' }}"
+                                         class="img-fluid">
                                 </div>
+                                <h4 class="product-name mt-3">{{ $product['name'] }}</h4>
+                                <p>Ksh {{ number_format($product['price']) }}</p>
+                                <a href="/cookbook/purchase/{{ encrypt($key) }}" class="line_btn">Buy this recipe</a>
                             </div>
-                        </a>
+                        </div>
+                    </div>
+                @endforeach
+
+                <div class="col-12">
+                    <div class="alert alert-success text-center">
+                        You will be asked to login or register a Growthpad account before purchasing items
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--/ download_app_area -->
+    <!-- /recepie_area_start  -->
+
+    <!-- download_app_area -->
+    <div class="download_app_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="videos_thumb">
+                        <img src="/recipe/img/2.jpg" class="img-fluid img-rounded img-thumbnail">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <div class="download_text">
+                        <h4 style="font-size: 30px;">Get your copy of Chakula Chetu today!</h4>
+                        <p class="mb-2">
+                            Full Chakula Chetu recipe book is available in soft copy at Kshs. 1000
+                            Individual soft copy recipes available at Kshs. 100
+                        </p>
+                        <p>
+                            On purchase you will receive the recipes in a PDF file format for your daily use.
+                            To get the full Chakula Chetu book in hard copy at Kshs. 3,500
+                        <ul class="pl-5 pt-3 pb-3">
+                            <li>Send an email to chepchirchir@irenkenya.com</li>
+                            <li>Or call +254 798 802 818</li>
+                        </ul>
+
+                        </p>
+                        <p>
+                            Enjoy your cooking!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ download_app_area -->
 
 @endsection

@@ -118,12 +118,12 @@ return [
             'name'    => 'TSISWA - Dried Termites',
             'price'   => 100
         ],
-        [
-            'picture' => '/recipe/products/noimage.png',
-            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
-            'name'    => 'Buy Test Product',
-            'price'   => 10
-        ],
+//        [
+//            'picture' => '/recipe/products/noimage.png',
+//            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+//            'name'    => 'Buy Test Product',
+//            'price'   => 10
+//        ],
 
     ]
 
