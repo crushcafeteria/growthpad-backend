@@ -75,7 +75,7 @@
                                 </div>
                                 <h4 class="product-name mt-3">{{ $product['name'] }}</h4>
                                 <p>Ksh {{ number_format($product['price']) }}</p>
-                                <a href="/cookbook/purchase/{{ encrypt($key) }}" class="line_btn">Buy this recipe</a>
+                                <a href="/cookbook/display/{{ encrypt($key) }}" class="line_btn">Buy this recipe</a>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@
                 Access denied! Please go away.
             </div>
         @endif
-        @if(str_replace(url('/'), '', url()->previous()) == '/cookbook')
+        @if(strpos(str_replace(url('/'), '', url()->previous()), 'cookbook/display'))
             <div class="alert alert-warning" role="alert">
                 Please login or register to purchase this recipe
             </div>
@@ -65,6 +65,10 @@
                 <a href="register">Register your account</a>
                 <br>
                 <a href="password/reset">I forgot my password</a>
+                <br>
+                <br>
+                <a href="/">Back Home</a>
+
             </div>
         </form>
 
