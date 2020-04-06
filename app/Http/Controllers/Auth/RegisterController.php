@@ -70,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
             'password'  => bcrypt($data['password']),
@@ -78,6 +78,10 @@ class RegisterController extends Controller
             'telephone' => $data['telephone'],
             'gender'    => $data['gender'],
         ]);
+
+//        $user->sendEmailVerificationNotification();
+
+        return $user;
     }
 
     public function apiRegisterUser(Request $request)
@@ -120,6 +124,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
+
 
 //        $this->guard()->login($user);
 
