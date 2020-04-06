@@ -84,7 +84,7 @@ class CookbookController extends Controller
         $purchase = CookbookPurchase::find($purchaseID);
 
         if (auth()->id() != $purchase->user_id) {
-            abort(403, 'Please go away!');
+            abort(403, 'You do not have the privileges to access this resource');
         }
 
         $product = config('cookbook.products')[$purchase['product_key']];

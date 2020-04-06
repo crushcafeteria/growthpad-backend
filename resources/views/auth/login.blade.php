@@ -13,7 +13,7 @@
 
         @if(@$_GET['access_denied'])
             <div class="alert alert-danger" role="alert">
-                Access denied! Please go away.
+                Access denied! Please check you have entered the correct credentials and your account is active.
             </div>
         @endif
         @if(strpos(str_replace(url('/'), '', url()->previous()), 'cookbook/display'))
