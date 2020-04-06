@@ -7,7 +7,8 @@
 
         @if(@$_GET['new'])
             <div class="alert alert-success" role="alert">
-                Your account is ready. Time to login
+                Your account is registered. Please check your email and click on the verification link
+                to activate your account
             </div>
         @endif
 
