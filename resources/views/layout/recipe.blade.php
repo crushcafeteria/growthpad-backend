@@ -100,8 +100,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-12 col-md-12">
                         <p class="copy_right text-center">
-                            Developed with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                            <a href="https://sodium.co.ke" target="_blank">Sodium Africa</a>
+                            {{ date('Y') }}&copy; All rights reserved
                         </p>
                     </div>
                 </div>
