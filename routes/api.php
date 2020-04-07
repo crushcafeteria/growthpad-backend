@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'cors'], function (){
+Route::group(['middleware' => 'cors'], function () {
     Route::post('enquiry/save', 'ServiceController@saveEnquiry');
     Route::get('marketplace', 'MarketController@apiListContacts');
     Route::get('marketplace/search/{q?}', 'MarketController@apiSearchContact');
@@ -8,7 +8,7 @@ Route::group(['middleware' => 'cors'], function (){
     Route::post('user/register', 'Auth\RegisterController@apiRegisterUser');
     Route::post('user/login', 'Auth\LoginController@apiLogin');
 
-## NEW API SPEC STARTS HERE
+    ## NEW API SPEC STARTS HERE
     Route::post('login', 'API\AccountController@login');
     Route::post('signup', 'API\AccountController@signup');
     Route::get('me', 'API\AccountController@me')->middleware('jwt.auth');
@@ -25,7 +25,7 @@ Route::group(['middleware' => 'cors'], function (){
 
     Route::get('ping/{userID}', 'API\AccountController@ping');
 
-    Route::prefix('support')->group(function (){
+    Route::prefix('support')->group(function () {
         Route::get('countyData', 'API\SupportController@countyData');
         Route::get('location/suggest', 'API\SupportController@suggestLocation');
     });
@@ -66,4 +66,3 @@ Route::get('mpesa/redeem/{code}', 'API\MpesaController@redeemPayment');
 
 # Testing SMS
 //Route::get('test/sms', 'API\SupportController@testSMS');
-

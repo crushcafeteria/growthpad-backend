@@ -172,7 +172,12 @@ class AccountController extends Controller
             ->where('business_category', request()->category)
             ->has('ads', '>', 0)
             ->paginate();
-//        dd($SPs);
+        // dd($SPs);
+
+        # Return default SP
+        if (!$SPs->total()) {
+            $SPs = User::where('id', config('settings.default_sp'))->paginate();
+        }
 
         return response()->json($SPs);
     }
@@ -216,6 +221,5 @@ class AccountController extends Controller
         } else {
             return response()->json('ALIVE');
         }
-
     }
 }
