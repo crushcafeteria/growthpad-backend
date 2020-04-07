@@ -81,6 +81,14 @@
                     <span class="title">Bulk SMS</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="sidebar-link" href="{{ url('cookbook/sales') }}">
+                    <span class="icon-holder">
+                        <i class="fa fa-cutlery fa-fw"></i>
+                    </span>
+                    <span class="title">Cookbook Sales</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

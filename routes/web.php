@@ -100,7 +100,6 @@ Route::group(['middleware' => 'auth'], function () {
     # Bulk SMS
     Route::get('sms', 'BulkSMSController@index');
     Route::post('sms', 'BulkSMSController@sendMessages');
-
 });
 
 Route::get('onboard', 'ServiceController@showSpOnboardingPage');
@@ -123,3 +122,5 @@ Route::get('cookbook/dl/{productKey}/{purchaseToken}', 'CookbookController@activ
 Route::get('cookbook/my-purchases', 'CookbookController@myPurchases')->middleware('auth');
 Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->middleware('auth');
 
+# Admin panel
+Route::get('cookbook/sales', 'CookbookController@showSales')->middleware('auth');

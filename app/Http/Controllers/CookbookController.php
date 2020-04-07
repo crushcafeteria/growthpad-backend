@@ -96,7 +96,13 @@ class CookbookController extends Controller
         header("Content-Length: " . filesize($file));
         header("Content-Disposition: attachment; filename=" . $filename);
         readfile($file);
-
     }
 
+    function showSales()
+    {
+        $sales = CookbookPurchase::paginate();
+        return view('admin.cookbook.sales', [
+            'sales' => $sales
+        ]);
+    }
 }
