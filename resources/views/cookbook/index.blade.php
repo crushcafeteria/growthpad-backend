@@ -52,6 +52,32 @@
     </div>
     <!--/ recepie_videos   -->
 
+    <!-- recepie_videos   -->
+    <div class="recepie_videoes_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 order-2">
+                    <div class="recepie_info">
+                        <h2>Explore the foods of Western Kenya!</h2>
+                        <p>
+                            Carefully selected recipes developed by home chefs and guided by nutritional experts are
+                            an offer. This is a journey to activate cash flow in rural economies and ultimately link
+                            them to famous Kenyan tourist circuits.  Your purchase makes the first mile of the
+                            journey possible!
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 order-1">
+                    <div class="videos_thumb">
+                        <img src="/recipe/Boiled Black Nightshade (Esufuwa).jpg" class="img-fluid img-rounded img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ recepie_videos   -->
+
     <!-- recepie_area_start  -->
     <div class="recepie_area">
         <div class="container">
