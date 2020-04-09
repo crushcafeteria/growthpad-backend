@@ -175,9 +175,13 @@ class AccountController extends Controller
         // dd($SPs);
 
         # Return default SP
-        if (!$SPs->total()) {
-            $SPs = User::where('id', config('settings.default_sp'))->paginate();
+        $cats = ['AGROVET', 'CROP_PROTECTION'];
+        if(in_array(request()->category, $cats)) {
+            if (!$SPs->total()) {
+                $SPs = User::where('id', config('settings.default_sp'))->paginate();
+            }
         }
+
 
         return response()->json($SPs);
     }
