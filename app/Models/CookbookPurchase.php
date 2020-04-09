@@ -17,6 +17,6 @@ class CookbookPurchase extends Model
 
     function getProductAttribute()
     {
-        return config('cookbook.products')[$this->attributes['product_key']];
+        return @config('cookbook.products')[$this->attributes['product_key']];
     }
 }
