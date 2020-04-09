@@ -2,7 +2,7 @@
 
 return [
     'credit_value' => 10,
-    'default_sp' => 1, // Database ID
+    'default_sp' => 6086, // Database ID
 
     'counties' => [
         'BARINGO'         => 'Baringo County',
