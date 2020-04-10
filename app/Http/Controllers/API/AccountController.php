@@ -172,6 +172,7 @@ class AccountController extends Controller
             ->where('business_category', request()->category)
             ->has('ads', '>', 0)
             ->paginate();
+            
         // dd($SPs);
 
         # Return default SP
