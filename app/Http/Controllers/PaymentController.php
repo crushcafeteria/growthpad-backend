@@ -10,6 +10,7 @@ use App\Mail\PaymentConfirmed;
 use Illuminate\Support\Facades\Log;
 use App\Mail\CookbookPaymentReceived;
 use App\Models\CookbookPurchase;
+use Pesapal;
 
 
 class PaymentController extends Controller
@@ -134,17 +135,24 @@ class PaymentController extends Controller
     public function pesapalConfirmation()
     {
         $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
-        file_put_contents(base_path('pesapal.json'), stripslashes($payload));
+        file_put_contents(base_path('logs/pesapal-ipn.json'), stripslashes($payload));
 
-        // $payment = Payment::where('pesapal_tracking_id', $trackingid)->first();
-        // if (!$payment) {
-        //     abort(403);
-        // }
+        # Accept change
+        $trackingID = request()->pesapal_transaction_tracking_id;
+        $type = request()->pesapal_notification_type;
+        $txnRef = request()->pesapal_merchant_reference;
+        $payment = Payment::where('pesapal_tracking_id', $trackingID)->first();
+        if (!$payment) {
+            abort(403);
+        }
+        $payment->update([
+            'pesapal_status' => $type
+        ]);
 
-        // $payment->update([
-        //     'pesapal_status' => $status,
-        //     'pesapal_method' => $payment_method
-        // ]);
+        # Query txn
+        $status = Pesapal::getMerchantStatus($txnRef);
+        $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
+        file_put_contents(base_path('logs/pesapal-txn_query.json'), stripslashes($payload));
 
         // # Send receipt
         // Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment));
