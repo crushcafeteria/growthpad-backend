@@ -133,6 +133,9 @@ class PaymentController extends Controller
 
     public function pesapalConfirmation($trackingid, $status, $payment_method, $merchant_reference)
     {
+        $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
+        file_put_contents(base_path('pesapal.json'), stripslashes($payload));
+
         $payment = Payment::where('pesapal_tracking_id', $trackingid)->first();
         if (!$payment) {
             abort(403);
