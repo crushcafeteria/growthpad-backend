@@ -186,12 +186,17 @@ Boiled Black Nightshade Black nightshade – Vitamin B,C, folic acid, magnesium,
 Milk/cream – Protein, carbohydrates, sugar, fat
             '
         ],
-        //        [
-        //            'picture' => '/recipe/products/noimage.png',
-        //            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
-        //            'name'    => 'Buy Test Product',
-        //            'price'   => 10
-        //        ],
+        [
+            'picture' => '/recipe/products/noimage.png',
+            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+            'name'    => 'Buy Test Product',
+            'price'   => 10,
+            'nutrients' => '
+Termites-Vitamin A, protein, lipid, carbohydrates<br>
+Boiled Black Nightshade Black nightshade – Vitamin B,C, folic acid, magnesium, potassium, calcium, iron, sodium, zinc<br>
+Milk/cream – Protein, carbohydrates, sugar, fat
+            '
+        ],
 
     ]
 

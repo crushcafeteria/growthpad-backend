@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61ff20c976eae30e031f499c95fd3abf",
+    "content-hash": "be9d51f3cd14c71363eab5f97bf4ae8b",
     "packages": [
         {
             "name": "africastalking/africastalking",
@@ -864,6 +864,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -910,6 +911,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -968,6 +970,7 @@
                 "serialize",
                 "tokenizer"
             ],
+            "abandoned": "opis/closure",
             "time": "2018-03-21T22:21:57+00:00"
         },
         {
@@ -1025,6 +1028,63 @@
                 "management"
             ],
             "time": "2018-09-06T05:06:00+00:00"
+        },
+        {
+            "name": "knox/pesapal",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/knox2/Pesapal.git",
+                "reference": "8943ef349f28e5de70c89e54f93d3caceabdfc12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/knox2/Pesapal/zipball/8943ef349f28e5de70c89e54f93d3caceabdfc12",
+                "reference": "8943ef349f28e5de70c89e54f93d3caceabdfc12",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.5|^6.0|^7.0",
+                "php": ">=7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Knox\\Pesapal\\PesapalServiceProvider"
+                    ],
+                    "aliases": {
+                        "Pesapal": "Knox\\Pesapal\\Facades\\Pesapal"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Knox\\Pesapal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Timothy Radier",
+                    "email": "timothyradier@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A laravel package that integrates into the pesapal api",
+            "homepage": "https://github.com/knox2/pesapal",
+            "keywords": [
+                "Orange Money",
+                "mastercard",
+                "mpesa",
+                "payments",
+                "pesapal",
+                "visa"
+            ],
+            "time": "2020-02-08T19:17:20+00:00"
         },
         {
             "name": "laravel/framework",
@@ -4170,6 +4230,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2018-09-05T19:29:37+00:00"
         }
     ],

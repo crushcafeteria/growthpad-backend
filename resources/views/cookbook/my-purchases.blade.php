@@ -27,6 +27,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if(request()->status == 'PESAPAL')
+                <div class="alert alert-info">
+                    Payment Processing! Your cookbook will be available to you in this page once the transaction has
+                    been successfully processed. Please give upto 3 minutes
+                </div>
+                @endif
                 @if ($purchases->count())
                 <table class="table table-bordered">
                     <tr>

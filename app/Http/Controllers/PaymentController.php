@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentReceived;
 use App\Mail\PaymentConfirmed;
 use Illuminate\Support\Facades\Log;
+use App\Mail\CookbookPaymentReceived;
+use App\Models\CookbookPurchase;
+
 
 class PaymentController extends Controller
 {
@@ -16,23 +19,23 @@ class PaymentController extends Controller
         $raw = file_get_contents('php://input');
         Log::info('MPESA IPN => ', ['payment' => $raw]);
 
-    	# Validate request password
-        if($password != '2347236767') {
+        # Validate request password
+        if ($password != '2347236767') {
             return response()->json(['error' => 'Service unavailable']);
         }
 
-    	# Save txn
-    	$row = request()->only([
-			'transaction_reference', 'transaction_timestamp', 'sender_phone', 'first_name', 
-			'middle_name', 'last_name', 'amount'
-		]);
-		$payment = Payment::create($row);
+        # Save txn
+        $row = request()->only([
+            'transaction_reference', 'transaction_timestamp', 'sender_phone', 'first_name',
+            'middle_name', 'last_name', 'amount'
+        ]);
+        $payment = Payment::create($row);
 
-		# Notify staff
-		Mail::to(config('settings.team')[0]['email'])->send(new PaymentReceived($payment));
-		// Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
+        # Notify staff
+        Mail::to(config('settings.team')[0]['email'])->send(new PaymentReceived($payment));
+        // Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
 
-		return response()->json([
+        return response()->json([
             'status' => '01',
             'description' => 'Accepted'
         ]);
@@ -58,18 +61,18 @@ class PaymentController extends Controller
     function detectPayment($code = null)
     {
         # Format number
-        if(!auth()->check()){
+        if (!auth()->check()) {
             $telephone = request()->msisdn;
         } else {
             $telephone = auth()->user()->telephone;
         }
 
-        if(substr($telephone, 0, 2) == '07') {
-            $telephone = '+254'.(int)$telephone;
+        if (substr($telephone, 0, 2) == '07') {
+            $telephone = '+254' . (int) $telephone;
         }
-        
+
         $payments = (!$code) ? Payment::where('sender_phone', $telephone) : Payment::where('transaction_reference', $code);
-        $payments = $payments->whereNull('user_id');
+        $payments = $payments->where('processor', 'MPESA')->whereNull('user_id');
 
         if (!$payments->count()) {
             return response()->json([
@@ -91,7 +94,7 @@ class PaymentController extends Controller
     {
         $payment = Payment::find($id);
 
-        if(!$payment){
+        if (!$payment) {
             return response()->json([
                 'status' => 'FAILED',
                 'error' => 'Invalid transaction code'
@@ -112,6 +115,42 @@ class PaymentController extends Controller
         return response()->json([
             'status' => 'OK',
             'profile' => auth()->user()
+        ]);
+    }
+
+    public function pesapalReceived()
+    {
+        $trackingid = request()->input('tracking_id');
+        $ref = request()->input('merchant_reference');
+
+        Payment::where('transaction_reference', $ref)->update([
+            'pesapal_tracking_id' => $trackingid,
+            'pesapal_status' => 'RECEIVED'
+        ]);
+
+        return redirect('/cookbook/my-purchases?status=PESAPAL');
+    }
+
+    public function pesapalConfirmation($trackingid, $status, $payment_method, $merchant_reference)
+    {
+        $payment = Payment::where('pesapal_tracking_id', $trackingid)->first();
+        if (!$payment) {
+            abort(403);
+        }
+
+        $payment->update([
+            'pesapal_status' => $status,
+            'pesapal_method' => $payment_method
+        ]);
+
+        # Send receipt
+        Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment));
+
+        # Record purchase
+        CookbookPurchase::create([
+            'user_id'     => $payment->user_id,
+            'product_key' => $payment->product_key,
+            'payment_id'  => $payment->id
         ]);
     }
 }

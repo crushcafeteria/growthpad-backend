@@ -6,6 +6,7 @@ use App\Mail\CookbookPaymentReceived;
 use App\Models\CookbookPurchase;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
+use Pesapal;
 
 class CookbookController extends Controller
 {
@@ -17,13 +18,19 @@ class CookbookController extends Controller
     function display($encryptedKey)
     {
         $key = decrypt($encryptedKey);
-
         $product = config('cookbook.products')[$key];
+
+        if (request()->has('isCard')) {
+            $iframe = $this->startPayment($product, $key);
+        }
+
+        // dd($iframe);
 
         return view('cookbook.purchase', [
             'product'  => $product,
             'key'      => $key,
-            'purchase' => true
+            'purchase' => true,
+            'iframe' => @$iframe
         ]);
     }
 
@@ -104,5 +111,35 @@ class CookbookController extends Controller
         return view('admin.cookbook.sales', [
             'sales' => $sales
         ]);
+    }
+
+    public function startPayment($product, $key)
+    {
+        $ref = Pesapal::random_reference();
+        $payment = Payment::create([
+            'processor' => 'PESAPAL',
+            'transaction_reference' => $ref,
+            'transaction_timestamp' => now(),
+            'amount' => $product['price'],
+            'user_id' => auth()->id(),
+            'pesapal_status' => 'NEW',
+            'product_key' => $key
+        ]);
+
+        $details = array(
+            'amount' => $payment->amount,
+            'description' => $product['name'],
+            'type' => 'MERCHANT',
+            'first_name' => explode(' ', auth()->user()->name)[0],
+            'last_name' => explode(' ', auth()->user()->name)[1],
+            'email' => auth()->user()->email,
+            'phonenumber' => auth()->user()->telephone,
+            'reference' => $ref,
+            'height' => '1000px',
+            'currency' => 'KES'
+        );
+        $iframe = Pesapal::makePayment($details);
+
+        return $iframe;
     }
 }

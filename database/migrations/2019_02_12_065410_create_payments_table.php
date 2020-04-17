@@ -15,14 +15,17 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('transaction_reference');                
-            $table->string('transaction_timestamp');                
-            $table->string('sender_phone');             
-            $table->string('first_name');               
-            $table->string('middle_name');              
-            $table->string('last_name');                
-            $table->string('amount');  
-            $table->string('user_id')->nullable();          
+            $table->string('processor')->default('MPESA'); # MPESA / PESAPAL
+            $table->string('transaction_reference');
+            $table->string('transaction_timestamp');
+            $table->string('sender_phone')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('amount');
+            $table->string('user_id')->nullable();
+            $table->string('pesapal_status')->nullable();
+            $table->string('pesapal_tracking_id')->nullable();
             $table->timestamps();
         });
     }

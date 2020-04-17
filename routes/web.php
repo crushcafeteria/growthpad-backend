@@ -122,5 +122,8 @@ Route::get('cookbook/dl/{productKey}/{purchaseToken}', 'CookbookController@activ
 Route::get('cookbook/my-purchases', 'CookbookController@myPurchases')->middleware('auth');
 Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->middleware('auth');
 
+# Pesapal 
+Route::get('payment/received', ['as' => 'pesapalSuccess', 'uses' => 'PaymentController@pesapalReceived']);
+
 # Admin panel
 Route::get('cookbook/sales', 'CookbookController@showSales')->middleware('auth');
