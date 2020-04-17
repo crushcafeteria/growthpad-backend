@@ -9,7 +9,9 @@ use App\Mail\PaymentReceived;
 use App\Mail\PaymentConfirmed;
 use Illuminate\Support\Facades\Log;
 use App\Mail\CookbookPaymentReceived;
+use App\Mail\PesapalPaymentFailed;
 use App\Models\CookbookPurchase;
+use App\Models\User;
 use Pesapal;
 
 
@@ -134,34 +136,38 @@ class PaymentController extends Controller
 
     public function pesapalConfirmation()
     {
-        $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
-        file_put_contents(base_path('logs/pesapal-ipn.json'), stripslashes($payload));
+        // $payload = `json_encode(request()->all(), JSON_PRETTY_PRINT);
+        // file_put_contents(base_path('logs/pesapal-ipn.json'), stripslashes($payload));
 
         # Accept change
         $trackingID = request()->pesapal_transaction_tracking_id;
         $type = request()->pesapal_notification_type;
         $txnRef = request()->pesapal_merchant_reference;
         $payment = Payment::where('pesapal_tracking_id', $trackingID)->first();
+        $user = User::find($payment->user_id);
+
         if (!$payment) {
             abort(403);
         }
+
+        # Query txn status
+        $status = Pesapal::getMerchantStatus($txnRef);
         $payment->update([
             'pesapal_status' => $type
         ]);
 
-        # Query txn
-        $status = Pesapal::getMerchantStatus($txnRef);
-        $payload = json_encode($status, JSON_PRETTY_PRINT);
-        file_put_contents(base_path('logs/pesapal-txn_query.json'), stripslashes($payload));
+        if ($status == 'COMPLETED') {
+            # Send receipt
+            Mail::to($user)->send(new CookbookPaymentReceived($payment));
 
-        // # Send receipt
-        // Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment));
-
-        // # Record purchase
-        // CookbookPurchase::create([
-        //     'user_id'     => $payment->user_id,
-        //     'product_key' => $payment->product_key,
-        //     'payment_id'  => $payment->id
-        // ]);
+            # Record purchase
+            CookbookPurchase::create([
+                'user_id'     => $payment->user_id,
+                'product_key' => $payment->product_key,
+                'payment_id'  => $payment->id
+            ]);
+        } else {
+            Mail::to($user)->send(new PesapalPaymentFailed($payment));
+        }
     }
 }
