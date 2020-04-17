@@ -92,32 +92,31 @@
                     {!! $iframe !!}
                     @endif
 
-
-
                     @if(!auth()->check())
                     <a href="/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
                         Continue <i class="fa fa-arrow-right fa-fw"></i>
                     </a>
+                    @else
+                    <div class="col-12 text-center mt-5">
+                        @if(!request()->has('isCard'))
+                        <a href="#!" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-money fa-fw"></i> Buy with M-PESA
+                        </a>
+                        @endif
+
+                        @if(!request()->has('isCard'))
+                        <a href="/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg">
+                            <i class="fa fa-credit-card fa-fw"></i> Pay with card
+                        </a>
+                        @endif
+
+                    </div>
                     @endif
 
                 </div>
             </div>
 
-            @if(auth()->check())
-            <div class="col-12 text-center mt-5">
-                <a href="#!" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-money fa-fw"></i> Confirm Purchase
-                </a>
 
-                @if(!request()->has('isCard'))
-                or
-                <a href="/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg">
-                    <i class="fa fa-credit-card fa-fw"></i> Pay with card
-                </a>
-                @endif
-
-            </div>
-            @endif
 
         </div>
     </div>

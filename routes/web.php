@@ -124,6 +124,8 @@ Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->mid
 
 # Pesapal 
 Route::get('payment/received', ['as' => 'pesapalSuccess', 'uses' => 'PaymentController@pesapalReceived']);
+Route::get('webhooks/pesapal/confirmation', ['as' => 'pesapalConfirmation', 'uses' => 'PaymentController@pesapalConfirmation']);
+
 
 # Admin panel
 Route::get('cookbook/sales', 'CookbookController@showSales')->middleware('auth');

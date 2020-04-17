@@ -14,5 +14,6 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         'request/connect',
         'enquiry/*',
+        'webhooks/*',
     ];
 }
