@@ -153,7 +153,7 @@ class PaymentController extends Controller
         # Query txn status
         $status = Pesapal::getMerchantStatus($txnRef);
         $payment->update([
-            'pesapal_status' => $type
+            'pesapal_status' => $status
         ]);
 
         if ($status == 'COMPLETED') {
