@@ -131,29 +131,29 @@ class PaymentController extends Controller
         return redirect('/cookbook/my-purchases?status=PESAPAL');
     }
 
-    public function pesapalConfirmation($trackingid, $status, $payment_method, $merchant_reference)
+    public function pesapalConfirmation()
     {
         $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
         file_put_contents(base_path('pesapal.json'), stripslashes($payload));
 
-        $payment = Payment::where('pesapal_tracking_id', $trackingid)->first();
-        if (!$payment) {
-            abort(403);
-        }
+        // $payment = Payment::where('pesapal_tracking_id', $trackingid)->first();
+        // if (!$payment) {
+        //     abort(403);
+        // }
 
-        $payment->update([
-            'pesapal_status' => $status,
-            'pesapal_method' => $payment_method
-        ]);
+        // $payment->update([
+        //     'pesapal_status' => $status,
+        //     'pesapal_method' => $payment_method
+        // ]);
 
-        # Send receipt
-        Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment));
+        // # Send receipt
+        // Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment));
 
-        # Record purchase
-        CookbookPurchase::create([
-            'user_id'     => $payment->user_id,
-            'product_key' => $payment->product_key,
-            'payment_id'  => $payment->id
-        ]);
+        // # Record purchase
+        // CookbookPurchase::create([
+        //     'user_id'     => $payment->user_id,
+        //     'product_key' => $payment->product_key,
+        //     'payment_id'  => $payment->id
+        // ]);
     }
 }
