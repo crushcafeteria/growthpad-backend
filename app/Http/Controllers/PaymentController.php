@@ -151,7 +151,7 @@ class PaymentController extends Controller
 
         # Query txn
         $status = Pesapal::getMerchantStatus($txnRef);
-        $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
+        $payload = json_encode($status, JSON_PRETTY_PRINT);
         file_put_contents(base_path('logs/pesapal-txn_query.json'), stripslashes($payload));
 
         // # Send receipt
