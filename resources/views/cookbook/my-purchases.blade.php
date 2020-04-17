@@ -45,7 +45,7 @@
                     <tr>
                         <td>{{ config('cookbook.products')[$item->product_key]['name'] }}</td>
                         <td>Ksh {{ config('cookbook.products')[$item->product_key]['price'] }}</td>
-                        <td>M-PESA ({{ $item->payment->transaction_reference }})</td>
+                        <td>{{ $item->payment->processor }} ({{ $item->payment->transaction_reference }})</td>
                         <td>{{ $item->created_at }}</td>
                         <td>
                             <a target="_blank" class="btn btn-outline-primary btn-sm pull-right"

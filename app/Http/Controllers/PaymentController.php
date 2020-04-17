@@ -166,7 +166,7 @@ class PaymentController extends Controller
                 'product_key' => $payment->product_key,
                 'payment_id'  => $payment->id
             ]);
-        } else {
+        } else if ($status == 'FAILED') {
             Mail::to($user)->send(new PesapalPaymentFailed($payment));
         }
     }
