@@ -14,7 +14,7 @@ return [
             'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
             'file'      => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
             'name'      => 'Buy Complete Recipe Book',
-            'price'     => 1000,
+            'price'     => 3500,
             'nutrients' => null
         ],
         [
