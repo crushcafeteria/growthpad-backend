@@ -50,7 +50,10 @@
                         {!! $product['nutrients'] !!}
                     </p>
                     @endif
+
+                    @if(auth()->check())
                     <h3>How to buy with {{ (request()->has('isCard')) ? 'Pesapal' : 'M-PESA' }} </h3>
+                    @endif
 
                     {{-- MPESA payment --}}
                     @if(!request()->has('isCard'))
