@@ -94,7 +94,7 @@
 
                     @if(!auth()->check())
                     <a href="/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
-                        Continue <i class="fa fa-arrow-right fa-fw"></i>
+                        <i class="fa fa-credit-card fa-fw"></i> Pay with MPESA or card
                     </a>
                     @else
                     <div class="col-12 text-center mt-5">
