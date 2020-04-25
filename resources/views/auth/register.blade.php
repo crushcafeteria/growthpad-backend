@@ -12,6 +12,10 @@
 
             {{ csrf_field() }}
 
+            @if(request()->has('next'))
+                <input type="hidden" name="next" value="{{ request()->next }}">
+            @endif
+
             <div class="form-group">
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
                        required autofocus placeholder="Full names">

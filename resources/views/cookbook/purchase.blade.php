@@ -52,7 +52,7 @@
                     @endif
 
                     @if(!request()->has('isCard'))
-                        <a href="/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg mt-5 mb-5">
+                        <a href="/login?next=/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg mt-5 mb-5">
                             <i class="fa fa-credit-card fa-fw"></i> Pay with card
                         </a>
                     @endif
@@ -102,7 +102,7 @@
                     @endif
 
                     @if(!auth()->check())
-                    <a href="login?next=/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
+                    <a href="/login?next=/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
                         <i class="fa fa-credit-card fa-fw"></i> Pay with MPESA or card
                     </a>
                     @else

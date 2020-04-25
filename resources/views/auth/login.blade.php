@@ -25,6 +25,9 @@
 
         <form method="POST" action="login">
             {{ csrf_field() }}
+            @if(request()->has('next'))
+                <input type="hidden" name="next" value="{{ request()->next }}">
+            @endif
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

@@ -127,8 +127,13 @@ class RegisterController extends Controller
 
 
 //        $this->guard()->login($user);
+        if ($request->has('next')) {
+            return redirect($request->next);
+        } else {
+            return $this->registered($request, $user)
+                ?: redirect($this->redirectPath());
+        }
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+
     }
 }
