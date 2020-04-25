@@ -76,30 +76,30 @@ Route::get('/import', 'ImportController');
 
 #### NEW SYSTEM ###
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', 'DashboardController');
-    Route::get('ads/{id}/delete', 'AdsController@destroy');
-    Route::resource('ads', 'AdsController');
+    Route::get('dashboard', 'DashboardController')->middleware('admin');
+    Route::get('ads/{id}/delete', 'AdsController@destroy')->middleware('admin');
+    Route::resource('ads', 'AdsController')->middleware('admin');
 
-    Route::get('orders/{orderID}/delete', 'OrdersController@destroy');
-    Route::post('orders/{orderID}/note', 'OrdersController@saveNote');
-    Route::get('orders/{orderID}/pdf', 'OrdersController@makePDF');
-    Route::post('orders/search', 'OrdersController@search')->name('orders.search');
-    Route::resource('orders', 'OrdersController');
+    Route::get('orders/{orderID}/delete', 'OrdersController@destroy')->middleware('admin');
+    Route::post('orders/{orderID}/note', 'OrdersController@saveNote')->middleware('admin');
+    Route::get('orders/{orderID}/pdf', 'OrdersController@makePDF')->middleware('admin');
+    Route::post('orders/search', 'OrdersController@search')->name('orders.search')->middleware('admin');
+    Route::resource('orders', 'OrdersController')->middleware('admin');
 
-    Route::get('users/{id}/delete', 'UsersController@destroy');
-    Route::resource('users', 'UsersController');
-    Route::get('service-providers', 'UsersController@listSPs');
+    Route::get('users/{id}/delete', 'UsersController@destroy')->middleware('admin');
+    Route::resource('users', 'UsersController')->middleware('admin');
+    Route::get('service-providers', 'UsersController@listSPs')->middleware('admin');
 
     Route::get('logout', function () {
         auth()->logout();
         return redirect('login');
     });
 
-    Route::get('payments', 'PaymentController@list');
+    Route::get('payments', 'PaymentController@list')->middleware('admin');
 
     # Bulk SMS
-    Route::get('sms', 'BulkSMSController@index');
-    Route::post('sms', 'BulkSMSController@sendMessages');
+    Route::get('sms', 'BulkSMSController@index')->middleware('admin');
+    Route::post('sms', 'BulkSMSController@sendMessages')->middleware('admin');
 });
 
 Route::get('onboard', 'ServiceController@showSpOnboardingPage');

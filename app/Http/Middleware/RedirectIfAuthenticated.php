@@ -19,7 +19,11 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             session()->flash('successbox', ['You are already logged in. Please continue']);
-            return redirect('/dashboard');
+            if (auth()->user()->privilege == 'ADMIN') {
+                return redirect('/dashboard');
+            } else {
+                return redirect('/cookbook');
+            }
         }
 
         return $next($request);
