@@ -44,11 +44,18 @@ class LoginController extends Controller
 
     function authenticated(Request $request, $user)
     {
-        if($request->has('next')) {
-            return redirect($request->next);
+        if ($request->has('next')) {
+            if (auth()->user()->privilege == 'ADMIN') {
+                return redirect('/cookbook');
+            } else {
+                return redirect($request->next);
+            }
         } else {
-            return redirect('/cookbook');
+            if (auth()->user()->privilege == 'ADMIN') {
+                return redirect('/dashboard');
+            } else {
+                return redirect('/cookbook');
+            }
         }
     }
-
 }
