@@ -51,8 +51,8 @@
                     </p>
                     @endif
 
-                    @if(!request()->has('isCard'))
-                        <a href="/login?next=/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg mt-5 mb-5">
+                    @if(!request()->has('isCard') && auth()->check())
+                        <a href="/cookbook/display/{{ encrypt($key) }}?isCard=true" class="btn btn-success btn-lg mt-5 mb-5">
                             <i class="fa fa-credit-card fa-fw"></i> Pay with card
                         </a>
                     @endif
