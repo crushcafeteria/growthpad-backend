@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Payment;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\PaymentReceived;
-use App\Mail\PaymentConfirmed;
-use Illuminate\Support\Facades\Log;
 use App\Mail\CookbookPaymentReceived;
+use App\Mail\PaymentConfirmed;
+use App\Mail\PaymentReceived;
 use App\Mail\PesapalPaymentFailed;
 use App\Models\CookbookPurchase;
+use App\Models\Payment;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Pesapal;
 
 
@@ -39,7 +39,7 @@ class PaymentController extends Controller
         // Mail::to('nelson@lipasafe.com')->send(new PaymentReceived($payment));
 
         return response()->json([
-            'status' => '01',
+            'status'      => '01',
             'description' => 'Accepted'
         ]);
     }
@@ -71,7 +71,7 @@ class PaymentController extends Controller
         }
 
         if (substr($telephone, 0, 2) == '07') {
-            $telephone = '+254' . (int) $telephone;
+            $telephone = '+254' . (int)$telephone;
         }
 
         $payments = (!$code) ? Payment::where('sender_phone', $telephone) : Payment::where('transaction_reference', $code);
@@ -80,16 +80,16 @@ class PaymentController extends Controller
         if (!$payments->count()) {
             return response()->json([
                 'status' => 'FAILED',
-                'error' => 'This MPESA code is not valid. Please check your MPESA SMS'
+                'error'  => 'This MPESA code is not valid. Please check your MPESA SMS'
             ]);
         }
 
         $payment = $payments->first();
 
         return response()->json([
-            'status'  => 'OK',
+            'status'   => 'OK',
             'payments' => $payment,
-            'token' => encrypt($payment->id)
+            'token'    => encrypt($payment->id)
         ]);
     }
 
@@ -100,7 +100,7 @@ class PaymentController extends Controller
         if (!$payment) {
             return response()->json([
                 'status' => 'FAILED',
-                'error' => 'Invalid transaction code'
+                'error'  => 'Invalid transaction code'
             ]);
         }
 
@@ -116,7 +116,7 @@ class PaymentController extends Controller
         Mail::to(auth()->user()->email)->send(new PaymentConfirmed($payment));
 
         return response()->json([
-            'status' => 'OK',
+            'status'  => 'OK',
             'profile' => auth()->user()
         ]);
     }
@@ -128,7 +128,7 @@ class PaymentController extends Controller
 
         Payment::where('transaction_reference', $ref)->update([
             'pesapal_tracking_id' => $trackingid,
-            'pesapal_status' => 'RECEIVED'
+            'pesapal_status'      => 'RECEIVED'
         ]);
 
         return redirect('/cookbook/my-purchases?status=PESAPAL');
@@ -169,5 +169,9 @@ class PaymentController extends Controller
         } else if ($status == 'FAILED') {
             Mail::to($user)->send(new PesapalPaymentFailed($payment));
         }
+
+        # Return appropriate response
+        $resp = "pesapal_notification_type=$type&pesapal_transaction_tracking_id=$trackingID&pesapal_merchant_reference=$txnRef";
+        return $resp;
     }
 }
