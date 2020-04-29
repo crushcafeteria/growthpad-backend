@@ -137,9 +137,6 @@ class PaymentController extends Controller
 
     public function pesapalConfirmation()
     {
-        // $payload = `json_encode(request()->all(), JSON_PRETTY_PRINT);
-        // file_put_contents(base_path('logs/pesapal-ipn.json'), stripslashes($payload));
-
         # Accept change
         $trackingID = request()->pesapal_transaction_tracking_id;
         $type = request()->pesapal_notification_type;
@@ -147,8 +144,11 @@ class PaymentController extends Controller
         $payment = Payment::where('pesapal_tracking_id', $trackingID)->first();
         $user = User::find($payment->user_id);
 
+        $payload = json_encode(request()->all(), JSON_PRETTY_PRINT);
+        file_put_contents(base_path('../pesapal_logs/pesapal-ipn-' . $trackingID . '.json'), stripslashes($payload));
+
         if (!$payment) {
-            abort(403);
+            abort(403, 'Please go away!');
         }
 
         # Query txn status
