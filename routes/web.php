@@ -128,4 +128,4 @@ Route::get('webhooks/pesapal/confirmation', ['as' => 'pesapalConfirmation', 'use
 
 
 # Admin panel
-Route::get('cookbook/sales', 'CookbookController@showSales')->middleware('auth');
+Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth','admin']);

@@ -107,7 +107,7 @@ class CookbookController extends Controller
 
     function showSales()
     {
-        $sales = CookbookPurchase::paginate();
+        $sales = CookbookPurchase::orderBy('created_at', 'desc')->paginate();
         return view('admin.cookbook.sales', [
             'sales' => $sales
         ]);
