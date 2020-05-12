@@ -130,7 +130,7 @@
                     <div class="download_text">
                         <h4 style="font-size: 30px;">Get your copy of Chakula Chetu today!</h4>
                         <p class="mb-2">
-                            Full Chakula Chetu recipe book is available in soft copy at Kshs. 1000
+                            Full Chakula Chetu recipe book is available in soft copy at Kshs. 3,500
                             Individual soft copy recipes available at Kshs. 100
                         </p>
                         <p>
