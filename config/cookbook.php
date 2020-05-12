@@ -186,37 +186,42 @@ Boiled Black Nightshade Black nightshade – Vitamin B,C, folic acid, magnesium,
 Milk/cream – Protein, carbohydrates, sugar, fat
             '
         ],
-//        [
-//            'picture' => '/recipe/products/noimage.png',
-//            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
-//            'name'    => 'Buy Test Product',
-//            'price'   => 10,
-//            'nutrients' => '
-//Termites-Vitamin A, protein, lipid, carbohydrates<br>
-//Boiled Black Nightshade Black nightshade – Vitamin B,C, folic acid, magnesium, potassium, calcium, iron, sodium, zinc<br>
-//Milk/cream – Protein, carbohydrates, sugar, fat
-//            '
-//        ],
+        //        [
+        //            'picture' => '/recipe/products/noimage.png',
+        //            'file'    => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+        //            'name'    => 'Buy Test Product',
+        //            'price'   => 10,
+        //            'nutrients' => '
+        //Termites-Vitamin A, protein, lipid, carbohydrates<br>
+        //Boiled Black Nightshade Black nightshade – Vitamin B,C, folic acid, magnesium, potassium, calcium, iron, sodium, zinc<br>
+        //Milk/cream – Protein, carbohydrates, sugar, fat
+        //            '
+        //        ],
         [
-            'picture' => '/recipe/products/noimage.png',
-            'file'    => 'recipes/Kamalasile - Boiled Blood.pdf',
-            'name'    => 'Kamalasile - Boiled Blood',
-            'price'   => 100,
-            'nutrients' => ''
+            'picture'   => '/recipe/products/noimage.png',
+            'file'      => 'recipes/Kamalasile - Boiled Blood.pdf',
+            'name'      => 'Kamalasile - Boiled Blood',
+            'price'     => 100,
+            'nutrients' => 'Blood: protein, iron'
         ],
         [
-            'picture' => '/recipe/products/noimage.png',
-            'file'    => 'recipes/SILENGE - Boiled cow leg.pdf',
-            'name'    => 'SILENGE - Boiled cow leg',
-            'price'   => 100,
-            'nutrients' => ''
+            'picture'   => '/recipe/products/noimage.png',
+            'file'      => 'recipes/SILENGE - Boiled cow leg.pdf',
+            'name'      => 'SILENGE - Boiled cow leg',
+            'price'     => 100,
+            'nutrients' => '
+Cow leg: Vitamin B6, iron, magnesium, fat
+'
         ],
         [
-            'picture' => '/recipe/products/noimage.png',
-            'file'    => 'recipes/Litore - Boiled Mashed Bananas.pdf',
-            'name'    => 'Litore - Boiled Mashed Bananas',
-            'price'   => 100,
-            'nutrients' => ''
+            'picture'   => '/recipe/products/noimage.png',
+            'file'      => 'recipes/Litore - Boiled Mashed Bananas.pdf',
+            'name'      => 'Litore - Boiled Mashed Bananas',
+            'price'     => 100,
+            'nutrients' => '
+Green Bananas: Fiber, potassium, vitamin B6, sugar <br>
+Milk/cream: Protein, carbohydrates, sugar& fat
+'
         ],
 
     ]
