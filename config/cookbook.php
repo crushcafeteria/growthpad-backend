@@ -198,14 +198,14 @@ Milk/cream – Protein, carbohydrates, sugar, fat
         //            '
         //        ],
         [
-            'picture'   => '/recipe/products/noimage.png',
+            'picture'   => '/recipe/products/20-Cow-Blood-(KAMALASILE).jpg',
             'file'      => 'recipes/Kamalasile - Boiled Blood.pdf',
             'name'      => 'Kamalasile - Boiled Blood',
             'price'     => 100,
             'nutrients' => 'Blood: protein, iron'
         ],
         [
-            'picture'   => '/recipe/products/noimage.png',
+            'picture'   => '/recipe/products/19-Cow-Leg(Silenge).jpg',
             'file'      => 'recipes/SILENGE - Boiled cow leg.pdf',
             'name'      => 'SILENGE - Boiled cow leg',
             'price'     => 100,
@@ -214,7 +214,7 @@ Cow leg: Vitamin B6, iron, magnesium, fat
 '
         ],
         [
-            'picture'   => '/recipe/products/noimage.png',
+            'picture'   => '/recipe/products/23-LITORE-(Bakhayo-Mashed-Banana),-SIKHUBI-(Smoked-Fish-&-Cowpeas).jpg',
             'file'      => 'recipes/Litore - Boiled Mashed Bananas.pdf',
             'name'      => 'Litore - Boiled Mashed Bananas',
             'price'     => 100,
