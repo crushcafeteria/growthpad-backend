@@ -19,4 +19,9 @@ class CookbookPurchase extends Model
     {
         return @config('cookbook.products')[$this->attributes['product_key']];
     }
+
+    function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

@@ -38,7 +38,13 @@ Cookbook Sales
                                         <tbody>
                                             @foreach($sales as $sale)
                                             <tr>
-                                                <td>{{ $sale->payment->full_names }}</td>
+                                                <td>
+                                                    @if($sale->payment->processor == 'MPESA')
+                                                        {{ $sale->payment->full_names }}
+                                                    @else
+                                                        {{ $sale->user->name }}
+                                                    @endif
+                                                </td>
                                                 <td>{{ $sale->product['name'] }}</td>
                                                 <td>Ksh {{ number_format($sale->payment->amount) }}</td>
                                                 <td>{{ $sale->payment->transaction_reference }}</td>
