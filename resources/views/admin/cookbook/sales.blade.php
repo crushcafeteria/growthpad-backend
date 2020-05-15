@@ -32,6 +32,7 @@ Cookbook Sales
                                                 <th>Customer</th>
                                                 <th>Product</th>
                                                 <th>Amount</th>
+                                                <th>Method</th>
                                                 <th colspan="2">Reference</th>
                                             </tr>
                                         </thead>
@@ -47,6 +48,7 @@ Cookbook Sales
                                                 </td>
                                                 <td>{{ $sale->product['name'] }}</td>
                                                 <td>Ksh {{ number_format($sale->payment->amount) }}</td>
+                                                <td>{{ $sale->payment->processor }}</td>
                                                 <td>{{ $sale->payment->transaction_reference }}</td>
                                                 <td>
                                                     {{ $sale->created_at }}
