@@ -71,7 +71,7 @@
                 <a href="password/reset">I forgot my password</a>
                 <br>
                 <br>
-                <a href="/">Back Home</a>
+                <a href="/cookbook">Back Home</a>
 
             </div>
         </form>

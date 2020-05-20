@@ -42,20 +42,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    function authenticated(Request $request, $user)
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
     {
-        if ($request->has('next')) {
-            if (auth()->user()->privilege == 'ADMIN') {
-                return redirect('/cookbook');
-            } else {
-                return redirect($request->next);
-            }
-        } else {
-            if (auth()->user()->privilege == 'ADMIN') {
-                return redirect('/dashboard');
-            } else {
-                return redirect('/cookbook');
-            }
-        }
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return redirect(($request->has('next')) ? $request->next : '/cookbook');
     }
 }
