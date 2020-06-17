@@ -107,6 +107,13 @@
                                             </a>
                                         </li>
                                         @endif
+                                        @if(!auth()->check())
+                                            <li>
+                                                <a href="/register">
+                                                    Register
+                                                </a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </nav>
                             </div>
