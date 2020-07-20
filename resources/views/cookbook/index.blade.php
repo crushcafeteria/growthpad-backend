@@ -123,7 +123,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="videos_thumb">
-                        <img src="/recipe/img/2.jpg" class="img-fluid img-rounded img-thumbnail">
+                        <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/4JGypwuPzr4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6">
