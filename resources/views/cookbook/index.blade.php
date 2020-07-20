@@ -11,7 +11,7 @@
                         <div class="slider_text text-center">
                             <div class="text">
                                 <h3>
-                                    Chakula Chetu - Recipe Book
+                                    Chakula Chetu Recipe Book
                                 </h3>
                                 <br>
                                 <a href="/cookbook/purchase/{{ encrypt(0) }}" class="btn btn-success btn-lg">
