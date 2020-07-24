@@ -82,6 +82,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="/cookbook"><i class="fa fa-home fa-fw"></i> home</a></li>
+                                        <li><a href="/submit/recipe"><i class="fa fa-paper-plane fa-fw"></i> Submit your recipe</a></li>
                                         <li>
                                             <a target="_blank"
                                                 href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecipeSubmitRequest;
 use App\Mail\CookbookPaymentReceived;
+use App\Mail\RecipeSubmitted;
 use App\Models\CookbookPurchase;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
@@ -141,5 +143,17 @@ class CookbookController extends Controller
         $iframe = Pesapal::makePayment($details);
 
         return $iframe;
+    }
+
+    function showRecipeSubmitForm()
+    {
+        return view('cookbook.submit');
+    }
+
+    function submitRecipe(RecipeSubmitRequest $request)
+    {
+        Mail::to(['growthpad@irenkenya.com', 'nelson@sodium.co.ke'])->send(new RecipeSubmitted($request->all()));
+        session()->flash('successbox', ['Your request has been received. Someone will be in touch soon!']);
+        return redirect('submit/recipe?view=success');
     }
 }

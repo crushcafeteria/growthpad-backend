@@ -129,3 +129,7 @@ Route::get('webhooks/pesapal/confirmation', ['as' => 'pesapalConfirmation', 'use
 
 # Admin panel
 Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth','admin']);
+
+# Submit recipe
+Route::get('submit/recipe', 'CookbookController@showRecipeSubmitForm');
+Route::post('submit/recipe', 'CookbookController@submitRecipe');
