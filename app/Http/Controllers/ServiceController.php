@@ -93,7 +93,7 @@ class ServiceController extends Controller
         return view('service.disclaimer');
     }
 
-    function showRecipeSubmitForm()
+    function showSpOnboardingPage()
     {
         return view('onboard');
     }
