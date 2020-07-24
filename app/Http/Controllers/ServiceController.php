@@ -95,7 +95,7 @@ class ServiceController extends Controller
 
     function showRecipeSubmitForm()
     {
-        return view('recipe-submit');
+        return view('onboard');
     }
 
     function startOnboard(OnboardRequest $request)
