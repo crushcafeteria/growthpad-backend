@@ -63,6 +63,10 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
+    @php
+    $cart = ShoppingCart::all();
+    @endphp
+
 
     <!-- header-start -->
     <header>
@@ -115,6 +119,7 @@
                                                 </a>
                                             </li>
                                         @endif
+                                        <li><a href="/cart"><i class="fa fa-shopping-bag fa-fw"></i> Cart ({{ $cart->count() }})</a></li>
                                     </ul>
                                 </nav>
                             </div>

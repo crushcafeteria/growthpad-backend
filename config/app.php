@@ -182,7 +182,9 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        Safaricom\Mpesa\MpesaServiceProvider::class
+        Safaricom\Mpesa\MpesaServiceProvider::class,
+        Overtrue\LaravelShoppingCart\ServiceProvider::class,
+
     ],
 
     /*
@@ -232,11 +234,13 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
 
-        'Form'  => Collective\Html\FormFacade::class,
-        'Html'  => Collective\Html\HtmlFacade::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'PDF'   => Barryvdh\DomPDF\Facade::class,
-        'Mpesa' => Safaricom\Mpesa\MpesaServiceProvider::class
+        'Form'         => Collective\Html\FormFacade::class,
+        'Html'         => Collective\Html\HtmlFacade::class,
+        'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF'          => Barryvdh\DomPDF\Facade::class,
+        'Mpesa'        => Safaricom\Mpesa\MpesaServiceProvider::class,
+        'ShoppingCart' => Overtrue\LaravelShoppingCart\Facade::class,
+
     ],
 
 ];

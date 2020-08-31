@@ -12,13 +12,17 @@ use Pesapal;
 
 class CookbookController extends Controller
 {
-    function index()
+    function index($locale = 'ke')
     {
+        app()->setLocale($locale);
+        session()->put('locale', $locale);
         return view('cookbook.index');
     }
 
     function display($encryptedKey)
     {
+        app()->setLocale(session()->get('locale'));
+
         $key = decrypt($encryptedKey);
         $product = config('cookbook.products')[$key];
 
@@ -32,7 +36,7 @@ class CookbookController extends Controller
             'product'  => $product,
             'key'      => $key,
             'purchase' => true,
-            'iframe' => @$iframe
+            'iframe'   => @$iframe
         ]);
     }
 
@@ -119,26 +123,26 @@ class CookbookController extends Controller
     {
         $ref = Pesapal::random_reference();
         $payment = Payment::create([
-            'processor' => 'PESAPAL',
+            'processor'             => 'PESAPAL',
             'transaction_reference' => $ref,
             'transaction_timestamp' => now(),
-            'amount' => $product['price'],
-            'user_id' => auth()->id(),
-            'pesapal_status' => 'NEW',
-            'product_key' => $key
+            'amount'                => $product['price'],
+            'user_id'               => auth()->id(),
+            'pesapal_status'        => 'NEW',
+            'product_key'           => $key
         ]);
 
         $details = array(
-            'amount' => $payment->amount,
+            'amount'      => $payment->amount,
             'description' => $product['name'],
-            'type' => 'MERCHANT',
-            'first_name' => explode(' ', auth()->user()->name)[0],
-            'last_name' => explode(' ', auth()->user()->name)[1],
-            'email' => auth()->user()->email,
+            'type'        => 'MERCHANT',
+            'first_name'  => explode(' ', auth()->user()->name)[0],
+            'last_name'   => explode(' ', auth()->user()->name)[1],
+            'email'       => auth()->user()->email,
             'phonenumber' => auth()->user()->telephone,
-            'reference' => $ref,
-            'height' => '1000px',
-            'currency' => 'KES'
+            'reference'   => $ref,
+            'height'      => '1000px',
+            'currency'    => 'KES'
         );
         $iframe = Pesapal::makePayment($details);
 

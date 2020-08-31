@@ -14,7 +14,9 @@
                                     Chakula Chetu Recipe Book
                                 </h3>
                                 <br>
-                                <a href="/cookbook/purchase/{{ encrypt(0) }}" class="btn btn-success btn-lg">
+                                <img src="{{ asset('images/MMH_logo.png') }}" width="150">
+                                <br>
+                                <a href="/cookbook/purchase/{{ encrypt(0) }}" class="btn btn-success btn-lg mt-5">
                                     <i class="fa fa-shopping-cart fa-fw"></i> Buy complete recipe book
                                 </a>
                             </div>
@@ -99,8 +101,11 @@
                                     <img src="{{ (strlen($product['picture'])) ? asset($product['picture']) : '/recipe/products/noimage.png' }}"
                                          class="img-fluid">
                                 </div>
-                                <h4 class="product-name mt-3">{{ $product['name'] }}</h4>
-                                <p>Ksh {{ number_format($product['price']) }}</p>
+                                <h4 class="product-name mt-3">{{ $product['name'][app()->getLocale()] }}</h4>
+                                <p>
+                                    {{ (app()->getLocale() == 'ke') ? 'Ksh' : '€' }}
+                                    {{ number_format($product['price'][app()->getLocale()]) }}
+                                </p>
                                 <a href="/cookbook/display/{{ encrypt($key) }}" class="line_btn">Buy this recipe</a>
                             </div>
                         </div>

@@ -12,7 +12,7 @@
                     <div class="slider_text text-center">
                         <div class="text">
                             <h3>
-                                {{ $product['name'] }}
+                                {{ $product['name'][app()->getLocale()] }}
                             </h3>
                         </div>
                     </div>
@@ -32,11 +32,11 @@
                     <!-- <div class="list-group text-left">
                         <div class="list-group-item list-group-item-action flex-column align-items-start">
                             <small>Product Name</small>
-                            <p class="mb-1">{{ $product['name'] }}</p>
+                            <p class="mb-1">{{ $product['name'][app()->getLocale()] }}</p>
                         </div>
                         <div class="list-group-item list-group-item-action flex-column align-items-start">
                             <small>Price</small>
-                            <p class="mb-1">Ksh {{ number_format($product['price']) }}</p>
+                            <p class="mb-1">Ksh {{ number_format($product['price'][app()->getLocale()]) }}</p>
                         </div>
                     </div> -->
                 </div>
