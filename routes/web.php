@@ -122,6 +122,9 @@ Route::get('cookbook/purchase/{id}', 'CookbookController@purchase')->middleware(
 Route::get('cookbook/dl/{productKey}/{purchaseToken}', 'CookbookController@activatePurchase')->middleware('auth');
 Route::get('cookbook/my-purchases', 'CookbookController@myPurchases')->middleware('auth');
 Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->middleware('auth');
+Route::get('cookbook/cart/add/{id}', 'CookbookController@addToCart')->middleware('auth');
+Route::get('cookbook/cart/display', 'CookbookController@displayCart')->middleware('auth');
+Route::get('cookbook/cart/remove/{raw}', 'CookbookController@removeFromCart')->middleware('auth');
 
 # Pesapal 
 Route::get('payment/received', ['as' => 'pesapalSuccess', 'uses' => 'PaymentController@pesapalReceived']);

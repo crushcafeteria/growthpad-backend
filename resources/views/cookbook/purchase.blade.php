@@ -98,15 +98,15 @@
 
                     {{-- Card payments --}}
                     @if(request()->has('isCard'))
-                    {!! $iframe !!}
+                        {!! $iframe !!}
                     @endif
 
                     @if(!auth()->check())
-                    <a href="/login?next=/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
+                        <a href="/login?next=/cookbook/purchase/{{ encrypt($key) }}" class="btn btn-success btn-lg mt-5">
                         <i class="fa fa-credit-card fa-fw"></i> Pay with MPESA or card
                     </a>
                     @else
-                    <div class="col-12 text-center mt-5">
+                        <div class="col-12 text-center mt-5">
                         @if(!request()->has('isCard'))
                         <a href="#!" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-money fa-fw"></i> Confirm M-PESA payment

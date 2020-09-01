@@ -14,8 +14,8 @@ class CookbookController extends Controller
 {
     function index($locale = 'ke')
     {
-        app()->setLocale($locale);
         session()->put('locale', $locale);
+        app()->setLocale(session()->get('locale'));
         return view('cookbook.index');
     }
 
@@ -32,7 +32,7 @@ class CookbookController extends Controller
 
         // dd($iframe);
 
-        return view('cookbook.purchase', [
+        return view('cookbook.view-product', [
             'product'  => $product,
             'key'      => $key,
             'purchase' => true,
@@ -159,5 +159,32 @@ class CookbookController extends Controller
         Mail::to(['growthpad@irenkenya.com', 'nelson@sodium.co.ke'])->send(new RecipeSubmitted($request->all()));
         session()->flash('successbox', ['Your request has been received. Someone will be in touch soon!']);
         return redirect('submit/recipe?view=success');
+    }
+
+    function addToCart($id)
+    {
+        $item = config('cookbook.products')[$id];
+
+        \ShoppingCart::add($id, $item['name'][session()->get('locale')], 1, $item['price'][session()->get('locale')]);
+//        $cart = \ShoppingCart::all();
+//        dd($cart);
+        return redirect('cookbook#shop');
+    }
+
+    function displayCart()
+    {
+        return view('cookbook.cart', [
+            'items' => \ShoppingCart::all()
+        ]);
+    }
+
+    function removeFromCart($raw)
+    {
+        if($raw == 'all') {
+            \ShoppingCart::destroy();
+        } else {
+            \ShoppingCart::remove($raw);
+        }
+        return redirect()->back();
     }
 }

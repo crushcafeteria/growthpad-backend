@@ -28,63 +28,64 @@
     </div>
     <!-- slider_area_end -->
 
-    <!-- recepie_videos   -->
-    <div class="recepie_videoes_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="recepie_info">
-                        <h2>Indigenous Food Recipes of Kenya</h2>
-                        <p>
-                            Chakula Chetu published by the Inter Region Economic Network (IREN Kenya) offers details on
-                            how to prepare indigenous recipes developed by home chefs from western Kenya Region. The
-                            book consists of tourist sights and sound guides to the region from scenic Lake Simbi Nyaima
-                            in Homa Bay County to the rock art at Kakapel in Busia County
-                        </p>
+    {{--<!-- recepie_videos   -->--}}
+    {{--<div class="recepie_videoes_area">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-xl-6 col-lg-6 col-md-6">--}}
+                    {{--<div class="recepie_info">--}}
+                        {{--<h2>Indigenous Food Recipes of Kenya</h2>--}}
+                        {{--<p>--}}
+                            {{--Chakula Chetu published by the Inter Region Economic Network (IREN Kenya) offers details on--}}
+                            {{--how to prepare indigenous recipes developed by home chefs from western Kenya Region. The--}}
+                            {{--book consists of tourist sights and sound guides to the region from scenic Lake Simbi Nyaima--}}
+                            {{--in Homa Bay County to the rock art at Kakapel in Busia County--}}
+                        {{--</p>--}}
 
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="videos_thumb">
-                        <img src="/recipe/img/1.jpg" class="img-fluid img-rounded img-thumbnail">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ recepie_videos   -->
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-lg-6 col-md-6">--}}
+                    {{--<div class="videos_thumb">--}}
+                        {{--<img src="/recipe/img/1.jpg" class="img-fluid img-rounded img-thumbnail">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<!--/ recepie_videos   -->--}}
 
-    <!-- recepie_videos   -->
-    <div class="recepie_videoes_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 order-2">
-                    <div class="recepie_info">
-                        <h2>Explore the foods of Western Kenya!</h2>
-                        <p>
-                            Carefully selected recipes developed by home chefs and guided by nutritional experts are
-                            an offer. This is a journey to activate cash flow in rural economies and ultimately link
-                            them to famous Kenyan tourist circuits.  Your purchase makes the first mile of the
-                            journey possible!
-                        </p>
+    {{--<!-- recepie_videos   -->--}}
+    {{--<div class="recepie_videoes_area">--}}
+        {{--<div class="container">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-xl-6 col-lg-6 col-md-6 order-2">--}}
+                    {{--<div class="recepie_info">--}}
+                        {{--<h2>Explore the foods of Western Kenya!</h2>--}}
+                        {{--<p>--}}
+                            {{--Carefully selected recipes developed by home chefs and guided by nutritional experts are--}}
+                            {{--an offer. This is a journey to activate cash flow in rural economies and ultimately link--}}
+                            {{--them to famous Kenyan tourist circuits.  Your purchase makes the first mile of the--}}
+                            {{--journey possible!--}}
+                        {{--</p>--}}
 
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 order-1">
-                    <div class="videos_thumb">
-                        <img src="/recipe/Boiled Black Nightshade (Esufuwa).jpg" class="img-fluid img-rounded img-thumbnail">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ recepie_videos   -->
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-lg-6 col-md-6 order-1">--}}
+                    {{--<div class="videos_thumb">--}}
+                        {{--<img src="/recipe/Boiled Black Nightshade (Esufuwa).jpg" class="img-fluid img-rounded img-thumbnail">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<!--/ recepie_videos   -->--}}
 
     <!-- recepie_area_start  -->
     <div class="recepie_area">
         <div class="container">
             <div class="row pb-5">
                 <div class="col-12 text-center pt-5">
+                    <a name="shop"></a>
                     <h2 style="line-height: 40px;">
                         <i class="fa fa-star-o fa-fw"></i>
                         Purchase our recipes
