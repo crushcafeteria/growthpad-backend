@@ -166,8 +166,7 @@ class CookbookController extends Controller
         $item = config('cookbook.products')[$id];
 
         \ShoppingCart::add($id, $item['name'][session()->get('locale')], 1, $item['price'][session()->get('locale')]);
-//        $cart = \ShoppingCart::all();
-//        dd($cart);
+
         return redirect('cookbook#shop');
     }
 
@@ -180,11 +179,47 @@ class CookbookController extends Controller
 
     function removeFromCart($raw)
     {
-        if($raw == 'all') {
+        if ($raw == 'all') {
             \ShoppingCart::destroy();
         } else {
             \ShoppingCart::remove($raw);
         }
         return redirect()->back();
+    }
+
+    function paypalSuccess()
+    {
+        $txn = json_decode(request()->payload);
+
+//        dd($txn);
+
+        # Record payment
+        $payment = Payment::create([
+            'processor'             => 'PAYPAL',
+            'transaction_reference' => $txn->id,
+            'transaction_timestamp' => $txn->create_time,
+            'first_name'            => $txn->payer->name->given_name,
+            'last_name'             => $txn->payer->name->surname,
+            'amount'                => request()->total,
+            'user_id'               => auth()->id(),
+        ]);
+
+
+        # Send email to buyer
+        Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment, true));
+
+        # Record purchase
+        \ShoppingCart::all()->each(function($item) use ($payment){
+            CookbookPurchase::create([
+                'user_id'     => auth()->id(),
+                'product_key' => $item->id,
+                'payment_id'  => $payment->id
+            ]);
+        });
+
+        # Empty cart
+        \ShoppingCart::destroy();
+
+        return view('cookbook.payment-success');
     }
 }

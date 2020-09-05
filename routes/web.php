@@ -130,6 +130,9 @@ Route::get('cookbook/cart/remove/{raw}', 'CookbookController@removeFromCart')->m
 Route::get('payment/received', ['as' => 'pesapalSuccess', 'uses' => 'PaymentController@pesapalReceived']);
 Route::get('webhooks/pesapal/confirmation', ['as' => 'pesapalConfirmation', 'uses' => 'PaymentController@pesapalConfirmation']);
 
+# Paypal
+Route::get('cookbook/paypal/success', 'CookbookController@paypalSuccess');
+
 
 # Admin panel
 Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth','admin']);

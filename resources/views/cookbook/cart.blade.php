@@ -35,10 +35,14 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                             </tr>
+                            @php
+                                $total = 0;
+                            @endphp
                             @foreach ($items as $item)
                                 @php
                                     $raw = $item->rawId();
                                     $item = config('cookbook.products')[$item->id];
+                                    $total = $total + $item['price'][session()->get('locale')];
                                 @endphp
                                 <tr>
                                     <td>{{ $item['name'][session()->get('locale')] }}</td>
@@ -49,19 +53,31 @@
                                     <td>
                                         1
                                         <span class="float-right">
-                                            <a href="/cookbook/cart/remove/{{ $raw }}" class="text-danger">Remove Item</a>
+                                            <a href="/cookbook/cart/remove/{{ $raw }}"
+                                               class="text-danger">Remove Item</a>
                                         </span>
                                     </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
+                            <tr>
+                                <th>Grand Total</th>
+                                <th>
+                                    {{ (session()->get('locale') == 'de') ? 'EUR' : 'KES' }}
+                                    {{ $total }}
+                                </th>
+                                <th></th>
+                            </tr>
                         </table>
                         <a href="/cookbook/cart/remove/all" class="text-danger">Remove everything</a>
                         <br>
                         <br>
 
-                        <a href="/cookbook/cart/checkout" class="btn btn-success btn-lg btn-block">
-                            <i class="fa fa-credit-card fa-fw"></i> Pay with card
-                        </a>
+                        @dump(session()->all())
+
+                        <div class="col-12 text-center">
+                            <span id="paypal-button-container"></span>
+                        </div>
+
                     @else
                         <div class="alert alert-danger">
                             You have not added anything to the cart
@@ -73,10 +89,30 @@
                     @endif
 
 
-
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            currency_code: "{{ (session()->get('locale') == 'de') ? 'EUR' : 'USD' }}",
+                            value: "{{ $total }}"
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert('Transaction successfully completed by ' + details.payer.name.given_name);
+                    location.href = '/cookbook/paypal/success?payload=' + JSON.stringify(details)+'&total={{ $total }}'
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 
 @endsection

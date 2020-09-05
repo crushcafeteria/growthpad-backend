@@ -73,6 +73,9 @@
 </head>
 
 <body>
+
+<script src="https://www.paypal.com/sdk/js?client-id={{ config('cookbook.paypal.client_id') }}&currency={{ (session()->get('locale') == 'de') ? 'EUR' : 'USD' }}&locale={{ (session()->get('locale') == 'de') ? 'de_DE' : 'en_US' }}"></script>
+
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience and security.</p>

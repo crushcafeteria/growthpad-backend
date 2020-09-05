@@ -8,6 +8,10 @@
  */
 
 return [
+    'paypal' => [
+        'client_id' => 'AfJZ244KLqqFhWv8C_Y3YSnBCu9__jO6UeRLaOn5VF8XjAzmf2ehtIMvkofPZ_y0_WSf85ESUnkCfgwu',
+        'secret'    => 'EOtwbIG3xKLBXJPzBR4LB9iVE8KAhD3h_p_svOJiNyq_1YgVVW5-aVEQWXLL93p2pP_TUSaoIHdUlv_p'
+    ],
 
     'products' => [
         [

@@ -1,11 +1,25 @@
 @component('mail::message')
 # Hello,
 
-We have received your payment of Ksh {{ number_format($payment->amount) }} via MPESA.
+We have received your payment
+@if($paypal)
+    {{ (session()->get('locale') == 'de') ? 'EUR' : 'USD' }}
+@else
+    Ksh
+@endif
+
+{{ number_format($payment->amount) }}.
+
 <br>
 Payment Type: {{$payment->processor}} <br>
 Transaction Code: {{ $payment->transaction_reference }} <br>
-Amount: Ksh {{ number_format($payment->amount) }}
+Amount:
+@if($paypal)
+    {{ (session()->get('locale') == 'de') ? 'EUR' : 'USD' }}
+@else
+    Ksh
+@endif
+{{ number_format($payment->amount) }}
 <br>
 
 Thanks for purchasing Chakula Chetu!<br>

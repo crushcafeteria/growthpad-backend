@@ -2,26 +2,27 @@
 
 namespace App\Mail;
 
+use App\Models\Payment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Payment;
 
 class CookbookPaymentReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $payment;
+    public $paypal;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Payment $payment)
+    public function __construct(Payment $payment, $paypal = false)
     {
         $this->payment = $payment;
+        $this->paypal = $paypal;
     }
 
     /**
