@@ -71,7 +71,7 @@
                 <br>
                 <br>
 
-                @dump(session()->all())
+                {{-- @dump(session()->all()) --}}
 
                 <div class="col-12 text-center">
                     <span id="paypal-button-container"></span>
