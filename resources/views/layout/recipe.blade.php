@@ -176,6 +176,9 @@
                 <div class="row align-items-center">
                     <div class="col-xl-12 col-md-12">
                         <p class="copy_right text-center">
+                            <a target="_blank" href="\recipe\Privacy Policy.pdf">Privacy Policy</a>
+                        </p>
+                        <p class="copy_right text-center">
                             {{ date('Y') }}&copy; All rights reserved
                         </p>
                     </div>
