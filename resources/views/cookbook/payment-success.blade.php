@@ -31,7 +31,16 @@
                     <br>
                     <br>
                     <h1>Your payment has been successfully processed!</h1>
+                    <br>
+                    <br>
+                    <a href="/cookbook/my-purchases" class="btn btn-success">Download my purchases</a>
                 </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
         </div>
     </div>

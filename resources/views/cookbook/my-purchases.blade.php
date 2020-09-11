@@ -38,13 +38,13 @@
                     <tr>
                         <th>File Name</th>
                         <th>Price</th>
-                        <th>Method</th>
+                        <th>Processed By</th>
                         <th colspan=2>Date</th>
                     </tr>
                     @foreach ($purchases as $item)
                     <tr>
-                        <td>{{ config('cookbook.products')[$item->product_key]['name'] }}</td>
-                        <td>Ksh {{ config('cookbook.products')[$item->product_key]['price'] }}</td>
+                        <td>{{ config('cookbook.products')[$item->product_key]['name'][app()->getLocale('en')] }}</td>
+                        <td>Ksh {{ config('cookbook.products')[$item->product_key]['price'][app()->getLocale('en')] }}</td>
                         <td>{{ $item->payment->processor }} ({{ $item->payment->transaction_reference }})</td>
                         <td>{{ $item->created_at }}</td>
                         <td>

@@ -115,12 +115,13 @@ Route::get('you-can-now-login', function () {
 });
 
 # Cookbook
+Route::get('locale/{locale}', 'CookbookController@switchLocale');
 Route::get('cookbook', 'CookbookController@index');
+Route::get('cookbook/my-purchases', 'CookbookController@myPurchases')->middleware('auth');
 Route::get('cookbook/{locale}', 'CookbookController@index');
 Route::get('cookbook/display/{id}', 'CookbookController@display'); #->middleware('auth');
 Route::get('cookbook/purchase/{id}', 'CookbookController@purchase')->middleware('auth');
 Route::get('cookbook/dl/{productKey}/{purchaseToken}', 'CookbookController@activatePurchase')->middleware('auth');
-Route::get('cookbook/my-purchases', 'CookbookController@myPurchases')->middleware('auth');
 Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->middleware('auth');
 Route::get('cookbook/cart/add/{id}', 'CookbookController@addToCart')->middleware('auth');
 Route::get('cookbook/cart/display', 'CookbookController@displayCart')->middleware('auth');
@@ -135,7 +136,7 @@ Route::get('cookbook/paypal/success', 'CookbookController@paypalSuccess');
 
 
 # Admin panel
-Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth','admin']);
+Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth', 'admin']);
 
 # Submit recipe
 Route::get('submit/recipe', 'CookbookController@showRecipeSubmitForm');

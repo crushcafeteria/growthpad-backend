@@ -12,7 +12,8 @@
                 {!! Form::hidden('type', 'CONSULTING') !!}
                 <fieldset class="form-group">
                     <label>Which category of service do you require?</label>
-                    {!! Form::select('category', config('settings.services.consulting'), NULL, ['class'=>'form-control']) !!}
+                    {!! Form::select('category', config('settings.services.consulting'), NULL,
+                    ['class'=>'form-control']) !!}
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Full Names</label>
@@ -53,13 +54,15 @@
                     <div class="col-6">
                         <fieldset class="form-group">
                             <label>Country</label>
-                            {!! Form::select('country', config('settings.countries'), NULL, ['class'=>'form-control selCountry']) !!}
+                            {!! Form::select('country', config('settings.countries'), NULL, ['class'=>'form-control
+                            selCountry']) !!}
                         </fieldset>
                     </div>
                     <div class="col-6">
                         <fieldset class="form-group">
                             <label>County</label>
-                            {!! Form::select('county', config('settings.counties'), NULL, ['class'=>'form-control selCounty']) !!}
+                            {!! Form::select('county', config('settings.counties'), NULL, ['class'=>'form-control
+                            selCounty']) !!}
                         </fieldset>
                     </div>
                 </div>
@@ -73,7 +76,8 @@
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Preferred mode of communication</label>
-                    {!! Form::select('comm_mode', ['EMAIL'=>'Email', 'TELEPHONE'=>'Telephone'], NULL, ['class'=>'form-control', 'placeholder'=>'Choose a value']) !!}
+                    {!! Form::select('comm_mode', ['EMAIL'=>'Email', 'TELEPHONE'=>'Telephone'], NULL,
+                    ['class'=>'form-control', 'placeholder'=>'Choose a value']) !!}
                 </fieldset>
             </form>
 
@@ -88,7 +92,7 @@
 <script>
     $(function () {
         $('.selCountry').change(function () {
-            if ($('.selCountry').val() == 'KE') {
+            if ($('.selCountry').val() == 'en") {
                 $('.selCounty').removeAttr('disabled')
             } else {
                 $('.selCounty').attr('disabled', 'disabled')

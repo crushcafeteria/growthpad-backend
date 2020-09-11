@@ -72,6 +72,9 @@
                 <br>
                 <br>
                 <a href="/cookbook">Back Home</a>
+                <br>
+                <br>
+                <a href="/recipe/Privacy Policy.pdf">Privacy & Data Policy</a>
 
             </div>
         </form>

@@ -15,7 +15,8 @@
                 {!! Form::hidden('type', 'LEASING') !!}
                 <fieldset class="form-group">
                     <label>Which category of service do you require?</label>
-                    {!! Form::select('category', config('settings.services.leasing'), NULL, ['class'=>'form-control']) !!}
+                    {!! Form::select('category', config('settings.services.leasing'), NULL, ['class'=>'form-control'])
+                    !!}
                 </fieldset>
                 <fieldset class="form-group">
                     <label>Full names of lease applicant</label>
@@ -56,13 +57,15 @@
                     <div class="col-6">
                         <fieldset class="form-group">
                             <label>Country</label>
-                            {!! Form::select('country', config('settings.countries'), NULL, ['class'=>'form-control selCountry']) !!}
+                            {!! Form::select('country', config('settings.countries'), NULL, ['class'=>'form-control
+                            selCountry']) !!}
                         </fieldset>
                     </div>
                     <div class="col-6">
                         <fieldset class="form-group">
                             <label>County</label>
-                            {!! Form::select('county', config('settings.counties'), NULL, ['class'=>'form-control selCounty']) !!}
+                            {!! Form::select('county', config('settings.counties'), NULL, ['class'=>'form-control
+                            selCounty']) !!}
                         </fieldset>
                     </div>
                 </div>
@@ -75,18 +78,20 @@
                 <fieldset class="form-group">
                     <label>Date Required</label>
                     <input name="date_required" type="text" class="form-control" placeholder="YYYY-MM-DD...">
-                </fieldset>   
+                </fieldset>
 
                 <fieldset class="form-group">
                     <label>Preferred mode of communication</label>
-                    {!! Form::select('comm_mode', ['EMAIL'=>'Email', 'TELEPHONE'=>'Telephone'], NULL, ['class'=>'form-control', 'placeholder'=>'Choose a value']) !!}
-                </fieldset>             
+                    {!! Form::select('comm_mode', ['EMAIL'=>'Email', 'TELEPHONE'=>'Telephone'], NULL,
+                    ['class'=>'form-control', 'placeholder'=>'Choose a value']) !!}
+                </fieldset>
 
                 <div class="card">
                     <div class="card-body">
                         <fieldset>
                             <label>Farm tools required</label>
-                            {!! Form::select('tools_required[]', config('settings.services.toolset.farm-tools'), NULL, ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
+                            {!! Form::select('tools_required[]', config('settings.services.toolset.farm-tools'), NULL,
+                            ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
                         </fieldset>
                         <br>
                         <fieldset class="form-group">
@@ -95,14 +100,15 @@
                         </fieldset>
                     </div>
                 </div>
-                
+
                 <br>
 
                 <div class="card">
                     <div class="card-body">
                         <fieldset>
                             <label>Logistics required</label>
-                            {!! Form::select('logistics_required[]', config('settings.services.toolset.logistics'), NULL, ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
+                            {!! Form::select('logistics_required[]', config('settings.services.toolset.logistics'),
+                            NULL, ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
                         </fieldset>
                         <br>
                         <fieldset class="form-group">
@@ -113,12 +119,13 @@
                 </div>
                 <br>
 
-                
+
                 <div class="card">
                     <div class="card-body">
                         <fieldset>
                             <label>Vendor Tools required</label>
-                            {!! Form::select('vendor_required[]', config('settings.services.toolset.vendor'), NULL, ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
+                            {!! Form::select('vendor_required[]', config('settings.services.toolset.vendor'), NULL,
+                            ['class'=>'form-control chosen', 'multiple'=>TRUE]) !!}
                         </fieldset>
                         <br>
                         <fieldset class="form-group">
@@ -142,7 +149,7 @@
     $(function () {
 
         $('.selCountry').change(function () {
-            if ($('.selCountry').val() == 'KE') {
+            if ($('.selCountry').val() == 'en") {
                 $('.selCounty').removeAttr('disabled')
             } else {
                 $('.selCounty').attr('disabled', 'disabled')

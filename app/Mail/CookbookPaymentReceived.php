@@ -32,6 +32,7 @@ class CookbookPaymentReceived extends Mailable
      */
     public function build()
     {
-        return $this->subject('Payment Received!')->markdown('emails.cookbook-payment-received');
+        $subject = ($this->payment->processor == 'PAYPAL') ? 'Payment received via Paypal' : 'Payment received';
+        return $this->subject($subject)->markdown('emails.cookbook-payment-received');
     }
 }

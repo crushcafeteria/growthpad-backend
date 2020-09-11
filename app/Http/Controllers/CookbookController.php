@@ -12,17 +12,25 @@ use Pesapal;
 
 class CookbookController extends Controller
 {
-    function index($locale = 'ke')
+    function index()
     {
-        session()->put('locale', $locale);
-        app()->setLocale(session()->get('locale'));
-        return view('cookbook.index');
+        // dd(app()->getLocale());
+        $products = collect(config('cookbook.products'));
+
+        if(request()->has('filter')) {
+            $products = $products->groupBy('type');
+            $products = $products[request()->filter];
+        }
+
+        return json_encode($products, true);
+
+        return view('cookbook.index', [
+            'products' => $products
+        ]);
     }
 
     function display($encryptedKey)
     {
-        app()->setLocale(session()->get('locale'));
-
         $key = decrypt($encryptedKey);
         $product = config('cookbook.products')[$key];
 
@@ -88,7 +96,7 @@ class CookbookController extends Controller
     function myPurchases()
     {
         return view('cookbook.my-purchases', [
-            'purchases' => CookbookPurchase::with('payment')->where('user_id', auth()->id())->get()
+            'purchases' => CookbookPurchase::with('payment')->orderBy('created_at', 'desc')->where('user_id', auth()->id())->get()
         ]);
     }
 
@@ -173,7 +181,8 @@ class CookbookController extends Controller
     function displayCart()
     {
         return view('cookbook.cart', [
-            'items' => \ShoppingCart::all()
+            'items'  => \ShoppingCart::all(),
+            'iframe' => @$iframe
         ]);
     }
 
@@ -191,7 +200,7 @@ class CookbookController extends Controller
     {
         $txn = json_decode(request()->payload);
 
-//        dd($txn);
+        //        dd($txn);
 
         # Record payment
         $payment = Payment::create([
@@ -209,7 +218,7 @@ class CookbookController extends Controller
         Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment, true));
 
         # Record purchase
-        \ShoppingCart::all()->each(function($item) use ($payment){
+        \ShoppingCart::all()->each(function ($item) use ($payment) {
             CookbookPurchase::create([
                 'user_id'     => auth()->id(),
                 'product_key' => $item->id,
@@ -221,5 +230,11 @@ class CookbookController extends Controller
         \ShoppingCart::destroy();
 
         return view('cookbook.payment-success');
+    }
+
+    function switchLocale($locale)
+    {
+        session()->put('locale', $locale);
+        return redirect()->back();
     }
 }

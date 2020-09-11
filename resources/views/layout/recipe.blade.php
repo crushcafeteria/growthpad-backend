@@ -74,7 +74,7 @@
 <body>
 
     <script
-        src="https://www.paypal.com/sdk/js?client-id={{ config('cookbook.paypal.client_id') }}&currency={{ (session()->get('locale') == 'de') ? 'EUR' : 'USD' }}&locale={{ (session()->get('locale') == 'de') ? 'de_DE' : 'en_US' }}">
+        src="https://www.paypal.com/sdk/js?client-id={{ config('cookbook.paypal.client_id') }}&currency=EUR&locale={{ (session()->get('locale') == 'de') ? 'de_DE' : 'en_US' }}">
     </script>
 
     <!--[if lte IE 9]>
@@ -149,6 +149,12 @@
                                         </li>
                                         @endif
 
+                                        <li>
+                                            <a href="/locale/{{ (app()->getLocale() == 'en') ? 'de' : 'en'}}">
+                                                {{ (app()->getLocale() == 'en') ? 'German Version' : 'English Version'}}
+                                            </a>
+                                        </li>
+
 
                                     </ul>
                                 </nav>
@@ -161,6 +167,8 @@
         </div>
     </header>
     <!-- header-end -->
+
+    {{-- @dump(session()->all(), app()->getLocale()) --}}
 
     @yield('content')
 
