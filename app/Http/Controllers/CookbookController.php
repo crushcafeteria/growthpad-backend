@@ -22,7 +22,7 @@ class CookbookController extends Controller
             $products = $products[request()->filter];
         }
 
-        return json_encode($products, true);
+        //return json_encode($products, true);
 
         return view('cookbook.index', [
             'products' => $products
