@@ -47,10 +47,10 @@
                                     $totalEUR = $totalEUR + $item['price']['de'];
                                 @endphp
                                 <tr>
-                                    <td>{{ $item['name'][session()->get('locale')] }}</td>
+                                    <td>{{ $item['name'][app()->getLocale('en')] }}</td>
                                     <td>
-                                        {{ (session()->get('locale') == 'de') ? 'EUR' : 'KES' }}
-                                        {{ $item['price'][session()->get('locale')] }}
+                                        {{ (app()->getLocale('en') == 'de') ? 'EUR' : 'KES' }}
+                                        {{ $item['price'][app()->getLocale('en')] }}
                                     </td>
                                     <td>
                                         1
@@ -63,8 +63,8 @@
                             <tr>
                                 <th>Grand Total</th>
                                 <th>
-                                    {{ (session()->get('locale') == 'de') ? 'EUR' : 'KES' }}
-                                    {{ (session()->get('locale') == 'de') ? $totalEUR : $totalKES }}
+                                    {{ (app()->getLocale('en') == 'de') ? 'EUR' : 'KES' }}
+                                    {{ (app()->getLocale('en') == 'de') ? $totalEUR : $totalKES }}
                                 </th>
                                 <th></th>
                             </tr>
