@@ -173,7 +173,7 @@ class CookbookController extends Controller
     {
         $item = config('cookbook.products')[$id];
 
-        \ShoppingCart::add($id, $item['name'][session()->get('locale')], 1, $item['price'][session()->get('locale')]);
+        \ShoppingCart::add($id, $item['name'][app()->getLocale('en')], 1, $item['price'][app()->getLocale('en')]);
 
         return redirect('cookbook#shop');
     }
