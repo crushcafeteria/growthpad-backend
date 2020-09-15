@@ -123,7 +123,7 @@
             <div class="row">
                 @foreach($products as $key => $product)
 
-                    @if($product['name'][app()->getLocale('en')])
+                    @if($product['name'][app()->getLocale()])
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="card card-body p-0 mb-5">
                                 <div class="single_recepie text-center">
@@ -131,7 +131,7 @@
                                         <img src="{{ (strlen($product['picture'])) ? asset($product['picture']) : '/recipe/products/noimage.png' }}"
                                              class="img-fluid">
                                     </div>
-                                    <h4 class="product-name mt-3">{{ @$product['name'][app()->getLocale('en')] }}</h4>
+                                    <h4 class="product-name mt-3">{{ @$product['name'][app()->getLocale()] }}</h4>
                                     <p>
                                         {{ (app()->getLocale() == 'en') ? 'Ksh' : '€' }}
                                         {{ @number_format($product['price'][app()->getLocale()]) }}

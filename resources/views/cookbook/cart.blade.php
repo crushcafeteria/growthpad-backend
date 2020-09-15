@@ -118,7 +118,7 @@
                         purchase_units: [{
                             amount: {
                                 currency_code: "EUR",
-                                value: "{{ $totalEUR }}"
+                                value: "{{ @$totalEUR }}"
                             }
                         }]
                     });
@@ -126,7 +126,7 @@
                 onApprove: function (data, actions) {
                     return actions.order.capture().then(function (details) {
                         alert('Transaction successfully completed. Please click OK and wait while we process...')
-                        location.href = '/cookbook/paypal/success?payload=' + JSON.stringify(details) + '&total={{ $totalEUR }}'
+                        location.href = '/cookbook/paypal/success?payload=' + JSON.stringify(details) + '&total={{ @$totalEUR }}'
                     });
                 }
             }).render('#paypal-button-container')

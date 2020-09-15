@@ -15,6 +15,10 @@ class CookbookController extends Controller
     function index()
     {
         // dd(app()->getLocale());
+        if(!session()->has('locale')) {
+            return redirect('locale/en');
+        }
+
         $products = collect(config('cookbook.products'));
 
         if(request()->has('filter')) {
