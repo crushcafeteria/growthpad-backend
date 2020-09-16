@@ -9,8 +9,8 @@
 
 return [
     'paypal' => [
-        'client_id' => 'AfJZ244KLqqFhWv8C_Y3YSnBCu9__jO6UeRLaOn5VF8XjAzmf2ehtIMvkofPZ_y0_WSf85ESUnkCfgwu',
-        'secret'    => 'EOtwbIG3xKLBXJPzBR4LB9iVE8KAhD3h_p_svOJiNyq_1YgVVW5-aVEQWXLL93p2pP_TUSaoIHdUlv_p'
+        'client_id' => 'AaWxtqJJ7lhvixIndKL9Q3tZLPYAe_lwf8E5mcZhJOoKavMIpORSTPhFc8VVZV8OODG4ExNH_33EDNeL',
+        'secret'    => 'ECwWA8WDklMatJMB82qEISSm-F_4YnlNSIN3NXsmAWuMEnMAacR8y1oNG1hbMLk4-XVnoJdNMtyfWqLl'
     ],
 
     'products' => [
