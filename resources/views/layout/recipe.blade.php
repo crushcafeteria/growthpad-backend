@@ -105,6 +105,11 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="/cookbook"><i class="fa fa-home fa-fw"></i> home</a></li>
+                                        <li>
+                                            <a href="/locale/{{ (app()->getLocale() == 'en') ? 'de' : 'en'}}">
+                                                {{ (app()->getLocale() == 'en') ? 'German Version' : 'English Version'}}
+                                            </a>
+                                        </li>
                                         <li><a href="/submit/recipe"><i class="fa fa-paper-plane fa-fw"></i> Submit
                                                 recipe</a></li>
                                         <li>
@@ -134,7 +139,7 @@
                                         </li>
                                         @if(auth()->check())
                                         <li>
-                                            <a href="#!" class="dropdown-toggle" data-toggle="dropdown"
+                                            <a href="#!" data-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-sign-out fa-fw"></i> Hello, {{ auth()->user()->name }}
                                             </a>
@@ -149,11 +154,7 @@
                                         </li>
                                         @endif
 
-                                        <li>
-                                            <a href="/locale/{{ (app()->getLocale() == 'en') ? 'de' : 'en'}}">
-                                                {{ (app()->getLocale() == 'en') ? 'German Version' : 'English Version'}}
-                                            </a>
-                                        </li>
+
 
 
                                     </ul>
