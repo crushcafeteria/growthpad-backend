@@ -210,11 +210,11 @@
                             <h4 style="font-size: 30px;">Get your copy of Chakula Chetu today!</h4>
                             <p class="mb-2">
                                 Full Chakula Chetu recipe book is available in soft copy at Kshs. 3,500
-                                Individual soft copy recipes available at Kshs. 100
+                                Individual soft copy recipes available at Kshs. 250
                             </p>
                             <p>
                                 On purchase you will receive the recipes in a PDF file format for your daily use.
-                                To get the full Chakula Chetu book in hard copy at Kshs. 3,500
+                                To get the full Chakula Chetu book in hard copy at Kshs. 5,000
                             <ul class="pl-5 pt-3 pb-3">
                                 <li>Send an email to chepchirchir@irenkenya.com</li>
                                 <li>Or call +254 798 802 818</li>
