@@ -78,7 +78,7 @@
                             4. Enter till number <b>5164955</b>
                         </li>
                         <li class="list-group-item">
-                            5. Enter amount <b>{{ $product['price'] }}</b>
+                            5. Enter amount <b>{{ $product['price'][app()->getLocale()] }}</b>
                         </li>
                         <li class="list-group-item">
                             6. Enter your PIN and confirm
