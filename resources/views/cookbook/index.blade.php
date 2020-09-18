@@ -175,7 +175,8 @@
                                         {{ (app()->getLocale() == 'en') ? 'Ksh' : '€' }}
                                         {{ @number_format($product['price'][app()->getLocale()]) }}
                                     </p>
-                                    <a href="/cookbook/display/{{ encrypt($key) }}" class="line_btn">{{ __('cookbook.buy_this') }}</a>
+                                    <a href="/cookbook/display/{{ encrypt($key) }}"
+                                       class="line_btn">{{ __('cookbook.buy_this') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -208,13 +209,15 @@
                     <div class="download_text">
                         @if(app()->getLocale() == 'en')
                             <h4 style="font-size: 30px;">Get your copy of Chakula Chetu today!</h4>
-                            <p class="mb-2">
-                                Full Chakula Chetu recipe book is available in soft copy at Kshs. 3,500
-                                Individual soft copy recipes available at Kshs. 250
-                            </p>
                             <p>
-                                On purchase you will receive the recipes in a PDF file format for your daily use.
-                                To get the full Chakula Chetu book in hard copy at Kshs. 5,000
+                                Full Chakula Chetu recipe book is available in soft copy at 40 euros. Individual soft
+                                copy recipes available at 2 euros
+                            </p>
+                            <p class="mb-2">
+                                On purchase, you will receive the recipes in a PDF file format for your daily use. Hard
+                                copy versions of the recipe book are available only in Kenya at the following contact
+                                details:
+                            </p>
                             <ul class="pl-5 pt-3 pb-3">
                                 <li>Send an email to chepchirchir@irenkenya.com</li>
                                 <li>Or call +254 798 802 818</li>

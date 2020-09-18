@@ -20,7 +20,7 @@ return [
             'type'      => 'vegan',
             'name'      => [
                 'en' => 'Buy Complete Recipe Book',
-                'de' => '',
+                'de' => 'Bestellen Sie unser gesamtes Kochbuch',
             ],
             'price'     => [
                 'en' => 5000,
