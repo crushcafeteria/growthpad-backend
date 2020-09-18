@@ -252,4 +252,9 @@
     </div>
     <!--/ download_app_area -->
 
+    <style>
+        p {
+            text-align: justify !important;
+        }
+    </style>
 @endsection
