@@ -171,7 +171,7 @@
                                              class="img-fluid">
                                     </div>
                                     <h4 class="product-name mt-3">{{ @$product['name'][app()->getLocale()] }}</h4>
-                                    <p>
+                                    <p class="text-center">
                                         {{ (app()->getLocale() == 'en') ? 'Ksh' : '€' }}
                                         {{ @number_format($product['price'][app()->getLocale()]) }}
                                     </p>
