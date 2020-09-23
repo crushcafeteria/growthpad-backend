@@ -12,8 +12,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a target="_blank" class="nav-link active" href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
-                        <i class="fa fa-android fa-fw"></i> Download IREN Growthpad Customer App
+                    <a target="_blank" class="nav-link active" href="https://festival.growthpad.irenkenya.com">
+                        <i class="fa fa-video-camera fa-fw"></i> Attend the food festival
                     </a>
                 </li>
                 <li class="nav-item">
