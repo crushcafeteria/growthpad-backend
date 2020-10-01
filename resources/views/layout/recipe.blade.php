@@ -88,86 +88,87 @@
 
 
     <!-- header-start -->
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area ">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-2">
-                            <div class="logo">
-                                <a href="/">
-                                    <img src="/images/logo.png" width="70">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <a href="/">
+                    <img src="/images/logo.png" width="70">
+                </a>
+            </a>
+            <button class="navbar-toggler btn-lg" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars fa-fw text-white"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li>
+                        <a href="/cookbook"><i class="fa fa-home fa-fw"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/locale/{{ (app()->getLocale() == 'en') ? 'de' : 'en'}}">
+                            <i class="fa fa-info fa-fw"></i> {{ (app()->getLocale() == 'en') ? 'German Version' : 'English Version'}}
+                        </a>
+                    </li>
+                    <li><a href="/submit/recipe"><i class="fa fa-paper-plane fa-fw"></i> Submit
+                            recipe</a></li>
+                    <li>
+                        <a target="_blank"
+                           href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
+                            <i class="fa fa-phone fa-fw"></i>Get the app
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank" href="https://irenkenya.com/contact/">
+                            <i class="fa fa-phone-square fa-fw"></i> Contact
+                        </a>
+                    </li>
+
+                    @if(!auth()->check())
+                        <li>
+                            <a href="/register">
+                                <i class="fa fa-plus-circle fa-fw"></i> Register
+                            </a>
+                        </li>
+                    @endif
+                    <li>
+                        <a href="/cookbook/cart/display">
+                            <i class="fa fa-shopping-bag fa-fw"></i> Cart({{ $cart->count() }})
+                        </a>
+                    </li>
+                    @if(auth()->check())
+                        <li>
+                            <a href="#!" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-sign-out fa-fw"></i> Hello, {{ auth()->user()->name }}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/cookbook/my-purchases">
+                                    <i class="fa fa-download fa-fw"></i> My Purchases
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fa fa-sign-out fa-fw"></i> Logout
                                 </a>
                             </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-10 float-right">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="/cookbook"><i class="fa fa-home fa-fw"></i> home</a></li>
-                                        <li>
-                                            <a href="/locale/{{ (app()->getLocale() == 'en') ? 'de' : 'en'}}">
-                                                {{ (app()->getLocale() == 'en') ? 'German Version' : 'English Version'}}
-                                            </a>
-                                        </li>
-                                        <li><a href="/submit/recipe"><i class="fa fa-paper-plane fa-fw"></i> Submit
-                                                recipe</a></li>
-                                        <li>
-                                            <a target="_blank"
-                                                href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
-                                                <i class="fa fa-phone fa-fw"></i>Get the app
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a target="_blank" href="https://irenkenya.com/contact/">
-                                                <i class="fa fa-phone-square fa-fw"></i> Contact
-                                            </a>
-                                        </li>
-
-                                        @if(!auth()->check())
-                                        <li>
-                                            <a href="/register">
-                                                Register
-                                            </a>
-                                        </li>
-                                        @endif
-                                        <li>
-                                            <a href="/cookbook/cart/display">
-                                                <i class="fa fa-shopping-bag fa-fw"></i> Cart({{ $cart->count() }})
-                                            </a>
-                                        </li>
-                                        @if(auth()->check())
-                                        <li>
-                                            <a href="#!" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-sign-out fa-fw"></i> Hello, {{ auth()->user()->name }}
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="/cookbook/my-purchases">
-                                                    <i class="fa fa-download fa-fw"></i> My Purchases
-                                                </a>
-                                                <a class="dropdown-item" href="/logout">
-                                                    <i class="fa fa-sign-out fa-fw"></i> Logout
-                                                </a>
-                                            </div>
-                                        </li>
-                                        @endif
-
-
-
-
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
     <!-- header-end -->
+
+    <style>
+        nav li {
+            list-style: none;
+            padding: 15px;
+        }
+
+        nav a, button {
+            color: #fff;
+            outline: medium none;
+        }
+    </style>
 
     {{-- @dump(session()->all(), app()->getLocale()) --}}
 
