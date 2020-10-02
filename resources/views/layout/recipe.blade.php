@@ -189,7 +189,7 @@
                             <a target="_blank" href="\recipe\Privacy Policy.pdf">Privacy Policy</a>
                         </p>
                         <p class="copy_right text-center">
-                            {{ date('Y') }}&copy; All rights reserved
+                            &copy; {{ date('Y') }} All rights reserved
                         </p>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a target="_blank" class="nav-link active" href="https://festival.growthpad.irenkenya.com">
-                        <i class="fa fa-video-camera fa-fw"></i> Attend the food festival
+                        <i class="fa fa-video-camera fa-fw"></i> Participate in the Food Festival
                     </a>
                 </li>
                 <li class="nav-item">
