@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-
+                    <a name="pesapal"></a>
                     @if ($items->count())
                         <table class="table table-bordered">
                             <tr>
@@ -78,15 +78,15 @@
                         <div class="col-12 text-center">
                             @if(app()->getLocale() == 'en')
                                 @if(!request()->has('checkout'))
-                                    {{--<a href="/cart/display?checkout=pesapal" class="btn btn-success btn-lg mt-5 mb-5">--}}
-                                        {{--<i class="fa fa-credit-card fa-fw"></i> Pay with Pesapal--}}
-                                    {{--</a>--}}
+                                    <a href="/cookbook/cart/display?checkout=pesapal#pesapal" class="btn btn-success btn-lg mt-3 mb-5">
+                                        <i class="fa fa-credit-card fa-fw"></i> Checkout with Pesapal
+                                    </a>
                                 @else
                                     {!! $iframe !!}
                                 @endif
                             @else
+                                <span id="paypal-button-container"></span>
                             @endif
-                            <span id="paypal-button-container"></span>
                         </div>
 
                     @else

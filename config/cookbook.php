@@ -14,6 +14,20 @@ return [
     ],
 
     'products' => [
+//        [
+//            'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
+//            'file'      => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
+//            'type'      => 'vegan',
+//            'name'      => [
+//                'en' => 'Test Product',
+//                'de' => 'Test Product',
+//            ],
+//            'price'     => [
+//                'en' => 5,
+//                'de' => .1
+//            ],
+//            'nutrients' => null
+//        ],
         [
             'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
             'file'      => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
@@ -346,6 +360,5 @@ Milk/cream: Protein, carbohydrates, sugar& fat
         ],
 
     ]
-
 
 ];

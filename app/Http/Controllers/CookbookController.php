@@ -15,13 +15,13 @@ class CookbookController extends Controller
     function index()
     {
         // dd(app()->getLocale());
-        if(!session()->has('locale')) {
+        if (!session()->has('locale')) {
             return redirect('locale/en');
         }
 
         $products = collect(config('cookbook.products'));
 
-        if(request()->has('filter')) {
+        if (request()->has('filter')) {
             $products = $products->groupBy('type');
             $products = $products[request()->filter];
         }
@@ -184,6 +184,50 @@ class CookbookController extends Controller
 
     function displayCart()
     {
+//        $iframe = $this->startPayment($product, $key);
+        $items = collect(\ShoppingCart::all());
+        $total = 0;
+        $products = null;
+        $keys = null;
+
+        if($items->count()){
+            $items->each(function ($item) use (&$total, &$products, &$keys) {
+                $total = $total + config('cookbook.products')[$item->id]['price'][app()->getLocale('en')];
+                $products[] = config('cookbook.products')[$item->id]['name'][app()->getLocale('en')];
+                $keys[] = $item->id;
+            });
+            $products = implode(' + ', $products);
+            $keys = implode('|', $keys);
+
+            $ref = Pesapal::random_reference();
+            $payment = Payment::create([
+                'processor'             => 'PESAPAL',
+                'transaction_reference' => $ref,
+                'transaction_timestamp' => now(),
+                'amount'                => $total,
+                'user_id'               => auth()->id(),
+                'pesapal_status'        => 'NEW',
+                'product_key'           => $keys
+            ]);
+
+            $details = array(
+                'amount'      => $total,
+                'description' => $products,
+                'type'        => 'MERCHANT',
+                'first_name'  => explode(' ', auth()->user()->name)[0],
+                'last_name'   => explode(' ', auth()->user()->name)[1],
+                'email'       => auth()->user()->email,
+                'phonenumber' => auth()->user()->telephone,
+                'reference'   => $ref,
+                'height'      => '1000px',
+                'currency'    => 'KES'
+            );
+            $iframe = Pesapal::makePayment($details);
+        }
+
+
+//        dd($iframe);
+
         return view('cookbook.cart', [
             'items'  => \ShoppingCart::all(),
             'iframe' => @$iframe
