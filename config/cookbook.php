@@ -209,7 +209,7 @@ Sugar: carbohydrates
             'type'         => 'vegan',
             'name'         => [
                 'en' => 'OBUSUMA OBWA - Millet Ugali',
-                'de' => 'Hirse Greis',
+                'de' => 'Hirsebrei',
             ],
             'price'        => [
                 'en' => 250,
@@ -256,7 +256,7 @@ Milk -Protein, carbohydrates, sugar and fat
             'type'         => 'vegan',
             'name'         => [
                 'en' => 'OMUSHENYE - Beans and sweet potato composite',
-                'de' => 'Bohnen und Süßkartoffeln zusammengesetzt',
+                'de' => 'Bohnen-Süßkartoffel-Püree',
             ],
             'price'        => [
                 'en' => 250,
@@ -320,7 +320,7 @@ Milk/cream – Protein, carbohydrates, sugar, fat
             'type'         => 'meat',
             'name'         => [
                 'en' => 'Kamalasile - Boiled Blood',
-                'de' => 'Gekochtes Blut',
+                'de' => 'Mungbohnen-Süßkartoffel-Püree',
             ],
             'price'        => [
                 'en' => 250,
@@ -348,7 +348,7 @@ Cow leg: Vitamin B6, iron, magnesium, fat
             'type'         => 'vegan',
             'name'         => [
                 'en' => 'Litore - Boiled Mashed Bananas',
-                'de' => 'Gekochte Bananenpüree',
+                'de' => 'Gekochtes Bananenpüree und geräucherter Fisch mit Kuhbohnen',
             ],
             'price'        => [
                 'en' => 250,

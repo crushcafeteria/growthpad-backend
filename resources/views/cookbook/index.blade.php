@@ -74,31 +74,29 @@
                         @else
                             <h2>Unterstütze die WaWa Community durch den Kauf eines unserer Rezepte</h2>
                             <p>
-                                Bei unserem „‚Chakula Chetu‘ (suahelisch für ‚Unser Essen‘) IREN Growthpad“-Kochbuch
-                                handelt es sich um eine Initiative, die in Zusammenarbeit mit der Organisation Making
-                                More Health versucht Frauen in ländlichen Regionen Kenias ein besseres Leben, durch den
-                                Verkauf von traditionellen Rezepten und deren Zubereitung, zu ermöglichen.
+                                „Chakula Chetu: Traditionelle Rezepte aus der Seenregion Kenias“ (Chakula Chetu: Suaheli
+                                für „Unser Essen“) ist ein kenianisches Rezeptbuch, das von dem Sozialunternehmer IREN
+                                Growthpad in Kooperation mit der Initiative Making More Health entwickelt wurde. Durch
+                                den Verkauf der Rezepte möchte das Projekt Frauen in den ländlichen Regionen Kenias
+                                unterstützen.
                             </p>
                             <p>
-                                Unser Kochbuch, „Chakula Chetu: Traditionelle Rezepte aus der Flussregion Kenias“
-                                verspricht würzig-kulinarisches Kochen von einheimischen und ausgewogenen Rezepten, die
-                                einen Einblick in das Leben der Region gewähren. Durch den Kauf eines beliebigen
-                                Rezeptes aus unserem Kochbuch unterstützen Sie aktiv gemeinschaftliche Aktionen mit dem
-                                Ziel Frauen in ländlichen Gebieten Kenias nachhaltig wirtschaftlich zu stärken. 50% der
-                                Erträge durch jeden Verkauf tragen dazu bei Frauen in Homabay County und im Westen
-                                Kenias mithilfe der WaWa Selbsthilfegruppe zu fördern.
+                                Das Kochbuch bietet ein traditionelles Kocherlebnis, basierend auf vielseitigen
+                                Rezepten, die einen Einblick in das Leben der Region gewähren. Wer nicht direkt das
+                                gesamte Kochbuch erwerben möchte, kann hier auch einzelne Rezepte digital herunterladen
+                                - 50% der Erträge durch jeden Verkauf kommen Projekten der NGO WAWA Kenya zu Gute.
                             </p>
                             <p>
-                                WaWa ist eine NRO (Nichtregierungsorganisation) mit der Vision durch Fischzucht einen
-                                angemessenen Lebensunterhalt und ein starkes soziales Netzwerk für Frauen in Homabay
-                                County und dem Westen Kenias zu schaffen.
+                                Die Organisation WAWA Kenya unterstützt zurzeit mehr als 20 Frauen in Homabay County
+                                (West-Kenia) dabei, sich und ihre Familien zu versorgen. Mehr Informationen findest Du
+                                unter
                                 <a target="_blank" class="text-primary"
                                    href="https://gokenyagofuture.org/2019/10/09/322/">Read More</a>
                             </p>
                             <p>
-                                Making More Health ist eine Initiative von Boehringer Ingelheim und Ashoka, welche sich
+                                Making More Health ist eine Initiative von Boehringer Ingelheim und Ashoka, die es sich
                                 zum Ziel gesetzt hat eine gesündere Welt für Menschen, Tiere und deren Gemeinschaft
-                                durch soziale Innovationen zu gewährleisten.
+                                durch soziale Innovationen zu gewährleisten. Mehr Informationen findest Du unter
                                 <a target="_blank" class="text-primary" href="https://www.makingmorehealth.org/">Read
                                     more</a>
                             </p>
@@ -222,28 +220,28 @@
                                 <li>Send an email to chepchirchir@irenkenya.com</li>
                                 <li>Or call +254 798 802 818</li>
                             </ul>
-
-                            </p>
                             <p>
                                 Enjoy your cooking!
                             </p>
                         @else
                             <h4 style="font-size: 30px;">Hol dir noch heute deine Ausgabe von Chakula Chetu!</h4>
                             <p class="mb-2">
-                                Das ganze „Chakula Chetu“-Kochbuch ist ab 40€ in digitaler Form erhältlich. Individuelle
-                                Rezepte sind ab 2€ erhältlich (digital).
-                            </p>
-                            <p>
-                                Nach deiner Bestellung wirst du die Rezepte in Form einer PDF-Datei für deinen täglichen
+                                Hole Dir noch heute Deine Ausgabe von Chakula Chetu!
+                                Das gesamte „Chakula Chetu“-Kochbuch ist für 40€ in digitaler Form erhältlich. Einzelne
+                                Rezepte erhältst Du ebenfalls digital für 2€ pro Rezept.
+                                Nach Deiner Bestellung wirst Du die Rezepte in Form einer PDF-Datei für Deinen täglichen
                                 Gebrauch erhalten. Gebundene Ausgaben des Kochbuchs sind nur in Kenia verfügbar, bei
-                                Interesse kontaktiere:
-                            </p>
-                            <ul class="pl-5 pt-3 pb-3">
-                                <li>Sende eine E-Mail an chepchirchir@irenkenya.com</li>
-                                <li>Oder kontaktiere +254 798 802 818</li>
-                            </ul>
+                                Interesse kontaktiere uns gerne.
 
                             </p>
+                            <ul class="pl-5 pt-3 pb-3">
+                                <li>
+                                    Schreibe uns eine E-Mail an chepchirchir@irenkenya.com
+                                </li>
+                                <li>
+                                    Oder rufe uns an unter +254 798 802 818
+                                </li>
+                            </ul>
                             <p>
                                 Viel Spaß beim Kochen!
                             </p>
