@@ -190,7 +190,7 @@ class CookbookController extends Controller
         $products = null;
         $keys = null;
 
-        if($items->count()){
+        if ($items->count()) {
             $items->each(function ($item) use (&$total, &$products, &$keys) {
                 $total = $total + config('cookbook.products')[$item->id]['price'][app()->getLocale('en')];
                 $products[] = config('cookbook.products')[$item->id]['name'][app()->getLocale('en')];
@@ -227,6 +227,8 @@ class CookbookController extends Controller
 
 
 //        dd($iframe);
+
+        session()->put('gTotal', $total);
 
         return view('cookbook.cart', [
             'items'  => \ShoppingCart::all(),
@@ -284,5 +286,36 @@ class CookbookController extends Controller
     {
         session()->put('locale', $locale);
         return redirect()->back();
+    }
+
+    function mpesaSuccess($token)
+    {
+        $paymentID = decrypt($token);
+        $payment = Payment::find($paymentID);
+
+        if (!$payment) {
+            abort(403, 'This payment is not valid. Access denied!');
+        }
+
+        if ($payment->amount != session()->get('gTotal')) {
+            abort(403, 'There is a problem with your transaction. Please contact customer care for help');
+        }
+
+        # Send email to buyer
+        Mail::to(auth()->user())->send(new CookbookPaymentReceived($payment, false));
+
+        # Record purchase
+        \ShoppingCart::all()->each(function ($item) use ($payment) {
+            CookbookPurchase::create([
+                'user_id'     => auth()->id(),
+                'product_key' => $item->id,
+                'payment_id'  => $payment->id
+            ]);
+        });
+
+        # Empty cart
+        \ShoppingCart::destroy();
+
+        return view('cookbook.payment-success');
     }
 }

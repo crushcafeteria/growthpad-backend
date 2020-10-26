@@ -126,6 +126,7 @@ Route::get('cookbook/download/{purchaseID}', 'CookbookController@download')->mid
 Route::get('cookbook/cart/add/{id}', 'CookbookController@addToCart')->middleware('auth');
 Route::get('cookbook/cart/display', 'CookbookController@displayCart')->middleware('auth');
 Route::get('cookbook/cart/remove/{raw}', 'CookbookController@removeFromCart')->middleware('auth');
+Route::get('cookbook/cart/mpesa/finish/{purchaseToken}', 'CookbookController@mpesaSuccess')->middleware('auth');
 
 # Pesapal 
 Route::get('payment/received', ['as' => 'pesapalSuccess', 'uses' => 'PaymentController@pesapalReceived']);
@@ -136,7 +137,7 @@ Route::get('cookbook/paypal/success', 'CookbookController@paypalSuccess');
 
 
 # Admin panel
-Route::get('cookbook/sales', 'CookbookController@showSales')->middleware(['auth', 'admin']);
+Route::get('admin/cookbook/sales', 'CookbookController@showSales')->middleware(['auth', 'admin']);
 
 # Submit recipe
 Route::get('submit/recipe', 'CookbookController@showRecipeSubmitForm');

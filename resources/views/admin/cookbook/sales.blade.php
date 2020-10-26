@@ -46,7 +46,7 @@ Cookbook Sales
                                                         {{ $sale->user->name }}
                                                     @endif
                                                 </td>
-                                                <td>{{ $sale->product['name'] }}</td>
+                                                <td>{{ $sale->product['name']['en'] }}</td>
                                                 <td>Ksh {{ number_format($sale->payment->amount) }}</td>
                                                 <td>{{ $sale->payment->processor }}</td>
                                                 <td>{{ $sale->payment->transaction_reference }}</td>

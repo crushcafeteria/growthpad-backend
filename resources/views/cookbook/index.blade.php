@@ -191,6 +191,32 @@
     </div>
     <!-- /recepie_area_start  -->
 
+    <section class="bg-light mb-5">
+        <div class="container">
+            <div class="row pt-5 pb-5 mb-5">
+                <div class="col-12 mb-3">
+                    <h1>Videos</h1>
+                </div>
+                <div class="col">
+                    <div class="videos_thumb">
+                        <iframe width="100%" height="315" src="https://players.brightcove.net/1628196552001/default_default/index.html?videoId=6202567282001"
+                                frameborder="0"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="videos_thumb">
+                        <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/WFasJZ_lfCE"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- download_app_area -->
     <div class="download_app_area">
         <div class="container">

@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="sidebar-link" href="{{ url('cookbook/sales') }}">
+                <a class="sidebar-link" href="{{ url('admin/cookbook/sales') }}">
                     <span class="icon-holder">
                         <i class="fa fa-cutlery fa-fw"></i>
                     </span>
