@@ -19,6 +19,10 @@
                                 <a href="/cookbook/purchase/{{ encrypt(0) }}" class="btn btn-success btn-lg mt-5">
                                     <i class="fa fa-shopping-cart fa-fw"></i> {{ __('cookbook.buy_complete') }}
                                 </a>
+
+                                <a href="https://tours.growthpad.irenkenya.com" class="btn btn-warning btn-lg mt-5">
+                                    <i class="fa fa-ticket fa-fw"></i> Explore local destinations
+                                </a>
                             </div>
                         </div>
                     </div>
