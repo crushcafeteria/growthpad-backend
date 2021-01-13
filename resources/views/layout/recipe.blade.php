@@ -111,12 +111,12 @@
                     </li>
                     <li><a href="/submit/recipe"><i class="fa fa-paper-plane fa-fw"></i> Submit
                             recipe</a></li>
-                    <li>
-                        <a target="_blank"
-                           href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">
-                            <i class="fa fa-phone fa-fw"></i>Get the app
-                        </a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a target="_blank"--}}
+                           {{--href="https://play.google.com/store/apps/details?id=com.irenkenya.growthpad.customer.app&hl=en">--}}
+                            {{--<i class="fa fa-phone fa-fw"></i>Get the app--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
 
                     <li>
                         <a target="_blank" href="https://irenkenya.com/contact/">
@@ -187,6 +187,20 @@
                     <div class="col-xl-12 col-md-12">
                         <p class="copy_right text-center">
                             <a target="_blank" href="\recipe\Privacy Policy.pdf">Privacy Policy</a>
+                        </p>
+                        <p class="text-center">
+                            <a target="_blank" href="https://web.facebook.com/IRENGrowthpad/" class="text-white">
+                                <i class="fa fa-facebook fa-fw"></i>
+                            </a>
+                            <a target="_blank" href="https://twitter.com/IRENGrowthpad" class="text-white">
+                                <i class="fa fa-twitter fa-fw"></i>
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/channel/UC-4mGDBbhVL5UtKXQpL_pnw" class="text-white">
+                                <i class="fa fa-youtube fa-fw"></i>
+                            </a>
+                            <a target="_blank" href="https://instagram.com/irengrowthpad_ke" class="text-white">
+                                <i class="fa fa-instagram fa-fw"></i>
+                            </a>
                         </p>
                         <p class="copy_right text-center">
                             &copy; {{ date('Y') }} All rights reserved
