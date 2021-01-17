@@ -44,6 +44,9 @@
                 <a href="/cookbook" class="btn btn-success">
                     <i class="fa fa-shopping-cart fa-fw"></i> Buy Chakula Chetu recipes
                 </a>
+                <a target="_blank" href="https://tours.growthpad.irenkenya.com/" class="btn btn-primary">
+                    <i class="fa fa-shopping-cart fa-fw"></i> Explore our destinations
+                </a>
             </div>
         </div>
 
