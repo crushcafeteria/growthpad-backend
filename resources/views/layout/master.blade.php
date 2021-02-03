@@ -27,7 +27,7 @@
 <footer class="footer bg-dark">
     <div class="container text-centerx">
         <span class="text-white">
-            &copy; {{ date('Y') }} Inter-Region Economic Networks
+            &copy; IREN Growthpad {{ date('Y') }} All rights reserved
         </span>
         <span class="float-right">
             <a target="_blank" href="{{ asset('docs/Terms-Conditions.pdf') }}" class="text-white footer-icon">

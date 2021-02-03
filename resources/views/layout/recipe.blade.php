@@ -203,7 +203,7 @@
                             </a>
                         </p>
                         <p class="copy_right text-center">
-                            &copy; {{ date('Y') }} All rights reserved
+                            &copy; IREN Growthpad {{ date('Y') }} All rights reserved
                         </p>
                     </div>
                 </div>
