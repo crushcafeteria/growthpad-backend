@@ -175,7 +175,7 @@
     @yield('content')
 
     <a target="_blank" href="https://web.whatsapp.com/send?phone=798802824&text=Chat%20with%20Growthpad%20Tours%20on%20WhatsApp" class="btn btn-success btn-lg sticky-btn">
-        <i class="fa fa-whatsapp fa-fw fa-2x"></i> Chat on WhatsApp
+        <i class="fa fa-whatsapp fa-fw"></i> Chat on WhatsApp
     </a>
 
     <!-- footer  -->
