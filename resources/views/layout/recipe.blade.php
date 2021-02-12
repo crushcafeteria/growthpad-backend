@@ -174,9 +174,7 @@
 
     @yield('content')
 
-    @if($cart->count())
-    <a href="/cookbook/cart/display" class="btn btn-danger btn-lg sticky-btn">Finished shopping? <br>View Cart</a>
-    @endif
+    <a target="_blank" href="https://web.whatsapp.com/send?phone=798802824&text=Chat%20with%20Growthpad%20Tours%20on%20WhatsApp" class="btn btn-success btn-lg sticky-btn">Chat on WhatsApp</a>
 
     <!-- footer  -->
     <footer class="footer mt-5">
