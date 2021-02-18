@@ -86,6 +86,10 @@
                                        class="btn btn-success btn-lg mt-3 mb-5">
                                         <i class="fa fa-credit-card fa-fw"></i> Lipa na M-PESA
                                     </a>
+                                    <a href="/cookbook/cart/display?checkout=paypal"
+                                       class="btn btn-success btn-lg mt-3 mb-5">
+                                        <i class="fa fa-credit-card fa-fw"></i> Checkout with Paypal
+                                    </a>
                                 @else
                                     @if(request()->checkout == 'mpesa')
                                         <div class="row">
