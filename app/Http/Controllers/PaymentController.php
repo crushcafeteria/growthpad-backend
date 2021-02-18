@@ -72,7 +72,7 @@ class PaymentController extends Controller
         }
 
         if (substr($telephone, 0, 2) == '07') {
-            $telephone = '+254' . (int)$telephone;
+            $telephone = 'user+254' . (int)$telephone;
         }
 
         $payments = (!$code) ? Payment::where('sender_phone', $telephone) : Payment::where('transaction_reference', $code);

@@ -313,6 +313,8 @@ class CookbookController extends Controller
             ]);
         });
 
+        $payment->update(['user_id' => auth()->id()]);
+
         # Empty cart
         \ShoppingCart::destroy();
 

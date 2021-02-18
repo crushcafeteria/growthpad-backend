@@ -78,17 +78,16 @@
                         <div class="col-12 text-center">
                             @if(app()->getLocale() == 'en')
                                 @if(!request()->has('checkout'))
-                                    <a href="/cookbook/cart/display?checkout=pesapal#pesapal"
-                                       class="btn btn-success btn-lg mt-3 mb-5">
-                                        <i class="fa fa-credit-card fa-fw"></i> Checkout with Pesapal
-                                    </a>
+                                    {{--<a href="/cookbook/cart/display?checkout=pesapal#pesapal"--}}
+                                    {{--class="btn btn-success btn-lg mt-3 mb-5">--}}
+                                    {{--<i class="fa fa-credit-card fa-fw"></i> Checkout with Pesapal--}}
+                                    {{--</a>--}}
                                     <a href="/cookbook/cart/display?checkout=mpesa#pesapal"
                                        class="btn btn-success btn-lg mt-3 mb-5">
                                         <i class="fa fa-credit-card fa-fw"></i> Lipa na M-PESA
                                     </a>
                                 @else
                                     @if(request()->checkout == 'mpesa')
-
                                         <div class="row">
                                             <div class="col">
                                                 <div class="card card-body">
@@ -145,14 +144,11 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                         {{--                                        @dump(auth()->user())--}}
-
-
                                     @elseif(request()->checkout == 'pesapal')
                                         {!! $iframe !!}
+                                    @elseif(request()->checkout == 'paypal')
+                                        <span id="paypal-button-container"></span>
                                     @endif
                                 @endif
                             @else
