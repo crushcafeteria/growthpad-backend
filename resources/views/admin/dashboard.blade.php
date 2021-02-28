@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="layers bd bgc-white p-20">
-                            <div class="layer w-100 mB-10"><h6 class="lh-1">Accounts Registered</h6></div>
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Registered Users</h6></div>
                             <div class="layer w-100">
                                 <div class="peers ai-sb fxw-nw">
                                     <div class="peer">
@@ -25,11 +25,11 @@
                     </div>
                     <div class="col-md-4">
                         <div class="layers bd bgc-white p-20">
-                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Tokens Purchased</h6></div>
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Recipe Book Sales</h6></div>
                             <div class="layer w-100">
                                 <div class="peers ai-sb fxw-nw">
                                     <div class="peer">
-                                        <h2>Ksh {{ number_format($total['total_transacted']) }}</h2>
+                                        <h2>Ksh {{ number_format($total['cookbook_sales']) }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -37,11 +37,11 @@
                     </div>
                     <div class="col-md-4">
                         <div class="layers bd bgc-white p-20">
-                            <div class="layer w-100 mB-10"><h6 class="lh-1">Ads Posted</h6></div>
+                            <div class="layer w-100 mB-10"><h6 class="lh-1">Total Sales</h6></div>
                             <div class="layer w-100">
                                 <div class="peers ai-sb fxw-nw">
                                     <div class="peer">
-                                        <h2>{{ $total['ads'] }}</h2>
+                                        <h2>Ksh {{ number_format($total['total_transacted']) }}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                                             $icon = 'times-circle';
                                         }
                                     @endphp
-                                    <tr class="{{ $class }}" >
+                                    <tr class="{{ $class }}">
                                         <td>
                                             <i class="fa fa-{{ $icon }}"></i>
                                         </td>

@@ -34,7 +34,7 @@ class OrderController extends Controller
         $orders = Order::with(['customer', 'ad.publisher', 'logs._publisher'])
             ->where('customer_id', auth()->id())
             ->orderBy('created_at', 'DESC')
-            ->paginate(config('setting.page_size'));
+            ->paginate(config('settings.page_size'));
 
         return response()->json($orders);
     }

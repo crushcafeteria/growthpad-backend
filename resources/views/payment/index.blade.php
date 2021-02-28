@@ -5,7 +5,7 @@
 @endsection
 
 @section('page')
- <main class="main-content bgc-grey-100">
+    <main class="main-content bgc-grey-100">
         <div id="mainContent">
 
             <div class="content">
@@ -34,7 +34,8 @@
                                             <div class="input-group">
                                                 {!! Form::text('q', @$_GET['q'], ['class'=>'form-control', 'required'=>true, 'placeholder'=>'Search...']) !!}
                                                 <div class="input-group-append">
-                                                    <button type="submit" class="btn btn-primary" type="button">Go</button>
+                                                    <button type="submit" class="btn btn-primary" type="button">Go
+                                                    </button>
                                                 </div>
                                             </div>
                                             {!! Form::close() !!}
@@ -48,9 +49,9 @@
                                                    style="border-top: 1px solid #ddd;">
                                                 <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Telephone</th>
-                                                    <th>Code</th>
+                                                    <th>CODE</th>
+                                                    <th>NAME</th>
+                                                    <th>TYPE</th>
                                                     <th>Amount</th>
                                                     {{-- <th>Status</th> --}}
                                                     <th>Date</th>
@@ -59,12 +60,23 @@
                                                 <tbody>
                                                 @foreach($payments as $payment)
                                                     <tr class="{{ (!$payment->user_id) ? 'text-danger' : null }}">
-                                                        <td>{{ $payment->first_name }} {{ $payment->last_name }}</td>
-                                                        <td>{{ $payment->sender_phone }}</td>
                                                         <td>{{ $payment->transaction_reference }}</td>
+                                                        <td>
+                                                            @if(!$payment->first_name && !$payment->last_name)
+                                                                N/A
+                                                            @else
+                                                                {{ $payment->first_name }} {{ $payment->last_name }}
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            {{ $payment->processor }}
+                                                            @if($payment->processor == 'MPESA')
+                                                                ({{ $payment->sender_phone }})
+                                                            @endif
+                                                        </td>
                                                         <td>Ksh {{ number_format($payment->amount) }}</td>
                                                         {{-- <td>{{ $payment->status }}</td> --}}
-                                                        <td>{{ \Carbon\Carbon::parse($payment->txn_time)->toDateTimeString() }}</td>
+                                                        <td>{{ \Carbon\Carbon::parse($payment->transaction_timestamp)->toDateTimeString() }}</td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -76,7 +88,8 @@
                                             <br>
                                             <br>
                                             <h5>
-                                                We couldn't find any payments {{ (@$_GET['q']) ? 'containing "'.$_GET['q'].'"' : null }}
+                                                We couldn't find any
+                                                payments {{ (@$_GET['q']) ? 'containing "'.$_GET['q'].'"' : null }}
                                             </h5>
                                         </div>
                                     @endif

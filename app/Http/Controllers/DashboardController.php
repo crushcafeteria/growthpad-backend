@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\CookbookPurchase;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\User;
@@ -27,7 +28,12 @@ class DashboardController extends Controller
      */
     public function __invoke()
     {
-        return view('dashboard', [
+        $sales = 0;
+        CookbookPurchase::get()->each(function ($item) use (&$sales) {
+            $sales = $sales + $item->payment->amount;
+        });
+
+        return view('admin.dashboard', [
             'total'  => [
                 'accounts'         => User::count(),
                 'orders'           => [
@@ -37,9 +43,10 @@ class DashboardController extends Controller
                     'completed'   => Order::where('status', 'COMPLETE')->count(),
                 ],
                 'ads'              => Ad::count(),
-                'total_transacted' => $this->getTotalTransacted(),
+                'total_transacted' => ($this->getTotalTransacted() + $sales),
                 'SPs'              => User::where('privilege', 'SP')->count(),
-                'customers'        => User::where('privilege', 'USER')->count()
+                'customers'        => User::where('privilege', 'USER')->count(),
+                'cookbook_sales'   => $sales
 
             ],
             'orders' => Order::orderBy('created_at', 'DESC')->get()->take(10),

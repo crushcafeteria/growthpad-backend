@@ -2,7 +2,7 @@
 
 return [
     'credit_value' => 10,
-    'default_sp' => 6086, // Database ID
+    'default_sp'   => 6086, // Database ID
 
     'counties' => [
         'BARINGO'         => 'Baringo County',
@@ -472,9 +472,11 @@ return [
     ],
 
     'mpesa' => [
-        'shortcode' => '174379',
+        'shortcode'  => '174379',
         'lnmpasskey' => 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
 
 
-    ]
+    ],
+
+    'page_size' => 50
 ];

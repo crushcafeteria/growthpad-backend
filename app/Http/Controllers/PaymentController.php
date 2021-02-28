@@ -54,7 +54,7 @@ class PaymentController extends Controller
                 ->orWHere('amount', 'LIKE', $q)
                 ->paginate(config('settings.page_size'));
         } else {
-            $payments = Payment::orderBy('created_at', 'DESC')->where('processor', 'MPESA')->paginate(config('settings.page_size'));
+            $payments = Payment::orderBy('created_at', 'DESC')->paginate(config('settings.page_size'));
         }
 
         return view('payment.index', [
