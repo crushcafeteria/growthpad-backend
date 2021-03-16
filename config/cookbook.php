@@ -30,6 +30,20 @@ return [
 //        ],
         [
             'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
+            'file'      => 'recipes/Chakula Chetu Cookbook 2nd Edition Ebook (1).pdf',
+            'type'      => 'vegan',
+            'name'      => [
+                'en' => 'Chakula Chetu Cookbook 2nd Edition',
+                'de' => 'Bestellen Sie unser gesamtes Kochbuch',
+            ],
+            'price'     => [
+                'en' => 8000,
+                'de' => 60
+            ],
+            'nutrients' => null
+        ],
+        [
+            'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
             'file'      => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
             'type'      => 'vegan',
             'name'      => [
