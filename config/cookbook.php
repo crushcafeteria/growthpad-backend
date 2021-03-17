@@ -29,7 +29,7 @@ return [
 //            'nutrients' => null
 //        ],
         [
-            'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
+            'picture'   => 'recipe/products/Cookbook-2nd-Edition-Site-Thumbnail.jpg',
             'file'      => 'recipes/Chakula Chetu Cookbook 2nd Edition Ebook (1).pdf',
             'type'      => 'vegan',
             'name'      => [
