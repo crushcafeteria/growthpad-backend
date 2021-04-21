@@ -46,7 +46,7 @@
                     <div class="recepie_info">
                         @if($product['nutrients'])
                             <h3>Nutrient Value</h3>
-                            <p>
+                            <p style="text-align: justify;">
                                 {!! $product['nutrients'] !!}
                             </p>
                         @endif
