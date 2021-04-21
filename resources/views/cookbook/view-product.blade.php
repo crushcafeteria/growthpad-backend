@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-6 text-center">
                     <div class="recepie_info">
-                        <img src="{{ $product['picture'] }}" class="img-thumbnail mb-5">
+                        <img src="{{ asset($product['picture']) }}" class="img-thumbnail mb-5">
                         <div class="list-group text-left">
                             <div class="list-group-item list-group-item-action flex-column align-items-start">
                                 <small>Product Name</small>
