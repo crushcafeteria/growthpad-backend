@@ -29,16 +29,16 @@
                 <div class="col-6 text-center">
                     <div class="recepie_info">
                         <img src="{{ $product['picture'] }}" class="img-thumbnail mb-5">
-                    <!-- <div class="list-group text-left">
-                        <div class="list-group-item list-group-item-action flex-column align-items-start">
-                            <small>Product Name</small>
-                            <p class="mb-1">{{ $product['name'][app()->getLocale()] }}</p>
+                        <div class="list-group text-left">
+                            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                <small>Product Name</small>
+                                <p class="mb-1">{{ $product['name'][app()->getLocale()] }}</p>
+                            </div>
+                            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                                <small>Price</small>
+                                <p class="mb-1">Ksh {{ number_format($product['price'][app()->getLocale()]) }}</p>
+                            </div>
                         </div>
-                        <div class="list-group-item list-group-item-action flex-column align-items-start">
-                            <small>Price</small>
-                            <p class="mb-1">Ksh {{ number_format($product['price'][app()->getLocale()]) }}</p>
-                        </div>
-                    </div> -->
                     </div>
                 </div>
 
