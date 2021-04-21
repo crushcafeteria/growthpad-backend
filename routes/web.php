@@ -109,7 +109,7 @@ Route::get('stkpush', 'STKPush@test');
 
 Route::get('you-can-now-login', function () {
     return response()->json([
-        'status' => 'SUCCESS!',
+        'status'  => 'SUCCESS!',
         'message' => 'You have successfully changed your password. Please close this window and try logging in with your new password'
     ]);
 });
@@ -142,3 +142,29 @@ Route::get('admin/cookbook/sales', 'CookbookController@showSales')->middleware([
 # Submit recipe
 Route::get('submit/recipe', 'CookbookController@showRecipeSubmitForm');
 Route::post('submit/recipe', 'CookbookController@submitRecipe');
+
+
+Route::get('preview/cookbook', function () {
+
+    $AUTH_USER = 'iren';
+    $AUTH_PASS = 'DYU5c7ak#vQc8c72kF&^lr5*Y3te7D';
+
+    header('Cache-Control: no-cache, must-revalidate, max-age=0');
+    $has_supplied_credentials = !(empty($_SERVER['PHP_AUTH_USER']) && empty($_SERVER['PHP_AUTH_PW']));
+    $is_not_authenticated = (
+        !$has_supplied_credentials ||
+        $_SERVER['PHP_AUTH_USER'] != $AUTH_USER ||
+        $_SERVER['PHP_AUTH_PW']   != $AUTH_PASS
+    );
+    if ($is_not_authenticated) {
+        header('HTTP/1.1 401 Authorization Required');
+        header('WWW-Authenticate: Basic realm="Access denied"');
+        echo '<h1>Access denied!</h1>';
+        exit;
+    }
+
+    $product = config('cookbook.products')[0];
+    $file = storage_path() . '/app/' . $product['file'];
+
+    return response()->file($file);
+});
