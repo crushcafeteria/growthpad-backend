@@ -14,20 +14,6 @@ return [
     ],
 
     'products' => [
-//        [
-//            'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
-//            'file'      => 'recipes/IREN KENYA COOKBOOK final Screen Resolution (With Covers).pdf',
-//            'type'      => 'vegan',
-//            'name'      => [
-//                'en' => 'Test Product',
-//                'de' => 'Test Product',
-//            ],
-//            'price'     => [
-//                'en' => 5,
-//                'de' => .1
-//            ],
-//            'nutrients' => null
-//        ],
         [
             'picture'   => 'recipe/products/Cookbook-2nd-Edition-Site-Thumbnail.jpg',
             'file'      => 'recipes/Chakula Chetu Cookbook 2nd Edition Ebook (1).pdf',
@@ -40,7 +26,21 @@ return [
                 'en' => 8000,
                 'de' => 60
             ],
-            'nutrients' => null
+            'nutrients' => '
+                Named one of the best cookbooks in the Spring Harvest Gourmand World
+                Cookbook Awards 2020. Chakula Chetu Recipe book is designed to inspire you with a culinary
+                routine based on indigenous, African nutritious dishes. 
+                <br>
+                It also promotes livelihoods through 
+                popularizing homemade recipes like bamboo shoots, cutlets, boiled cow blood and traditional 
+                bean stew that use ingredients from rural agricultural produce.
+                <br>
+                Whether you are a foodie, a chef or just looking for delicious cuisine
+                to try, Chakula Chetu provides the yummiest tour of the Kenyan
+                gastronomy.
+                <br>            
+                Our Food  is Ready!
+            '
         ],
         [
             'picture'   => '/recipe/products/Chakula-Chetu-Ebook-Cover-1e.jpg',
