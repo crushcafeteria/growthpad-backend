@@ -134,19 +134,22 @@ class CookbookController extends Controller
     public function startPayment($product, $key)
     {
         $ref = Pesapal::random_reference();
-        $payment = Payment::create([
+        $row = [
             'processor'             => 'PESAPAL',
             'transaction_reference' => $ref,
             'transaction_timestamp' => now(),
-            'amount'                => $product['price'],
+            'amount'                => $product['price'][app()->getLocale()],
             'user_id'               => auth()->id(),
             'pesapal_status'        => 'NEW',
             'product_key'           => $key
-        ]);
+        ];
+//        dd($product);
+
+        $payment = Payment::create($row);
 
         $details = array(
             'amount'      => $payment->amount,
-            'description' => $product['name'],
+            'description' => $product['name'][app()->getLocale()],
             'type'        => 'MERCHANT',
             'first_name'  => explode(' ', auth()->user()->name)[0],
             'last_name'   => explode(' ', auth()->user()->name)[1],
